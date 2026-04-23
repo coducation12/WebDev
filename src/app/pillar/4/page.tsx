@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Globe, Ship, Truck, ChevronDown, CheckCircle2, Zap, BarChart3, Package, Layers, Activity, Plane } from "lucide-react";
+import { Globe, Ship, Truck, Package, Activity, Plane } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
