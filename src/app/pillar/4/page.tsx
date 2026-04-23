@@ -87,7 +87,7 @@ export default function StandardLogisHome() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '60px' }}>
             <Link href="/" style={{ width: '160px', height: '40px', position: 'relative' }}>
               <Image 
-                src={`${ASSET_PATH}/logo.png`} // Always use logo.png as requested
+                src={`${ASSET_PATH}/logo.png`}
                 alt="LOGO" 
                 fill
                 style={{ objectFit: 'contain' }}
@@ -188,7 +188,7 @@ export default function StandardLogisHome() {
             {/* Orbiting Animation Container */}
             <div style={{ position: 'relative', height: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               
-              {/* Central BORA Mark - Fixed to use .png */}
+              {/* Central BORA Mark */}
               <motion.div 
                 animate={{ scale: [1, 1.05, 1], rotate: [0, 5, 0, -5, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -301,7 +301,7 @@ export default function StandardLogisHome() {
              </div>
           </div>
         </div>
-        <div style={{ maxWidth: '1400px', margin: '50px auto 0', pt: '50px', borderTop: '1px solid #f8fafc', color: '#94a3b8', fontSize: '12px' }}>
+        <div style={{ maxWidth: '1400px', margin: '50px auto 0', paddingTop: '50px', borderTop: '1px solid #f8fafc', color: '#94a3b8', fontSize: '12px' }}>
            <p>Copyrightⓒ BORALOGIS Co.,Ltd. All Rights Reserved</p>
         </div>
       </footer>
