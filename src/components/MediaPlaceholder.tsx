@@ -7,7 +7,7 @@ interface MediaPlaceholderProps {
   label: string;
   className?: string;
   aspectRatio?: "video" | "square" | "portrait" | "wide";
-  mood?: "minimal" | "dynamic" | "glass" | "dark";
+  mood?: "minimal" | "dynamic" | "glass" | "dark" | "eco" | "cinematic" | "standard";
 }
 
 /**
@@ -32,6 +32,9 @@ export default function MediaPlaceholder({
     dynamic: "bg-bora-purple/10 text-bora-purple border-bora-purple/20",
     glass: "glass text-white/40 border-white/10",
     dark: "bg-bora-navy text-white/20 border-white/5",
+    eco: "bg-emerald-100 text-emerald-600 border-emerald-200",
+    cinematic: "bg-white/5 text-white/20 border-white/10",
+    standard: "bg-neutral-50 text-neutral-500 border-neutral-100",
   };
 
   return (
