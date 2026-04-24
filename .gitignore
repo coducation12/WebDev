@@ -41,6 +41,9 @@ next-env.d.ts
 # dev_app (separate project, not needed for deployment)
 dev_app/
 
+# build_env (not needed for deployment)
+build_env/
+
 # documents (large binary assets)
 documents/
 
