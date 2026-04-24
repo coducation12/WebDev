@@ -5,6 +5,7 @@ import HubPortal from "@/components/HubPortal";
 /**
  * Roadmap Step 2: Core Navigation Hub (Home)
  * Clean, simple interface focusing on the 7 design references.
+ * [Deployment Trigger: Re-syncing app paths]
  */
 export default function Home() {
   return (
