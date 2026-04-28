@@ -1,32 +1,44 @@
 "use client";
 
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { ArrowRight, Zap, BarChart3, Globe2, Layers, Menu, X, Plus, Shield, Cpu, Activity } from "lucide-react";
+import { ArrowRight, Zap, BarChart3, Globe2, Layers, Menu, X, Plus, Shield, Cpu, Activity, Anchor, TrendingUp, Package, Truck } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import LogisticsTradeFlow from "@/components/LogisticsTradeFlow";
 
 const ASSET_PATH = "/assets/images";
 
-// Counting Up Stat Component for Impact
-function StatItem({ label, value, suffix = "" }: { label: string, value: string, suffix?: string }) {
+// Soft brand palette matching the logo butterfly
+const BRAND = {
+  purple: "#9B72CF",       // 로고 나비 연보라
+  purpleDark: "#7B4FAD",   // 나비 진한 쪽
+  purpleLight: "#C4A6E3",  // 연보라 하이라이트
+  purpleMist: "#EDE4F7",   // 극히 연한 배경용
+  navy: "#1A1A2E",         // 다크 섹션용
+  text: "#2D2D3A",         // 본문 텍스트
+};
+
+// Counting Up Stat Component
+function StatItem({ label, value, suffix = "" }: { label: string; value: string; suffix?: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  
+
   return (
-    <div ref={ref} className="text-center md:text-left">
-      <motion.div 
+    <div ref={ref} className="text-center">
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        className="flex items-baseline justify-center md:justify-start gap-2 mb-4"
+        transition={{ duration: 0.8 }}
+        className="flex items-baseline justify-center gap-2 mb-3"
       >
-        <span className="text-6xl md:text-8xl font-black tracking-tightest text-[#6A0DAD]">
+        <span className="text-5xl md:text-7xl font-extrabold tracking-tight" style={{ color: BRAND.purpleDark }}>
           {value}
         </span>
-        <span className="text-2xl md:text-3xl font-bold text-white/40">{suffix}</span>
+        <span className="text-lg md:text-xl font-semibold" style={{ color: BRAND.purpleLight }}>{suffix}</span>
       </motion.div>
-      <span className="text-[10px] uppercase tracking-[0.4em] font-black text-neutral-500 block">
+      <span className="text-xs uppercase tracking-[0.3em] font-bold text-neutral-400 block">
         {label}
       </span>
     </div>
@@ -35,149 +47,274 @@ function StatItem({ label, value, suffix = "" }: { label: string, value: string,
 
 export default function VisualDynamicHome() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start start", "end end"],
   });
 
-  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.97]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0.85]);
+
+  // 스크롤 감지: 흰색 섹션 진입 시 헤더 스타일 전환
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div ref={containerRef} className="bg-neutral-950 text-white font-sans selection:bg-[#6A0DAD] selection:text-white overflow-x-hidden">
-      
-      {/* 1. Impact Header */}
-      <nav className="fixed top-0 left-0 w-full z-50 p-6 md:p-10 flex justify-between items-center">
-        <div className="z-50">
-          <Link href="/" className="relative block w-40 h-10">
-            <Image src={`${ASSET_PATH}/logo_white.png`} alt="BORALOGIS" fill className="object-contain" />
-          </Link>
-        </div>
-        
-        <div className="hidden md:flex items-center gap-4 bg-white/5 backdrop-blur-2xl p-2 rounded-full border border-white/10">
-          {["Solutions", "Technology", "Network"].map(item => (
-            <Link key={item} href="#" className="px-6 py-2 text-[10px] font-black uppercase tracking-widest hover:text-[#6A0DAD] transition-colors">{item}</Link>
-          ))}
-          <Link href="#" className="px-10 py-2 bg-[#6A0DAD] text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-[#6A0DAD] transition-all shadow-[0_0_30px_rgba(106,13,173,0.4)]">
-            Contact Us
-          </Link>
-        </div>
+    <div ref={containerRef} className="bg-white text-neutral-900 font-sans overflow-x-hidden" style={{ fontFamily: "'Pretendard', 'Noto Sans KR', sans-serif" }}>
 
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="z-50 w-12 h-12 bg-[#6A0DAD] rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+      {/* ── HEADER (스크롤 감지 전환) ── */}
+      <nav
+        className={cn(
+          "fixed top-0 left-0 w-full z-50 transition-all duration-500",
+          scrolled
+            ? "bg-white/90 backdrop-blur-xl shadow-sm border-b border-neutral-100"
+            : "bg-transparent"
+        )}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
+          {/* 로고: 다크배경→흰 로고, 스크롤 후→검정 로고 */}
+          <Link href="/" className="relative block w-36 h-10">
+            <Image
+              src={`${ASSET_PATH}/${scrolled ? "logo.png" : "logo_white.png"}`}
+              alt="BORA"
+              fill
+              className="object-contain transition-opacity duration-300"
+            />
+          </Link>
+
+          <div className="hidden md:flex items-center gap-1">
+            {["물류 서비스", "기술 혁신", "글로벌 네트워크", "회사 소개"].map((item) => (
+              <Link
+                key={item}
+                href="#"
+                className={cn(
+                  "px-5 py-2.5 text-sm font-semibold rounded-full transition-colors",
+                  scrolled
+                    ? "text-neutral-700 hover:text-[#7B4FAD] hover:bg-purple-50"
+                    : "text-white/80 hover:text-white hover:bg-white/10"
+                )}
+              >
+                {item}
+              </Link>
+            ))}
+            <Link
+              href="#"
+              className="ml-3 px-6 py-2.5 rounded-full text-sm font-bold transition-all"
+              style={{
+                backgroundColor: scrolled ? BRAND.purple : "rgba(255,255,255,0.15)",
+                color: "white",
+                backdropFilter: scrolled ? "none" : "blur(20px)",
+              }}
+            >
+              문의하기
+            </Link>
+          </div>
+
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden z-50 w-10 h-10 rounded-full flex items-center justify-center transition-all"
+            style={{ backgroundColor: scrolled ? BRAND.purpleMist : "rgba(255,255,255,0.1)", color: scrolled ? BRAND.purpleDark : "white" }}
+          >
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
 
-      {/* 2. Vibrant Tech Hero Section */}
-      <section className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
-        <motion.div 
-          style={{ scale: heroScale, opacity: heroOpacity }}
-          className="absolute inset-0 z-0"
-        >
-          <Image 
-            src={`${ASSET_PATH}/tech_hero.png`} 
-            alt="Futuristic Logistics" 
-            fill 
-            className="object-cover opacity-40 grayscale-[0.3]" 
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/80 via-transparent to-neutral-950" />
-        </motion.div>
-
-        {/* Animated Background Orbs */}
+      {/* ── HERO: 물류→무역 플로우 애니메이션 ── */}
+      <section className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 pb-16 overflow-hidden" style={{ backgroundColor: BRAND.navy }}>
+        {/* 배경 글로우 */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#6A0DAD]/30 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[100px]" />
+          <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[60%] h-[40%] rounded-full blur-[180px] opacity-10" style={{ backgroundColor: BRAND.purple }} />
         </div>
 
-        <motion.div className="relative z-10 text-center max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <span className="inline-block px-8 py-3 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 text-[10px] font-black uppercase tracking-[0.6em] mb-12">
-              Next-Gen Logistics Intelligence
-            </span>
-            
-            <h1 className="text-[4.5rem] md:text-[11rem] font-black leading-[0.8] tracking-tightest mb-20 uppercase italic">
-              Hyper<br /> 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6A0DAD] via-purple-400 to-white not-italic">Driven</span>
-            </h1>
-            
-            <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-              <p className="text-xl md:text-3xl font-medium text-white/50 max-w-2xl leading-tight">
-                광양항 최대 규모의 인프라와 AI 자동화 기술이 만나 <br />
-                당신의 비즈니스 속도를 재정의합니다.
-              </p>
-              <motion.button 
-                whileHover={{ scale: 1.1, rotate: 90 }}
-                className="w-28 h-28 bg-white rounded-full flex items-center justify-center text-[#6A0DAD] shadow-[0_0_50px_rgba(255,255,255,0.2)]"
-              >
-                <ArrowRight size={40} strokeWidth={3} />
-              </motion.button>
-            </div>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative z-10 text-center mb-8"
+        >
+          <span className="inline-block px-6 py-2.5 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 text-xs font-semibold tracking-widest text-white/50 mb-6">
+            BORA GROUP — 종합 물류 플랫폼
+          </span>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white">
+            물류로 <span style={{ color: BRAND.purpleLight }}>무역</span>을 잇다
+          </h1>
+        </motion.div>
+
+        {/* 핵심: 플로우 애니메이션 */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="relative z-10 w-full max-w-7xl"
+        >
+          <LogisticsTradeFlow accentColor={BRAND.purple} accentLight={BRAND.purpleLight} />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="relative z-10 text-center mt-8"
+        >
+          <p className="text-base md:text-lg text-white/40 max-w-lg mx-auto mb-8">
+            광양 자유무역지역 4만 평 인프라 기반<br />국제물류부터 무역까지, 원스톱 솔루션
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-8 py-3.5 rounded-full text-sm font-bold text-white transition-shadow"
+              style={{ backgroundColor: BRAND.purple, boxShadow: `0 6px 30px ${BRAND.purple}30` }}
+            >
+              서비스 알아보기
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="px-8 py-3.5 rounded-full text-sm font-bold text-white/60 border border-white/15 hover:bg-white/5 transition-all"
+            >
+              회사 소개 →
+            </motion.button>
+          </div>
+        </motion.div>
+
+        {/* 스크롤 유도 */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        >
+          <div className="w-5 h-8 border-2 border-white/15 rounded-full flex justify-center pt-1.5">
+            <div className="w-1 h-2.5 rounded-full bg-white/30" />
+          </div>
         </motion.div>
       </section>
 
-      {/* 3. Dynamic Services Section (Catalog Data) */}
-      <section className="py-40 px-6 md:px-20 relative bg-white text-neutral-950 rounded-[5rem] mx-4 md:mx-10 my-20">
+      {/* ── 핵심 가치 섹션: 물류 → 무역 연결 시각화 ── */}
+      <section className="py-40 px-6 md:px-20 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-40">
-            <div className="flex-1">
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#6A0DAD] block mb-6">Business Units</span>
-              <h2 className="text-6xl md:text-9xl font-black uppercase tracking-tightest leading-[0.85] mb-10">
-                Core <br /> Powers
-              </h2>
-              <div className="w-40 h-4 bg-[#6A0DAD]" />
+          <div className="text-center mb-24">
+            <span className="text-xs font-bold uppercase tracking-[0.4em] mb-5 block" style={{ color: BRAND.purple }}>
+              Core Value
+            </span>
+            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6" style={{ color: BRAND.text }}>
+              물류의 흐름을 설계하고,<br />신뢰를 운송합니다
+            </h2>
+            <p className="text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+              보라 그룹은 물류 서비스를 기반으로 무역 업무를 병행하며,<br />
+              고객사에게 원스톱 토탈 솔루션을 제공합니다.
+            </p>
+          </div>
+
+          {/* 물류→무역 플로우 바 (상단) */}
+          <div className="hidden md:flex justify-center items-center gap-3 mb-14">
+            <div className="flex items-center gap-2 px-6 py-3 rounded-full border-2" style={{ borderColor: BRAND.purple, color: BRAND.purple }}>
+              <Package size={18} />
+              <span className="text-sm font-extrabold tracking-wide">물류</span>
             </div>
-            <div className="flex-1 lg:pt-20">
-              <p className="text-2xl md:text-4xl font-bold leading-tight mb-10">
-                보라그룹은 물류의 전 과정을 <br /> 기술로 혁신하고 신뢰로 연결합니다.
-              </p>
-              <p className="text-lg text-neutral-500 font-medium leading-relaxed max-w-lg">
-                보라로지스의 항만 인프라, 보라로지텍의 자동화 기술, <br />
-                그리고 RE&UP의 재생에너지 솔루션이 시너지를 창출합니다.
-              </p>
+            <div className="flex items-center gap-1.5">
+              {[...Array(8)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ opacity: [0.15, 0.8, 0.15], scale: [0.8, 1.2, 0.8] }}
+                  transition={{ delay: i * 0.15, repeat: Infinity, duration: 1.8 }}
+                  className="w-2.5 h-2.5 rounded-full"
+                  style={{ backgroundColor: BRAND.purple }}
+                />
+              ))}
+              <ArrowRight size={24} strokeWidth={3} style={{ color: BRAND.purple }} />
+            </div>
+            <div className="flex items-center gap-2 px-6 py-3 rounded-full border-2" style={{ borderColor: BRAND.purpleDark, color: BRAND.purpleDark }}>
+              <Globe2 size={18} />
+              <span className="text-sm font-extrabold tracking-wide">무역</span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {/* 물류→무역 플로우 카드 (확대) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             {[
-              { title: "Bora Logis", desc: "자유무역지역 기반 4만 평 인프라의 종합 물류 마스터피스", icon: Ship, color: "bg-neutral-950", img: "extra_24.jpg" },
-              { title: "Bora Logitech", desc: "스마트 팩토리 및 물류 자동화 설비 자체 설계·제조", icon: Cpu, color: "bg-[#6A0DAD]", img: "AI.jpg" },
-              { title: "RE&UP", desc: "신재생에너지 특수 물류 및 순환경제 업사이클링 솔루션", icon: Activity, color: "bg-blue-600", img: "extra_14.jpg" },
-            ].map((service, idx) => (
-              <motion.div 
+              {
+                icon: Package,
+                step: "STEP 01",
+                tag: "물류",
+                title: "종합 물류 인프라",
+                desc: "광양 자유무역지역 4만 평, 보세창고 2만 평. 포워딩, 검역대행, 내륙운송까지 물류 전 과정을 자체 인프라와 장비로 직접 수행합니다.",
+                img: "extra_1.jpg",
+              },
+              {
+                icon: Cpu,
+                step: "STEP 02",
+                tag: "기술",
+                title: "스마트 기술 · 생산",
+                desc: "물류 장비 자체 설계·제조, 스마트 팩토리 운영. 4조 3교대 95명 전문 인력이 24시간 쉬지 않고 가동합니다.",
+                img: "AI.jpg",
+              },
+              {
+                icon: Globe2,
+                step: "STEP 03",
+                tag: "무역",
+                title: "무역 · 글로벌 확장",
+                desc: "국제물류 네트워크를 기반으로 중국·동남아 자원 수입부터 K-culture·K-food 수출까지. 물류에서 무역으로 영역을 확장합니다.",
+                img: "extra_13.jpg",
+              },
+            ].map((item, idx) => (
+              <motion.div
                 key={idx}
-                whileHover={{ y: -20 }}
-                className="group relative p-10 bg-neutral-50 rounded-[4rem] overflow-hidden border border-neutral-100 h-[650px] flex flex-col"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.2, duration: 0.7 }}
+                whileHover={{ y: -10 }}
+                className="group relative rounded-3xl overflow-hidden border border-neutral-100 bg-white shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col"
               >
-                <div className="relative h-64 rounded-[3rem] overflow-hidden mb-12">
-                   <Image src={`${ASSET_PATH}/${service.img}`} alt={service.title} fill className="object-cover group-hover:scale-110 transition-transform duration-1000" />
-                   <div className={cn("absolute inset-0 opacity-40", service.color)} />
-                </div>
-                
-                <div className="flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className={cn("w-20 h-20 rounded-3xl flex items-center justify-center text-white mb-8 shadow-xl", service.color)}>
-                      {/* Using fallback icon if needed */}
-                      <service.icon size={32} />
-                    </div>
-                    <h3 className="text-4xl font-black uppercase mb-6 tracking-tight">{service.title}</h3>
-                    <p className="text-neutral-500 font-bold leading-relaxed text-lg">
-                      {service.desc}
-                    </p>
+                {/* 카드 이미지 (확대) */}
+                <div className="relative h-72 overflow-hidden">
+                  <Image src={`${ASSET_PATH}/${item.img}`} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
+                  {/* 스텝 뱃지 */}
+                  <div className="absolute top-5 left-5 px-4 py-2 rounded-full text-white text-[10px] font-extrabold tracking-widest" style={{ backgroundColor: BRAND.purple }}>
+                    {item.step}
                   </div>
-                  
-                  <button className={cn("w-full py-6 rounded-2xl font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-4 text-white", service.color)}>
-                    Explore More <Plus size={16} />
-                  </button>
+                  {/* 태그 뱃지 */}
+                  <div className="absolute top-5 right-5 px-3 py-1.5 rounded-full text-[10px] font-bold tracking-wider bg-white/80 backdrop-blur-sm" style={{ color: BRAND.purpleDark }}>
+                    {item.tag}
+                  </div>
+                  {/* 큰 스텝 번호 (배경) */}
+                  <div className="absolute bottom-4 right-6 text-8xl font-black opacity-[0.07]" style={{ color: BRAND.navy }}>
+                    {String(idx + 1).padStart(2, "0")}
+                  </div>
+                </div>
+
+                {/* 카드 사이 화살표 커넥터 (데스크탑, 1,2번 카드에만) */}
+                {idx < 2 && (
+                  <div className="hidden md:flex absolute top-1/2 -right-3 z-20 -translate-y-1/2">
+                    <motion.div
+                      animate={{ x: [0, 6, 0] }}
+                      transition={{ repeat: Infinity, duration: 1.5 }}
+                      className="w-7 h-7 rounded-full flex items-center justify-center shadow-lg"
+                      style={{ backgroundColor: BRAND.purple }}
+                    >
+                      <ArrowRight size={14} className="text-white" strokeWidth={3} />
+                    </motion.div>
+                  </div>
+                )}
+
+                {/* 카드 내용 */}
+                <div className="p-8 flex-1 flex flex-col">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ backgroundColor: BRAND.purpleMist, color: BRAND.purpleDark }}>
+                      <item.icon size={22} />
+                    </div>
+                    <h3 className="text-2xl font-extrabold" style={{ color: BRAND.text }}>{item.title}</h3>
+                  </div>
+                  <p className="text-neutral-500 leading-relaxed text-[15px] flex-1">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -185,100 +322,139 @@ export default function VisualDynamicHome() {
         </div>
       </section>
 
-      {/* 4. Impact Metrics Section (Real Catalog Stats) */}
-      <section className="py-40 px-6 md:px-20 overflow-hidden bg-neutral-950">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-32 gap-y-24 w-full lg:w-3/5">
-            <StatItem label="Total Infrastructure" value="40,000" suffix="PY" />
-            <StatItem label="Warehouse Capacity" value="20,000" suffix="PY" />
-            <StatItem label="Logistics Specialists" value="95" suffix="EXP" />
-            <StatItem label="Security Operation" value="24/7" suffix="LIVE" />
+      {/* ── 계열사 소개 ── */}
+      <section className="py-32 px-6 md:px-20" style={{ backgroundColor: BRAND.purpleMist }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-[0.4em] mb-4 block" style={{ color: BRAND.purple }}>
+              BORA Group
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight" style={{ color: BRAND.text }}>
+              보라 그룹 계열사
+            </h2>
           </div>
-          
-          <div className="relative w-full lg:w-2/5 aspect-square flex items-center justify-center">
-            <div className="absolute inset-0 bg-[#6A0DAD]/20 rounded-full blur-[120px] animate-pulse" />
-            <div className="relative z-10 w-full h-full border border-white/10 rounded-full p-4">
-              <div className="w-full h-full rounded-full overflow-hidden border-4 border-[#6A0DAD]/30 relative">
-                 <Image src={`${ASSET_PATH}/extra_21.jpg`} alt="Metrics" fill className="object-cover grayscale opacity-60" />
-                 <div className="absolute inset-0 bg-gradient-to-tr from-[#6A0DAD]/40 to-transparent" />
-                 <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <span className="block text-sm font-black tracking-widest mb-2">OPERATIONAL EXCELLENCE</span>
-                      <span className="text-7xl font-black italic">TOP-TIER</span>
-                    </div>
-                 </div>
-              </div>
-            </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: "보라로지스", role: "국제물류", desc: "보세창고·포워딩·운송", icon: Anchor },
+              { name: "보라로지텍", role: "물류기술", desc: "자동화·장비설계·제조", icon: Cpu },
+              { name: "RE&UP", role: "재생에너지", desc: "태양광·풍력 특수물류", icon: Zap },
+              { name: "BORA INT'L", role: "국제무역", desc: "수출입·K-culture", icon: Globe2 },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                whileHover={{ y: -4 }}
+                className="bg-white rounded-2xl p-8 border border-purple-100/50 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5" style={{ backgroundColor: BRAND.purpleMist, color: BRAND.purpleDark }}>
+                  <item.icon size={22} />
+                </div>
+                <h3 className="text-lg font-extrabold mb-1" style={{ color: BRAND.text }}>{item.name}</h3>
+                <span className="text-xs font-bold uppercase tracking-widest block mb-3" style={{ color: BRAND.purple }}>{item.role}</span>
+                <p className="text-sm text-neutral-400">{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Bold Tech Footer */}
-      <footer className="bg-[#6A0DAD] text-white py-40 px-6 md:px-20 rounded-t-[6rem]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-40 mb-40">
-          <div>
-            <h2 className="text-7xl md:text-[10rem] font-black uppercase tracking-tightest leading-[0.8] mb-16 italic">
-              Hyper<br /> 
-              <span className="not-italic opacity-40">Connect.</span>
+      {/* ── 수치 섹션 ── */}
+      <section className="py-32 px-6 md:px-20 overflow-hidden" style={{ backgroundColor: BRAND.navy }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="text-xs font-bold uppercase tracking-[0.4em] mb-4 block" style={{ color: BRAND.purpleLight }}>
+              Infrastructure
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+              압도적 규모의 물류 인프라
             </h2>
-            <p className="text-2xl md:text-4xl font-bold leading-tight mb-16 max-w-xl">
-              최첨단 자동화 설비와 압도적 규모로 <br /> 
-              물류의 다음 시대를 먼저 경험하십시오.
+            <p className="text-lg text-white/40 max-w-xl mx-auto">
+              광양컨테이너부두 동측 배후단지, 자유무역지역 기반
             </p>
-            <div className="flex gap-6">
-              {[Globe2, Zap, Layers, Shield].map((Icon, i) => (
-                <div key={i} className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center hover:bg-white hover:text-[#6A0DAD] transition-all cursor-pointer border border-white/5 shadow-xl">
-                  <Icon size={24} />
-                </div>
-              ))}
-            </div>
           </div>
-          
-          <div className="flex flex-col justify-end space-y-20">
-             <div className="grid grid-cols-2 gap-20">
-               <div>
-                 <span className="block text-[10px] font-black uppercase tracking-widest opacity-40 mb-8">Business</span>
-                 <ul className="space-y-4 font-black uppercase tracking-widest text-sm">
-                   <li><Link href="#" className="hover:text-white/60 transition-colors">Logistics</Link></li>
-                   <li><Link href="#" className="hover:text-white/60 transition-colors">Logitech</Link></li>
-                   <li><Link href="#" className="hover:text-white/60 transition-colors">RE&UP</Link></li>
-                 </ul>
-               </div>
-               <div>
-                 <span className="block text-[10px] font-black uppercase tracking-widest opacity-40 mb-8">Company</span>
-                 <ul className="space-y-4 font-black uppercase tracking-widest text-sm">
-                   <li><Link href="#" className="hover:text-white/60 transition-colors">Network</Link></li>
-                   <li><Link href="#" className="hover:text-white/60 transition-colors">Vision</Link></li>
-                   <li><Link href="#" className="hover:text-white/60 transition-colors">History</Link></li>
-                 </ul>
-               </div>
-             </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <StatItem label="총 부지 면적" value="4만" suffix="평" />
+            <StatItem label="창고 규모" value="2만" suffix="평" />
+            <StatItem label="전문 인력" value="95" suffix="명" />
+            <StatItem label="보안 운영" value="24/7" suffix="" />
+          </div>
+
+          {/* 인증 뱃지 */}
+          <div className="flex flex-wrap justify-center gap-4 mt-16">
+            {["ISO 9001", "ISO 14001", "ISO 45001", "신용등급 BB+"].map((cert) => (
+              <span key={cert} className="px-5 py-2.5 rounded-full border border-white/10 text-xs font-bold text-white/50 bg-white/5">
+                {cert}
+              </span>
+            ))}
           </div>
         </div>
-        
-        <div className="max-w-7xl mx-auto pt-16 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
-          <div>
-            <Image src={`${ASSET_PATH}/logo_white.png`} alt="LOGO" width={140} height={40} className="mb-6 mx-auto md:mx-0" />
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-40">
-              © 2026 BORALOGIS Group. All Rights Reserved. Powered by Tech.
-            </p>
+      </section>
+
+      {/* ── FOOTER ── */}
+      <footer className="text-white py-24 px-6 md:px-20" style={{ backgroundColor: BRAND.navy }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight mb-8">
+                물류의 흐름을 설계하고,<br />
+                <span style={{ color: BRAND.purpleLight }}>경쟁력을 제공합니다.</span>
+              </h2>
+              <p className="text-lg text-white/40 leading-relaxed max-w-md mb-10">
+                보라 그룹은 고객사의 글로벌 비즈니스를 위한<br />
+                최적의 물류·무역 파트너입니다.
+              </p>
+              <div className="flex gap-4">
+                {[Globe2, Zap, Layers, Shield].map((Icon, i) => (
+                  <div
+                    key={i}
+                    className="w-12 h-12 rounded-xl flex items-center justify-center transition-all cursor-pointer border border-white/10 hover:border-purple-300/30"
+                    style={{ backgroundColor: "rgba(155,114,207,0.1)" }}
+                  >
+                    <Icon size={18} className="text-white/60" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-end">
+              <div className="grid grid-cols-2 gap-12">
+                <div>
+                  <span className="block text-xs font-bold uppercase tracking-widest opacity-30 mb-6">사업 영역</span>
+                  <ul className="space-y-3 font-semibold text-sm text-white/60">
+                    <li><Link href="#" className="hover:text-white transition-colors">국제물류</Link></li>
+                    <li><Link href="#" className="hover:text-white transition-colors">물류기술</Link></li>
+                    <li><Link href="#" className="hover:text-white transition-colors">재생에너지</Link></li>
+                    <li><Link href="#" className="hover:text-white transition-colors">국제무역</Link></li>
+                  </ul>
+                </div>
+                <div>
+                  <span className="block text-xs font-bold uppercase tracking-widest opacity-30 mb-6">회사 정보</span>
+                  <ul className="space-y-3 text-sm text-white/60">
+                    <li>전남 광양시 항만8로 18-35</li>
+                    <li>T. 061-795-9951~3</li>
+                    <li>admin@boralogis.com</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="text-right">
-             <p className="text-sm font-bold opacity-60">Designing the Masterpiece of Logistics</p>
+
+          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-4">
+              <Image src={`${ASSET_PATH}/logo_white.png`} alt="BORA" width={100} height={30} />
+              <span className="text-xs text-white/30">© 2026 BORALOGIS Co.,Ltd. All Rights Reserved.</span>
+            </div>
+            <Link href="/" className="text-xs font-semibold text-white/30 hover:text-white/60 transition-colors">
+              ← 디자인 허브로 돌아가기
+            </Link>
           </div>
         </div>
       </footer>
     </div>
   );
 }
-
-// Helper icons mapping
-const Ship = ({ size, className }: { size?: number, className?: string }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
-    <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.2.94 4.19 2.42 5.58" />
-    <path d="M11 9V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v5" />
-    <path d="M13 13h2" />
-    <path d="M11 13h2" />
-  </svg>
-);

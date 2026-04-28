@@ -20,13 +20,18 @@ const pillars = [
   {
     id: 2,
     title: "Visual Dynamic",
-    concept: "Ref 2: Energy & Impact",
-    summary: "강렬한 퍼플 액센트와 역동적인 패럴랙스 효과. 브랜드의 활기를 강조.",
+    concept: "Ref 2: Flow & Connection",
+    summary: "물류에서 무역으로 이어지는 흐름을 시각화. 연보라 톤의 세련된 플로우 애니메이션.",
     style: {
-      card: "bg-bora-purple border-purple-400/20",
-      text: "text-white",
-      accent: "bg-white/10",
-      pattern: <div className="absolute top-0 right-0 w-32 h-full bg-white/5 -skew-x-12 transform translate-x-10" />
+      card: "bg-[#F3EAFA] border-[#D8C4F0]",
+      text: "text-[#4A2D6E]",
+      accent: "bg-[#9B72CF]/10",
+      pattern: (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[20%] right-[-10%] w-48 h-48 bg-[#C4A6E3]/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-[10%] left-[-5%] w-36 h-36 bg-[#D8C4F0]/40 rounded-full blur-3xl" />
+        </div>
+      )
     }
   },
   {
@@ -66,57 +71,27 @@ const pillars = [
     }
   },
   {
-    id: 5,
-    title: "Eco-Connectivity",
-    concept: "Ref 5: ESG & Nature",
-    summary: "에메랄드 톤과 유기적 그래픽. 환경과 무역의 연결성을 강조.",
-    style: {
-      card: "bg-emerald-50 border-emerald-100",
-      text: "text-emerald-900",
-      accent: "bg-emerald-600/10",
-      pattern: <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-emerald-200/20 rounded-full blur-2xl" />
-    }
-  },
-  {
     id: 6,
     title: "Cinematic Flow",
-    concept: "Ref 6: Storytelling",
+    concept: "Ref 5: Storytelling",
     summary: "풀-뷰포트 미디어와 시네마틱 스크롤. 영화 같은 브랜드 경험.",
     style: {
       card: "bg-neutral-900 border-neutral-800",
       text: "text-white",
       accent: "bg-white/10",
-      pattern: <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
+      pattern: <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60 pointer-events-none" />
     }
   },
   {
     id: 7,
     title: "Apple-esque Reveal",
-    concept: "Ref 7: Detail & Motion",
+    concept: "Ref 6: Detail & Motion",
     summary: "정교한 마이크로 인터랙션과 고품격 로고 애니메이션.",
     style: {
       card: "bg-neutral-50 border-neutral-200",
       text: "text-neutral-900",
       accent: "bg-neutral-900/5",
-      pattern: <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-1 bg-neutral-900/5 -rotate-45" />
-    }
-  },
-  {
-    id: 8,
-    title: "Industrial Blueprint",
-    concept: "Ref 8: Raw & Analytical",
-    summary: "도면 형식의 레이아웃과 데이터 시각화. 공학적 미학의 정수.",
-    style: {
-      card: "bg-neutral-100 border-neutral-300",
-      text: "text-neutral-900",
-      accent: "bg-black/5",
-      pattern: (
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-             style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
-          <div className="absolute top-10 left-0 w-full h-px bg-black" />
-          <div className="absolute top-0 left-10 w-px h-full bg-black" />
-        </div>
-      )
+      pattern: <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-1 bg-neutral-900/5 -rotate-45 pointer-events-none" />
     }
   },
 ];
@@ -124,12 +99,12 @@ const pillars = [
 export default function HubPortal() {
   return (
     <div className="w-full max-w-7xl mx-auto px-6 py-20">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {pillars.map((pillar, index) => (
           <Link 
             key={pillar.id} 
             href={`/pillar/${pillar.id}`}
-            className="group block"
+            className="group block cursor-pointer relative z-20"
           >
             <motion.div
               initial={{ opacity: 0, y: 30 }}

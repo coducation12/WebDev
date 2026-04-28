@@ -2,20 +2,19 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface MediaPlaceholderProps {
   label: string;
+  src?: string;
   className?: string;
   aspectRatio?: "video" | "square" | "portrait" | "wide";
   mood?: "minimal" | "dynamic" | "glass" | "dark" | "eco" | "cinematic" | "standard";
 }
 
-/**
- * Roadmap Step 1: Standard Guide Architecture - Media Placeholder
- * Defines a consistent specification for visual assets across all design references.
- */
 export default function MediaPlaceholder({
   label,
+  src,
   className,
   aspectRatio = "video",
   mood = "minimal",
@@ -43,18 +42,33 @@ export default function MediaPlaceholder({
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       className={cn(
-        "relative w-full rounded-2xl border flex items-center justify-center overflow-hidden transition-all duration-700",
+        "relative w-full rounded-2xl border flex items-center justify-center overflow-hidden transition-all duration-700 group",
         aspectClasses[aspectRatio],
         moodClasses[mood],
         className
       )}
     >
-      <div className="flex flex-col items-center gap-4">
-        <span className="font-serif italic text-lg tracking-wider opacity-60">
-          [ {label} ]
-        </span>
-        <div className="w-8 h-px bg-current opacity-20" />
-      </div>
+      {src ? (
+        <>
+          <Image
+            src={src}
+            alt={label}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+          <div className="absolute bottom-4 right-6 text-white/60 text-[10px] font-bold uppercase tracking-widest z-10">
+            {label}
+          </div>
+        </>
+      ) : (
+        <div className="flex flex-col items-center gap-4">
+          <span className="font-serif italic text-lg tracking-wider opacity-60">
+            [ {label} ]
+          </span>
+          <div className="w-8 h-px bg-current opacity-20" />
+        </div>
+      )}
       
       {/* Subtle overlay reflection */}
       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />

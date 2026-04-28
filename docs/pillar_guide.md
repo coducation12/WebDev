@@ -28,6 +28,20 @@
 *   **Key Features**: 메가 메뉴(Mega Menu), 6대 핵심 비즈니스 카드, 순환형 솔루션 다이어그램.
 *   **Visuals**: 실제 로고 파일 교체 방식(`logo_white.png` ↔ `logo.png`), 다양한 현장 이미지 슬라이드.
 
+
+
+### [Pillar 6] Cinematic Flow (시네마틱 플로우)
+*   **Concept**: 고해상도 미디어를 활용한 서사적 스토리텔링.
+*   **Key Features**: 다크 모드 기반, 전체 화면 미디어 배경, 스크롤에 따른 장면 전환(Chapter) 구조.
+*   **Visuals**: 시네마틱한 항만 야경, 광활한 물류 거점의 웅장한 스케일 비주얼.
+
+### [Pillar 7] Apple-esque Reveal (애플 스타일 리빌)
+*   **Concept**: 정밀함과 세련된 모션을 통한 제품/서비스 공개.
+*   **Key Features**: 스크롤 연동 애니메이션(Scroll-linked), 픽셀 단위의 정교한 정렬, 화이트 미니멀리즘.
+*   **Visuals**: 하이테크 장비의 매크로 샷, 알루미늄/유리 질감의 프리미엄 이미지.
+
+
+
 ---
 
 ## 📁 Asset Management
@@ -37,4 +51,4 @@
 
 ---
 
-*Last Updated: 2026-04-23*
+*Last Updated: 2026-04-25*
