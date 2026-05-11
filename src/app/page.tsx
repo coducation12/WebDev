@@ -135,9 +135,6 @@ export default function AppleEsqueHome() {
       <section className="py-40 px-6 md:px-10 bg-white">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-[0.4em] mb-5 block" style={{ color: "#6A0DAD" }}>
-              Core Value
-            </span>
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6" style={{ color: "#111827" }}>
               물류의 흐름을 설계하고, 신뢰를 운송합니다
             </h2>
@@ -147,74 +144,44 @@ export default function AppleEsqueHome() {
           </div>
 
           {/* 물류→무역 플로우 바 (상단) */}
-          <div className="hidden md:block relative h-24 mb-16 px-10">
-            {/* Background Connection Line */}
-            <div className="absolute top-1/2 left-[25%] right-[25%] h-[2px] bg-neutral-100 -translate-y-1/2 z-0" />
-            
+          <div className="hidden md:flex justify-center items-center gap-4 mb-16 px-10">
             {/* Start: Logistics */}
-            <div className="absolute left-[25%] -translate-x-1/2 top-1/2 -translate-y-1/2 z-30 flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white border-2 shadow-md" style={{ borderColor: "#6A0DAD", color: "#6A0DAD" }}>
-              <Package size={20} />
-              <span className="text-base font-black tracking-wide">물류</span>
+            <div className="flex items-center gap-3 px-8 py-4 rounded-full border-2 bg-white shadow-sm transition-all" style={{ borderColor: "#6A0DAD", color: "#6A0DAD" }}>
+              <Package size={22} className="stroke-[2.5px]" />
+              <span className="text-lg font-black tracking-tight">물류</span>
             </div>
 
-            {/* Traveling Flow Container */}
-            <div 
-              className="absolute left-[25%] right-[25%] top-1/2 -translate-y-1/2 z-10 h-16 overflow-hidden flex items-center"
-              style={{
-                maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
-                WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)"
-              }}
-            >
-              {/* Subtle Path Line */}
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full h-[1px] border-t-2 border-dashed border-neutral-100" />
-              </div>
-
-              {/* Single Continuous Grouped Stream */}
+            {/* Pulsing Dots Flow */}
+            <div className="flex items-center gap-2.5 px-6">
+              {[...Array(12)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ 
+                    opacity: [0.15, 0.7, 0.15], 
+                    scale: [0.75, 1.15, 0.75],
+                  }}
+                  transition={{ 
+                    delay: i * 0.12, 
+                    repeat: Infinity, 
+                    duration: 2.1,
+                    ease: "easeInOut"
+                  }}
+                  className="w-2.5 h-2.5 rounded-full shadow-[0_0_10px_rgba(106,13,173,0.2)]"
+                  style={{ backgroundColor: "#6A0DAD" }}
+                />
+              ))}
               <motion.div
-                animate={{ x: ["-100%", "0%"] }}
-                transition={{ 
-                  repeat: Infinity, 
-                  duration: 25, 
-                  ease: "linear" 
-                }}
-                className="flex items-center gap-40 whitespace-nowrap"
+                animate={{ x: [0, 6, 0], opacity: [0.4, 0.8, 0.4] }}
+                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               >
-                {[...Array(3)].map((_, groupSet) => (
-                  <div key={groupSet} className="flex items-center gap-40">
-                    {/* 3 Trucks */}
-                    <div className="flex items-center gap-8 text-[#6A0DAD]/50">
-                      <Truck size={22} strokeWidth={1.8} />
-                      <Truck size={22} strokeWidth={1.8} />
-                      <Truck size={22} strokeWidth={1.8} />
-                    </div>
-                    {/* 3 Planes */}
-                    <div className="flex items-center gap-8 text-[#6A0DAD]/50">
-                      <Plane size={22} strokeWidth={1.8} className="rotate-45" />
-                      <Plane size={22} strokeWidth={1.8} className="rotate-45" />
-                      <Plane size={22} strokeWidth={1.8} className="rotate-45" />
-                    </div>
-                    {/* 3 Ships */}
-                    <div className="flex items-center gap-8 text-[#6A0DAD]/50">
-                      {[...Array(3)].map((_, i) => (
-                        <svg key={i} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M2 16h20l-2 4H4l-2-4z" />
-                          <rect x="4" y="12" width="4" height="4" />
-                          <rect x="9" y="10" width="4" height="6" />
-                          <rect x="14" y="12" width="4" height="4" />
-                          <path d="M19 16v-4h2v4" />
-                        </svg>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                <ArrowRight size={30} strokeWidth={2.8} style={{ color: "#6A0DAD" }} />
               </motion.div>
             </div>
 
             {/* End: Trade */}
-            <div className="absolute right-[25%] translate-x-1/2 top-1/2 -translate-y-1/2 z-30 flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white border-2 shadow-md" style={{ borderColor: "#4B0082", color: "#4B0082" }}>
-              <Globe2 size={20} />
-              <span className="text-base font-black tracking-wide">무역</span>
+            <div className="flex items-center gap-3 px-8 py-4 rounded-full border-2 bg-white shadow-sm transition-all" style={{ borderColor: "#4B0082", color: "#4B0082" }}>
+              <Globe2 size={22} className="stroke-[2.5px]" />
+              <span className="text-lg font-black tracking-tight">무역</span>
             </div>
           </div>
 
@@ -298,15 +265,12 @@ export default function AppleEsqueHome() {
             className="mb-16 md:mb-24 text-center"
           >
             <h2 className="mb-6 md:mb-10 flex items-baseline justify-center gap-0 flex-wrap">
-              <span className="relative inline-block w-32 h-[2.5rem] md:w-[18rem] md:h-[6rem] translate-y-1.5 md:translate-y-3">
-                <Image src={`${ASSET}/logo.png`} alt="BORA" fill className="object-contain" />
-              </span>
-              <span className="text-4xl md:text-7xl font-black tracking-tighter text-neutral-900 -ml-1 md:-ml-8">
-                Family
+              <span className="text-4xl md:text-6xl font-serif font-bold italic tracking-tight text-neutral-900">
+                Family Companies
               </span>
             </h2>
             <p className="text-base md:text-xl font-semibold text-neutral-500 tracking-tight">
-              물류와 무역을 잇는 보라 그룹의 핵심 네트워크를 소개합니다.
+              물류와 무역을 잇는 보라의 핵심 네트워크를 소개합니다.
             </p>
           </motion.div>
 
