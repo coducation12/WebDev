@@ -42,12 +42,9 @@ export default function ServiceBento() {
         transition={{ duration: 0.8 }}
         className="mb-16 text-center"
       >
-        <h2 className="mb-10 flex items-baseline justify-center gap-0 flex-wrap">
-          <span className="relative inline-block w-40 h-[3rem] md:w-[18rem] md:h-[6rem] translate-y-1.5 md:translate-y-3">
-            <Image src={`${ASSET}/logo.png`} alt="BORA" fill className="object-contain" />
-          </span>
-          <span className="text-4xl md:text-6xl font-black tracking-tighter text-neutral-900 -ml-2 md:-ml-8">
-            에서 세계로.
+        <h2 className="mb-10 text-center">
+          <span className="text-4xl md:text-7xl font-black tracking-tighter text-neutral-900">
+            물류로 무역을 잇다
           </span>
         </h2>
         <p className="text-lg md:text-xl font-semibold text-neutral-500 tracking-tight">
@@ -63,7 +60,7 @@ export default function ServiceBento() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative group rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 h-[300px] md:h-[750px] flex-1 border border-white/10 shadow-2xl"
+          className="relative group rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 aspect-square flex-1 border border-white/10 shadow-2xl"
         >
           {/* Background Images */}
           {logisticsImages.map((img, idx) => (
@@ -81,11 +78,9 @@ export default function ServiceBento() {
           
           <div className="relative h-full p-8 md:p-12 flex flex-col justify-between">
             <div className="flex justify-between items-start">
-              <div>
-                <h3 className="text-white font-black text-2xl md:text-4xl tracking-tighter uppercase leading-[0.9]">
-                  Logistics<br />Excellence
-                </h3>
-              </div>
+                  <h3 className="text-white font-black text-4xl md:text-6xl tracking-tighter uppercase leading-none mb-4">
+                    LOGISTICS
+                  </h3>
               <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 backdrop-blur-md rounded-2xl md:rounded-[22px] flex items-center justify-center border border-white/20 text-white group-hover:bg-[#6A0DAD] group-hover:border-[#6A0DAD] transition-all duration-500">
                 <Ship size={24} className="md:w-8 md:h-8" strokeWidth={1.5} />
               </div>
@@ -128,7 +123,7 @@ export default function ServiceBento() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative group rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 h-[300px] md:h-[750px] flex-1 border border-white/10 shadow-2xl"
+          className="relative group rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 aspect-square flex-1 border border-white/10 shadow-2xl"
         >
           {/* Background Images */}
           {tradeImages.map((img, idx) => (
@@ -146,11 +141,9 @@ export default function ServiceBento() {
           
           <div className="relative h-full p-8 md:p-12 flex flex-col justify-between">
             <div className="flex justify-between items-start">
-              <div>
-                <h3 className="text-white font-black text-2xl md:text-4xl tracking-tighter uppercase leading-[0.9]">
-                  Global<br />Trade
-                </h3>
-              </div>
+                  <h3 className="text-white font-black text-4xl md:text-6xl tracking-tighter uppercase leading-none mb-4">
+                    TRADE
+                  </h3>
               <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 backdrop-blur-md rounded-2xl md:rounded-[22px] flex items-center justify-center border border-white/20 text-white group-hover:bg-[#6A0DAD] group-hover:border-[#6A0DAD] transition-all duration-500">
                 <Globe size={24} className="md:w-8 md:h-8" strokeWidth={1.5} />
               </div>
