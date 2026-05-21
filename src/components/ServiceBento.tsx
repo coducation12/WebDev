@@ -5,6 +5,7 @@ import { Ship, Globe, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const APPLE_EASE = [0.32, 0.72, 0, 1];
 const ASSET = "/assets/images";
@@ -55,13 +56,14 @@ export default function ServiceBento() {
       {/* Cards Container */}
       <div className="flex flex-col md:flex-row gap-6 md:gap-8">
         {/* Logistics Card */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative group rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 aspect-square flex-1 border border-white/10 shadow-2xl"
-        >
+        <Link href="/logistics" className="flex-1 md:hover:flex-[1.6] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] block group">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 aspect-square md:aspect-auto md:h-[550px] lg:h-[650px] w-full border border-white/10 shadow-2xl"
+          >
           {/* Background Images */}
           {logisticsImages.map((img, idx) => (
             <Image 
@@ -69,12 +71,12 @@ export default function ServiceBento() {
               src={`${ASSET}/${img}`} 
               alt="Logistics" fill 
               className={cn(
-                "object-cover transition-all duration-1000",
-                idx === logIdx ? "opacity-60 scale-100" : "opacity-0 scale-110"
+                "object-cover transition-all duration-1000 group-hover:brightness-105",
+                idx === logIdx ? "opacity-60 group-hover:opacity-100 scale-100" : "opacity-0 scale-110"
               )} 
             />
           ))}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:opacity-70 transition-opacity duration-700" />
           
           <div className="relative h-full p-8 md:p-12 flex flex-col justify-between">
             <div className="flex justify-between items-start">
@@ -94,10 +96,9 @@ export default function ServiceBento() {
                 "물류 장비 개발 및 제작",
                 "물류 협력사 전문 포장"
               ].map((item, idx) => (
-                <button
+                <div
                   key={idx}
-                  onMouseEnter={() => setLogIdx(idx)}
-                  className="flex items-center gap-4 w-full text-left group/item"
+                  className="flex items-center gap-4 w-full text-left group/item cursor-default"
                 >
                   <div className={cn(
                     "w-2 h-2 rounded-full transition-all duration-500",
@@ -111,20 +112,22 @@ export default function ServiceBento() {
                   )}>
                     {item}
                   </span>
-                </button>
+                </div>
               ))}
             </div>
           </div>
         </motion.div>
+        </Link>
 
         {/* Trade Card */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative group rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 aspect-square flex-1 border border-white/10 shadow-2xl"
-        >
+        <Link href="/trade" className="flex-1 md:hover:flex-[1.6] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] block group">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 aspect-square md:aspect-auto md:h-[550px] lg:h-[650px] w-full border border-white/10 shadow-2xl"
+          >
           {/* Background Images */}
           {tradeImages.map((img, idx) => (
             <Image 
@@ -132,12 +135,12 @@ export default function ServiceBento() {
               src={`${ASSET}/${img}`} 
               alt="Trade" fill 
               className={cn(
-                "object-cover transition-all duration-1000",
-                idx === tradeIdx ? "opacity-60 scale-100" : "opacity-0 scale-110"
+                "object-cover transition-all duration-1000 group-hover:brightness-105",
+                idx === tradeIdx ? "opacity-60 group-hover:opacity-100 scale-100" : "opacity-0 scale-110"
               )} 
             />
           ))}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:opacity-70 transition-opacity duration-700" />
           
           <div className="relative h-full p-8 md:p-12 flex flex-col justify-between">
             <div className="flex justify-between items-start">
@@ -156,10 +159,9 @@ export default function ServiceBento() {
                 "구매 및 판매대행 서비스",
                 "시장 조사 및 판로 개척"
               ].map((item, idx) => (
-                <button
+                <div
                   key={idx}
-                  onMouseEnter={() => setTradeIdx(idx)}
-                  className="flex items-center gap-4 w-full text-left group/item"
+                  className="flex items-center gap-4 w-full text-left group/item cursor-default"
                 >
                   <div className={cn(
                     "w-2 h-2 rounded-full transition-all duration-500",
@@ -173,11 +175,12 @@ export default function ServiceBento() {
                   )}>
                     {item}
                   </span>
-                </button>
+                </div>
               ))}
             </div>
           </div>
         </motion.div>
+        </Link>
       </div>
     </div>
   );

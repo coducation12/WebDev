@@ -268,7 +268,7 @@ export default function AppleEsqueHome() {
                 icon: Globe 
               },
               { 
-                name: "보라RE&UP", 
+                name: "RE&UP", 
                 desc: "재생에너지 · 업사이클", 
                 detail: "태양광, 풍력 발전 자재 특수 물류와 친환경 재생 사업을 통해 지속 가능한 미래를 만듭니다.",
                 icon: Package 

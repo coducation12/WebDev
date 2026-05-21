@@ -106,7 +106,7 @@ const COMPANIES = [
   },
   { 
     id: "reup",
-    name: "보라RE&UP", 
+    name: "RE&UP", 
     desc: "재생에너지 · 업사이클", 
     icon: Package,
     color: "#10B981",
@@ -114,7 +114,7 @@ const COMPANIES = [
     image: "extra_14.jpg",
     content: {
       title: "재생에너지 특수 물류 및 지속가능한 미래 경영",
-      description: "보라RE&UP은 태양광, 풍력 등 재생에너지 설비 자재에 특화된 특수 물류 서비스를 제공합니다. 특히 해상 풍력 설비 이송을 위한 전문 바지선을 운영하며 항만 물류의 새로운 영역을 선도합니다. 또한 폐자원의 가치를 재발견하는 업사이클링 비즈니스를 통해 ESG 경영을 실천합니다.",
+      description: "RE&UP은 태양광, 풍력 등 재생에너지 설비 자재에 특화된 특수 물류 서비스를 제공합니다. 특히 해상 풍력 설비 이송을 위한 전문 바지선을 운영하며 항만 물류의 새로운 영역을 선도합니다. 또한 폐자원의 가치를 재발견하는 업사이클링 비즈니스를 통해 ESG 경영을 실천합니다.",
       stats: [
         { label: "특수 물류", value: "태양광/풍력" },
         { label: "해상 인프라", value: "바지선 운영" },
@@ -161,7 +161,7 @@ function CompanyIntroContent() {
               BORA Family Companies
             </motion.div>
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-[0.9]">
-              가족사 소개
+              Bora Family Companies
             </h1>
             <p className="text-xl text-neutral-400 font-bold max-w-2xl leading-relaxed">
               보라 그룹은 물류, 기술, 무역, 재생에너지를 아우르는 <br className="hidden md:block" />

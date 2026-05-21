@@ -30,7 +30,7 @@ export default function Header() {
           {[
             { 
               name: "회사 소개", 
-              subs: ["보라로지스", "보라트랜스", "보라로지텍", "보라인터네셔널", "보라RE&UP"] 
+              subs: ["회사 개요", "CI", "Family Companies"] 
             },
             { 
               name: "물류 서비스", 
@@ -46,22 +46,42 @@ export default function Header() {
             },
           ].map((menu) => (
             <div key={menu.name} className="group relative py-4">
-              <button className="text-[14px] font-bold text-neutral-600 hover:text-[#6A0DAD] transition-colors flex items-center gap-1">
+              <Link 
+                href={menu.name === "회사 소개" ? "/about" : menu.name === "물류 서비스" ? "/logistics" : menu.name === "글로벌 무역" ? "/trade" : "#"}
+                className="text-[14px] font-bold text-neutral-600 hover:text-[#6A0DAD] transition-colors flex items-center gap-1"
+              >
                 {menu.name}
-              </button>
+              </Link>
               
               {/* Dropdown Menu */}
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
                 <div className="bg-white/95 backdrop-blur-xl border border-neutral-100 rounded-2xl shadow-2xl p-4 min-w-[200px] flex flex-col gap-1">
-                  {menu.subs.map((sub) => (
-                    <Link 
-                      key={sub} 
-                      href={menu.name === "회사 소개" ? `/company?tab=${menu.subs.indexOf(sub)}` : "#"} 
-                      className="px-4 py-2.5 rounded-xl text-[13px] font-semibold text-neutral-500 hover:text-[#6A0DAD] hover:bg-neutral-50 transition-all whitespace-nowrap text-center"
-                    >
-                      {sub}
-                    </Link>
-                  ))}
+                  {menu.subs.map((sub) => {
+                    let href = "#";
+                    if (menu.name === "회사 소개") {
+                      if (sub === "회사 개요") href = "/about";
+                      else if (sub === "CI") href = "/about#ci";
+                      else if (sub === "Family Companies") href = "/company";
+                    } else if (menu.name === "물류 서비스") {
+                      if (sub === "국제 물류 서비스") href = "/logistics#intl-service";
+                      else if (sub === "국제 물류 시스템") href = "/logistics#intl-system";
+                      else if (sub === "물류 장비 개발 및 제작") href = "/logistics#equipment";
+                      else if (sub === "물류 전문 포장") href = "/logistics#packaging";
+                    } else if (menu.name === "글로벌 무역") {
+                      if (sub === "글로벌 수출입 서비스") href = "/trade#export-import";
+                      else if (sub === "구매 및 판매대행") href = "/trade#agency";
+                      else if (sub === "시장 조사 및 판로 개척") href = "/trade#market";
+                    }
+                    return (
+                      <Link 
+                        key={sub} 
+                        href={href} 
+                        className="px-4 py-2.5 rounded-xl text-[13px] font-semibold text-neutral-500 hover:text-[#6A0DAD] hover:bg-neutral-50 transition-all whitespace-nowrap text-center"
+                      >
+                        {sub}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </div>

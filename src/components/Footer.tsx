@@ -25,7 +25,7 @@ export default function Footer({ minimal = false }: FooterProps) {
                 보라 그룹이 만드는 글로벌 비즈니스의 흐름.
               </p>
               <div className="text-sm text-neutral-400 leading-loose">
-                <span className="font-bold text-neutral-600 block mb-1">보라로지스(주)</span>
+                <span className="font-bold text-neutral-600 block mb-1">(주)보라로지스</span>
                 전남 광양시 항만8로 18-35 (도이동) <br />
                 T: 061-795-9951~3
               </div>
@@ -35,20 +35,20 @@ export default function Footer({ minimal = false }: FooterProps) {
               <div>
                 <h5 className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-6">사업 영역</h5>
                 <ul className="text-xs font-semibold flex flex-col gap-4 text-neutral-400">
-                  <li><Link href="#" className="hover:text-[#6A0DAD] transition-colors">국제물류 서비스</Link></li>
-                  <li><Link href="#" className="hover:text-[#6A0DAD] transition-colors">국제 물류시스템</Link></li>
-                  <li><Link href="#" className="hover:text-[#6A0DAD] transition-colors">물류 장비 개발·제작</Link></li>
-                  <li><Link href="#" className="hover:text-[#6A0DAD] transition-colors">글로벌 수출입 서비스</Link></li>
+                  <li><Link href="/logistics#intl-service" className="hover:text-[#6A0DAD] transition-colors">국제물류 서비스</Link></li>
+                  <li><Link href="/logistics#intl-system" className="hover:text-[#6A0DAD] transition-colors">국제 물류시스템</Link></li>
+                  <li><Link href="/logistics#equipment" className="hover:text-[#6A0DAD] transition-colors">물류 장비 개발·제작</Link></li>
+                  <li><Link href="/trade#export-import" className="hover:text-[#6A0DAD] transition-colors">글로벌 수출입 서비스</Link></li>
                 </ul>
               </div>
               <div>
-                <h5 className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-6">그룹사</h5>
+                <h5 className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-6">Family Companies</h5>
                 <ul className="text-xs font-semibold flex flex-col gap-4 text-neutral-400">
                   <li><Link href="/company?tab=0" className="hover:text-[#6A0DAD] transition-colors">보라로지스</Link></li>
                   <li><Link href="/company?tab=1" className="hover:text-[#6A0DAD] transition-colors">보라트랜스</Link></li>
                   <li><Link href="/company?tab=2" className="hover:text-[#6A0DAD] transition-colors">보라로지텍</Link></li>
                   <li><Link href="/company?tab=3" className="hover:text-[#6A0DAD] transition-colors">보라인터네셔널</Link></li>
-                  <li><Link href="/company?tab=4" className="hover:text-[#6A0DAD] transition-colors">보라RE&UP</Link></li>
+                  <li><Link href="/company?tab=4" className="hover:text-[#6A0DAD] transition-colors">RE&UP</Link></li>
                 </ul>
               </div>
               <div>
