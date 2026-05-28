@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion";
 import { ArrowRight, ArrowUpRight, ChevronRight, ChevronDown, Menu, Package, Ship, Globe, Globe2, Cpu, Warehouse, Truck, Users, Building2, Plane } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
@@ -15,7 +15,7 @@ const APPLE_EASE = [0.32, 0.72, 0, 1];
 const ASSET = "/assets/images";
 
 export default function AppleEsqueHome() {
-  const heroRef = useRef(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end end"]
@@ -31,153 +31,134 @@ export default function AppleEsqueHome() {
   const contentScale = useTransform(smoothProgress, [0.4, 0.7], [0.8, 1]); // Zoom-in effect
   const contentY = useTransform(smoothProgress, [0.4, 0.55], [40, 0]);
 
+  const pointerEvents = useTransform(smoothProgress, (value: number) => value > 0.35 ? "auto" : "none");
+
+  const [isBentoActive, setIsBentoActive] = useState(false);
+  useMotionValueEvent(smoothProgress, "change", (latest) => {
+    setIsBentoActive(latest >= 0.7);
+  });
+
   return (
     <div className="bg-white text-black font-sans selection:bg-neutral-800 selection:text-white">
       <Header />
 
-      {/* ─── 2. Hero Section ─── */}
-      <section className="relative min-h-screen bg-white flex items-center justify-center pt-24 overflow-hidden">
-        <div className="w-full max-w-[1400px] px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: APPLE_EASE }}
-          >
-            <ServiceBento />
-          </motion.div>
-        </div>
+      {/* ─── 2. Hero Reveal Section ─── */}
+      <section ref={heroRef} className="relative h-[250vh] bg-white">
+        <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
 
+          {/* Stage 1: BORA Logo and Text Scroll Animation */}
+          <motion.div
+            style={{ scale: logoScale, opacity: logoOpacity, y: logoY }}
+            className="relative z-10 w-full flex flex-col items-center px-6 md:px-10 text-center"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: APPLE_EASE }}
+              className="flex flex-col items-center max-w-4xl mx-auto"
+            >
+              {/* Logo */}
+              <div className="relative w-[180px] h-[64px] sm:w-[240px] sm:h-[85px] md:w-[320px] md:h-[113px] mb-8 sm:mb-12">
+                <Image src={`${ASSET}/logo.png`} alt="Bora Logo" fill className="object-contain" priority />
+              </div>
+              
+              {/* Title */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-neutral-900 mb-6 sm:mb-8 leading-tight">
+                보라, 물류로 무역을 잇다.
+              </h1>
+              
+              {/* Subtitle */}
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-600 font-semibold leading-relaxed tracking-tight max-w-3xl">
+                보라는 물류의 흐름을 설계하고, 신뢰를 운송하며, 세계를 연결합니다.<br className="hidden sm:inline" />
+                신뢰할 수 있는 파트너가 되겠습니다.
+              </p>
+            </motion.div>
+          </motion.div>
+
+          {/* Stage 2: Service Bento Dashboard */}
+          <motion.div
+            style={{ opacity: contentOpacity, y: contentY, scale: contentScale, pointerEvents }}
+            className="absolute inset-0 z-20 flex items-center justify-center overflow-y-auto"
+          >
+            <div className="w-full max-w-[1400px] px-6 md:px-10">
+              <ServiceBento isHoverEnabled={isBentoActive} />
+            </div>
+          </motion.div>
+
+          <footer className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-neutral-400 z-10">
+            <span className="text-[10px] font-bold uppercase tracking-widest opacity-40">Scroll to reveal</span>
+            <ChevronDown size={18} className="animate-bounce opacity-40" />
+          </footer>
+        </div>
       </section>
 
-      {/* ── 물류 관련 섹션: 물류의 흐름 설계 ── */}
-      <section className="py-40 px-6 md:px-10 bg-white">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6" style={{ color: "#111827" }}>
-              물류의 흐름을 설계하고, 신뢰를 운송합니다
+      {/* ── 핵심 비즈니스 섹션: 국제물류 및 글로벌 무역 ── */}
+      <section className="py-24 md:py-32 px-6 md:px-10 bg-white border-t border-neutral-50">
+        <div className="max-w-[1300px] mx-auto">
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter mb-2 md:mb-3 text-neutral-900 leading-tight">
+              국제물류 시스템을 기반으로
             </h2>
-            <p className="text-lg md:text-xl font-semibold text-neutral-500 tracking-tight max-w-4xl mx-auto leading-relaxed">
-              보라 그룹은 물류 서비스를 기반으로 무역 업무를 병행하며, 고객사에게 원스톱 토탈 솔루션을 제공합니다.
-            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-neutral-900 leading-tight">
+              글로벌 무역 네트워크를 만들어갑니다.
+            </h2>
           </div>
 
-          {/* 물류→무역 플로우 바 */}
-          <div className="hidden md:flex justify-center items-center gap-4 mb-16 px-10">
-            <div className="flex items-center gap-3 px-8 py-4 rounded-full border-2 bg-white shadow-sm transition-all" style={{ borderColor: "#6A0DAD", color: "#6A0DAD" }}>
-              <Package size={22} className="stroke-[2.5px]" />
-              <span className="text-lg font-black tracking-tight">물류</span>
+          {/* 물류→무역 플로우 바 (애니메이션 1개 보존 - 소형화) */}
+          <div className="hidden md:flex justify-center items-center gap-3 mb-12 px-6">
+            <div className="flex items-center gap-2.5 px-6 py-2.5 rounded-full border-2 bg-white shadow-sm transition-all" style={{ borderColor: "#6A0DAD", color: "#6A0DAD" }}>
+              <Package size={18} className="stroke-[2.5px]" />
+              <span className="text-[15px] font-black tracking-tight">물류</span>
             </div>
 
-            <div className="flex items-center gap-2.5 px-6">
+            <div className="flex items-center gap-2 px-4">
               {[...Array(12)].map((_, i) => (
                 <motion.div
                   key={i}
                   animate={{ opacity: [0.15, 0.7, 0.15], scale: [0.75, 1.15, 0.75] }}
                   transition={{ delay: i * 0.12, repeat: Infinity, duration: 2.1, ease: "easeInOut" }}
-                  className="w-2.5 h-2.5 rounded-full shadow-[0_0_10px_rgba(106,13,173,0.2)]"
+                  className="w-2 h-2 rounded-full shadow-[0_0_8px_rgba(106,13,173,0.2)]"
                   style={{ backgroundColor: "#6A0DAD" }}
                 />
               ))}
-              <motion.div animate={{ x: [0, 6, 0], opacity: [0.4, 0.8, 0.4] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}>
-                <ArrowRight size={30} strokeWidth={2.8} style={{ color: "#6A0DAD" }} />
+              <motion.div animate={{ x: [0, 4, 0], opacity: [0.4, 0.8, 0.4] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}>
+                <ArrowRight size={24} strokeWidth={2.8} style={{ color: "#6A0DAD" }} />
               </motion.div>
             </div>
 
-            <div className="flex items-center gap-3 px-8 py-4 rounded-full border-2 bg-white shadow-sm transition-all" style={{ borderColor: "#4B0082", color: "#4B0082" }}>
-              <Globe2 size={22} className="stroke-[2.5px]" />
-              <span className="text-lg font-black tracking-tight">무역</span>
+            <div className="flex items-center gap-2.5 px-6 py-2.5 rounded-full border-2 bg-white shadow-sm transition-all" style={{ borderColor: "#4B0082", color: "#4B0082" }}>
+              <Globe2 size={18} className="stroke-[2.5px]" />
+              <span className="text-[15px] font-black tracking-tight">무역</span>
             </div>
           </div>
 
-          {/* 물류 관련 3카드 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          {/* 통합 6카드 그리드 (소형화 및 여백 최적화) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 items-stretch">
             {[
               {
                 icon: Package,
-                title: "포워딩, 통관, 셔틀운송",
+                step: "STEP 01",
+                tag: "물류",
+                title: "종합 물류 인프라",
                 desc: "광양 자유무역지역 4만 평, 보세창고 2만 평. 포워딩, 검역대행, 내륙운송까지 물류 전 과정을 자체 인프라와 장비로 직접 수행합니다.",
                 img: "extra_26.jpg",
               },
               {
                 icon: Cpu,
-                title: "수출입 물류센터 운영",
+                step: "STEP 02",
+                tag: "기술",
+                title: "종합 내륙운송",
                 desc: "물류 장비 자체 설계·제조, 스마트 팩토리 운영. 4조 3교대 95명 전문 인력이 24시간 쉬지 않고 가동합니다.",
                 img: "tech_hero.png",
               },
               {
                 icon: Globe2,
-                title: "운송 서비스",
+                step: "STEP 03",
+                tag: "무역",
+                title: "무역 · 글로벌 확장",
                 desc: "국제물류 네트워크를 기반으로 중국·동남아 자원 수입부터 K-culture·K-food 수출까지. 물류에서 무역으로 영역을 확장합니다.",
                 img: "extra_33.png",
               },
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.2, duration: 0.7 }}
-                className="group relative rounded-3xl overflow-hidden border border-neutral-100 bg-white shadow-sm transition-all duration-300 flex flex-col"
-              >
-                <div className="relative h-48 md:h-72 overflow-hidden">
-                  <Image src={`${ASSET}/${item.img}`} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
-
-
-                </div>
-                <div className="p-6 md:p-8 flex-1 flex flex-col">
-                  <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-4">{item.title}</h3>
-                  <p className="text-neutral-500 leading-relaxed text-[15px] flex-1">{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 무역 관련 섹션: 글로벌 비즈니스 확장 ── */}
-      <section className="py-40 px-6 md:px-10 bg-white">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6" style={{ color: "#111827" }}>
-              글로벌 시장의 가치를 발견하고, 비즈니스의 경계를 넓힙니다
-            </h2>
-            <p className="text-lg md:text-xl font-semibold text-neutral-500 tracking-tight max-w-4xl mx-auto leading-relaxed">
-              세계를 향한 보라의 네트워크는 단순한 물류를 넘어, 성공적인 글로벌 비즈니스 파트너십을 완성합니다.
-            </p>
-          </div>
-
-          {/* 물류→무역 플로우 바 (반복) */}
-          <div className="hidden md:flex justify-center items-center gap-4 mb-16 px-10">
-            <div className="flex items-center gap-3 px-8 py-4 rounded-full border-2 bg-white shadow-sm transition-all" style={{ borderColor: "#6A0DAD", color: "#6A0DAD" }}>
-              <Package size={22} className="stroke-[2.5px]" />
-              <span className="text-lg font-black tracking-tight">물류</span>
-            </div>
-
-            <div className="flex items-center gap-2.5 px-6">
-              {[...Array(12)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ opacity: [0.15, 0.7, 0.15], scale: [0.75, 1.15, 0.75] }}
-                  transition={{ delay: i * 0.12, repeat: Infinity, duration: 2.1, ease: "easeInOut" }}
-                  className="w-2.5 h-2.5 rounded-full shadow-[0_0_10px_rgba(106,13,173,0.2)]"
-                  style={{ backgroundColor: "#6A0DAD" }}
-                />
-              ))}
-              <motion.div animate={{ x: [0, 6, 0], opacity: [0.4, 0.8, 0.4] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}>
-                <ArrowRight size={30} strokeWidth={2.8} style={{ color: "#6A0DAD" }} />
-              </motion.div>
-            </div>
-
-            <div className="flex items-center gap-3 px-8 py-4 rounded-full border-2 bg-white shadow-sm transition-all" style={{ borderColor: "#4B0082", color: "#4B0082" }}>
-              <Globe2 size={22} className="stroke-[2.5px]" />
-              <span className="text-lg font-black tracking-tight">무역</span>
-            </div>
-          </div>
-
-          {/* 무역 관련 3카드 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-            {[
               {
                 icon: Ship,
                 title: "해외 제품 수입",
@@ -199,21 +180,41 @@ export default function AppleEsqueHome() {
             ].map((item, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.2, duration: 0.7 }}
-                className="group relative rounded-3xl overflow-hidden border border-neutral-100 bg-white shadow-sm transition-all duration-300 flex flex-col"
+                transition={{ delay: idx * 0.08, duration: 0.6 }}
+                className="group relative rounded-2xl overflow-hidden border border-neutral-100 bg-white shadow-sm hover:shadow-xl hover:border-neutral-200 transition-all duration-300 flex flex-col"
               >
-                <div className="relative h-48 md:h-72 overflow-hidden">
+                <div className="relative h-40 md:h-48 overflow-hidden">
+                  {/* Top Badges */}
+                  {(item.step || item.tag) && (
+                    <div className="absolute top-3 left-3 right-3 flex justify-between items-center z-10">
+                      {item.step && (
+                        <span className="bg-[#6A0DAD] text-white px-2.5 py-0.5 rounded-full text-[9px] font-bold tracking-wider">
+                          {item.step}
+                        </span>
+                      )}
+                      {item.tag && (
+                        <span className="bg-white/95 text-neutral-800 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-tight border border-neutral-200/30">
+                          {item.tag}
+                        </span>
+                      )}
+                    </div>
+                  )}
                   <Image src={`${ASSET}/${item.img}`} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
-
-
                 </div>
-                <div className="p-6 md:p-8 flex-1 flex flex-col">
-                  <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-4">{item.title}</h3>
-                  <p className="text-neutral-500 leading-relaxed text-[15px] flex-1">{item.desc}</p>
+                <div className="p-5 md:p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-8 h-8 rounded-full bg-[#F8F3FA] flex items-center justify-center text-[#6A0DAD] flex-shrink-0">
+                        <item.icon size={16} strokeWidth={2.5} />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-black text-neutral-900 tracking-tight">{item.title}</h3>
+                    </div>
+                    <p className="text-neutral-500 leading-relaxed text-[13px] md:text-[14px] flex-1">{item.desc}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -262,15 +263,15 @@ export default function AppleEsqueHome() {
                 icon: Cpu 
               },
               { 
-                name: "보라인터네셔널", 
+                name: "어센틱코리아", 
                 desc: "글로벌 수출입 · 무역", 
-                detail: "중국 및 동남아 자원 수입과 K-Food/Culture 수출을 선도하는 글로벌 비즈니스 파트너입니다.",
+                detail: "안정적인 물류 인프라를 기반으로 글로벌 수출입 비즈니스를 전개하는 종합 무역회사입니다.",
                 icon: Globe 
               },
               { 
                 name: "RE&UP", 
                 desc: "재생에너지 · 업사이클", 
-                detail: "태양광, 풍력 발전 자재 특수 물류와 친환경 재생 사업을 통해 지속 가능한 미래를 만듭니다.",
+                detail: "친환경 에너지 인프라 구축과 자원 순환 기술을 통해 지속 가능한 미래를 여는 재생에너지 기업입니다.",
                 icon: Package 
               },
             ].map((company, idx) => (

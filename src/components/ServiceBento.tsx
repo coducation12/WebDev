@@ -13,7 +13,11 @@ const ASSET = "/assets/images";
 const logisticsImages = ["extra_3.jpg", "extra_29.png", "extra_32.png", "extra_5.jpg"];
 const tradeImages = ["extra_13.jpg", "extra_25.jpg", "extra_35.png"];
 
-export default function ServiceBento() {
+interface ServiceBentoProps {
+  isHoverEnabled?: boolean;
+}
+
+export default function ServiceBento({ isHoverEnabled = true }: ServiceBentoProps) {
   const [logIdx, setLogIdx] = useState(0);
   const [tradeIdx, setTradeIdx] = useState(0);
 
@@ -33,36 +37,24 @@ export default function ServiceBento() {
   }, []);
 
   return (
-    <div className="w-full max-w-[1500px] mx-auto py-24 px-6 md:px-10 flex flex-col">
+    <div className="w-full max-w-[1500px] mx-auto py-8 md:py-12 px-6 md:px-10 flex flex-col">
       
-      {/* Outer Header: Company Name & Message */}
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="mb-16 text-center"
-      >
-        <h2 className="mb-10 text-center">
-          <span className="text-4xl md:text-7xl font-black tracking-tighter text-neutral-900">
-            물류로 무역을 잇다
-          </span>
-        </h2>
-        <p className="text-lg md:text-xl font-semibold text-neutral-500 tracking-tight">
-          물류 인프라를 지배하고, 글로벌 무역의 새로운 길을 엽니다.
-        </p>
-      </motion.div>
-
       {/* Cards Container */}
       <div className="flex flex-col md:flex-row gap-6 md:gap-8">
         {/* Logistics Card */}
-        <Link href="/logistics" className="flex-1 md:hover:flex-[1.6] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] block group">
+        <Link 
+          href="/logistics" 
+          className={cn(
+            "flex-1 block group transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]",
+            isHoverEnabled ? "md:hover:flex-[1.6] cursor-pointer" : "cursor-default pointer-events-none"
+          )}
+        >
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 aspect-square md:aspect-auto md:h-[550px] lg:h-[650px] w-full border border-white/10 shadow-2xl"
+            className="relative rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 aspect-square md:aspect-auto md:h-[620px] lg:h-[720px] w-full border border-white/10 shadow-2xl"
           >
           {/* Background Images */}
           {logisticsImages.map((img, idx) => (
@@ -120,13 +112,19 @@ export default function ServiceBento() {
         </Link>
 
         {/* Trade Card */}
-        <Link href="/trade" className="flex-1 md:hover:flex-[1.6] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] block group">
+        <Link 
+          href="/trade" 
+          className={cn(
+            "flex-1 block group transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]",
+            isHoverEnabled ? "md:hover:flex-[1.6] cursor-pointer" : "cursor-default pointer-events-none"
+          )}
+        >
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 aspect-square md:aspect-auto md:h-[550px] lg:h-[650px] w-full border border-white/10 shadow-2xl"
+            className="relative rounded-[32px] md:rounded-[48px] overflow-hidden bg-neutral-900 aspect-square md:aspect-auto md:h-[620px] lg:h-[720px] w-full border border-white/10 shadow-2xl"
           >
           {/* Background Images */}
           {tradeImages.map((img, idx) => (

@@ -46,7 +46,7 @@ export default function TradePage() {
               </div>
               <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-6">글로벌 수출입 서비스</h2>
               <p className="text-lg text-neutral-600 font-medium leading-relaxed">
-                (주)BORA INTERNATIONAL은 기존의 안정적인 국제물류서비스 시스템을 기반으로 성공적인 연계 무역을 추진합니다.
+                (주)어센틱코리아는 기존의 안정적인 국제물류서비스 시스템을 기반으로 성공적인 연계 무역을 추진합니다.
               </p>
             </motion.div>
 
@@ -104,7 +104,7 @@ export default function TradePage() {
                 <h2 className="text-3xl md:text-4xl font-black tracking-tighter">구매 및 판매대행 서비스</h2>
               </div>
               <p className="text-lg text-neutral-600 font-medium mb-10 leading-relaxed">
-                복잡한 무역 절차와 서류 작업에 시간을 뺏기지 마세요. 보라 인터내셔널이 전문가의 노하우로 번거로운 과정을 모두 대행하며, 오직 비즈니스 성장에만 집중할 수 있는 환경을 제공합니다.
+                복잡한 무역 절차와 서류 작업에 시간을 뺏기지 마세요. 어센틱코리아가 전문가의 노하우로 번거로운 과정을 모두 대행하며, 오직 비즈니스 성장에만 집중할 수 있는 환경을 제공합니다.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

@@ -21,8 +21,8 @@ const COMPANIES = [
     bg: "bg-[#F9F5FF]",
     image: "extra_12.jpg",
     content: {
-      title: "광양항 배후단지 최대규모 국제물류센터",
-      description: "보라로지스는 광양항 자유무역지역 내 동측 배후단지에 위치한 최대 규모의 국제물류센터입니다. 부지 약 132,000㎡(약 4만 평)와 창고 약 66,000㎡(약 2만 평)의 압도적인 인프라를 보유하고 있으며, 포워딩, 검역대행, 창고업, 운송업을 망라하는 통합 물류 서비스를 제공합니다.",
+      title: "광양항 배후단지 최고의 종합물류 파트너",
+      description: "보라로지스는 여수·광양항 자유무역지역 내 동측 배후단지의 물류센터를 전담 운영하는 글로벌 종합물류 기업입니다. 부지 약 132,000㎡(약 4만 평) 및 창고 약 66,000㎡(약 2만 평) 규모의 현장을 기반으로, 수출입 요건 확인부터 통관, 검역대행, 보관, 특수 운송까지 전 과정을 유기적으로 연결하는 '원스톱 종합 물류 서비스'를 실현합니다.",
       stats: [
         { label: "부지 면적", value: "132,000㎡" },
         { label: "창고 면적", value: "66,000㎡" },
@@ -67,23 +67,23 @@ const COMPANIES = [
     bg: "bg-[#F7FBEA]",
     image: "extra_20.jpg",
     content: {
-      title: "생산라인 운영 파트너 및 물류 장비 제조 혁신",
-      description: "보라로지텍은 여수국가산단 내 주요 생산라인에서 포장, 출하, 시설 정비를 담당하는 전문 파트너입니다. 95명의 전문 인력이 4조 3교대 체제로 24시간 현장에 상주하며 중단 없는 가동을 지원합니다. 또한 자체 제조 공장을 운영하여 철박스, 포장기계, 컨테이너 등을 직접 설계 및 제조합니다.",
+      title: "포장과 물류기기 및 장비 제작",
+      description: "보라로지텍은 글로벌 기업인 오라이온 카본 코리아와 파트너쉽을 맺고 생산라인 운영의 핵심 업무를 담당하고 있고, 이를 통해 자체 물류 장비 개발 및 제조를 통하여 역량 강화 및 혁신을 이루고 있습니다.",
       stats: [
         { label: "현장 인력", value: "95명" },
-        { label: "교대 체계", value: "4조 3교대" },
-        { label: "자체 생산", value: "장비/컨테이너" }
+        { label: "전문 분야", value: "제품포장 및 데이터관리, 출고, 보수" },
+        { label: "핵심 역량", value: "물류기기 설계 및 자체 제작" }
       ],
       details: [
-        { title: "생산라인 통합 수행", text: "여수산단 내 제조 현장에서 제품의 포장부터 최종 출하, 공정 시설의 정비까지 물류와 운영 전반을 책임지고 수행합니다." },
-        { title: "자체 제조 공장 운영", text: "물류 현장에 최적화된 철박스(Steel Box), 포장기계, 특수 컨테이너를 독자적인 기술력으로 설계하고 직접 제작합니다." },
-        { title: "24시간 상주 운영", text: "숙련된 전문 인력들이 365일 24시간 가동되는 생산 라인에 상주하며 안정적인 운영과 즉각적인 시설 대응 체계를 유지합니다." }
+        { title: "생산라인 제품포장", text: "· 4조 3교대 및 일근직원 95명(현장90, 관리5명)\n· 포장, 출하, 수출, 생산관리, 안전관리, 샘플링, 리런, 생산라인정비\n· 지게차 14대 등 각종 물류기기 보유" },
+        { title: "입·출고 및 데이터관리", text: "· 자체개발 프로그램에 생산 데이터 생성\n· 외부 이송 및 재고 데이터 관리\n· 출고 오더에 의한 출고 업무\n· 일부 수출 컨테이너 작업" },
+        { title: "라인 장비관리 및 정비서비스", text: "· 일상적인 포장 장비관리\n· 현장 수리\n· 생산라인 정비서비스" }
       ]
     }
   },
   { 
     id: "international",
-    name: "보라인터네셔널", 
+    name: "어센틱코리아", 
     desc: "글로벌 수출입 · 무역", 
     icon: Globe,
     color: "#2563EB",
@@ -91,7 +91,7 @@ const COMPANIES = [
     image: "extra_31.png",
     content: {
       title: "물류 인프라 기반의 원스톱 무역 솔루션",
-      description: "보라인터네셔널은 중국 및 동남아 지역의 핵심 자원을 직접 수입하고, K-Food 및 K-Culture 콘텐츠의 글로벌 수출 판로를 개척합니다. 보라 그룹의 강력한 물류 인프라를 기반으로 해외 시장 조사부터 수출입 대행까지 아우르는 종합 무역 서비스를 제공합니다.",
+      description: "어센틱 코리아는 안정적인 물류 인프라를 기반으로 글로벌 수출입 비즈니스를 전개하는 종합 무역회사입니다. 국내 산업 생태계에 필수적인 원자재, 친환경 인프라 기자재 및 고가치 소비재를 글로벌 시장에서 직접 소싱하여 국내에 안정적으로 공급합니다. 동시에 한국의 식품과 문화 컨텐츠를 발굴하고 직접 수출하여, 글로벌 공급망을 주도적으로 구축해 나가고 있습니다.",
       stats: [
         { label: "주요 품목", value: "자원 수입" },
         { label: "수출 분야", value: "K-Food/Culture" },
@@ -114,15 +114,15 @@ const COMPANIES = [
     image: "extra_14.jpg",
     content: {
       title: "재생에너지 특수 물류 및 지속가능한 미래 경영",
-      description: "RE&UP은 태양광, 풍력 등 재생에너지 설비 자재에 특화된 특수 물류 서비스를 제공합니다. 특히 해상 풍력 설비 이송을 위한 전문 바지선을 운영하며 항만 물류의 새로운 영역을 선도합니다. 또한 폐자원의 가치를 재발견하는 업사이클링 비즈니스를 통해 ESG 경영을 실천합니다.",
+      description: "RE&UP은 친환경 에너지 인프라 구축과 자원 순환 기술을 핵심 축으로 삼아 지속 가능한 미래를 열어가는 재생에너지 기업입니다. 신재생에너지 발전 효율을 극대화하는 태양광 시설 유지보수 솔루션을 제공하며, 폐자원을 고부가가치 원료로 재탄생시키는 독자적인 친환경 자원화 사업을 전개합니다.",
       stats: [
         { label: "특수 물류", value: "태양광/풍력" },
-        { label: "해상 인프라", value: "바지선 운영" },
+        { label: "핵심 역량", value: "친환경 자원화" },
         { label: "경영 가치", value: "ESG/업사이클" }
       ],
       details: [
         { title: "재생에너지 설비 물류", text: "태양광 모듈과 풍력 발전 설비 등 정밀함과 전문성이 요구되는 거대 에너지 자재의 안전한 보관 및 특수 운송을 수행합니다." },
-        { title: "전문 바지선 운영", text: "해상 풍력 발전 단지 조성 등 해상 운송이 필수적인 프로젝트를 위해 독자적인 전문 바지선 체계를 구축하여 운영합니다." },
+        { title: "친환경 자원화 사업", text: "폐자원을 고부가가치 원료로 재탄생시키는 독자적인 친환경 자원화 프로세스를 구축하여 자원 순환을 돕고 미래 가치를 창출합니다." },
         { title: "업사이클 비즈니스", text: "버려지는 자원에 새로운 가치를 부여하는 업사이클링 사업을 통해 자원 순환을 돕고 지속 가능한 환경 보호에 기여합니다." }
       ]
     }
@@ -170,18 +170,18 @@ function CompanyIntroContent() {
           </div>
 
           {/* Tabs Navigation */}
-          <div className="sticky top-24 z-40 mb-12 p-1.5 bg-neutral-100/50 backdrop-blur-md rounded-2xl md:rounded-full flex flex-wrap shadow-inner border border-white">
+          <div className="sticky top-24 z-40 mb-12 p-2 bg-neutral-100/50 backdrop-blur-md rounded-2xl md:rounded-full flex flex-wrap shadow-inner border border-white">
             {COMPANIES.map((company, idx) => (
               <button
                 key={company.id}
                 onClick={() => setActiveTab(idx)}
-                className={`flex-1 min-w-[120px] px-6 py-4 rounded-xl md:rounded-full text-[13px] font-black transition-all flex items-center justify-center gap-2.5 ${
+                className={`flex-1 min-w-[150px] px-6 py-5 md:py-6 rounded-xl md:rounded-full text-base sm:text-lg lg:text-[20px] font-black transition-all flex items-center justify-center gap-3 ${
                   activeTab === idx 
                   ? "bg-white text-black shadow-[0_4px_20px_rgba(0,0,0,0.1)] scale-[1.03]" 
                   : "text-neutral-400 hover:text-neutral-600 hover:bg-white/50"
                 }`}
               >
-                <company.icon size={16} style={{ color: activeTab === idx ? company.color : "inherit" }} />
+                <company.icon size={22} style={{ color: activeTab === idx ? company.color : "inherit" }} />
                 {company.name}
               </button>
             ))}
@@ -198,7 +198,7 @@ function CompanyIntroContent() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="p-8 md:p-20"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-12 items-center">
                   <div className="lg:col-span-8">
                     <div className="flex items-center gap-6 mb-12">
                       <div 
@@ -218,22 +218,13 @@ function CompanyIntroContent() {
                     </h4>
                     
                     <div className="prose prose-xl max-w-none">
-                      <p className="text-lg md:text-xl text-neutral-600 leading-relaxed font-bold mb-12 border-l-4 pl-8 py-2" style={{ borderColor: activeCompany.color }}>
+                      <p className="text-lg md:text-xl text-neutral-600 leading-relaxed font-bold mb-0 border-l-4 pl-8 py-2" style={{ borderColor: activeCompany.color }}>
                         {activeCompany.content.description}
                       </p>
                     </div>
-
-                    <div className="grid grid-cols-3 gap-4">
-                      {activeCompany.content.stats.map((stat, i) => (
-                        <div key={i} className="bg-white/40 border border-white p-6 rounded-3xl backdrop-blur-sm">
-                          <p className="text-[11px] font-black uppercase tracking-widest text-neutral-400 mb-2">{stat.label}</p>
-                          <p className="text-xl md:text-2xl font-black tracking-tighter text-neutral-900">{stat.value}</p>
-                        </div>
-                      ))}
-                    </div>
                   </div>
 
-                  <div className="lg:col-span-4 lg:pt-28">
+                  <div className="lg:col-span-4 lg:pt-4">
                     <div className="relative aspect-square bg-white rounded-[40px] shadow-2xl border border-black/5 overflow-hidden group">
                       <Image 
                         src={`${ASSET}/${activeCompany.image}`} 
@@ -246,29 +237,75 @@ function CompanyIntroContent() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-20 border-t border-black/5">
-                  {activeCompany.content.details.map((detail, i) => (
-                    <motion.div 
-                      key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 + (i * 0.1) }}
-                      className="flex flex-col gap-6"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
-                           {i === 0 && <BarChart3 size={20} style={{ color: activeCompany.color }} />}
-                           {i === 1 && <ShieldCheck size={20} style={{ color: activeCompany.color }} />}
-                           {i === 2 && <Globe2 size={20} style={{ color: activeCompany.color }} />}
-                        </div>
-                        <h5 className="text-xl font-black tracking-tight text-neutral-900">{detail.title}</h5>
-                      </div>
-                      <p className="text-neutral-500 leading-relaxed font-bold text-[15px]">
-                        {detail.text}
-                      </p>
-                    </motion.div>
+                {/* 3 Stats Cards: Pulled out to span the full-width (spans empty space on the right) */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+                  {activeCompany.content.stats.map((stat, i) => (
+                    <div key={i} className="bg-white/40 border border-white p-6 rounded-3xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
+                      <p className="text-[11px] font-black uppercase tracking-widest text-neutral-400 mb-2">{stat.label}</p>
+                      <p className="text-xl md:text-2xl font-black tracking-tighter text-neutral-900 leading-tight">{stat.value}</p>
+                    </div>
                   ))}
                 </div>
+
+                {activeCompany.id === "logitech" ? (
+                  /* Custom grid column spans for Logitech: Column 1 is wider (col-span-5) to prevent wrapping, Column 2 (col-span-4), Column 3 (col-span-3) */
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-20 border-t border-black/5">
+                    {activeCompany.content.details.map((detail, i) => (
+                      <motion.div 
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 + (i * 0.1) }}
+                        className={`flex flex-col gap-6 ${
+                          i === 0 ? "lg:col-span-5" : i === 1 ? "lg:col-span-4" : "lg:col-span-3"
+                        }`}
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                             {i === 0 && <BarChart3 size={20} style={{ color: activeCompany.color }} />}
+                             {i === 1 && <ShieldCheck size={20} style={{ color: activeCompany.color }} />}
+                             {i === 2 && <Globe2 size={20} style={{ color: activeCompany.color }} />}
+                          </div>
+                          <h5 className="text-xl font-black tracking-tight text-neutral-900">{detail.title}</h5>
+                        </div>
+
+                        <div className="text-neutral-500 leading-relaxed font-bold text-[14px] md:text-[15px] space-y-3">
+                          {detail.text.split("\n").map((line, lineIdx) => (
+                            <div key={lineIdx} className="flex items-start gap-2.5">
+                              <span className="mt-2 flex-shrink-0 text-[8px]" style={{ color: activeCompany.color }}>●</span>
+                              <span className="flex-1 text-neutral-600 font-medium whitespace-nowrap lg:whitespace-normal xl:whitespace-nowrap">{line.replace(/^·\s*/, "")}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                ) : (
+                  /* Standard 3-column layout for other companies */
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-20 border-t border-black/5">
+                    {activeCompany.content.details.map((detail, i) => (
+                      <motion.div 
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 + (i * 0.1) }}
+                        className="flex flex-col gap-6"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                             {i === 0 && <BarChart3 size={20} style={{ color: activeCompany.color }} />}
+                             {i === 1 && <ShieldCheck size={20} style={{ color: activeCompany.color }} />}
+                             {i === 2 && <Globe2 size={20} style={{ color: activeCompany.color }} />}
+                          </div>
+                          <h5 className="text-xl font-black tracking-tight text-neutral-900">{detail.title}</h5>
+                        </div>
+                        <p className="text-neutral-500 leading-relaxed font-bold text-[15px] whitespace-pre-line">
+                          {detail.text}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>

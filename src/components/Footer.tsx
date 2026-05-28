@@ -47,7 +47,7 @@ export default function Footer({ minimal = false }: FooterProps) {
                   <li><Link href="/company?tab=0" className="hover:text-[#6A0DAD] transition-colors">보라로지스</Link></li>
                   <li><Link href="/company?tab=1" className="hover:text-[#6A0DAD] transition-colors">보라트랜스</Link></li>
                   <li><Link href="/company?tab=2" className="hover:text-[#6A0DAD] transition-colors">보라로지텍</Link></li>
-                  <li><Link href="/company?tab=3" className="hover:text-[#6A0DAD] transition-colors">보라인터네셔널</Link></li>
+                  <li><Link href="/company?tab=3" className="hover:text-[#6A0DAD] transition-colors">어센틱코리아</Link></li>
                   <li><Link href="/company?tab=4" className="hover:text-[#6A0DAD] transition-colors">RE&UP</Link></li>
                 </ul>
               </div>
