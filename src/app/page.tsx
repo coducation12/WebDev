@@ -137,7 +137,6 @@ export default function AppleEsqueHome() {
             {[
               {
                 icon: Package,
-                step: "STEP 01",
                 tag: "물류",
                 title: "종합 물류 인프라",
                 desc: "광양 자유무역지역 4만 평, 보세창고 2만 평. 포워딩, 검역대행, 내륙운송까지 물류 전 과정을 자체 인프라와 장비로 직접 수행합니다.",
@@ -145,34 +144,35 @@ export default function AppleEsqueHome() {
               },
               {
                 icon: Cpu,
-                step: "STEP 02",
-                tag: "기술",
+                tag: "물류",
                 title: "종합 내륙운송",
                 desc: "물류 장비 자체 설계·제조, 스마트 팩토리 운영. 4조 3교대 95명 전문 인력이 24시간 쉬지 않고 가동합니다.",
                 img: "tech_hero.png",
               },
               {
                 icon: Globe2,
-                step: "STEP 03",
-                tag: "무역",
+                tag: "물류",
                 title: "무역 · 글로벌 확장",
                 desc: "국제물류 네트워크를 기반으로 중국·동남아 자원 수입부터 K-culture·K-food 수출까지. 물류에서 무역으로 영역을 확장합니다.",
                 img: "extra_33.png",
               },
               {
                 icon: Ship,
+                tag: "무역",
                 title: "해외 제품 수입",
                 desc: "유럽 및 아시아 전역의 검증된 프리미엄 제품을 발굴하고, 보라만의 안정적인 물류망을 통해 신속하고 정확하게 국내로 수입합니다.",
                 img: "extra_25.jpg",
               },
               {
                 icon: Globe,
+                tag: "무역",
                 title: "K-Food 글로벌 수출",
                 desc: "K-Food와 K-Culture의 경쟁력을 전 세계 시장에 알리며, 해외 판로 개척부터 수출 물류까지 통합 솔루션을 제공합니다.",
                 img: "extra_13.jpg",
               },
               {
                 icon: ArrowUpRight,
+                tag: "무역",
                 title: "수출입 대행 서비스",
                 desc: "복잡한 무역 절차와 서류 작업을 대행하며, 고객사가 오직 비즈니스 성장에만 집중할 수 있도록 최적화된 무역 환경을 구축합니다.",
                 img: "extra_35.png",
@@ -187,21 +187,14 @@ export default function AppleEsqueHome() {
                 className="group relative rounded-2xl overflow-hidden border border-neutral-100 bg-white shadow-sm hover:shadow-xl hover:border-neutral-200 transition-all duration-300 flex flex-col"
               >
                 <div className="relative h-40 md:h-48 overflow-hidden">
-                  {/* Top Badges */}
-                  {(item.step || item.tag) && (
-                    <div className="absolute top-3 left-3 right-3 flex justify-between items-center z-10">
-                      {item.step && (
-                        <span className="bg-[#6A0DAD] text-white px-2.5 py-0.5 rounded-full text-[9px] font-bold tracking-wider">
-                          {item.step}
-                        </span>
-                      )}
-                      {item.tag && (
-                        <span className="bg-white/95 text-neutral-800 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-tight border border-neutral-200/30">
-                          {item.tag}
-                        </span>
-                      )}
-                    </div>
-                  )}
+                   {/* Top Badge */}
+                   {item.tag && (
+                     <div className="absolute top-3 right-3 z-10">
+                       <span className="bg-white/95 text-neutral-800 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-tight border border-neutral-200/30">
+                         {item.tag}
+                       </span>
+                     </div>
+                   )}
                   <Image src={`${ASSET}/${item.img}`} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
                 </div>

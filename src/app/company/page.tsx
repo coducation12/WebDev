@@ -149,33 +149,16 @@ function CompanyIntroContent() {
     <div className="min-h-screen bg-white text-black font-sans selection:bg-neutral-900 selection:text-white">
       <Header />
 
-      <main className="pt-48 pb-20 px-6 md:px-10">
+      <main className="pt-32 pb-20 px-6 md:px-10">
         <div className="max-w-[1400px] mx-auto">
-          {/* Title Section */}
-          <div className="mb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-block px-4 py-1 rounded-full bg-neutral-100 text-[10px] font-black uppercase tracking-widest mb-6"
-            >
-              BORA Family Companies
-            </motion.div>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-[0.9]">
-              Bora Family Companies
-            </h1>
-            <p className="text-xl text-neutral-400 font-bold max-w-2xl leading-relaxed">
-              보라 그룹은 물류, 기술, 무역, 재생에너지를 아우르는 <br className="hidden md:block" />
-              통합 네트워크를 통해 비즈니스의 새로운 흐름을 만듭니다.
-            </p>
-          </div>
 
           {/* Tabs Navigation */}
-          <div className="sticky top-24 z-40 mb-12 p-2 bg-neutral-100/50 backdrop-blur-md rounded-2xl md:rounded-full flex flex-wrap shadow-inner border border-white">
+          <div className="relative mb-12 p-1.5 bg-neutral-100/50 backdrop-blur-md rounded-2xl md:rounded-full flex flex-wrap shadow-inner border border-white">
             {COMPANIES.map((company, idx) => (
               <button
                 key={company.id}
                 onClick={() => setActiveTab(idx)}
-                className={`flex-1 min-w-[150px] px-6 py-5 md:py-6 rounded-xl md:rounded-full text-base sm:text-lg lg:text-[20px] font-black transition-all flex items-center justify-center gap-3 ${
+                className={`flex-1 min-w-[150px] px-6 py-3 md:py-3.5 rounded-xl md:rounded-full text-base sm:text-lg lg:text-[20px] font-black transition-all flex items-center justify-center gap-3 ${
                   activeTab === idx 
                   ? "bg-white text-black shadow-[0_4px_20px_rgba(0,0,0,0.1)] scale-[1.03]" 
                   : "text-neutral-400 hover:text-neutral-600 hover:bg-white/50"
@@ -269,10 +252,10 @@ function CompanyIntroContent() {
                           <h5 className="text-xl font-black tracking-tight text-neutral-900">{detail.title}</h5>
                         </div>
 
-                        <div className="text-neutral-500 leading-relaxed font-bold text-[14px] md:text-[15px] space-y-3">
+                        <div className="text-neutral-500 leading-snug font-bold text-[14px] md:text-[15px] space-y-1">
                           {detail.text.split("\n").map((line, lineIdx) => (
                             <div key={lineIdx} className="flex items-start gap-2.5">
-                              <span className="mt-2 flex-shrink-0 text-[8px]" style={{ color: activeCompany.color }}>●</span>
+                              <span className="mt-1.5 flex-shrink-0 text-[8px]" style={{ color: activeCompany.color }}>●</span>
                               <span className="flex-1 text-neutral-600 font-medium whitespace-nowrap lg:whitespace-normal xl:whitespace-nowrap">{line.replace(/^·\s*/, "")}</span>
                             </div>
                           ))}
