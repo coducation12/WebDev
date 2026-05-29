@@ -110,7 +110,7 @@ export default function TradePage() {
             {[
               { id: "export-import", label: "글로벌 수출입 서비스" },
               { id: "agency", label: "구매 및 판매대행" },
-              { id: "market", label: "시장 조사 및 판로 개척" },
+              { id: "market", label: "브랜드 소개" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -157,9 +157,6 @@ export default function TradePage() {
               viewport={{ once: true }}
               className="text-center mb-20 max-w-4xl mx-auto"
             >
-              <div className="inline-block px-8 py-3 bg-[#FF6A00] text-white rounded-full text-sm md:text-base font-black tracking-wider mb-6 shadow-sm">
-                무역사업 소개
-              </div>
               <h2 className="text-3xl md:text-5xl font-black text-neutral-900 tracking-tight mb-2">어센틱 코리아</h2>
               <p className="text-sm md:text-base font-black text-[#FF6A00] tracking-widest uppercase mb-6">Authentic Korea</p>
               
