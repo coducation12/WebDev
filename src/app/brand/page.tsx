@@ -35,9 +35,6 @@ export default function BrandPage() {
               <Hammer size={20} />
             </div>
             <h3 className="text-xl md:text-2xl font-bold text-[#6A0DAD] mb-3">준비중입니다.</h3>
-            <p className="text-sm md:text-base text-neutral-500 font-semibold leading-relaxed max-w-md">
-              더욱 깊이 있는 가치와 어센틱만의 고유한 브랜드 스토리로 찾아뵙겠습니다. 잠시만 기다려 주시기 바랍니다.
-            </p>
           </div>
         </motion.div>
       </main>
