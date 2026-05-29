@@ -33,35 +33,35 @@ const steps = [
     step: "01",
     title: "화물 입고",
     desc: "수출입 화물 터미널로부터 화물을 안전하게 반입",
-    img: "extra_3.jpg",
+    img: "extra_26.jpg",
     icon: Truck,
   },
   {
     step: "02",
     title: "상·하차 및 하역",
     desc: "컨테이너 라이싱 및 전문 인력을 통한 안정적인 적재·하역",
-    img: "extra_12.jpg",
+    img: "service_logistics.jpg",
     icon: Forklift,
   },
   {
     step: "03",
     title: "스마트 검수 / 검역",
     desc: "입출고 시 수량 및 품질 점검을 통한 오배송 방지",
-    img: "extra_26.jpg",
+    img: "smart_inspection.png",
     icon: ClipboardCheck,
   },
   {
     step: "04",
     title: "유통가공 / 반가공",
     desc: "제품 조립, 반가공, 소포장 및 수출입 라벨링",
-    img: "extra_5.jpg",
+    img: "extra_22.jpg",
     icon: Package,
   },
   {
     step: "05",
     title: "프리미엄 보관 및 재고 관리",
     desc: "실시간 온·습도 관리 및 24시간 철저한 CCTV 보안",
-    img: "extra_29.png",
+    img: "2.jpg",
     icon: ShieldCheck,
   },
   {
@@ -336,7 +336,7 @@ export default function LogisticsPage() {
 
                 <div className="lg:col-span-6 relative h-[350px] md:h-[450px] rounded-[30px] overflow-hidden shadow-md">
                   <Image 
-                    src={`${ASSET}/extra_1.jpg`} 
+                    src={`${ASSET}/extra_10.jpg`} 
                     alt="Transportation trucks" 
                     fill 
                     className="object-cover"
