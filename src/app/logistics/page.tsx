@@ -40,21 +40,21 @@ const steps = [
     step: "02",
     title: "상·하차 및 하역",
     desc: "컨테이너 라이싱 및 전문 인력을 통한 안정적인 적재·하역",
-    img: "service_logistics.jpg",
+    img: "forklift_unloading.png",
     icon: Forklift,
   },
   {
     step: "03",
     title: "스마트 검수 / 검역",
     desc: "입출고 시 수량 및 품질 점검을 통한 오배송 방지",
-    img: "smart_inspection.png",
+    img: "smart_inspection_aerial.png",
     icon: ClipboardCheck,
   },
   {
     step: "04",
     title: "유통가공 / 반가공",
     desc: "제품 조립, 반가공, 소포장 및 수출입 라벨링",
-    img: "extra_22.jpg",
+    img: "distribution_processing.png",
     icon: Package,
   },
   {
@@ -68,7 +68,7 @@ const steps = [
     step: "06",
     title: "첨단 자동화 창고 운영",
     desc: "로보틱스 및 WMS 기반의 위탁 물류 운영",
-    img: "extra_32.png",
+    img: "automated_warehouse.png",
     icon: Cog,
   },
 ];
@@ -377,7 +377,7 @@ export default function LogisticsPage() {
                   title: "여수광양항 자유무역지역에\n위치한 전략적 거점",
                   desc: "광양항 컨테이너 터미널과의 초근접 위치 및 배후단지 내 핵심 세제 혜택(관세 유예, 각종 지방세 감면)을 활용해 수출입 물류의 최적의 허브 역할을 보장합니다.",
                   tags: ["#항만배후단지인접", "#관세유예및세제혜택", "#압도적접근성"],
-                  img: "gwangyang_map.png",
+                  img: "gwangyang_map_v3.png",
                 },
                 {
                   no: "02",
@@ -398,14 +398,14 @@ export default function LogisticsPage() {
                   title: "100% 정규직 직영\n운영 관리",
                   desc: "재도급 하청이나 단순 일용직 파견 인력 위주의 불안정한 창고 운영이 아닌, 본사 소속 정규직 현장 인력들이 24시간 철저히 검수·하역을 도맡아 무결점 보관 상태를 약속합니다.",
                   tags: ["#도급재하청없음", "#본사정규직현장상주", "#무결점책임물류"],
-                  img: "extra_10.jpg",
+                  img: "infra_card_4_korean.png",
                 },
                 {
                   no: "05",
                   title: "검증된 사업 인증 자격",
                   desc: "국제물류주선업, 화물자동차운송주선업, 근로자파견사업 등 정부 허가 정식 라이선스를 보유하고 있으며, ISO 9001(품질), 14001(환경), 45001(안전보건) 인증에 근거한 규격을 준수합니다.",
                   tags: ["#국제물류주선업", "#화물운송주선업", "#건설기계대여업", "#근로자파견사업허가", "#식물검역신고대행업", "#ISO45001,ISO14001,ISO9001"],
-                  img: "extra_11.jpg",
+                  img: "infra_card_5.png",
                 },
               ].map((item, idx) => (
                 <motion.div 
@@ -532,7 +532,7 @@ export default function LogisticsPage() {
                   className="relative h-[300px] md:h-[400px] rounded-[32px] overflow-hidden shadow-md group"
                 >
                   <Image 
-                    src={`${ASSET}/extra_29.png`} 
+                    src={`${ASSET}/Rack_upscaled.png`} 
                     alt="Pallet racking installation" 
                     fill 
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -579,7 +579,7 @@ export default function LogisticsPage() {
                   border: "border-red-100/50",
                   text: "text-red-900",
                   dot: "bg-red-500",
-                  img: "extra_10.jpg",
+                  img: "packaging_safety.png",
                   isRightImage: true,
                 },
                 {
@@ -594,7 +594,7 @@ export default function LogisticsPage() {
                   border: "border-blue-100/50",
                   text: "text-blue-900",
                   dot: "bg-blue-500",
-                  img: "extra_11.jpg",
+                  img: "packaging_labor.png",
                   isRightImage: false,
                 },
                 {
@@ -609,7 +609,7 @@ export default function LogisticsPage() {
                   border: "border-green-100/50",
                   text: "text-green-900",
                   dot: "bg-green-500",
-                  img: "extra_5.jpg",
+                  img: "extra_2.jpg",
                   isRightImage: true,
                 },
               ].map((pillar, idx) => (
