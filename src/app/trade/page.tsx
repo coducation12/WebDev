@@ -148,21 +148,24 @@ export default function TradePage() {
       <main className="flex-1">
 
         {/* ─── 1. 무역사업 소개 (#export-import) ─── */}
-        <section id="export-import" className="py-24 px-6 md:px-10 bg-neutral-50 scroll-mt-20">
+        <section id="export-import" className="pt-16 pb-20 px-6 md:px-10 bg-neutral-50 scroll-mt-20">
           <div className="max-w-[1300px] mx-auto">
-            {/* Title Section */}
+            {/* Title Section - Re-designed to elegant 2-column side-by-side layout to save vertical space */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-20 max-w-4xl mx-auto"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 pb-8 border-b border-neutral-200/40 w-full"
             >
-              <h2 className="text-3xl md:text-5xl font-black text-neutral-900 tracking-tight mb-2">어센틱 코리아</h2>
-              <p className="text-sm md:text-base font-black text-[#FF6A00] tracking-widest uppercase mb-6">Authentic Korea</p>
-              
-              <p className="text-sm md:text-base text-neutral-600 font-semibold leading-relaxed max-w-3xl mx-auto border-t border-neutral-200/40 pt-6">
-                탄탄한 물류 인프라를 바탕으로, 전 세계의 가치 있는 자원과 상품을 발굴하고 연결하는 수출입회사입니다.<br className="hidden md:inline" /> 우리는 단순한 중개를 넘어, 지구와 공동체에 이로운 흐름을 만드는 무역의 새로운 패러다임을 지향합니다.
-              </p>
+              <div className="lg:col-span-5 text-left">
+                <h2 className="text-3xl md:text-5xl font-black text-neutral-900 tracking-tight mb-2">어센틱 코리아</h2>
+                <p className="text-sm md:text-base font-black text-[#FF6A00] tracking-widest uppercase">Authentic Korea</p>
+              </div>
+              <div className="lg:col-span-7 text-left">
+                <p className="text-sm md:text-base text-neutral-600 font-semibold leading-relaxed">
+                  탄탄한 물류 인프라를 바탕으로, 전 세계의 가치 있는 자원과 상품을 발굴하고 연결하는 수출입회사입니다. 우리는 단순한 중개를 넘어, 지구와 공동체에 이로운 흐름을 만드는 무역의 새로운 패러다임을 지향합니다.
+                </p>
+              </div>
             </motion.div>
 
             {/* 3 Pillars Alternating Layout */}
