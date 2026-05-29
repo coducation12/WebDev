@@ -275,25 +275,23 @@ export default function TradePage() {
                     className="relative flex flex-col items-center"
                   >
                     {/* Step Card */}
-                    <div className="w-full bg-neutral-50 hover:bg-white border border-neutral-100/60 hover:border-[#FF6A00]/25 rounded-[32px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group min-h-[380px] justify-between shadow-sm">
-                      <div className="flex flex-col items-center w-full">
-                        {/* Step Number */}
-                        <span className="text-xl font-black text-[#FF6A00] mb-1">{item.num}</span>
-                        
-                        {/* Step Title & Subtitle */}
-                        <h4 className="text-base font-black text-neutral-950 mb-0.5 group-hover:text-[#FF6A00] transition-colors">{item.title}</h4>
-                        <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-6">{item.subTitle}</p>
-                        
-                        {/* Circular Icon Container */}
-                        <div className="w-20 h-20 rounded-full border-2 border-dashed border-[#FF6A00]/30 flex items-center justify-center p-1.5 transition-all duration-500 group-hover:border-solid group-hover:border-[#FF6A00] group-hover:rotate-6 bg-white mb-6 shadow-sm">
-                          <div className="w-full h-full rounded-full bg-[#FFF5EF] text-[#FF6A00] flex items-center justify-center">
-                            <StepIcon size={28} strokeWidth={1.8} />
-                          </div>
+                    <div className="w-full bg-neutral-50 hover:bg-white border border-neutral-100/60 hover:border-[#FF6A00]/25 rounded-[32px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group shadow-sm">
+                      {/* Step Number */}
+                      <span className="text-xl font-black text-[#FF6A00] mb-1">{item.num}</span>
+                      
+                      {/* Step Title & Subtitle */}
+                      <h4 className="text-base font-black text-neutral-950 mb-0.5 group-hover:text-[#FF6A00] transition-colors">{item.title}</h4>
+                      <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-6">{item.subTitle}</p>
+                      
+                      {/* Circular Icon Container */}
+                      <div className="w-20 h-20 rounded-full border-2 border-dashed border-[#FF6A00]/30 flex items-center justify-center p-1.5 transition-all duration-500 group-hover:border-solid group-hover:border-[#FF6A00] group-hover:rotate-6 bg-white mb-6 shadow-sm">
+                        <div className="w-full h-full rounded-full bg-[#FFF5EF] text-[#FF6A00] flex items-center justify-center">
+                          <StepIcon size={28} strokeWidth={1.8} />
                         </div>
                       </div>
 
                       {/* Step Description */}
-                      <p className="text-xs font-semibold text-neutral-500 leading-relaxed mt-2">
+                      <p className="text-xs font-semibold text-neutral-500 leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
