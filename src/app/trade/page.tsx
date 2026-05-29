@@ -146,23 +146,6 @@ export default function TradePage() {
       </div>
 
       <main className="flex-1">
-        
-        {/* ─── Hero Banner ─── */}
-        <section className="px-6 md:px-10 pt-20 pb-16 max-w-[1400px] mx-auto text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: APPLE_EASE }}
-          >
-            <h4 className="text-[#6A0DAD] font-bold tracking-widest text-sm mb-4 uppercase">Global Trade</h4>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tighter text-neutral-900 mb-6">
-              국경을 넘는<br />글로벌 무역 파트너
-            </h1>
-            <p className="text-lg md:text-xl text-neutral-500 font-medium max-w-2xl mx-auto">
-              안정적인 국제물류시스템을 기반으로 다양한 글로벌 무역 비즈니스를 지원합니다.
-            </p>
-          </motion.div>
-        </section>
 
         {/* ─── 1. 무역사업 소개 (#export-import) ─── */}
         <section id="export-import" className="py-24 px-6 md:px-10 bg-neutral-50 scroll-mt-20">
