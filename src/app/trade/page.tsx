@@ -4,19 +4,91 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { Globe, RefreshCcw, Landmark, LineChart, Handshake, Compass, Lightbulb, Search } from "lucide-react";
 
 const APPLE_EASE = [0.32, 0.72, 0, 1];
 const ASSET = "/assets/images";
 
 export default function TradePage() {
+  const [activeSection, setActiveSection] = useState("export-import");
+
+  // Track scroll section for Sticky Sub-Navigation
+  useEffect(() => {
+    const sections = ["export-import", "agency", "market"];
+    const observerOptions = {
+      root: null,
+      rootMargin: "-25% 0px -55% 0px", // triggers when section dominates the viewport
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
+
   return (
     <div className="bg-white text-black font-sans min-h-screen flex flex-col selection:bg-[#6A0DAD] selection:text-white">
       <Header />
-      <main className="flex-1 pt-32 pb-32">
+
+      {/* ─── Sticky Sub-Navigation Bar ─── */}
+      <div className="sticky top-[64px] z-40 bg-white/95 backdrop-blur-xl border-b border-neutral-100 py-2.5 shadow-sm transition-all mt-[88px]">
+        <div className="max-w-[1300px] mx-auto px-6 md:px-10 flex justify-center overflow-x-auto scrollbar-none">
+          <div className="flex gap-2 sm:gap-4 md:gap-6 whitespace-nowrap">
+            {[
+              { id: "export-import", label: "글로벌 수출입 서비스" },
+              { id: "agency", label: "구매 및 판매대행" },
+              { id: "market", label: "시장 조사 및 판로 개척" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => {
+                  const el = document.getElementById(tab.id);
+                  if (el) {
+                    const offset = 125; // adjustment for header + subnav
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = el.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: "smooth",
+                    });
+                  }
+                }}
+                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-black transition-all ${
+                  activeSection === tab.id
+                    ? "bg-[#6A0DAD] text-white shadow-lg shadow-[#6A0DAD]/15"
+                    : "text-neutral-400 hover:text-neutral-800 hover:bg-neutral-50"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <main className="flex-1">
         
         {/* ─── Hero Banner ─── */}
-        <section className="px-6 md:px-10 mb-20 max-w-[1400px] mx-auto text-center">
+        <section className="px-6 md:px-10 pt-20 pb-16 max-w-[1400px] mx-auto text-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
