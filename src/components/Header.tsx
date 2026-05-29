@@ -71,7 +71,7 @@ export default function Header() {
                     } else if (menu.name === "글로벌 무역") {
                       if (sub === "글로벌 수출입 서비스") href = "/trade#export-import";
                       else if (sub === "구매 및 판매대행") href = "/trade#agency";
-                      else if (sub === "시장 조사 및 판로 개척") href = "/trade#market";
+                      else if (sub === "시장 조사 및 판로 개척") href = "/brand";
                     }
                     return (
                       <Link 
