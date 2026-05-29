@@ -48,7 +48,7 @@ export default function Header() {
           ].map((menu) => (
             <div key={menu.name} className="group relative py-4">
               <Link 
-                href={menu.name === "회사 소개" ? "/about" : menu.name === "물류 서비스" ? "/logistics" : menu.name === "글로벌 무역" ? "/trade" : "#"}
+                href={menu.name === "회사 소개" ? "/about" : menu.name === "물류 서비스" ? "/logistics" : menu.name === "글로벌 무역" ? "/trade" : menu.name === "문의하기" ? "/contact" : "#"}
                 className="text-[14px] font-bold text-neutral-600 hover:text-[#6A0DAD] transition-colors flex items-center gap-1"
               >
                 {menu.name}
@@ -72,6 +72,9 @@ export default function Header() {
                       if (sub === "사업소개") href = "/trade#export-import";
                       else if (sub === "수출입 업무 대행") href = "/trade#agency";
                       else if (sub === "브랜드 소개") href = "/brand";
+                    } else if (menu.name === "문의하기") {
+                      if (sub === "물류 문의") href = "/contact?type=logistics";
+                      else if (sub === "무역 문의") href = "/contact?type=trade";
                     }
                     return (
                       <Link 

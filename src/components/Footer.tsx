@@ -57,7 +57,7 @@ export default function Footer({ minimal = false }: FooterProps) {
                   비즈니스 파트너십 또는 <br />
                   서비스 문의를 환영합니다.
                 </p>
-                <Link href="#" className="inline-flex items-center gap-2 mt-4 text-neutral-900 font-bold text-xs uppercase tracking-widest hover:gap-3 transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 mt-4 text-neutral-900 font-bold text-xs uppercase tracking-widest hover:gap-3 transition-all">
                   Contact <ArrowRight size={14} />
                 </Link>
               </div>
