@@ -163,7 +163,7 @@ export default function TradePage() {
               </div>
               <div className="lg:col-span-7 text-left">
                 <p className="text-sm md:text-base text-neutral-600 font-semibold leading-relaxed">
-                  탄탄한 물류 인프라를 바탕으로, 전 세계의 가치 있는 자원과 상품을 발굴하고 연결하는 수출입회사입니다. 우리는 단순한 중개를 넘어, 지구와 공동체에 이로운 흐름을 만드는 무역의 새로운 패러다임을 지향합니다.
+                  탄탄한 물류 인프라를 바탕으로, 전 세계의 가치 있는 자원과 상품을 발굴하고 연결하는 수출입회사입니다.<br />우리는 단순한 중개를 넘어, 지구와 공동체에 이로운 흐름을 만드는 무역의 새로운 패러다임을 지향합니다.
                 </p>
               </div>
             </motion.div>
