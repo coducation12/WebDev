@@ -377,21 +377,21 @@ export default function LogisticsPage() {
                   title: "여수광양항 자유무역지역에\n위치한 전략적 거점",
                   desc: "광양항 컨테이너 터미널과의 초근접 위치 및 배후단지 내 핵심 세제 혜택(관세 유예, 각종 지방세 감면)을 활용해 수출입 물류의 최적의 허브 역할을 보장합니다.",
                   tags: ["#항만배후단지인접", "#관세유예및세제혜택", "#압도적접근성"],
-                  img: "extra_12.jpg",
+                  img: "gwangyang_map.png",
                 },
                 {
                   no: "02",
                   title: "화주 맞춤형 독립 창고",
                   desc: "총 부지 4만 평(132,000㎡) 및 창고 2만 평(66,000㎡)의 초대형 스케일을 확보하여, 화주별 프라이버시가 존중되는 아파트형 격벽 구조 독립 물류창고를 맞춤형으로 분할 매칭합니다.",
                   tags: ["#부지4만평_창고2만평", "#아파트형분할구획", "#철저한보안관리"],
-                  img: "extra_29.png",
+                  img: "extra_8.jpg",
                 },
                 {
                   no: "03",
                   title: "자체 항만 하역 및\n대형 운송 장비",
                   desc: "외부 임대 대기 장비 시간을 최소화(Zero)하기 위해 대형 컨테이너 상하차용 리치스태커, 3톤에서 14톤에 달하는 현장 대형 지게차, 특수 트레일러 샤시 라인업을 자사 기기로 완비하고 있습니다.",
                   tags: ["#지게차", "#리치스태커", "#트레일러_샤시", "#외주대기시간Zero"],
-                  img: "extra_26.jpg",
+                  img: "extra_1.jpg",
                 },
                 {
                   no: "04",
@@ -415,7 +415,7 @@ export default function LogisticsPage() {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.08 }}
                   className={`group relative rounded-[28px] overflow-hidden aspect-[4/5] md:aspect-auto md:h-[360px] shadow-sm hover:shadow-xl transition-all duration-500 border border-neutral-100 flex flex-col justify-end p-6 ${
-                    idx === 3 ? "lg:col-span-2" : ""
+                    idx === 0 ? "lg:col-span-2" : ""
                   }`}
                 >
                   {/* Background Image */}
