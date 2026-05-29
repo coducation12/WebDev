@@ -108,8 +108,8 @@ export default function TradePage() {
         <div className="max-w-[1300px] mx-auto px-6 md:px-10 flex justify-center overflow-x-auto scrollbar-none">
           <div className="flex gap-2 sm:gap-4 md:gap-6 whitespace-nowrap">
             {[
-              { id: "export-import", label: "글로벌 수출입 서비스" },
-              { id: "agency", label: "구매 및 판매대행" },
+              { id: "export-import", label: "사업소개" },
+              { id: "agency", label: "수출입 업무 대행" },
               { id: "market", label: "브랜드 소개" },
             ].map((tab) => (
               <button

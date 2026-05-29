@@ -39,7 +39,7 @@ export default function Header() {
             },
             { 
               name: "글로벌 무역", 
-              subs: ["글로벌 수출입 서비스", "구매 및 판매대행", "브랜드 소개"] 
+              subs: ["사업소개", "수출입 업무 대행", "브랜드 소개"] 
             },
             { 
               name: "문의하기", 
@@ -69,8 +69,8 @@ export default function Header() {
                       else if (sub === "물류 장비 개발 및 제작") href = "/logistics#equipment";
                       else if (sub === "물류 전문 포장") href = "/logistics#packaging";
                     } else if (menu.name === "글로벌 무역") {
-                      if (sub === "글로벌 수출입 서비스") href = "/trade#export-import";
-                      else if (sub === "구매 및 판매대행") href = "/trade#agency";
+                      if (sub === "사업소개") href = "/trade#export-import";
+                      else if (sub === "수출입 업무 대행") href = "/trade#agency";
                       else if (sub === "브랜드 소개") href = "/brand";
                     }
                     return (
