@@ -243,8 +243,8 @@ export default function TradePage() {
           </div>
         </section>
 
-        {/* ─── 2. 구매 및 판매대행 (#agency) ─── */}
-        <section id="agency" className="py-24 px-6 md:px-10 bg-white border-y border-neutral-100 scroll-mt-20">
+        {/* ─── 2. 수출입 업무 대행 (#agency) ─── */}
+        <section id="agency" className="py-32 px-6 md:px-10 bg-white border-y border-neutral-100 scroll-mt-20">
           <div className="max-w-[1400px] mx-auto">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
@@ -261,51 +261,53 @@ export default function TradePage() {
               </p>
             </motion.div>
 
-            {/* Process Timeline Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 relative">
-              {steps.map((item, idx) => {
-                const StepIcon = item.icon;
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.05 }}
-                    className="relative flex flex-col items-center"
-                  >
-                    {/* Step Card */}
-                    <div className="w-full bg-neutral-50 border border-neutral-100 hover:border-[#FF6A00]/25 rounded-[32px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
-                      
-                      {/* Step Number */}
-                      <span className="text-xl font-black text-[#FF6A00] mb-1">{item.num}</span>
-                      
-                      {/* Step Title & Subtitle */}
-                      <h4 className="text-base font-black text-neutral-950 mb-0.5 group-hover:text-[#FF6A00] transition-colors">{item.title}</h4>
-                      <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-6">{item.subTitle}</p>
-                      
-                      {/* Circular Icon Container */}
-                      <div className="w-20 h-20 rounded-full border-2 border-dashed border-[#FF6A00]/30 flex items-center justify-center p-1.5 transition-all duration-500 group-hover:border-solid group-hover:border-[#FF6A00] group-hover:rotate-6 bg-white mb-6 shadow-sm">
-                        <div className="w-full h-full rounded-full bg-[#FFF5EF] text-[#FF6A00] flex items-center justify-center">
-                          <StepIcon size={28} strokeWidth={1.8} />
+            {/* Unified Process Timeline Container */}
+            <div className="bg-neutral-50/80 border border-neutral-100 rounded-[48px] p-8 md:p-12 lg:p-16 shadow-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 relative">
+                {steps.map((item, idx) => {
+                  const StepIcon = item.icon;
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.05 }}
+                      className="relative flex flex-col items-center"
+                    >
+                      {/* Step Card */}
+                      <div className="w-full bg-white border border-neutral-100 hover:border-[#FF6A00]/20 rounded-[32px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1.5 group shadow-sm shadow-neutral-100/50">
+                        
+                        {/* Step Number */}
+                        <span className="text-xl font-black text-[#FF6A00] mb-1">{item.num}</span>
+                        
+                        {/* Step Title & Subtitle */}
+                        <h4 className="text-base font-black text-neutral-950 mb-0.5 group-hover:text-[#FF6A00] transition-colors">{item.title}</h4>
+                        <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-6">{item.subTitle}</p>
+                        
+                        {/* Circular Icon Container */}
+                        <div className="w-20 h-20 rounded-full border-2 border-dashed border-[#FF6A00]/30 flex items-center justify-center p-1.5 transition-all duration-500 group-hover:border-solid group-hover:border-[#FF6A00] group-hover:rotate-6 bg-white mb-6 shadow-sm">
+                          <div className="w-full h-full rounded-full bg-[#FFF5EF] text-[#FF6A00] flex items-center justify-center">
+                            <StepIcon size={28} strokeWidth={1.8} />
+                          </div>
                         </div>
+
+                        {/* Step Description */}
+                        <p className="text-xs font-semibold text-neutral-500 leading-relaxed">
+                          {item.desc}
+                        </p>
                       </div>
 
-                      {/* Step Description */}
-                      <p className="text-xs font-semibold text-neutral-500 leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-
-                    {/* Timeline Connector Chevron */}
-                    {idx < 5 && (
-                      <div className="hidden xl:flex absolute top-1/2 -right-3.5 -translate-y-1/2 translate-x-1/2 w-7 h-7 rounded-full bg-white border border-neutral-100 shadow-sm items-center justify-center text-neutral-400 z-10">
-                        <ArrowRight size={12} strokeWidth={3} className="text-[#FF6A00]" />
-                      </div>
-                    )}
-                  </motion.div>
-                );
-              })}
+                      {/* Timeline Connector Chevron */}
+                      {idx < 5 && (
+                        <div className="hidden xl:flex absolute top-1/2 -right-3.5 -translate-y-1/2 translate-x-1/2 w-7 h-7 rounded-full bg-white border border-neutral-100 shadow-sm items-center justify-center text-neutral-400 z-10 animate-pulse">
+                          <ArrowRight size={12} strokeWidth={3} className="text-[#FF6A00]" />
+                        </div>
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
