@@ -166,7 +166,7 @@ export default function TradePage() {
             </motion.div>
 
             {/* 3 Pillars Alternating Layout */}
-            <div className="space-y-16">
+            <div className="space-y-10">
               {[
                 {
                   title: "Conscious Cycle",
@@ -196,10 +196,10 @@ export default function TradePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.05 }}
-                  className="bg-white rounded-[40px] border border-neutral-100 p-8 md:p-12 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+                  className="bg-white rounded-[40px] border border-neutral-100 p-6 md:p-8 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
                 >
                   {/* Text Block */}
-                  <div className={`lg:col-span-7 flex flex-col justify-center ${pillar.isRightImage ? "" : "lg:order-last"}`}>
+                  <div className={`lg:col-span-8 flex flex-col justify-center ${pillar.isRightImage ? "" : "lg:order-last"}`}>
                     <div>
                       <h4 className="text-xl md:text-2xl font-black text-[#FF6A00] mb-1">
                         {pillar.title}
@@ -214,7 +214,7 @@ export default function TradePage() {
                   </div>
 
                   {/* Image Block */}
-                  <div className="lg:col-span-5 relative h-[240px] md:h-[300px] rounded-[30px] overflow-hidden shadow-sm border border-neutral-100 group">
+                  <div className="lg:col-span-4 relative h-[180px] md:h-[220px] rounded-[30px] overflow-hidden shadow-sm border border-neutral-100 group">
                     <Image 
                       src={`${ASSET}/${pillar.img}`} 
                       alt={pillar.title} 
