@@ -255,7 +255,7 @@ export default function AboutPage() {
                       <h5 className="text-sm sm:text-base font-black tracking-tight mb-1">GRADIENT L3</h5>
                       <span className="text-xs font-bold text-white/70 block mb-5">Deep Purple</span>
                       <div className="space-y-1 text-xs text-white/85 font-semibold leading-normal">
-                        <p><span className="text-white/60 font-bold mr-1">CMYK:</span> C75 M100 K30</p>
+                        <p><span className="text-white/60 font-bold mr-1">CMYK:</span> C75 M100</p>
                         <p><span className="text-white/60 font-bold mr-1">RGB:</span> 81, 25, 102</p>
                       </div>
                     </div>
