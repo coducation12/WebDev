@@ -45,7 +45,7 @@ const steps = [
   },
   {
     step: "03",
-    title: "스마트 검수 / 검역",
+    title: "검수 / 검역",
     desc: "입출고 시 수량 및 품질 점검을 통한 오배송 방지",
     img: "smart_inspection_aerial.png",
     icon: ClipboardCheck,
@@ -59,7 +59,7 @@ const steps = [
   },
   {
     step: "05",
-    title: "프리미엄 보관 및 재고 관리",
+    title: "보관 및 재고 관리",
     desc: "실시간 온·습도 관리 및 24시간 철저한 CCTV 보안",
     img: "2.jpg",
     icon: ShieldCheck,
@@ -171,11 +171,12 @@ export default function LogisticsPage() {
               viewport={{ once: true }}
               className="mb-14 text-left max-w-none"
             >
-              <div className="flex items-center gap-3 justify-start mb-5">
-                <div className="w-10 h-10 rounded-full bg-[#F3E8FF] text-[#6A0DAD] flex items-center justify-center flex-shrink-0 border border-[#6A0DAD]/10 shadow-sm">
-                  <Ship size={18} strokeWidth={2.5} />
+              <div className="flex items-center gap-4.5 justify-start mb-6">
+                <div className="flex gap-[4px] items-center flex-shrink-0">
+                  <span className="w-[7px] h-8 md:h-10 lg:h-11 bg-[#6A0DAD] rounded-[2px]" />
+                  <span className="w-[3px] h-6 md:h-8 lg:h-9 bg-[#6A0DAD]/50 rounded-[1px]" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900">국제물류서비스</h2>
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">국제물류서비스</h2>
               </div>
               <p className="text-base md:text-lg text-neutral-600 font-semibold leading-relaxed">
                 해외 소싱 연계 및 전문 통관 파트너십을 시작으로 보세 보관, 전문 포장, 특수 운송까지 아우르는 <strong className="text-[#6A0DAD] font-black">'원스톱 종합 물류 서비스'</strong>를 지향합니다.
@@ -196,9 +197,9 @@ export default function LogisticsPage() {
                     <Ship size={28} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-1 text-neutral-900">포워딩<span className="font-sans font-normal">&amp;</span>국제운송</h4>
+                    <h4 className="text-lg md:text-[21px] font-black tracking-tight mb-1 text-neutral-900">포워딩<span className="font-sans font-normal">&amp;</span>국제운송</h4>
                     <p className="text-[11px] font-bold text-neutral-400 uppercase tracking-widest mb-4">(Forwarding <span className="font-sans font-normal">&amp;</span> International Transport)</p>
-                    <p className="text-neutral-500 font-medium leading-relaxed text-[15px]">
+                    <p className="text-neutral-600 font-semibold leading-relaxed text-[16px]">
                       자체 물류 인프라와 글로벌 네트워크를 연계하여 최적의 수출입 운송 경로를 설계합니다.
                     </p>
                   </div>
@@ -214,9 +215,9 @@ export default function LogisticsPage() {
                     <ClipboardCheck size={28} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-1 text-neutral-900">수출입 통관<span className="font-sans font-normal">&amp;</span>검역</h4>
+                    <h4 className="text-lg md:text-[21px] font-black tracking-tight mb-1 text-neutral-900">수출입 통관<span className="font-sans font-normal">&amp;</span>검역</h4>
                     <p className="text-[11px] font-bold text-neutral-400 uppercase tracking-widest mb-4">(Customs Clearance <span className="font-sans font-normal">&amp;</span> Quarantine)</p>
-                    <p className="text-neutral-500 font-medium leading-relaxed text-[15px]">
+                    <p className="text-neutral-600 font-semibold leading-relaxed text-[16px]">
                       복잡한 관세 행정과 검역 절차를 신속하고 정확하게 대행합니다.
                     </p>
                   </div>
@@ -278,12 +279,12 @@ export default function LogisticsPage() {
                         </div>
                         
                         {/* Content with padding */}
-                        <div className="p-5 pt-3 flex flex-col items-center flex-1">
+                        <div className="px-2 sm:px-3 lg:px-4 pt-3 pb-5 flex flex-col items-center flex-1">
                           {/* Title & Description */}
-                          <h4 className={`text-sm md:text-base font-black mb-2 tracking-tight transition-colors duration-500 ${
+                          <h4 className={`text-base md:text-[17px] font-black mb-2 tracking-tighter break-keep transition-colors duration-500 ${
                             isHighlighted ? "text-[#6A0DAD]" : "text-neutral-900"
                           }`}>{item.title}</h4>
-                          <p className={`text-[11px] md:text-xs font-bold leading-normal transition-colors duration-500 ${
+                          <p className={`text-xs md:text-[13px] font-bold leading-normal break-keep transition-colors duration-500 ${
                             isHighlighted ? "text-neutral-500" : "text-neutral-400"
                           }`}>{item.desc}</p>
                         </div>
@@ -310,9 +311,9 @@ export default function LogisticsPage() {
               <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-8 border-l-4 border-[#6A0DAD] pl-4">3) 운송 서비스 (Transportation Service)</h3>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white p-8 md:p-12 rounded-[40px] border border-neutral-100/60 shadow-sm">
                 
-                <div className="lg:col-span-6">
+                <div className="lg:col-span-7">
                   <h4 className="text-2xl font-black tracking-tight text-neutral-900 mb-6 leading-tight">
-                    다양한 화물 특성에 맞춘<br />최적의 운송 라인업
+                    다양한 화물 특성에 맞춘 최적의 운송 라인업
                   </h4>
                   <div className="space-y-6">
                     {[
@@ -326,15 +327,15 @@ export default function LogisticsPage() {
                           <CheckCircle2 size={13} strokeWidth={3} />
                         </div>
                         <div>
-                          <h5 className="font-bold text-neutral-900 text-sm md:text-base">{svc.title}</h5>
-                          <p className="text-xs md:text-sm text-neutral-500 font-medium mt-0.5">{svc.desc}</p>
+                          <h5 className="font-bold text-neutral-900 text-base md:text-[17px] tracking-tight">{svc.title}</h5>
+                          <p className="text-sm md:text-[15px] text-neutral-600 font-medium mt-1 break-keep leading-relaxed">{svc.desc}</p>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="lg:col-span-6 relative h-[350px] md:h-[450px] rounded-[30px] overflow-hidden shadow-md">
+                <div className="lg:col-span-5 relative h-[300px] md:h-[400px] rounded-[30px] overflow-hidden shadow-md">
                   <Image 
                     src={`${ASSET}/extra_10.jpg`} 
                     alt="Transportation trucks" 
@@ -358,11 +359,12 @@ export default function LogisticsPage() {
               viewport={{ once: true }}
               className="mb-14 text-left max-w-none"
             >
-              <div className="flex items-center gap-3 justify-start mb-5">
-                <div className="w-10 h-10 rounded-full bg-[#F3E8FF] text-[#6A0DAD] flex items-center justify-center flex-shrink-0 border border-[#6A0DAD]/10 shadow-sm">
-                  <Warehouse size={18} strokeWidth={2.5} />
+              <div className="flex items-center gap-4.5 justify-start mb-6">
+                <div className="flex gap-[4px] items-center flex-shrink-0">
+                  <span className="w-[7px] h-8 md:h-10 lg:h-11 bg-[#6A0DAD] rounded-[2px]" />
+                  <span className="w-[3px] h-6 md:h-8 lg:h-9 bg-[#6A0DAD]/50 rounded-[1px]" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900">물류 인프라</h2>
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">물류 인프라</h2>
               </div>
               <p className="text-base md:text-lg text-neutral-600 font-semibold leading-relaxed">
                 여수 광양항 자유무역지역 내 보세·자동화 설비의 전문 운영 관리를 기반으로, 직영 인력의 책임 하에 효율적이고 <strong className="text-[#6A0DAD] font-black">'안정적인 화물 관리 인프라'</strong>를 운영합니다.
@@ -460,11 +462,12 @@ export default function LogisticsPage() {
               viewport={{ once: true }}
               className="mb-14 text-left max-w-none"
             >
-              <div className="flex items-center gap-3 justify-start mb-5">
-                <div className="w-10 h-10 rounded-full bg-[#F3E8FF] text-[#6A0DAD] flex items-center justify-center flex-shrink-0 border border-[#6A0DAD]/10 shadow-sm">
-                  <Cog size={18} strokeWidth={2.5} />
+              <div className="flex items-center gap-4.5 justify-start mb-6">
+                <div className="flex gap-[4px] items-center flex-shrink-0">
+                  <span className="w-[7px] h-8 md:h-10 lg:h-11 bg-[#6A0DAD] rounded-[2px]" />
+                  <span className="w-[3px] h-6 md:h-8 lg:h-9 bg-[#6A0DAD]/50 rounded-[1px]" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900">물류 장비 개발 및 제작</h2>
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">물류 장비 개발 및 제작</h2>
               </div>
               <p className="text-base md:text-lg text-neutral-600 font-semibold leading-relaxed">
                 실무 운영 노하우를 바탕으로 최고의 공간 효율을 보장하는 <strong className="text-[#6A0DAD] font-black">'고객 맞춤형 물류 기기 및 랙(Rack) 시스템'</strong>을 설계·제작합니다.
@@ -499,11 +502,23 @@ export default function LogisticsPage() {
                   className="bg-white border border-neutral-100 rounded-[32px] p-8 md:p-10 shadow-sm hover:shadow-xl hover:border-neutral-200/50 transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 bg-[#F8F5FF] rounded-2xl flex items-center justify-center text-[#6A0DAD] mb-6">
-                      <item.icon size={24} />
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-12 h-12 bg-[#F8F5FF] rounded-2xl flex items-center justify-center text-[#6A0DAD] flex-shrink-0">
+                        <item.icon size={24} />
+                      </div>
+                      <h4 className="text-lg md:text-xl font-black text-neutral-900 tracking-tight">
+                        {item.title.includes("&") ? (
+                          <>
+                            {item.title.split("&")[0]}
+                            <span className="font-sans font-normal">&amp;</span>
+                            {item.title.split("&")[1]}
+                          </>
+                        ) : (
+                          item.title
+                        )}
+                      </h4>
                     </div>
-                    <h4 className="text-xl font-bold text-neutral-900 mb-4">{item.title}</h4>
-                    <p className="text-neutral-500 font-medium leading-relaxed text-[14px]">
+                    <p className="text-neutral-600 font-medium leading-relaxed text-[15px] sm:text-[16px]">
                       {item.desc}
                     </p>
                   </div>
@@ -557,14 +572,15 @@ export default function LogisticsPage() {
               viewport={{ once: true }}
               className="mb-14 text-left max-w-none"
             >
-              <div className="flex items-center gap-3 justify-start mb-5">
-                <div className="w-10 h-10 rounded-full bg-[#F3E8FF] text-[#6A0DAD] flex items-center justify-center flex-shrink-0 border border-[#6A0DAD]/10 shadow-sm">
-                  <Users size={18} strokeWidth={2.5} />
+              <div className="flex items-center gap-4.5 justify-start mb-6">
+                <div className="flex gap-[4px] items-center flex-shrink-0">
+                  <span className="w-[7px] h-8 md:h-10 lg:h-11 bg-[#6A0DAD] rounded-[2px]" />
+                  <span className="w-[3px] h-6 md:h-8 lg:h-9 bg-[#6A0DAD]/50 rounded-[1px]" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900">물류 전문 포장</h2>
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">물류 전문 포장</h2>
               </div>
               <p className="text-base md:text-lg text-neutral-600 font-semibold leading-relaxed">
-                여수산단 대기업의 상시 조업라인을 대행하며 완벽한 안전 관리 하에 <strong className="text-[#6A0DAD] font-black">'최고 수준의 제품 포장·출고 솔루션'</strong>을 지원합니다.
+                제품 생산라인 협력파트너로서, 포장부터 출고와 시설정비까지 <strong className="text-[#6A0DAD] font-black">'최고의 안전과 노무 관리 체계'</strong>를 갖추었습니다.
               </p>
             </motion.div>
 
@@ -574,10 +590,10 @@ export default function LogisticsPage() {
                 {
                   title: "치밀한 안전관리",
                   bullets: [
-                    "전담 안전관리담당자 2명 전격 상주 배치 (책임자 1명, 실무자 1명)",
-                    "일상적인 지속적 안전 예방 교육 : 사업장 내 자체 안전보건 교육장 개설 및 일 단위 상시 직원 안전수칙 전파",
-                    "선제적 위험 요인 발굴 및 예방 조치 : 현장의 유기물 취급, 중장비 동선 상 위험요소 상시 모니터링",
-                    "전 조업원 대상 단체 안전 상해보험 가입 지원으로 복리후생 책임성 강화",
+                    { b: "전담 안전관리담당 2명 배치", n: "책임자 1명, 실무자 1명" },
+                    { b: "일상적인 지속적 교육", n: "사업장내 교육장 설치, 상시적인 직원 안전교육 실시" },
+                    { b: "선제적 사고예방", n: "작업현장 내 작업관련 위험요소를 적극적으로 개선" },
+                    { b: "전직원 안전 상해보험 가입", n: "" }
                   ],
                   bg: "bg-[#FFF9F9]",
                   border: "border-red-100/50",
@@ -589,10 +605,10 @@ export default function LogisticsPage() {
                 {
                   title: "합리적 노무관리",
                   bullets: [
-                    "노사 간 양방향 신뢰 구축 : 다각적 소통 대화 채널 개방 및 노사협의회 상시 소집 운영",
-                    "투명한 경영상황 및 대내외 환경 변화 수시 공유 : 분기별 경영 상황, 수주 전망 정보 개방",
-                    "일상적 노무 협력 프로세스 : 일일 조장 회의를 통한 현장의 세부 애로사항 발굴 및 선제적 노사분규 차단",
-                    "합리적인 임단협 가이드 준수 : 상호 신뢰와 투명 경영 수치를 기본으로 한 대화 타결",
+                    { b: "노사간 신뢰구축", n: "다양한 대화채널 확대 및 상시적 대화" },
+                    { b: "경영환경 및 환경변화 공유", n: "경영상황, 전망 등 정보 자료 공유" },
+                    { b: "일상적 노무협력", n: "현장의 소리 적극적 반영, 선제적 대책제시" },
+                    { b: "합리적 임단협 진행", n: "상호 신뢰를 바탕으로 합리적인 대화" }
                   ],
                   bg: "bg-[#F9FCFF]",
                   border: "border-blue-100/50",
@@ -604,10 +620,10 @@ export default function LogisticsPage() {
                 {
                   title: "지속적 현장혁신",
                   bullets: [
-                    "일상적인 작업 효율 동선 개선 : 장비의 배치 변경, 인력 및 지게차 이동 노선 구역 세분화",
-                    "작업 장비 현대화 및 기계화/자동화 : 현장 수작업 포장 공정 자동화 설비 제안 및 정합성 최적화 지원",
-                    "현장 안전 및 설비 성능 혁신 활동 : 상시 고장 부위 분석을 통한 예방 정비 기동 체계 구비",
-                    "현장-관리 합동 혁신 TF팀 운영 : 상시 직급을 파괴한 아이디어 공유 회의 진행",
+                    { b: "일상적인 작업동선 개선", n: "장비, 인력이동, 화물동선 합리적 개선" },
+                    { b: "작업장비 현대화 자동화", n: "현장안전 개선 및 인력대체 효과" },
+                    { b: "안전관리 극대화를 위한 혁신", n: "일상적인 작업현장 안전시설과 장비 혁신" },
+                    { b: "자체적으로 혁신팀 운영", n: "관리자, 현장인력 공동으로 혁신팀 구성" }
                   ],
                   bg: "bg-[#F9FFF9]",
                   border: "border-green-100/50",
@@ -632,12 +648,13 @@ export default function LogisticsPage() {
                         <span className={`w-2.5 h-2.5 rounded-full ${pillar.dot}`} />
                         {pillar.title}
                       </h4>
-                      <ul className="space-y-2">
+                      <ul className="space-y-3">
                         {pillar.bullets.map((bullet, bIdx) => (
                           <li key={bIdx} className="flex items-start gap-2.5">
-                            <span className={`mt-1.5 w-1 h-1 rounded-full flex-shrink-0 ${pillar.dot}`} />
-                            <span className="text-[13px] font-semibold text-neutral-600 leading-normal">
-                              {bullet}
+                            <span className={`mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 ${pillar.dot}`} />
+                            <span className="text-[15px] sm:text-[16px] text-neutral-700 leading-relaxed break-keep">
+                              <strong className="font-extrabold text-neutral-900">{bullet.b}</strong>
+                              {bullet.n ? ` : ${bullet.n}` : ""}
                             </span>
                           </li>
                         ))}
