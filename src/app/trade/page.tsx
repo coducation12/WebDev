@@ -68,6 +68,7 @@ const steps = [
 
 export default function TradePage() {
   const [activeSection, setActiveSection] = useState("export-import");
+  const [activeTab, setActiveTab] = useState(0);
 
   // Track scroll section for Sticky Sub-Navigation
   useEffect(() => {
@@ -168,66 +169,84 @@ export default function TradePage() {
               </div>
             </motion.div>
 
-            {/* 3 Pillars Alternating Layout */}
-            <div className="space-y-10">
-              {[
+            {/* 3 Pillars Signature representative layout (Option 1: Hero Hub) */}
+            {(() => {
+              const pillars = [
                 {
+                  num: "01",
                   title: "Conscious Cycle",
                   subTitle: "의식 있는 순환",
                   desc: "우리는 대량 생산의 결과물보다 작은 공방의 정성이 깃든 제품, 그리고 자연을 생각하며 가꾼 유기농 식재료의 가치를 믿습니다. 깨끗한 환경과 더 나은 공동체를 위해 노력하는 생산자들의 진심을 수입하고, 그들의 철학이 한국 시장에 온전히 전달될 수 있도록 응원합니다.",
-                  img: "trade_conscious.png",
-                  isRightImage: true,
                 },
                 {
+                  num: "02",
                   title: "Sustainable Supply & Resources",
                   subTitle: "지속 가능한 자원과 산업",
                   desc: "우리의 책임감은 산업의 기반이 되는 원자료와 자원 무역에서도 이어집니다. 친환경·고효율 산업재와 친환경 제조 연계, 자원 수입 및 다각적인 연계무역을 통해 산업 현장에 안정적이고 지속 가능한 공급망을 제공합니다. 환경에 미치는 영향을 최소화하는 자원 순환형 비즈니스로 산업의 미래를 함께 다집니다.",
-                  img: "trade_sustainable.png",
-                  isRightImage: false,
                 },
                 {
+                  num: "03",
                   title: "Cultural Bridge",
                   subTitle: "문화적 교량",
                   desc: "우리의 시선은 안에서 밖으로도 향합니다. 유행에 휩쓸리지 않고 한국 고유의 미학을 담아낸 자체 디자인 제품부터, 각 지역의 풍토가 빚어낸 지역 특산품 및 K-푸드를 통해 우리 문화의 정수를 세계 시장에 알리고 있습니다.",
-                  img: "trade_cultural.png",
-                  isRightImage: true,
                 },
-              ].map((pillar, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
-                  className="bg-white rounded-[40px] border border-neutral-100 p-6 md:p-8 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
-                >
-                  {/* Text Block */}
-                  <div className={`lg:col-span-8 flex flex-col justify-center ${pillar.isRightImage ? "" : "lg:order-last"}`}>
-                    <div>
-                      <h4 className="text-xl md:text-2xl font-black text-[#FF6A00] mb-1">
-                        {pillar.title}
-                      </h4>
-                      <p className="text-[12px] font-black text-neutral-400 uppercase tracking-widest mb-6">
-                        ({pillar.subTitle})
-                      </p>
-                      <p className="text-sm md:text-base font-semibold text-neutral-600 leading-relaxed">
-                        {pillar.desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Image Block */}
-                  <div className="lg:col-span-4 relative h-[180px] md:h-[220px] rounded-[30px] overflow-hidden shadow-sm border border-neutral-100 group">
-                    <Image 
-                      src={`${ASSET}/${pillar.img}`} 
-                      alt={pillar.title} 
-                      fill 
+              ];
+              return (
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-stretch">
+                  {/* Left Column: Single Signature representative image */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="lg:col-span-5 relative min-h-[350px] lg:min-h-full rounded-[40px] overflow-hidden shadow-sm border border-neutral-100/50 group"
+                  >
+                    <Image
+                      src={`${ASSET}/extra_9.jpg`}
+                      alt="Authentic Korea Signature Visual"
+                      fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none" />
+                  </motion.div>
+
+                  {/* Right Column: 3-tier Value Hub list */}
+                  <div className="lg:col-span-7 flex flex-col justify-between gap-12">
+                    {pillars.map((pillar, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.08 }}
+                        className="text-left flex gap-5 md:gap-6 items-start"
+                      >
+                        {/* Number Index Circle */}
+                        <div className="w-11 h-11 rounded-full bg-[#FFF5EF] text-[#FF6A00] flex items-center justify-center font-black text-sm flex-shrink-0 mt-0.5 shadow-sm">
+                          {pillar.num}
+                        </div>
+
+                        <div>
+                          {/* Title & Korean Subtitle */}
+                          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                            <h4 className="text-xl md:text-[23px] font-black text-neutral-900 tracking-tight leading-tight">
+                              {pillar.title}
+                            </h4>
+                            <span className="text-[12px] font-black text-[#FF6A00] uppercase tracking-widest leading-none">
+                              ({pillar.subTitle})
+                            </span>
+                          </div>
+
+                          {/* Description */}
+                          <p className="text-sm sm:text-[15px] font-medium text-neutral-600 leading-relaxed mt-3 break-keep">
+                            {pillar.desc}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              );
+            })()}
 
             {/* Closing statement callout */}
             <motion.div 
@@ -289,11 +308,6 @@ export default function TradePage() {
                           <StepIcon size={28} strokeWidth={1.8} />
                         </div>
                       </div>
-
-                      {/* Step Description */}
-                      <p className="text-xs font-semibold text-neutral-500 leading-relaxed">
-                        {item.desc}
-                      </p>
                     </div>
 
                     {/* Timeline Connector Chevron */}
