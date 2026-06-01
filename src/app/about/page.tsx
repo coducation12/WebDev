@@ -184,58 +184,91 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Vertical Color System */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pt-12 border-t border-neutral-100">
+            {/* Vertical Color System (Flexbox layout to guarantee mathematically identical widths) */}
+            <div className="flex flex-col lg:flex-row lg:gap-16 gap-10 w-full max-w-[1100px] mx-auto pt-12 border-t border-neutral-100">
               
-              {/* Main Color Column */}
-              <div className="md:col-span-4 space-y-4">
-                <div className="text-neutral-500 font-bold text-xs uppercase tracking-wider mb-2">메인컬러</div>
-                <div className="bg-neutral-50 border border-neutral-100 rounded-2xl overflow-hidden shadow-sm flex flex-col h-[320px] max-w-[240px]">
-                  <div className="h-[180px] bg-[#662483]" />
-                  <div className="p-4 flex-1 flex flex-col justify-between text-[11px] font-semibold text-neutral-500 bg-white">
-                    <div>
-                      <h5 className="text-xs font-black text-neutral-900 tracking-tight mb-0.5">BORA PURPLE</h5>
-                      <span className="text-[10px] font-bold text-neutral-400">PANTONE 2098C</span>
-                    </div>
-                    <div className="space-y-0.5 text-[10px]">
-                      <p><span className="text-neutral-400 font-bold mr-1">CMYK:</span> PROCESS C75+M100</p>
-                      <p><span className="text-neutral-400 font-bold mr-1">RGB:</span> R102+G36+B131</p>
+              {/* Main Color Column (1/6 width on desktop) */}
+              <div className="w-full lg:w-1/6 space-y-4">
+                <div className="text-neutral-900 font-black text-lg sm:text-xl tracking-tight mb-5 flex items-center gap-2.5">
+                  <span className="w-1.5 h-4.5 bg-[#662483] rounded-full inline-block" />
+                  메인컬러
+                </div>
+                <div className="bg-[#662483] rounded-3xl overflow-hidden shadow-md flex flex-col justify-end p-6 h-[360px] w-full text-white">
+                  <div>
+                    <h5 className="text-sm sm:text-base lg:text-lg font-black tracking-tight mb-1">BORA PURPLE</h5>
+                    <span className="text-xs font-bold text-white/70 block mb-5">PANTONE 2098C</span>
+                    <div className="space-y-1 text-xs text-white/85 font-semibold leading-normal">
+                      <p><span className="text-white/60 font-bold mr-1">CMYK:</span> C75 M100</p>
+                      <p><span className="text-white/60 font-bold mr-1">RGB:</span> 102, 36, 131</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Sub Color Column */}
-              <div className="md:col-span-8 space-y-4">
-                <div className="text-neutral-500 font-bold text-xs uppercase tracking-wider mb-2">서브컬러</div>
-                <div className="flex flex-col sm:flex-row gap-6">
+              {/* Sub Color Column (5/6 width on desktop, containing 5 contiguous panels) */}
+              <div className="w-full lg:w-5/6 space-y-4">
+                <div className="text-neutral-900 font-black text-lg sm:text-xl tracking-tight mb-5 flex items-center gap-2.5">
+                  <span className="w-1.5 h-4.5 bg-[#BC90C1] rounded-full inline-block" />
+                  서브컬러
+                </div>
+                <div className="rounded-3xl overflow-hidden shadow-md grid grid-cols-1 sm:grid-cols-5 h-auto sm:h-[360px] w-full">
                   
-                  {/* Sub Color 1: Light Purple */}
-                  <div className="bg-neutral-50 border border-neutral-100 rounded-2xl overflow-hidden shadow-sm flex flex-col h-[320px] w-full sm:max-w-[240px]">
-                    <div className="h-[180px] bg-[#BC90C1]" />
-                    <div className="p-4 flex-1 flex flex-col justify-between text-[11px] font-semibold text-neutral-500 bg-white">
-                      <div>
-                        <h5 className="text-xs font-black text-neutral-900 tracking-tight mb-0.5">BORA LIGHT PURPLE</h5>
-                        <span className="text-[10px] font-bold text-neutral-400">PANTONE 2572C</span>
-                      </div>
-                      <div className="space-y-0.5 text-[10px]">
-                        <p><span className="text-neutral-400 font-bold mr-1">CMYK:</span> PROCESS C30+M50</p>
-                        <p><span className="text-neutral-400 font-bold mr-1">RGB:</span> R188+G144+B193</p>
+                  {/* Panel 1: Light Purple */}
+                  <div className="bg-[#BC90C1] p-6 flex flex-col justify-end min-h-[240px] sm:min-h-0 text-white">
+                    <div>
+                      <h5 className="text-sm sm:text-base font-black tracking-tight mb-1">LIGHT PURPLE</h5>
+                      <span className="text-xs font-bold text-white/70 block mb-5">PANTONE 2572C</span>
+                      <div className="space-y-1 text-xs text-white/85 font-semibold leading-normal">
+                        <p><span className="text-white/60 font-bold mr-1">CMYK:</span> C30 M50</p>
+                        <p><span className="text-white/60 font-bold mr-1">RGB:</span> 188, 144, 193</p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Sub Color 2: Point Color */}
-                  <div className="bg-neutral-50 border border-neutral-100 rounded-2xl overflow-hidden shadow-sm flex flex-col h-[320px] w-full sm:max-w-[240px]">
-                    <div className="h-[180px] bg-[#EC6608]" />
-                    <div className="p-4 flex-1 flex flex-col justify-between text-[11px] font-semibold text-neutral-500 bg-white">
-                      <div>
-                        <h5 className="text-xs font-black text-neutral-900 tracking-tight mb-0.5">BORA POINT COLOR</h5>
-                        <span className="text-[10px] font-bold text-neutral-400">PANTONE 1655C</span>
+                  {/* Panel 2: Gradient Step 1 */}
+                  <div className="bg-[#CBA9D1] p-6 flex flex-col justify-end min-h-[240px] sm:min-h-0 text-white">
+                    <div>
+                      <h5 className="text-sm sm:text-base font-black tracking-tight mb-1">GRADIENT L1</h5>
+                      <span className="text-xs font-bold text-white/70 block mb-5">Light Lavender</span>
+                      <div className="space-y-1 text-xs text-white/85 font-semibold leading-normal">
+                        <p><span className="text-white/60 font-bold mr-1">CMYK:</span> C23 M39</p>
+                        <p><span className="text-white/60 font-bold mr-1">RGB:</span> 203, 169, 209</p>
                       </div>
-                      <div className="space-y-0.5 text-[10px]">
-                        <p><span className="text-neutral-400 font-bold mr-1">CMYK:</span> PROCESS M70+Y100</p>
-                        <p><span className="text-neutral-400 font-bold mr-1">RGB:</span> R236+G102+B8</p>
+                    </div>
+                  </div>
+
+                  {/* Panel 3: Gradient Step 2 */}
+                  <div className="bg-[#B692C3] p-6 flex flex-col justify-end min-h-[240px] sm:min-h-0 text-white">
+                    <div>
+                      <h5 className="text-sm sm:text-base font-black tracking-tight mb-1">GRADIENT L2</h5>
+                      <span className="text-xs font-bold text-white/70 block mb-5">Medium Violet</span>
+                      <div className="space-y-1 text-xs text-white/85 font-semibold leading-normal">
+                        <p><span className="text-white/60 font-bold mr-1">CMYK:</span> C33 M48</p>
+                        <p><span className="text-white/60 font-bold mr-1">RGB:</span> 182, 146, 195</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Panel 4: Gradient Step 3 */}
+                  <div className="bg-[#511966] p-6 flex flex-col justify-end min-h-[240px] sm:min-h-0 text-white">
+                    <div>
+                      <h5 className="text-sm sm:text-base font-black tracking-tight mb-1">GRADIENT L3</h5>
+                      <span className="text-xs font-bold text-white/70 block mb-5">Deep Purple</span>
+                      <div className="space-y-1 text-xs text-white/85 font-semibold leading-normal">
+                        <p><span className="text-white/60 font-bold mr-1">CMYK:</span> C75 M100 K30</p>
+                        <p><span className="text-white/60 font-bold mr-1">RGB:</span> 81, 25, 102</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Panel 5: Point Color */}
+                  <div className="bg-[#EC6608] p-6 flex flex-col justify-end min-h-[240px] sm:min-h-0 text-white">
+                    <div>
+                      <h5 className="text-sm sm:text-base font-black tracking-tight mb-1">BORA POINT</h5>
+                      <span className="text-xs font-bold text-white/70 block mb-5">PANTONE 1655C</span>
+                      <div className="space-y-1 text-xs text-white/85 font-semibold leading-normal">
+                        <p><span className="text-white/60 font-bold mr-1">CMYK:</span> M70 Y100</p>
+                        <p><span className="text-white/60 font-bold mr-1">RGB:</span> 236, 102, 8</p>
                       </div>
                     </div>
                   </div>
