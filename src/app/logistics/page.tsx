@@ -435,9 +435,13 @@ export default function LogisticsPage() {
                       <h4 className="text-xl md:text-2xl font-black mb-3 leading-tight whitespace-pre-line tracking-tight">
                         {item.title}
                       </h4>
-                      <p className="text-xs md:text-sm text-white/70 font-medium leading-relaxed opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-[150px] overflow-hidden transition-all duration-500">
-                        {item.desc}
-                      </p>
+                      <div className="flex flex-wrap gap-x-2.5 gap-y-1 text-xs md:text-sm text-[#E9D5FF] font-bold opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-[150px] overflow-hidden transition-all duration-500">
+                        {item.tags.map((tag, tIdx) => (
+                          <span key={tIdx} className="hover:text-white transition-colors duration-200">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
