@@ -167,83 +167,82 @@ export default function AboutPage() {
               LOGO
             </h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
-              
-              {/* Logo Image */}
-              <div className="flex items-center justify-center">
-                <div className="relative w-full max-w-[400px] h-[150px]">
-                  <Image src={`${ASSET}/logo.png`} alt="BORA Logo" fill className="object-contain" />
-                </div>
+            <div className="flex justify-start mb-16">
+              <div className="relative w-full max-w-[320px] h-[120px]">
+                <Image src={`${ASSET}/logo.png`} alt="BORA Logo" fill className="object-contain object-left" />
               </div>
-
-              {/* Color System */}
-              <div className="space-y-6">
-                
-                {/* Main & Sub Colors */}
-                <div className="flex flex-col sm:flex-row gap-4 h-[120px]">
-                  {/* Main Color */}
-                  <div className="flex-1 bg-[#662483] text-white p-4 flex flex-col justify-end text-xs font-semibold relative">
-                    <span className="absolute top-4 left-4 opacity-70">Main Color</span>
-                    <div>
-                      <p>PROCESS C75+M100</p>
-                      <p>R102+G36+B131</p>
-                      <p className="mt-2 text-lg font-bold opacity-80">PANTONE<br/>2098C</p>
-                    </div>
-                  </div>
-                  {/* Sub Color */}
-                  <div className="flex-1 bg-[#BC90C1] text-white p-4 flex flex-col justify-end text-xs font-semibold relative">
-                    <span className="absolute top-4 left-4 opacity-70">Sub Color</span>
-                    <div>
-                      <p>PROCESS C30+M50</p>
-                      <p>R188+G144+B193</p>
-                      <p className="mt-2 text-lg font-bold opacity-80">PANTONE<br/>2572C</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Gradient Color */}
-                <div className="h-[80px] bg-gradient-to-r from-[#662483] to-[#BC90C1] p-4 text-white text-xs font-semibold flex flex-col justify-between relative">
-                  <span className="opacity-70">Gradient Color</span>
-                  <div className="flex justify-between items-end">
-                    <div>
-                      <p>PROCESS C23+M39</p>
-                      <p>R203+G169+B209</p>
-                    </div>
-                    <div className="text-center">
-                      <p>PROCESS C33+M48</p>
-                      <p>R182+G146+B195</p>
-                    </div>
-                    <div className="text-right">
-                      <p>PROCESS C75+M100+30</p>
-                      <p>R81+G25+B102</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Point Color */}
-                <div className="h-[80px] bg-[#EC6608] text-white p-4 flex justify-between items-end text-xs font-semibold relative">
-                  <span className="absolute top-4 left-4 opacity-70">Point Color</span>
-                  <div>
-                    <p>PROCESS M70+Y100</p>
-                    <p>R236+G102+B8</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-lg font-bold opacity-80">PANTONE<br/>1655C</p>
-                  </div>
-                </div>
-              </div>
-
             </div>
 
             {/* Brand Concept Text */}
-            <div className="text-lg text-neutral-700 leading-loose font-medium max-w-4xl border-t border-neutral-100 pt-10">
-              <p className="mb-2">
+            <div className="text-base md:text-lg text-neutral-700 leading-loose font-medium max-w-4xl border-t border-neutral-100 pt-10 mb-16">
+              <p className="mb-4">
                 두 개의 기하학적 도형이 연결되어 날개처럼 펼쳐진 형태로, 서로 다른 세계가 조화롭게 이어지는 모습을 형상화 했습니다.<br/>
                 이는 무역과 물류가 유기적으로 연결되어 지속적으로 발전하는 과정을 표현합니다.
               </p>
               <p>
                 역동성과 창조적 혁신을 담은 브랜드는 세계를 연결하고 미래를 만들어가는 BORA의 기업 철학을 상징합니다.
               </p>
+            </div>
+
+            {/* Vertical Color System */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pt-12 border-t border-neutral-100">
+              
+              {/* Main Color Column */}
+              <div className="md:col-span-4 space-y-4">
+                <div className="text-neutral-500 font-bold text-xs uppercase tracking-wider mb-2">메인컬러</div>
+                <div className="bg-neutral-50 border border-neutral-100 rounded-2xl overflow-hidden shadow-sm flex flex-col h-[320px] max-w-[240px]">
+                  <div className="h-[180px] bg-[#662483]" />
+                  <div className="p-4 flex-1 flex flex-col justify-between text-[11px] font-semibold text-neutral-500 bg-white">
+                    <div>
+                      <h5 className="text-xs font-black text-neutral-900 tracking-tight mb-0.5">BORA PURPLE</h5>
+                      <span className="text-[10px] font-bold text-neutral-400">PANTONE 2098C</span>
+                    </div>
+                    <div className="space-y-0.5 text-[10px]">
+                      <p><span className="text-neutral-400 font-bold mr-1">CMYK:</span> PROCESS C75+M100</p>
+                      <p><span className="text-neutral-400 font-bold mr-1">RGB:</span> R102+G36+B131</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Sub Color Column */}
+              <div className="md:col-span-8 space-y-4">
+                <div className="text-neutral-500 font-bold text-xs uppercase tracking-wider mb-2">서브컬러</div>
+                <div className="flex flex-col sm:flex-row gap-6">
+                  
+                  {/* Sub Color 1: Light Purple */}
+                  <div className="bg-neutral-50 border border-neutral-100 rounded-2xl overflow-hidden shadow-sm flex flex-col h-[320px] w-full sm:max-w-[240px]">
+                    <div className="h-[180px] bg-[#BC90C1]" />
+                    <div className="p-4 flex-1 flex flex-col justify-between text-[11px] font-semibold text-neutral-500 bg-white">
+                      <div>
+                        <h5 className="text-xs font-black text-neutral-900 tracking-tight mb-0.5">BORA LIGHT PURPLE</h5>
+                        <span className="text-[10px] font-bold text-neutral-400">PANTONE 2572C</span>
+                      </div>
+                      <div className="space-y-0.5 text-[10px]">
+                        <p><span className="text-neutral-400 font-bold mr-1">CMYK:</span> PROCESS C30+M50</p>
+                        <p><span className="text-neutral-400 font-bold mr-1">RGB:</span> R188+G144+B193</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Sub Color 2: Point Color */}
+                  <div className="bg-neutral-50 border border-neutral-100 rounded-2xl overflow-hidden shadow-sm flex flex-col h-[320px] w-full sm:max-w-[240px]">
+                    <div className="h-[180px] bg-[#EC6608]" />
+                    <div className="p-4 flex-1 flex flex-col justify-between text-[11px] font-semibold text-neutral-500 bg-white">
+                      <div>
+                        <h5 className="text-xs font-black text-neutral-900 tracking-tight mb-0.5">BORA POINT COLOR</h5>
+                        <span className="text-[10px] font-bold text-neutral-400">PANTONE 1655C</span>
+                      </div>
+                      <div className="space-y-0.5 text-[10px]">
+                        <p><span className="text-neutral-400 font-bold mr-1">CMYK:</span> PROCESS M70+Y100</p>
+                        <p><span className="text-neutral-400 font-bold mr-1">RGB:</span> R236+G102+B8</p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
 
           </motion.div>
