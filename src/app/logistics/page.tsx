@@ -585,6 +585,23 @@ export default function LogisticsPage() {
             </motion.div>
 
             {/* 3대 운영 Pillar 구조화 (치밀한 안전관리, 합리적 노무관리, 지속적 현장혁신 - 각각 고유 이미지 탑재 및 좌우 교차 배치) */}
+            {/* 1) Single wide Representative Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative w-full h-[250px] sm:h-[350px] md:h-[480px] rounded-[32px] overflow-hidden shadow-md border border-neutral-100/60 mb-10 group"
+            >
+              <Image
+                src={`${ASSET}/packaging_representative.png`}
+                alt="BoraLogis Packing & Assembly Operations"
+                fill
+                className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+            </motion.div>
+
+            {/* 2) 3-Row Vertical List (Value Pillars) */}
             <div className="space-y-6">
               {[
                 {
@@ -595,12 +612,10 @@ export default function LogisticsPage() {
                     { b: "선제적 사고예방", n: "작업현장 내 작업관련 위험요소를 적극적으로 개선" },
                     { b: "전직원 안전 상해보험 가입", n: "" }
                   ],
-                  bg: "bg-[#FFF9F9]",
-                  border: "border-red-100/50",
-                  text: "text-red-900",
-                  dot: "bg-red-500",
-                  img: "packaging_safety.png",
-                  isRightImage: true,
+                  bg: "bg-white",
+                  border: "border-neutral-100 hover:border-[#6A0DAD]/30",
+                  text: "text-neutral-900 group-hover:text-[#6A0DAD]",
+                  accentColor: "#6A0DAD",
                 },
                 {
                   title: "합리적 노무관리",
@@ -610,12 +625,10 @@ export default function LogisticsPage() {
                     { b: "일상적 노무협력", n: "현장의 소리 적극적 반영, 선제적 대책제시" },
                     { b: "합리적 임단협 진행", n: "상호 신뢰를 바탕으로 합리적인 대화" }
                   ],
-                  bg: "bg-[#F9FCFF]",
-                  border: "border-blue-100/50",
-                  text: "text-blue-900",
-                  dot: "bg-blue-500",
-                  img: "packaging_labor.png",
-                  isRightImage: false,
+                  bg: "bg-white",
+                  border: "border-neutral-100 hover:border-[#4B49EB]/30",
+                  text: "text-neutral-900 group-hover:text-[#4B49EB]",
+                  accentColor: "#4B49EB",
                 },
                 {
                   title: "지속적 현장혁신",
@@ -625,12 +638,10 @@ export default function LogisticsPage() {
                     { b: "안전관리 극대화를 위한 혁신", n: "일상적인 작업현장 안전시설과 장비 혁신" },
                     { b: "자체적으로 혁신팀 운영", n: "관리자, 현장인력 공동으로 혁신팀 구성" }
                   ],
-                  bg: "bg-[#F9FFF9]",
-                  border: "border-green-100/50",
-                  text: "text-green-900",
-                  dot: "bg-green-500",
-                  img: "extra_2.jpg",
-                  isRightImage: true,
+                  bg: "bg-white",
+                  border: "border-neutral-100 hover:border-[#9333EA]/30",
+                  text: "text-neutral-900 group-hover:text-[#9333EA]",
+                  accentColor: "#9333EA",
                 },
               ].map((pillar, idx) => (
                 <motion.div 
@@ -639,37 +650,36 @@ export default function LogisticsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.08 }}
-                  className={`rounded-[24px] p-6 border ${pillar.bg} ${pillar.border} grid grid-cols-1 lg:grid-cols-12 gap-6 items-center shadow-sm`}
+                  className={`rounded-[24px] p-6 md:p-8 border-y border-r border-l-[6px] ${pillar.bg} ${pillar.border} grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center shadow-sm hover:shadow-lg transition-all duration-300 group`}
+                  style={{ borderLeftColor: pillar.accentColor }}
                 >
-                  {/* Text content Column */}
-                  <div className={`lg:col-span-8 flex flex-col justify-center h-full ${pillar.isRightImage ? "" : "lg:order-last"}`}>
-                    <div>
-                      <h4 className={`text-xl font-black mb-3 flex items-center gap-2 ${pillar.text}`}>
-                        <span className={`w-2.5 h-2.5 rounded-full ${pillar.dot}`} />
-                        {pillar.title}
-                      </h4>
-                      <ul className="space-y-3">
-                        {pillar.bullets.map((bullet, bIdx) => (
-                          <li key={bIdx} className="flex items-start gap-2.5">
-                            <span className={`mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 ${pillar.dot}`} />
-                            <span className="text-[15px] sm:text-[16px] text-neutral-700 leading-relaxed break-keep">
-                              <strong className="font-extrabold text-neutral-900">{bullet.b}</strong>
-                              {bullet.n ? ` : ${bullet.n}` : ""}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  {/* Left Column: Category Name */}
+                  <div className="md:col-span-3 flex flex-col justify-center text-left h-full">
+                    <h4 className={`text-lg md:text-xl font-black flex items-center gap-2.5 transition-colors duration-300 ${pillar.text}`}>
+                      {pillar.title}
+                    </h4>
+                    {/* Decorative underline */}
+                    <div className="h-[2px] w-12 mt-3 hidden md:block transition-all duration-300 group-hover:w-20" style={{ backgroundColor: pillar.accentColor, opacity: 0.4 }} />
                   </div>
 
-                  {/* Image Column */}
-                  <div className="lg:col-span-4 relative h-[160px] lg:h-[180px] rounded-[20px] overflow-hidden shadow-sm">
-                    <Image 
-                      src={`${ASSET}/${pillar.img}`} 
-                      alt={pillar.title} 
-                      fill 
-                      className="object-cover"
-                    />
+                  {/* Divider line on desktop */}
+                  <div className="hidden md:block md:col-span-1 border-r border-neutral-100 h-10 justify-self-center" />
+
+                  {/* Right Column: Bullets List */}
+                  <div className="md:col-span-8">
+                    <ul className="space-y-3.5 text-left">
+                      {pillar.bullets.map((bullet, bIdx) => (
+                        <li key={bIdx} className="flex items-start gap-3 group/item">
+                          <span className="mt-[9px] w-1.5 h-1.5 rounded-full flex-shrink-0 transition-transform duration-300 group-hover/item:scale-125" style={{ backgroundColor: pillar.accentColor }} />
+                          <span className="text-[14px] md:text-[15px] text-neutral-600 leading-relaxed font-semibold">
+                            <strong className="font-black text-neutral-900 tracking-tight">{bullet.b}</strong>
+                            {bullet.n ? (
+                              <span className="text-neutral-500 font-medium"> : {bullet.n}</span>
+                            ) : ""}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </motion.div>
               ))}

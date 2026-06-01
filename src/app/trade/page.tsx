@@ -229,7 +229,15 @@ export default function TradePage() {
                           {/* Title & Korean Subtitle */}
                           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                             <h4 className="text-xl md:text-[23px] font-black text-neutral-900 tracking-tight leading-tight">
-                              {pillar.title}
+                              {pillar.title.includes("&") ? (
+                                <>
+                                  {pillar.title.split("&")[0]}
+                                  <span className="font-sans font-normal">&amp;</span>
+                                  {pillar.title.split("&")[1]}
+                                </>
+                              ) : (
+                                pillar.title
+                              )}
                             </h4>
                             <span className="text-[12px] font-black text-[#FF6A00] uppercase tracking-widest leading-none">
                               ({pillar.subTitle})
