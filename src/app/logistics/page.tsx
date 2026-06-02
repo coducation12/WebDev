@@ -317,10 +317,10 @@ export default function LogisticsPage() {
                   </h4>
                   <div className="space-y-6">
                     {[
-                      { title: "셔틀 운송 (Shuttle Transport)", desc: "여수·광양 항만 터미널과 보세창고를 상시 왕복하여 정체 없는 신속 연계 셔틀 운행" },
-                      { title: "보세 운송 (Bonded Transport)", desc: "수입 통관 완료 전에 규정에 부합하는 공인 보세 차량 및 면허를 통한 안전 운송 보장" },
-                      { title: "컨테이너 운송 (Container Transport)", desc: "자자체 전문 배차 최적화 시스템과 기한 준수 운송 노선을 가동하여 효율성 극대화" },
-                      { title: "카고 운송 (Cargo Transport)", desc: "벌크, 대형 중량물 및 팔레트 단위 화물 처리를 위한 전천후 대형 윙바디 카고 라인업 운영" }
+                      { title: "셔틀 운송(Shuttle Transport)", desc: "항만-보세창고 간 전용 셔틀 서비스" },
+                      { title: "보세 운송 (Bonded Transport)", desc: "수입 통관 전 세관 규정 준수한 보세운송" },
+                      { title: "컨테이너 운송 (Container Transport)", desc: "최적 배차, 경로 설계로 비용· 규정시간 절감" },
+                      { title: "카고운송 (Cargo Transport)", desc: "팔레트 ·벌크 화물 전용 대형 트럭" }
                     ].map((svc, i) => (
                       <div key={i} className="flex gap-4">
                         <div className="mt-1 w-5 h-5 rounded-full bg-[#F8F5FF] flex items-center justify-center text-[#6A0DAD] flex-shrink-0">
