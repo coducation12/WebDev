@@ -309,41 +309,41 @@ export default function LogisticsPage() {
             {/* 3) 운송 서비스(Transportation Service) */}
             <div className="pl-4 md:pl-8 lg:pl-12">
               <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-8 border-l-4 border-[#6A0DAD] pl-4">3) 운송 서비스 (Transportation Service)</h3>
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white p-8 md:p-12 rounded-[40px] border border-neutral-100/60 shadow-sm">
+              <div className="bg-white rounded-[40px] border border-neutral-100/60 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch">
                 
-                <div className="lg:col-span-7">
-                  <h4 className="text-2xl font-black tracking-tight text-neutral-900 mb-6 leading-tight">
+                <div className="lg:col-span-7 py-8 px-6 md:py-10 md:px-10 lg:pr-6 flex flex-col justify-center text-left">
+                  <h4 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-5 leading-tight">
                     다양한 화물 특성에 맞춘 최적의 운송 라인업
                   </h4>
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     {[
                       { title: "셔틀 운송(Shuttle Transport)", desc: "항만-보세창고 간 전용 셔틀 서비스" },
                       { title: "보세 운송 (Bonded Transport)", desc: "수입 통관 전 세관 규정 준수한 보세운송" },
                       { title: "컨테이너 운송 (Container Transport)", desc: "최적 배차, 경로 설계로 비용· 규정시간 절감" },
                       { title: "카고운송 (Cargo Transport)", desc: "팔레트 ·벌크 화물 전용 대형 트럭" }
                     ].map((svc, i) => (
-                      <div key={i} className="flex gap-4 items-center">
+                      <div key={i} className="flex gap-3.5 items-center">
                         <div className="w-5 h-5 rounded-full bg-[#F8F5FF] flex items-center justify-center text-[#6A0DAD] flex-shrink-0">
                           <CheckCircle2 size={13} strokeWidth={3} />
                         </div>
-                        <div className="text-neutral-900 text-base md:text-[17px] tracking-tight font-bold flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                        <div className="text-neutral-900 text-base tracking-tight font-bold flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
                           <span>{svc.title}</span>
-                          <span className="text-neutral-400 font-normal text-sm md:text-[15px]">:</span>
-                          <span className="text-neutral-600 font-medium text-sm md:text-[15px] break-keep">{svc.desc}</span>
+                          <span className="text-neutral-400 font-normal text-sm">:</span>
+                          <span className="text-neutral-600 font-semibold text-[14px] break-keep">{svc.desc}</span>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 relative h-[300px] md:h-[400px] rounded-[30px] overflow-hidden shadow-md">
+                <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-[400px]">
                   <Image 
                     src={`${ASSET}/extra_10.jpg`} 
                     alt="Transportation trucks" 
                     fill 
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
                 </div>
               </div>
             </div>
@@ -480,17 +480,17 @@ export default function LogisticsPage() {
               {[
                 {
                   title: "보라로지텍 자체 생산",
-                  desc: "율촌산업단지 전남테크노파크 내 자체 대규모 제조 공장을 운영하여 특수 철박스, 맞춤형 적재 기계, 각종 물류 장비를 기획부터 설계·용접·가공·조립까지 일괄 생산체계로 제작합니다.",
+                  desc: "율촌산단 전남테크노파크 내 자체공장을 운영하며 철박스, 포장기계, 각종 물류기기를 기획·설계·제작합니다.",
                   icon: Cog,
                 },
                 {
                   title: "글로벌 협력 생산 파트너십",
-                  desc: "중국 청도 핵심 협력 거점 생산라인에서 철제 부품 및 기본 하우징 가공을 진행하고, 국내 율촌공장에서 최종 정밀 조립, 특수 용접, 도색 후처리 검사 공정을 거쳐 품질 편차를 극대화합니다.",
+                  desc: "중국 청도 협력업체에서 기본 작업을 진행하고 국내 율촌공장에서 조립, 용접 등 후작업을 거쳐 고품질을 완성합니다.",
                   icon: Factory,
                 },
                 {
-                  title: "맞춤형 렉(Rack) 제작 & 시공",
-                  desc: "제조 라인 및 초대형 배후단지 창고의 다양한 높이와 지게차 주행 노선을 고려하여 최적의 효율을 보장하는 이동식 렉, 파렛트 렉, 적층형 중이층 렉 시스템을 주문 제작·설치합니다.",
+                  title: "맞춤형 렉 제작 & 시공",
+                  desc: "이동식 렉(Mobile Racking System), 파렛트 렉 등 창고 공간을 최적화하고 보관 용량을 극대화하는 솔루션을 제공합니다.",
                   icon: Package,
                 },
               ].map((item, idx) => (
