@@ -322,13 +322,14 @@ export default function LogisticsPage() {
                       { title: "컨테이너 운송 (Container Transport)", desc: "최적 배차, 경로 설계로 비용· 규정시간 절감" },
                       { title: "카고운송 (Cargo Transport)", desc: "팔레트 ·벌크 화물 전용 대형 트럭" }
                     ].map((svc, i) => (
-                      <div key={i} className="flex gap-4">
-                        <div className="mt-1 w-5 h-5 rounded-full bg-[#F8F5FF] flex items-center justify-center text-[#6A0DAD] flex-shrink-0">
+                      <div key={i} className="flex gap-4 items-center">
+                        <div className="w-5 h-5 rounded-full bg-[#F8F5FF] flex items-center justify-center text-[#6A0DAD] flex-shrink-0">
                           <CheckCircle2 size={13} strokeWidth={3} />
                         </div>
-                        <div>
-                          <h5 className="font-bold text-neutral-900 text-base md:text-[17px] tracking-tight">{svc.title}</h5>
-                          <p className="text-sm md:text-[15px] text-neutral-600 font-medium mt-1 break-keep leading-relaxed">{svc.desc}</p>
+                        <div className="text-neutral-900 text-base md:text-[17px] tracking-tight font-bold flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                          <span>{svc.title}</span>
+                          <span className="text-neutral-400 font-normal text-sm md:text-[15px]">:</span>
+                          <span className="text-neutral-600 font-medium text-sm md:text-[15px] break-keep">{svc.desc}</span>
                         </div>
                       </div>
                     ))}
