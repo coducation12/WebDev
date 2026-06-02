@@ -101,7 +101,7 @@ export default function TradePage() {
   }, []);
 
   return (
-    <div className="bg-white text-black font-sans min-h-screen flex flex-col selection:bg-[#6A0DAD] selection:text-white">
+    <div className="bg-white text-black font-sans min-h-screen flex flex-col selection:bg-[#FF6A00] selection:text-white">
       <Header />
 
       {/* ─── Sticky Sub-Navigation Bar ─── */}
@@ -135,7 +135,7 @@ export default function TradePage() {
                 }}
                 className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-black transition-all ${
                   activeSection === tab.id
-                    ? "bg-[#6A0DAD] text-white shadow-lg shadow-[#6A0DAD]/15"
+                    ? "bg-[#FF6A00] text-white shadow-lg shadow-[#FF6A00]/15"
                     : "text-neutral-400 hover:text-neutral-800 hover:bg-neutral-50"
                 }`}
               >

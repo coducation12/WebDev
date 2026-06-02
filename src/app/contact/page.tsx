@@ -84,7 +84,7 @@ function ContactContent() {
   };
 
   return (
-    <div className="bg-white text-black font-sans min-h-screen flex flex-col selection:bg-[#6A0DAD] selection:text-white">
+    <div className={`bg-white text-black font-sans min-h-screen flex flex-col ${activeTab === "trade" ? "selection:bg-[#FF6A00]" : "selection:bg-[#6A0DAD]"} selection:text-white`}>
       <Header />
 
       {/* ─── Sticky Sub-Navigation Bar as Tab Switcher ─── */}
@@ -100,7 +100,9 @@ function ContactContent() {
                 onClick={() => handleTabChange(tab.id as "logistics" | "trade")}
                 className={`px-6 py-2.5 rounded-full text-xs sm:text-sm font-black transition-all ${
                   activeTab === tab.id
-                    ? "bg-[#6A0DAD] text-white shadow-lg shadow-[#6A0DAD]/15"
+                    ? tab.id === "trade"
+                      ? "bg-[#FF6A00] text-white shadow-lg shadow-[#FF6A00]/15"
+                      : "bg-[#6A0DAD] text-white shadow-lg shadow-[#6A0DAD]/15"
                     : "text-neutral-400 hover:text-neutral-800 hover:bg-neutral-50"
                 }`}
               >
@@ -114,12 +116,12 @@ function ContactContent() {
       <main className="flex-1 py-20 px-6 md:px-10 max-w-[1400px] mx-auto w-full">
         {/* Title Block */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
-          <span className="text-[#6A0DAD] font-black tracking-widest text-xs uppercase mb-3 block">Contact Point</span>
+          <span className={`font-black tracking-widest text-xs uppercase mb-3 block ${activeTab === "trade" ? "text-[#FF6A00]" : "text-[#6A0DAD]"}`}>Contact Point</span>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight text-neutral-900 mb-4">
             {activeTab === "logistics" ? "물류 서비스 문의" : "글로벌 무역 문의"}
           </h1>
           <p className="text-sm md:text-base text-neutral-500 font-semibold leading-relaxed">
-            소중한 문의에 성성을 다해 답변드리겠습니다. 하단의 자사 연락처를 확인하시거나 문의 양식을 작성해 전송해주시기 바랍니다.
+            소중한 문의에 정성을 다해 답변드리겠습니다.<br />하단의 업무별 연락처를 확인하시거나 문의 양식을 작성해 전송해주시기 바랍니다.
           </p>
         </div>
 
@@ -129,8 +131,8 @@ function ContactContent() {
           <div className="lg:col-span-6 space-y-8">
             <div>
               <h2 className="text-xl md:text-2xl font-black text-neutral-950 mb-2 flex items-center gap-2.5">
-                <span className="w-2.5 h-6 bg-[#6A0DAD] rounded-full inline-block" />
-                자사 연락처
+                <span className={`w-2.5 h-6 rounded-full inline-block ${activeTab === "trade" ? "bg-[#FF6A00]" : "bg-[#6A0DAD]"}`} />
+                업무별 연락처
               </h2>
               <p className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-6">Bora Contact Point</p>
             </div>
@@ -145,16 +147,16 @@ function ContactContent() {
                   transition={{ delay: idx * 0.04 }}
                   className="bg-neutral-50 border border-neutral-100 rounded-2xl p-5 hover:bg-white hover:border-neutral-200/60 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <h4 className="text-sm font-black text-neutral-900 group-hover:text-[#6A0DAD] transition-colors mb-3 leading-tight">
+                  <h4 className={`text-sm font-black text-neutral-900 transition-colors mb-3 leading-tight ${activeTab === "trade" ? "group-hover:text-[#FF6A00]" : "group-hover:text-[#6A0DAD]"}`}>
                     {dept.name}
                   </h4>
                   <div className="space-y-1.5 text-xs text-neutral-500 font-semibold">
                     <div className="flex items-center gap-2">
-                      <Phone size={12} className="text-[#BC90C1]" />
+                      <Phone size={12} className={activeTab === "trade" ? "text-[#FFA05C]" : "text-[#BC90C1]"} />
                       <span>TEL. {dept.tel}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Printer size={12} className="text-[#BC90C1]" />
+                      <Printer size={12} className={activeTab === "trade" ? "text-[#FFA05C]" : "text-[#BC90C1]"} />
                       <span>FAX. {dept.fax}</span>
                     </div>
                   </div>
@@ -165,7 +167,7 @@ function ContactContent() {
 
           {/* Right Column: Contact Inquiry Form */}
           <div className="lg:col-span-6 bg-white border border-neutral-100 shadow-xl shadow-neutral-100/50 rounded-[40px] p-8 md:p-10 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-[#6A0DAD]" />
+            <div className={`absolute top-0 left-0 w-full h-2 ${activeTab === "trade" ? "bg-[#FF6A00]" : "bg-[#6A0DAD]"}`} />
             
             <AnimatePresence mode="wait">
               {!isSubmitted ? (
@@ -178,7 +180,7 @@ function ContactContent() {
                 >
                   <div className="mb-8">
                     <h3 className="text-xl font-black text-neutral-900 mb-2">문의하기</h3>
-                    <p className="text-xs font-bold text-[#6A0DAD] uppercase tracking-wider mb-4">
+                    <p className={`text-xs font-bold uppercase tracking-wider mb-4 ${activeTab === "trade" ? "text-[#FF6A00]" : "text-[#6A0DAD]"}`}>
                       담당 부서: {activeTab === "logistics" ? "물류사업부 / 종합물류팀" : "글로벌무역부 / 어센틱코리아"}
                     </p>
                   </div>
@@ -197,7 +199,9 @@ function ContactContent() {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder="홍길동 대리"
-                          className="w-full bg-neutral-50 border border-neutral-100 focus:border-[#6A0DAD]/30 focus:bg-white rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none"
+                          className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none ${
+                            activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
+                          }`}
                         />
                       </div>
                     </div>
@@ -215,7 +219,9 @@ function ContactContent() {
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                           placeholder="(주)보라로지텍"
-                          className="w-full bg-neutral-50 border border-neutral-100 focus:border-[#6A0DAD]/30 focus:bg-white rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none"
+                          className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none ${
+                            activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
+                          }`}
                         />
                       </div>
                     </div>
@@ -233,7 +239,9 @@ function ContactContent() {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="010-0000-0000"
-                          className="w-full bg-neutral-50 border border-neutral-100 focus:border-[#6A0DAD]/30 focus:bg-white rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none"
+                          className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none ${
+                            activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
+                          }`}
                         />
                       </div>
                     </div>
@@ -251,7 +259,9 @@ function ContactContent() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="example@boralogis.com"
-                          className="w-full bg-neutral-50 border border-neutral-100 focus:border-[#6A0DAD]/30 focus:bg-white rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none"
+                          className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none ${
+                            activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
+                          }`}
                         />
                       </div>
                     </div>
@@ -269,7 +279,9 @@ function ContactContent() {
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                           placeholder={activeTab === "logistics" ? "보세보관, 포장, 셔틀운송 등 원하시는 물류 서비스를 기재해 주세요." : "수출입 자원 소싱, 대행업무 관련 상세 사항을 기재해 주세요."}
-                          className="w-full bg-neutral-50 border border-neutral-100 focus:border-[#6A0DAD]/30 focus:bg-white rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none resize-none"
+                          className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none resize-none ${
+                            activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
+                          }`}
                         />
                       </div>
                     </div>
@@ -280,7 +292,7 @@ function ContactContent() {
                         type="checkbox"
                         checked={formData.agree}
                         onChange={(e) => setFormData({ ...formData, agree: e.target.checked })}
-                        className="mt-1 w-4 h-4 rounded accent-[#6A0DAD] border-neutral-300"
+                        className={`mt-1 w-4 h-4 rounded border-neutral-300 ${activeTab === "trade" ? "accent-[#FF6A00]" : "accent-[#6A0DAD]"}`}
                       />
                       <span className="text-xs text-neutral-500 font-semibold leading-relaxed">
                         개인정보 수집 및 이용에 동의합니다. (필수)
@@ -291,7 +303,11 @@ function ContactContent() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 bg-[#6A0DAD] hover:bg-[#520a8a] text-white rounded-2xl text-sm font-black transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#6A0DAD]/15 disabled:opacity-50 disabled:cursor-not-allowed group"
+                      className={`w-full py-4 text-white rounded-2xl text-sm font-black transition-all flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed group ${
+                        activeTab === "trade"
+                          ? "bg-[#FF6A00] hover:bg-[#e05d00] shadow-[#FF6A00]/15"
+                          : "bg-[#6A0DAD] hover:bg-[#520a8a] shadow-[#6A0DAD]/15"
+                      }`}
                     >
                       {isSubmitting ? (
                         <>
@@ -315,7 +331,7 @@ function ContactContent() {
                   transition={{ duration: 0.5, ease: APPLE_EASE }}
                   className="py-16 text-center"
                 >
-                  <div className="w-16 h-16 bg-[#F3E8FF] text-[#6A0DAD] rounded-full flex items-center justify-center mb-6 mx-auto shadow-sm">
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto shadow-sm ${activeTab === "trade" ? "bg-[#FFF5EF] text-[#FF6A00]" : "bg-[#F3E8FF] text-[#6A0DAD]"}`}>
                     <CheckCircle2 size={32} />
                   </div>
                   <h3 className="text-2xl font-black text-neutral-900 mb-3">문의 접수 완료</h3>
@@ -325,7 +341,11 @@ function ContactContent() {
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="px-6 py-3 border border-[#6A0DAD]/30 text-[#6A0DAD] hover:bg-[#F3E8FF] rounded-xl text-xs font-bold transition-all"
+                    className={`px-6 py-3 border rounded-xl text-xs font-bold transition-all ${
+                      activeTab === "trade"
+                        ? "border-[#FF6A00]/30 text-[#FF6A00] hover:bg-[#FFF5EF]"
+                        : "border-[#6A0DAD]/30 text-[#6A0DAD] hover:bg-[#F3E8FF]"
+                    }`}
                   >
                     새 문의 작성하기
                   </button>
