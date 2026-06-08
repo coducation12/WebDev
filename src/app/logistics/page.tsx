@@ -787,7 +787,7 @@ export default function LogisticsPage() {
                   style={{ borderLeftColor: pillar.accentColor }}
                 >
                   {/* Left Column: Category Name */}
-                  <div className="md:col-span-3 flex flex-col justify-center text-left h-full">
+                  <div className="md:col-span-3 flex flex-col justify-center text-left h-full md:border-r md:border-neutral-100 md:pr-6">
                     <h4 className={`text-lg md:text-xl font-black flex items-center gap-2.5 transition-colors duration-300 ${pillar.text}`}>
                       {pillar.title}
                     </h4>
@@ -795,11 +795,8 @@ export default function LogisticsPage() {
                     <div className="h-[2px] w-12 mt-3 hidden md:block transition-all duration-300 group-hover:w-20" style={{ backgroundColor: pillar.accentColor, opacity: 0.4 }} />
                   </div>
 
-                  {/* Divider line on desktop */}
-                  <div className="hidden md:block md:col-span-1 border-r border-neutral-100 h-10 justify-self-center" />
-
                   {/* Right Column: Bullets List */}
-                  <div className="md:col-span-8">
+                  <div className="md:col-span-9 md:pl-6">
                     <ul className="space-y-3.5 text-left">
                       {pillar.bullets.map((bullet, bIdx) => (
                         <li key={bIdx} className="flex items-start gap-3 group/item">
