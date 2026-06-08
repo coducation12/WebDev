@@ -385,7 +385,7 @@ function CompanyIntroContent() {
                           {detail.text[language].split("\n").map((line, lineIdx) => (
                             <div key={lineIdx} className="flex items-start gap-2.5">
                               <span className="mt-1.5 flex-shrink-0 text-[8px]" style={{ color: activeCompany.color }}>●</span>
-                              <span className="flex-1 text-neutral-600 font-medium whitespace-nowrap lg:whitespace-normal xl:whitespace-nowrap">{line.replace(/^·\s*/, "")}</span>
+                              <span className="flex-1 text-neutral-600 font-medium">{line.replace(/^·\s*/, "")}</span>
                             </div>
                           ))}
                         </div>
