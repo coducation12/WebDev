@@ -4,10 +4,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Compass, Hammer } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const APPLE_EASE = [0.32, 0.72, 0, 1];
 
 export default function BrandPage() {
+  const { language } = useLanguage();
+
   return (
     <div className="bg-white text-black font-sans min-h-screen flex flex-col selection:bg-[#FF6A00] selection:text-white">
       <Header />
@@ -26,7 +29,7 @@ export default function BrandPage() {
 
           <h4 className="text-[#FF6A00] font-black tracking-widest text-sm mb-4 uppercase">Authentic Brand</h4>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tighter text-neutral-900 mb-8">
-            브랜드 소개
+            {language === "ko" ? "브랜드 소개" : "Brand Introduction"}
           </h1>
           
           {/* Card containing preparation details */}
@@ -34,7 +37,9 @@ export default function BrandPage() {
             <div className="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-400 mb-4 animate-bounce">
               <Hammer size={20} />
             </div>
-            <h3 className="text-xl md:text-2xl font-bold text-[#FF6A00] mb-3">준비중입니다.</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-[#FF6A00] mb-3">
+              {language === "ko" ? "준비중입니다." : "Coming Soon."}
+            </h3>
           </div>
         </motion.div>
       </main>

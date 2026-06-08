@@ -19,21 +19,23 @@ import {
 } from "lucide-react";
 
 const APPLE_EASE = [0.32, 0.72, 0, 1];
+import { useLanguage } from "@/context/LanguageContext";
 const ASSET = "/assets/images/active";
 
 const departments = [
-  { name: "카페리하역 및 CY/CFS 운영", tel: "000-000-0000", fax: "000-000-0000" },
-  { name: "컨테이너 영업 및 운영", tel: "000-000-0000", fax: "000-000-0000" },
-  { name: "양곡하역 · 보관 및 정선", tel: "000-000-0000", fax: "000-000-0000" },
-  { name: "하역영업 및 운영 · 양곡 싸이로", tel: "000-000-0000", fax: "000-000-0000" },
-  { name: "회계 · 자금", tel: "000-000-0000", fax: "000-000-0000" },
-  { name: "기획 · 홍보", tel: "000-000-0000", fax: "000-000-0000" },
-  { name: "인사 · 법무", tel: "000-000-0000", fax: "000-000-0000" },
-  { name: "IT개발 · 운영", tel: "000-000-0000", fax: "000-000-0000" },
+  { name: { ko: "카페리하역 및 CY/CFS 운영", en: "Car Ferry Cargo Handling & CY/CFS Operation" }, tel: "000-000-0000", fax: "000-000-0000" },
+  { name: { ko: "컨테이너 영업 및 운영", en: "Container Sales & Operation" }, tel: "000-000-0000", fax: "000-000-0000" },
+  { name: { ko: "양곡하역 · 보관 및 정선", en: "Grain Cargo Handling, Storage & Processing" }, tel: "000-000-0000", fax: "000-000-0000" },
+  { name: { ko: "하역영업 및 운영 · 양곡 싸이로", en: "Stevedoring Sales, Operation & Grain Silo" }, tel: "000-000-0000", fax: "000-000-0000" },
+  { name: { ko: "회계 · 자금", en: "Accounting & Finance" }, tel: "000-000-0000", fax: "000-000-0000" },
+  { name: { ko: "기획 · 홍보", en: "Planning & PR" }, tel: "000-000-0000", fax: "000-000-0000" },
+  { name: { ko: "인사 · 법무", en: "HR & Legal" }, tel: "000-000-0000", fax: "000-000-0000" },
+  { name: { ko: "IT개발 · 운영", en: "IT Development & Operation" }, tel: "000-000-0000", fax: "000-000-0000" },
 ];
 
 function ContactContent() {
   const searchParams = useSearchParams();
+  const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState<"logistics" | "trade">("logistics");
   const [formData, setFormData] = useState({
     name: "",
@@ -63,7 +65,7 @@ function ContactContent() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.company || !formData.phone || !formData.email || !formData.message || !formData.agree) {
-      alert("필수 항목을 모두 채워주시고 개인정보 수집에 동의해주세요.");
+      alert(language === "ko" ? "필수 항목을 모두 채워주시고 개인정보 수집에 동의해주세요." : "Please fill in all required fields and agree to the privacy policy.");
       return;
     }
     
@@ -92,8 +94,8 @@ function ContactContent() {
         <div className="max-w-[1300px] mx-auto px-6 md:px-10 flex justify-center overflow-x-auto scrollbar-none">
           <div className="flex gap-2 sm:gap-4 md:gap-6 whitespace-nowrap">
             {[
-              { id: "logistics", label: "물류 서비스 문의" },
-              { id: "trade", label: "글로벌 무역 문의" },
+              { id: "logistics", label: language === "ko" ? "물류 서비스 문의" : "Logistics Inquiry" },
+              { id: "trade", label: language === "ko" ? "글로벌 무역 문의" : "Trade Inquiry" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -118,10 +120,16 @@ function ContactContent() {
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <span className={`font-black tracking-widest text-xs uppercase mb-3 block ${activeTab === "trade" ? "text-[#FF6A00]" : "text-[#6A0DAD]"}`}>Contact Point</span>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight text-neutral-900 mb-4">
-            {activeTab === "logistics" ? "물류 서비스 문의" : "글로벌 무역 문의"}
+            {activeTab === "logistics" 
+              ? (language === "ko" ? "물류 서비스 문의" : "Logistics Inquiry")
+              : (language === "ko" ? "글로벌 무역 문의" : "Trade Inquiry")}
           </h1>
           <p className="text-sm md:text-base text-neutral-500 font-semibold leading-relaxed">
-            소중한 문의에 정성을 다해 답변드리겠습니다.<br />하단의 업무별 연락처를 확인하시거나 문의 양식을 작성해 전송해주시기 바랍니다.
+            {language === "ko" ? (
+              <>소중한 문의에 정성을 다해 답변드리겠습니다.<br />하단의 업무별 연락처를 확인하시거나 문의 양식을 작성해 전송해주시기 바랍니다.</>
+            ) : (
+              <>We will reply to your inquiries with care.<br />Please check the contact information by department below or fill out the inquiry form.</>
+            )}
           </p>
         </div>
 
@@ -132,7 +140,7 @@ function ContactContent() {
             <div>
               <h2 className="text-xl md:text-2xl font-black text-neutral-950 mb-2 flex items-center gap-2.5">
                 <span className={`w-2.5 h-6 rounded-full inline-block ${activeTab === "trade" ? "bg-[#FF6A00]" : "bg-[#6A0DAD]"}`} />
-                업무별 연락처
+                {language === "ko" ? "업무별 연락처" : "Contact Info by Department"}
               </h2>
               <p className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-6">Bora Contact Point</p>
             </div>
@@ -148,7 +156,7 @@ function ContactContent() {
                   className="bg-neutral-50 border border-neutral-100 rounded-2xl p-5 hover:bg-white hover:border-neutral-200/60 hover:shadow-lg transition-all duration-300 group"
                 >
                   <h4 className={`text-sm font-black text-neutral-900 transition-colors mb-3 leading-tight ${activeTab === "trade" ? "group-hover:text-[#FF6A00]" : "group-hover:text-[#6A0DAD]"}`}>
-                    {dept.name}
+                    {dept.name[language]}
                   </h4>
                   <div className="space-y-1.5 text-xs text-neutral-500 font-semibold">
                     <div className="flex items-center gap-2">
@@ -179,9 +187,14 @@ function ContactContent() {
                   transition={{ duration: 0.4, ease: APPLE_EASE }}
                 >
                   <div className="mb-8">
-                    <h3 className="text-xl font-black text-neutral-900 mb-2">문의하기</h3>
+                    <h3 className="text-xl font-black text-neutral-900 mb-2">
+                      {language === "ko" ? "문의하기" : "Inquiry"}
+                    </h3>
                     <p className={`text-xs font-bold uppercase tracking-wider mb-4 ${activeTab === "trade" ? "text-[#FF6A00]" : "text-[#6A0DAD]"}`}>
-                      담당 부서: {activeTab === "logistics" ? "물류사업부 / 종합물류팀" : "글로벌무역부 / 어센틱코리아"}
+                      {language === "ko" ? "담당 부서: " : "Responsible Dept: "}
+                      {activeTab === "logistics" 
+                        ? (language === "ko" ? "물류사업부 / 종합물류팀" : "Logistics Division / Integrated Logistics Team")
+                        : (language === "ko" ? "글로벌무역부 / 어센틱코리아" : "Global Trade Division / Authentic Korea")}
                     </p>
                   </div>
 
@@ -189,7 +202,7 @@ function ContactContent() {
                     {/* Name Input */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-neutral-700 block">
-                        성함 및 직책 <span className="text-red-500">*</span>
+                        {language === "ko" ? "성함 및 직책" : "Name & Position"} <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400" />
@@ -198,7 +211,7 @@ function ContactContent() {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="홍길동 대리"
+                          placeholder={language === "ko" ? "홍길동 대리" : "John Doe (Manager)"}
                           className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none ${
                             activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
                           }`}
@@ -209,7 +222,7 @@ function ContactContent() {
                     {/* Company Input */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-neutral-700 block">
-                        회사명 <span className="text-red-500">*</span>
+                        {language === "ko" ? "회사명" : "Company Name"} <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <Building2 size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400" />
@@ -218,7 +231,7 @@ function ContactContent() {
                           required
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          placeholder="(주)보라로지텍"
+                          placeholder={language === "ko" ? "(주)보라로지텍" : "Bora Logitech Co., Ltd."}
                           className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none ${
                             activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
                           }`}
@@ -229,7 +242,7 @@ function ContactContent() {
                     {/* Phone Input */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-neutral-700 block">
-                        연락처 <span className="text-red-500">*</span>
+                        {language === "ko" ? "연락처" : "Contact Number"} <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <Phone size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400" />
@@ -249,7 +262,7 @@ function ContactContent() {
                     {/* Email Input */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-neutral-700 block">
-                        이메일 <span className="text-red-500">*</span>
+                        {language === "ko" ? "이메일" : "Email"} <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400" />
@@ -269,7 +282,7 @@ function ContactContent() {
                     {/* Message Textarea */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-neutral-700 block">
-                        문의내용 <span className="text-red-500">*</span>
+                        {language === "ko" ? "문의내용" : "Message"} <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <MessageSquare size={16} className="absolute left-4 top-4 text-neutral-400" />
@@ -278,7 +291,11 @@ function ContactContent() {
                           rows={4}
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          placeholder={activeTab === "logistics" ? "보세보관, 포장, 셔틀운송 등 원하시는 물류 서비스를 기재해 주세요." : "수출입 자원 소싱, 대행업무 관련 상세 사항을 기재해 주세요."}
+                          placeholder={
+                            activeTab === "logistics" 
+                              ? (language === "ko" ? "보세보관, 포장, 셔틀운송 등 원하시는 물류 서비스를 기재해 주세요." : "Please describe the logistics services you want, such as bonded storage, packaging, shuttle transport, etc.") 
+                              : (language === "ko" ? "수출입 자원 소싱, 대행업무 관련 상세 사항을 기재해 주세요." : "Please describe the details regarding import/export resource sourcing, agency operations, etc.")
+                          }
                           className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none resize-none ${
                             activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
                           }`}
@@ -295,7 +312,7 @@ function ContactContent() {
                         className={`mt-1 w-4 h-4 rounded border-neutral-300 ${activeTab === "trade" ? "accent-[#FF6A00]" : "accent-[#6A0DAD]"}`}
                       />
                       <span className="text-xs text-neutral-500 font-semibold leading-relaxed">
-                        개인정보 수집 및 이용에 동의합니다. (필수)
+                        {language === "ko" ? "개인정보 수집 및 이용에 동의합니다. (필수)" : "I agree to the collection and use of personal information. (Required)"}
                       </span>
                     </label>
 
@@ -312,12 +329,12 @@ function ContactContent() {
                       {isSubmitting ? (
                         <>
                           <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          <span>접수 중...</span>
+                          <span>{language === "ko" ? "접수 중..." : "Submitting..."}</span>
                         </>
                       ) : (
                         <>
                           <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                          <span>문의 보내기</span>
+                          <span>{language === "ko" ? "문의 보내기" : "Submit Inquiry"}</span>
                         </>
                       )}
                     </button>
@@ -334,10 +351,21 @@ function ContactContent() {
                   <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto shadow-sm ${activeTab === "trade" ? "bg-[#FFF5EF] text-[#FF6A00]" : "bg-[#F3E8FF] text-[#6A0DAD]"}`}>
                     <CheckCircle2 size={32} />
                   </div>
-                  <h3 className="text-2xl font-black text-neutral-900 mb-3">문의 접수 완료</h3>
+                  <h3 className="text-2xl font-black text-neutral-900 mb-3">
+                    {language === "ko" ? "문의 접수 완료" : "Inquiry Submitted"}
+                  </h3>
                   <p className="text-sm text-neutral-500 font-semibold leading-relaxed max-w-sm mx-auto mb-8">
-                    소중한 문의가 성공적으로 접수되었습니다.<br />
-                    기재해 주신 연락처/이메일을 통해 담당 부서에서 신속히 검토 후 영업일 기준 24시간 이내에 친절하게 답변드리겠습니다.
+                    {language === "ko" ? (
+                      <>
+                        소중한 문의가 성공적으로 접수되었습니다.<br />
+                        기재해 주신 연락처/이메일을 통해 담당 부서에서 신속히 검토 후 영업일 기준 24시간 이내에 친절하게 답변드리겠습니다.
+                      </>
+                    ) : (
+                      <>
+                        Your inquiry has been successfully received.<br />
+                        The responsible department will review it and reply within 24 business hours using the contact number/email provided.
+                      </>
+                    )}
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
@@ -347,7 +375,7 @@ function ContactContent() {
                         : "border-[#6A0DAD]/30 text-[#6A0DAD] hover:bg-[#F3E8FF]"
                     }`}
                   >
-                    새 문의 작성하기
+                    {language === "ko" ? "새 문의 작성하기" : "Write New Inquiry"}
                   </button>
                 </motion.div>
               )}
@@ -368,7 +396,7 @@ export default function ContactPage() {
       <div className="min-h-screen flex items-center justify-center bg-white text-neutral-500 font-sans font-bold">
         <div className="flex flex-col items-center gap-4">
           <div className="w-8 h-8 border-4 border-neutral-200 border-t-[#6A0DAD] rounded-full animate-spin" />
-          <span>로딩 중입니다...</span>
+          <span>Loading...</span>
         </div>
       </div>
     }>
@@ -376,3 +404,4 @@ export default function ContactPage() {
     </Suspense>
   );
 }
+

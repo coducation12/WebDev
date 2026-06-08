@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 import { 
   Ship, 
   Truck, 
@@ -28,52 +29,54 @@ import {
 const APPLE_EASE = [0.32, 0.72, 0, 1];
 const ASSET = "/assets/images";
 
-const steps = [
+const getSteps = (language: "ko" | "en") => [
   {
     step: "01",
-    title: "화물 입고",
-    desc: "수출입 화물 터미널로부터 화물을 안전하게 반입",
+    title: language === "ko" ? "화물 입고" : "Cargo Receiving",
+    desc: language === "ko" ? "수출입 화물 터미널로부터 화물을 안전하게 반입" : "Safe receipt of cargo from import/export terminals",
     img: "active/logistics_process_receiving_v6.jpg",
     icon: Truck,
   },
   {
     step: "02",
-    title: "상·하차 및 하역",
-    desc: "컨테이너 라이싱 및 전문 인력을 통한 안정적인 적재·하역",
+    title: language === "ko" ? "상·하차 및 하역" : "Loading, Unloading & Handling",
+    desc: language === "ko" ? "컨테이너 라이싱 및 전문 인력을 통한 안정적인 적재·하역" : "Stable loading and unloading through container lashing and expert personnel",
     img: "active/logistics_process_handling_v2.jpg",
     icon: Forklift,
   },
   {
     step: "03",
-    title: "검수 / 검역",
-    desc: "입출고 시 수량 및 품질 점검을 통한 오배송 방지",
+    title: language === "ko" ? "검수 / 검역" : "Inspection / Quarantine",
+    desc: language === "ko" ? "입출고 시 수량 및 품질 점검을 통한 오배송 방지" : "Preventing misdelivery through quantity and quality checks during inbound and outbound processes",
     img: "active/logistics_process_inspection_v2.jpg",
     icon: ClipboardCheck,
   },
   {
     step: "04",
-    title: "유통가공 / 반가공",
-    desc: "제품 조립, 반가공, 소포장 및 수출입 라벨링",
+    title: language === "ko" ? "유통가공 / 반가공" : "Value-added / Semi-processing",
+    desc: language === "ko" ? "제품 조립, 반가공, 소포장 및 수출입 라벨링" : "Product assembly, semi-processing, small packaging, and import/export labeling",
     img: "distribution_processing.png",
     icon: Package,
   },
   {
     step: "05",
-    title: "보관 및 재고 관리",
-    desc: "실시간 온·습도 관리 및 24시간 철저한 CCTV 보안",
+    title: language === "ko" ? "보관 및 재고 관리" : "Storage & Inventory Management",
+    desc: language === "ko" ? "실시간 온·습도 관리 및 24시간 철저한 CCTV 보안" : "Real-time temperature & humidity control and strict 24-hour CCTV security",
     img: "2.jpg",
     icon: ShieldCheck,
   },
   {
     step: "06",
-    title: "첨단 자동화 창고 운영",
-    desc: "로보틱스 및 WMS 기반의 위탁 물류 운영",
+    title: language === "ko" ? "첨단 자동화 창고 운영" : "Automated Warehouse Operations",
+    desc: language === "ko" ? "로보틱스 및 WMS 기반의 위탁 물류 운영" : "Consigned logistics operations based on robotics and WMS",
     img: "automated_warehouse.png",
     icon: Cog,
   },
 ];
 
 export default function LogisticsPage() {
+  const { language } = useLanguage();
+  const steps = getSteps(language);
   const [activeSection, setActiveSection] = useState("intl-service");
   const [activeAutoStep, setActiveAutoStep] = useState(0);
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
@@ -126,10 +129,10 @@ export default function LogisticsPage() {
         <div className="max-w-[1300px] mx-auto px-6 md:px-10 flex justify-center overflow-x-auto scrollbar-none">
           <div className="flex gap-2 sm:gap-4 md:gap-6 whitespace-nowrap">
             {[
-              { id: "intl-service", label: "국제 물류 서비스" },
-              { id: "infra", label: "물류 인프라" },
-              { id: "equipment", label: "물류 장비 개발·제작" },
-              { id: "packaging", label: "물류 전문 포장" },
+              { id: "intl-service", label: language === "ko" ? "국제 물류 서비스" : "International Logistics Services" },
+              { id: "infra", label: language === "ko" ? "물류 인프라" : "Logistics Infrastructure" },
+              { id: "equipment", label: language === "ko" ? "물류 장비 개발·제작" : "Logistics Equipment Development & Manufacturing" },
+              { id: "packaging", label: language === "ko" ? "물류 전문 포장" : "Professional Packaging" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -176,16 +179,28 @@ export default function LogisticsPage() {
                   <span className="w-[7px] h-8 md:h-10 lg:h-11 bg-[#6A0DAD] rounded-[2px]" />
                   <span className="w-[3px] h-6 md:h-8 lg:h-9 bg-[#6A0DAD]/50 rounded-[1px]" />
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">국제물류서비스</h2>
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">
+                  {language === "ko" ? "국제물류서비스" : "International Logistics Services"}
+                </h2>
               </div>
               <p className="text-base md:text-lg text-neutral-600 font-semibold leading-relaxed">
-                자체 물류 인프라와 글로벌 네트워크를 유기적으로 결합하여, 수출입 요건 확인부터 보세 보관 및 최종 운송까지 단절 없는 <strong className="text-[#6A0DAD] font-black">원스톱 솔루션</strong>을 설계합니다.
+                {language === "ko" ? (
+                  <>자체 물류 인프라와 글로벌 네트워크를 유기적으로 결합하여, 수출입 요건 확인부터 보세 보관 및 최종 운송까지 단절 없는 <strong className="text-[#6A0DAD] font-black">원스톱 솔루션</strong>을 설계합니다.</>
+                ) : (
+                  <>Organically combining our own logistics infrastructure and global network, we design a seamless <strong className="text-[#6A0DAD] font-black">one-stop solution</strong> from verification of import/export requirements to bonded storage and final delivery.</>
+                )}
               </p>
             </motion.div>
 
             {/* 1) 글로벌 포워딩 & 수입 요건 확인 */}
             <div className="mb-28 pl-4 md:pl-8 lg:pl-12">
-              <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-8 border-l-4 border-[#6A0DAD] pl-4">1) 글로벌 포워딩 <span className="font-sans font-normal">&amp;</span> 수입 요건 확인</h3>
+              <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-8 border-l-4 border-[#6A0DAD] pl-4">
+                {language === "ko" ? (
+                  <>1) 글로벌 포워딩 <span className="font-sans font-normal">&amp;</span> 수입 요건 확인</>
+                ) : (
+                  <>1) Global Forwarding <span className="font-sans font-normal">&amp;</span> Import Requirements Verification</>
+                )}
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <motion.div 
                   initial={{ opacity: 0, y: 30 }}
@@ -197,10 +212,16 @@ export default function LogisticsPage() {
                     <Ship size={28} />
                   </div>
                   <div>
-                    <h4 className="text-lg md:text-[21px] font-black tracking-tight mb-1 text-neutral-900">포워딩<span className="font-sans font-normal">&amp;</span>국제운송</h4>
+                    <h4 className="text-lg md:text-[21px] font-black tracking-tight mb-1 text-neutral-900">
+                      {language === "ko" ? (
+                        <>포워딩<span className="font-sans font-normal">&amp;</span>국제운송</>
+                      ) : (
+                        <>Forwarding <span className="font-sans font-normal">&amp;</span> International Transport</>
+                      )}
+                    </h4>
                     <p className="text-[11px] font-bold text-neutral-400 uppercase tracking-widest mb-4">(Forwarding <span className="font-sans font-normal">&amp;</span> International Transport)</p>
                     <p className="text-neutral-600 font-semibold leading-relaxed text-[16px]">
-                      자체 물류 인프라와 글로벌 네트워크를 연계하여 최적의 수출입 운송 경로를 설계합니다.
+                      {language === "ko" ? "자체 물류 인프라와 글로벌 네트워크를 연계하여 최적의 수출입 운송 경로를 설계합니다." : "We design optimal import/export transport routes by linking our own logistics infrastructure with our global network."}
                     </p>
                   </div>
                 </motion.div>
@@ -215,10 +236,16 @@ export default function LogisticsPage() {
                     <ClipboardCheck size={28} />
                   </div>
                   <div>
-                    <h4 className="text-lg md:text-[21px] font-black tracking-tight mb-1 text-neutral-900">수출입 통관<span className="font-sans font-normal">&amp;</span>검역</h4>
+                    <h4 className="text-lg md:text-[21px] font-black tracking-tight mb-1 text-neutral-900">
+                      {language === "ko" ? (
+                        <>수출입 통관<span className="font-sans font-normal">&amp;</span>검역</>
+                      ) : (
+                        <>Customs Clearance <span className="font-sans font-normal">&amp;</span> Quarantine</>
+                      )}
+                    </h4>
                     <p className="text-[11px] font-bold text-neutral-400 uppercase tracking-widest mb-4">(Customs Clearance <span className="font-sans font-normal">&amp;</span> Quarantine)</p>
                     <p className="text-neutral-600 font-semibold leading-relaxed text-[16px]">
-                      복잡한 관세 행정과 검역 절차를 신속하고 정확하게 대행합니다.
+                      {language === "ko" ? "복잡한 관세 행정과 검역 절차를 신속하고 정확하게 대행합니다." : "We quickly and accurately handle complex customs administration and quarantine procedures."}
                     </p>
                   </div>
                 </motion.div>
@@ -227,7 +254,9 @@ export default function LogisticsPage() {
 
             {/* 2) 보세창고 물류 프로세스 */}
             <div className="mb-28 pl-4 md:pl-8 lg:pl-12">
-              <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-10 border-l-4 border-[#6A0DAD] pl-4">2) 보세창고 물류 프로세스</h3>
+              <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-10 border-l-4 border-[#6A0DAD] pl-4">
+                {language === "ko" ? "2) 보세창고 물류 프로세스" : "2) Bonded Warehouse Logistics Process"}
+              </h3>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 relative">
                 {steps.map((item, idx) => {
@@ -308,19 +337,33 @@ export default function LogisticsPage() {
 
             {/* 3) 운송 서비스(Transportation Service) */}
             <div className="pl-4 md:pl-8 lg:pl-12">
-              <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-8 border-l-4 border-[#6A0DAD] pl-4">3) 운송 서비스 (Transportation Service)</h3>
+              <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-8 border-l-4 border-[#6A0DAD] pl-4">
+                {language === "ko" ? "3) 운송 서비스 (Transportation Service)" : "3) Transportation Service"}
+              </h3>
               <div className="bg-white rounded-[40px] border border-neutral-100/60 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch">
                 
                 <div className="lg:col-span-7 py-8 px-6 md:py-10 md:px-10 lg:pr-6 flex flex-col justify-center text-left">
                   <h4 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-5 leading-tight">
-                    다양한 화물 특성에 맞춘 최적의 운송 라인업
+                    {language === "ko" ? "다양한 화물 특성에 맞춘 최적의 운송 라인업" : "Optimal transport lineup tailored to various cargo characteristics"}
                   </h4>
                   <div className="space-y-4">
                     {[
-                      { title: "셔틀 운송(Shuttle Transport)", desc: "항만-보세창고 간 전용 셔틀 서비스" },
-                      { title: "보세 운송 (Bonded Transport)", desc: "수입 통관 전 세관 규정 준수한 보세운송" },
-                      { title: "컨테이너 운송 (Container Transport)", desc: "최적 배차, 경로 설계로 비용· 규정시간 절감" },
-                      { title: "카고운송 (Cargo Transport)", desc: "팔레트 ·벌크 화물 전용 대형 트럭" }
+                      {
+                        title: language === "ko" ? "셔틀 운송(Shuttle Transport)" : "Shuttle Transport",
+                        desc: language === "ko" ? "항만-보세창고 간 전용 셔틀 서비스" : "Dedicated shuttle service between the port and bonded warehouse"
+                      },
+                      {
+                        title: language === "ko" ? "보세 운송 (Bonded Transport)" : "Bonded Transport",
+                        desc: language === "ko" ? "수입 통관 전 세관 규정 준수한 보세운송" : "Bonded transport complying with customs regulations before import clearance"
+                      },
+                      {
+                        title: language === "ko" ? "컨테이너 운송 (Container Transport)" : "Container Transport",
+                        desc: language === "ko" ? "최적 배차, 경로 설계로 비용· 규정시간 절감" : "Saving costs and transit time through optimal dispatching and routing"
+                      },
+                      {
+                        title: language === "ko" ? "카고운송 (Cargo Transport)" : "Cargo Transport",
+                        desc: language === "ko" ? "팔레트 ·벌크 화물 전용 대형 트럭" : "Heavy-duty trucks dedicated to palletized and bulk cargo"
+                      }
                     ].map((svc, i) => (
                       <div key={i} className="flex gap-3.5 items-center">
                         <div className="w-5 h-5 rounded-full bg-[#F8F5FF] flex items-center justify-center text-[#6A0DAD] flex-shrink-0">
@@ -365,10 +408,16 @@ export default function LogisticsPage() {
                   <span className="w-[7px] h-8 md:h-10 lg:h-11 bg-[#6A0DAD] rounded-[2px]" />
                   <span className="w-[3px] h-6 md:h-8 lg:h-9 bg-[#6A0DAD]/50 rounded-[1px]" />
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">물류 인프라</h2>
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">
+                  {language === "ko" ? "물류 인프라" : "Logistics Infrastructure"}
+                </h2>
               </div>
               <p className="text-base md:text-lg text-neutral-600 font-semibold leading-relaxed">
-                여수 광양항 자유무역지역 내 보세·자동화 설비의 전문 운영 관리를 기반으로, 직영 인력의 책임 하에 효율적이고 <strong className="text-[#6A0DAD] font-black">'안정적인 화물 관리 인프라'</strong>를 운영합니다.
+                {language === "ko" ? (
+                  <>여수 광양항 자유무역지역 내 보세·자동화 설비의 전문 운영 관리를 기반으로, 직영 인력의 책임 하에 효율적이고 <strong className="text-[#6A0DAD] font-black">'안정적인 화물 관리 인프라'</strong>를 운영합니다.</>
+                ) : (
+                  <>Based on professional operation and management of bonded and automated facilities in Yeosu Gwangyang Port Free Trade Zone, we operate an efficient and <strong className="text-[#6A0DAD] font-black">'stable cargo management infrastructure'</strong> under the responsibility of direct-hire personnel.</>
+                )}
               </p>
             </motion.div>
 
@@ -377,37 +426,57 @@ export default function LogisticsPage() {
               {[
                 {
                   no: "01",
-                  title: "여수광양항 자유무역지역에\n위치한 전략적 거점",
-                  desc: "광양항 컨테이너 터미널과의 초근접 위치 및 배후단지 내 핵심 세제 혜택(관세 유예, 각종 지방세 감면)을 활용해 수출입 물류의 최적의 허브 역할을 보장합니다.",
-                  tags: ["#항만배후단지인접", "#관세유예및세제혜택", "#압도적접근성"],
+                  title: language === "ko" ? "여수광양항 자유무역지역에\n위치한 전략적 거점" : "Strategic Base in the\nYeosu Gwangyang Port Free Trade Zone",
+                  desc: language === "ko"
+                    ? "광양항 컨테이너 터미널과의 초근접 위치 및 배후단지 내 핵심 세제 혜택(관세 유예, 각종 지방세 감면)을 활용해 수출입 물류의 최적의 허브 역할을 보장합니다."
+                    : "Guarantees an optimal hub for import/export logistics by taking advantage of close proximity to the Gwangyang Port Container Terminal and key tax benefits (customs duty suspension, local tax reductions) in the hinterland.",
+                  tags: language === "ko"
+                    ? ["#항만배후단지인접", "#관세유예및세제혜택", "#압도적접근성"]
+                    : ["#CloseToPortHinterland", "#CustomsSuspension&TaxBenefits", "#ExcellentAccessibility"],
                   img: "gwangyang_map_v3.png",
                 },
                 {
                   no: "02",
-                  title: "화주 맞춤형 독립 창고",
-                  desc: "총 부지 4만 평(132,000㎡) 및 창고 2만 평(66,000㎡)의 초대형 스케일을 확보하여, 화주별 프라이버시가 존중되는 아파트형 격벽 구조 독립 물류창고를 맞춤형으로 분할 매칭합니다.",
-                  tags: ["#부지4만평_창고2만평", "#아파트형분할구획", "#철저한보안관리"],
+                  title: language === "ko" ? "화주 맞춤형 독립 창고" : "Customized Independent Warehouses",
+                  desc: language === "ko"
+                    ? "총 부지 4만 평(132,000㎡) 및 창고 2만 평(66,000㎡)의 초대형 스케일을 확보하여, 화주별 프라이버시가 존중되는 아파트형 격벽 구조 독립 물류창고를 맞춤형으로 분할 매칭합니다."
+                    : "Secures a massive scale with 132,000㎡ of total site area and 66,000㎡ of warehouse area, offering customized partitioning of independent warehouses with apartment-style partition structures that respect each client's privacy.",
+                  tags: language === "ko"
+                    ? ["#부지4만평_창고2만평", "#아파트형분할구획", "#철저한보안관리"]
+                    : ["#132k㎡Site_66k㎡Warehouse", "#ApartmentStylePartition", "#StrictSecurityManagement"],
                   img: "extra_8.jpg",
                 },
                 {
                   no: "03",
-                  title: "자체 항만 하역 및\n대형 운송 장비",
-                  desc: "외부 임대 대기 장비 시간을 최소화(Zero)하기 위해 대형 컨테이너 상하차용 리치스태커, 3톤에서 14톤에 달하는 현장 대형 지게차, 특수 트레일러 샤시 라인업을 자사 기기로 완비하고 있습니다.",
-                  tags: ["#지게차", "#리치스태커", "#트레일러_샤시", "#외주대기시간Zero"],
+                  title: language === "ko" ? "자체 항만 하역 및\n대형 운송 장비" : "Own Port Handling &\nLarge Transport Equipment",
+                  desc: language === "ko"
+                    ? "외부 임대 대기 장비 시간을 최소화(Zero)하기 위해 대형 컨테이너 상하차용 리치스태커, 3톤에서 14톤에 달하는 현장 대형 지게차, 특수 트레일러 샤시 라인업을 자사 기기로 완비하고 있습니다."
+                    : "To minimize waiting time for leased equipment to zero, we are fully equipped with our own heavy equipment, including reach stackers for container handling, heavy-duty forklifts ranging from 3 to 14 tons, and special trailer chassis.",
+                  tags: language === "ko"
+                    ? ["#지게차", "#리치스태커", "#트레일러_샤시", "#외주대기시간Zero"]
+                    : ["#Forklift", "#ReachStacker", "#TrailerChassis", "#ZeroWaitingTime"],
                   img: "extra_1.jpg",
                 },
                 {
                   no: "04",
-                  title: "100% 정규직 직영\n운영 관리",
-                  desc: "재도급 하청이나 단순 일용직 파견 인력 위주의 불안정한 창고 운영이 아닌, 본사 소속 정규직 현장 인력들이 24시간 철저히 검수·하역을 도맡아 무결점 보관 상태를 약속합니다.",
-                  tags: ["#도급재하청없음", "#본사정규직현장상주", "#무결점책임물류"],
+                  title: language === "ko" ? "100% 정규직 직영\n운영 관리" : "100% Direct-Hire Permanent\nStaff Management",
+                  desc: language === "ko"
+                    ? "재도급 하청이나 단순 일용직 파견 인력 위주의 불안정한 창고 운영이 아닌, 본사 소속 정규직 현장 인력들이 24시간 철저히 검수·하역을 도맡아 무결점 보관 상태를 약속합니다."
+                    : "We promise flawless storage status by having full-time staff handle inspection and unloading 24 hours a day, rather than subcontracting or relying on temporary daily workers.",
+                  tags: language === "ko"
+                    ? ["#도급재하청없음", "#본사정규직현장상주", "#무결점책임물류"]
+                    : ["#NoSubcontracting", "#PermanentStaffOnSite", "#FlawlessResponsibleLogistics"],
                   img: "infra_card_4_korean.png",
                 },
                 {
                   no: "05",
-                  title: "검증된 사업 인증 자격",
-                  desc: "국제물류주선업, 화물자동차운송주선업, 근로자파견사업 등 정부 허가 정식 라이선스를 보유하고 있으며, ISO 9001(품질), 14001(환경), 45001(안전보건) 인증에 근거한 규격을 준수합니다.",
-                  tags: ["#국제물류주선업", "#화물운송주선업", "#건설기계대여업", "#근로자파견사업허가", "#식물검역신고대행업", "#ISO45001,ISO14001,ISO9001"],
+                  title: language === "ko" ? "검증된 사업 인증 자격" : "Proven Business Licenses",
+                  desc: language === "ko"
+                    ? "국제물류주선업, 화물자동차운송주선업, 근로자파견사업 등 정부 허가 정식 라이선스를 보유하고 있으며, ISO 9001(품질), 14001(환경), 45001(안전보건) 인증에 근거한 규격을 준수합니다."
+                    : "We hold official government-approved licenses including international freight forwarding, cargo transport brokerage, and temporary worker dispatch services, and strictly comply with ISO 9001 (Quality), 14001 (Environment), and 45001 (Occupational Health & Safety) standards.",
+                  tags: language === "ko"
+                    ? ["#국제물류주선업", "#화물운송주선업", "#건설기계대여업", "#근로자파견사업허가", "#식물검역신고대행업", "#ISO45001,ISO14001,ISO9001"]
+                    : ["#FreightForwarding", "#CargoBrokerage", "#HeavyMachineryLease", "#LaborDispatchLicense", "#PlantQuarantineAgency", "#ISO45001_14001_9001"],
                   img: "active/logistics_infra_licenses_v2.jpg",
                 },
               ].map((item, idx) => (
@@ -468,10 +537,16 @@ export default function LogisticsPage() {
                   <span className="w-[7px] h-8 md:h-10 lg:h-11 bg-[#6A0DAD] rounded-[2px]" />
                   <span className="w-[3px] h-6 md:h-8 lg:h-9 bg-[#6A0DAD]/50 rounded-[1px]" />
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">물류 장비 개발 및 제작</h2>
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">
+                  {language === "ko" ? "물류 장비 개발 및 제작" : "Logistics Equipment Development & Manufacturing"}
+                </h2>
               </div>
               <p className="text-base md:text-lg text-neutral-600 font-semibold leading-relaxed">
-                실무 운영 노하우를 바탕으로 최고의 공간 효율을 보장하는 <strong className="text-[#6A0DAD] font-black">'고객 맞춤형 물류 기기 및 랙 시스템'</strong>을 설계·제작합니다.
+                {language === "ko" ? (
+                  <>실무 운영 노하우를 바탕으로 최고의 공간 효율을 보장하는 <strong className="text-[#6A0DAD] font-black">'고객 맞춤형 물류 기기 및 랙 시스템'</strong>을 설계·제작합니다.</>
+                ) : (
+                  <>Based on operational expertise, we design and manufacture <strong className="text-[#6A0DAD] font-black">'customized logistics equipment and rack systems'</strong> that guarantee maximum space efficiency.</>
+                )}
               </p>
             </motion.div>
 
@@ -479,18 +554,24 @@ export default function LogisticsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
               {[
                 {
-                  title: "보라로지텍 자체 생산",
-                  desc: "율촌산단 전남테크노파크 내 자체공장을 운영하며 철박스, 포장기계, 각종 물류기기를 기획·설계·제작합니다.",
+                  title: language === "ko" ? "보라로지텍 자체 생산" : "Bora Logitech In-house Production",
+                  desc: language === "ko"
+                    ? "율촌산단 전남테크노파크 내 자체공장을 운영하며 철박스, 포장기계, 각종 물류기기를 기획·설계·제작합니다."
+                    : "We operate our own factory in Yulchon Industrial Complex (Jeonnam Technopark) to plan, design, and manufacture steel boxes, packaging machinery, and various logistics equipment.",
                   icon: Cog,
                 },
                 {
-                  title: "글로벌 협력 생산 파트너십",
-                  desc: "중국 청도 협력업체에서 기본 작업을 진행하고 국내 율촌공장에서 조립, 용접 등 후작업을 거쳐 고품질을 완성합니다.",
+                  title: language === "ko" ? "글로벌 협력 생산 파트너십" : "Global Collaborative Production Partnership",
+                  desc: language === "ko"
+                    ? "중국 청도 협력업체에서 기본 작업을 진행하고 국내 율촌공장에서 조립, 용접 등 후작업을 거쳐 고품질을 완성합니다."
+                    : "We carry out basic fabrication with partners in Qingdao, China, and complete high-quality assembly, welding, and finishing at our Yulchon factory in Korea.",
                   icon: Factory,
                 },
                 {
-                  title: "맞춤형 랙 제작 & 시공",
-                  desc: "이동식 랙, 팔레트 랙 등 창고 공간을 최적화하고 보관 용량을 극대화하는 솔루션을 제공합니다.",
+                  title: language === "ko" ? "맞춤형 랙 제작 & 시공" : "Custom Rack Manufacturing & Installation",
+                  desc: language === "ko"
+                    ? "이동식 랙, 팔레트 랙 등 창고 공간을 최적화하고 보관 용량을 극대화하는 솔루션을 제공합니다."
+                    : "We provide solutions that optimize warehouse space and maximize storage capacity, such as mobile racks and pallet racks.",
                   icon: Package,
                 },
               ].map((item, idx) => (
@@ -578,10 +659,16 @@ export default function LogisticsPage() {
                   <span className="w-[7px] h-8 md:h-10 lg:h-11 bg-[#6A0DAD] rounded-[2px]" />
                   <span className="w-[3px] h-6 md:h-8 lg:h-9 bg-[#6A0DAD]/50 rounded-[1px]" />
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">물류 전문 포장</h2>
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">
+                  {language === "ko" ? "물류 전문 포장" : "Professional Packaging"}
+                </h2>
               </div>
               <p className="text-base md:text-lg text-neutral-600 font-semibold leading-relaxed">
-                제품 생산라인 협력파트너로서, 포장부터 출고와 시설정비까지 <strong className="text-[#6A0DAD] font-black">'최고의 안전과 노무 관리 체계'</strong>를 갖추었습니다.
+                {language === "ko" ? (
+                  <>제품 생산라인 협력파트너로서, 포장부터 출고와 시설정비까지 <strong className="text-[#6A0DAD] font-black">'최고의 안전과 노무 관리 체계'</strong>를 갖추었습니다.</>
+                ) : (
+                  <>As an operational partner for manufacturing production lines, we maintain the <strong className="text-[#6A0DAD] font-black">'highest safety and labor management standards'</strong> from packaging to outbound shipping and facility maintenance.</>
+                )}
               </p>
             </motion.div>
 
@@ -615,12 +702,24 @@ export default function LogisticsPage() {
             <div className="space-y-6">
               {[
                 {
-                  title: "치밀한 안전관리",
+                  title: language === "ko" ? "치밀한 안전관리" : "Rigorous Safety Management",
                   bullets: [
-                    { b: "전담 안전관리담당 2명 배치", n: "책임자 1명, 실무자 1명" },
-                    { b: "일상적인 지속적 교육", n: "사업장내 교육장 설치, 상시적인 직원 안전교육 실시" },
-                    { b: "선제적 사고예방", n: "작업현장 내 작업관련 위험요소를 적극적으로 개선" },
-                    { b: "전직원 안전 상해보험 가입", n: "" }
+                    {
+                      b: language === "ko" ? "전담 안전관리담당 2명 배치" : "Deployment of 2 dedicated safety managers",
+                      n: language === "ko" ? "책임자 1명, 실무자 1명" : "1 director, 1 practitioner"
+                    },
+                    {
+                      b: language === "ko" ? "일상적인 지속적 교육" : "Continuous daily training",
+                      n: language === "ko" ? "사업장내 교육장 설치, 상시적인 직원 안전교육 실시" : "Establishing on-site training facilities and conducting regular employee safety training"
+                    },
+                    {
+                      b: language === "ko" ? "선제적 사고예방" : "Proactive accident prevention",
+                      n: language === "ko" ? "작업현장 내 작업관련 위험요소를 적극적으로 개선" : "Actively improving work-related hazard factors in the workplace"
+                    },
+                    {
+                      b: language === "ko" ? "전직원 안전 상해보험 가입" : "Safety accident insurance coverage for all employees",
+                      n: ""
+                    }
                   ],
                   bg: "bg-white",
                   border: "border-neutral-100 hover:border-[#6A0DAD]/30",
@@ -628,12 +727,24 @@ export default function LogisticsPage() {
                   accentColor: "#6A0DAD",
                 },
                 {
-                  title: "합리적 노무관리",
+                  title: language === "ko" ? "합리적 노무관리" : "Reasonable Labor Management",
                   bullets: [
-                    { b: "노사간 신뢰구축", n: "다양한 대화채널 확대 및 상시적 대화" },
-                    { b: "경영환경 및 환경변화 공유", n: "경영상황, 전망 등 정보 자료 공유" },
-                    { b: "일상적 노무협력", n: "현장의 소리 적극적 반영, 선제적 대책제시" },
-                    { b: "합리적 임단협 진행", n: "상호 신뢰를 바탕으로 합리적인 대화" }
+                    {
+                      b: language === "ko" ? "노사간 신뢰구축" : "Building trust between labor and management",
+                      n: language === "ko" ? "다양한 대화채널 확대 및 상시적 대화" : "Expanding diverse communication channels and maintaining constant dialogue"
+                    },
+                    {
+                      b: language === "ko" ? "경영환경 및 환경변화 공유" : "Sharing business environment and changes",
+                      n: language === "ko" ? "경영상황, 전망 등 정보 자료 공유" : "Sharing info and materials such as business conditions and forecasts"
+                    },
+                    {
+                      b: language === "ko" ? "일상적 노무협력" : "Routine labor-management cooperation",
+                      n: language === "ko" ? "현장의 소리 적극적 반영, 선제적 대책제시" : "Actively reflecting on-site feedback and proposing proactive measures"
+                    },
+                    {
+                      b: language === "ko" ? "합리적 임단협 진행" : "Reasonable collective bargaining",
+                      n: language === "ko" ? "상호 신뢰를 바탕으로 합리적인 대화" : "Reasonable dialogue based on mutual trust"
+                    }
                   ],
                   bg: "bg-white",
                   border: "border-neutral-100 hover:border-[#4B49EB]/30",
@@ -641,12 +752,24 @@ export default function LogisticsPage() {
                   accentColor: "#4B49EB",
                 },
                 {
-                  title: "지속적 현장혁신",
+                  title: language === "ko" ? "지속적 현장혁신" : "Continuous Workplace Innovation",
                   bullets: [
-                    { b: "일상적인 작업동선 개선", n: "장비, 인력이동, 화물동선 합리적 개선" },
-                    { b: "작업장비 현대화 자동화", n: "현장안전 개선 및 인력대체 효과" },
-                    { b: "안전관리 극대화를 위한 혁신", n: "일상적인 작업현장 안전시설과 장비 혁신" },
-                    { b: "자체적으로 혁신팀 운영", n: "관리자, 현장인력 공동으로 혁신팀 구성" }
+                    {
+                      b: language === "ko" ? "일상적인 작업동선 개선" : "Routine improvement of work flow",
+                      n: language === "ko" ? "장비, 인력이동, 화물동선 합리적 개선" : "Rational improvement of equipment, worker movement, and cargo routes"
+                    },
+                    {
+                      b: language === "ko" ? "작업장비 현대화 자동화" : "Modernization and automation of work equipment",
+                      n: language === "ko" ? "현장안전 개선 및 인력대체 효과" : "Improving site safety and replacing manual labor"
+                    },
+                    {
+                      b: language === "ko" ? "안전관리 극대화를 위한 혁신" : "Innovation to maximize safety management",
+                      n: language === "ko" ? "일상적인 작업현장 안전시설과 장비 혁신" : "Innovative updates to daily safety facilities and work equipment"
+                    },
+                    {
+                      b: language === "ko" ? "자체적으로 혁신팀 운영" : "In-house operation of innovation teams",
+                      n: language === "ko" ? "관리자, 현장인력 공동으로 혁신팀 구성" : "Forming joint innovation teams with managers and field personnel"
+                    }
                   ],
                   bg: "bg-white",
                   border: "border-neutral-100 hover:border-[#9333EA]/30",

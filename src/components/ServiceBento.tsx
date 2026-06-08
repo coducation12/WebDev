@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+import { useLanguage } from "@/context/LanguageContext";
+
 const APPLE_EASE = [0.32, 0.72, 0, 1];
 const ASSET = "/assets/images/active";
 
@@ -18,6 +20,7 @@ interface ServiceBentoProps {
 }
 
 export default function ServiceBento({ isHoverEnabled = true }: ServiceBentoProps) {
+  const { language } = useLanguage();
   const [logIdx, setLogIdx] = useState(0);
   const [tradeIdx, setTradeIdx] = useState(0);
 
@@ -35,6 +38,19 @@ export default function ServiceBento({ isHoverEnabled = true }: ServiceBentoProp
       clearInterval(tradeInterval);
     };
   }, []);
+
+  const logisticsMenus = [
+    language === "ko" ? "국제물류서비스" : "International Logistics",
+    language === "ko" ? "물류 인프라" : "Logistics Infrastructure",
+    language === "ko" ? "물류 장비 개발 및 제작" : "Equipment Development",
+    language === "ko" ? "물류 전문 포장" : "Specialized Packaging"
+  ];
+
+  const tradeMenus = [
+    language === "ko" ? "수출입 사업 소개" : "Business Sourcing",
+    language === "ko" ? "수출입 업무 대행" : "Import/Export Agency",
+    language === "ko" ? "자사 브랜드 소개" : "Brand Introduction"
+  ];
 
   return (
     <div className="w-full max-w-[1500px] mx-auto py-8 md:py-12 px-6 md:px-10 flex flex-col">
@@ -82,12 +98,7 @@ export default function ServiceBento({ isHoverEnabled = true }: ServiceBentoProp
 
             {/* Menu items hidden on mobile for clarity */}
             <div className="hidden md:block space-y-6">
-              {[
-                "국제물류서비스",
-                "물류 인프라",
-                "물류 장비 개발 및 제작",
-                "물류 전문 포장"
-              ].map((item, idx) => (
+              {logisticsMenus.map((item, idx) => (
                 <div
                   key={idx}
                   className="flex items-center gap-4 w-full text-left group/item cursor-default"
@@ -152,11 +163,7 @@ export default function ServiceBento({ isHoverEnabled = true }: ServiceBentoProp
 
             {/* Menu items hidden on mobile for clarity */}
             <div className="hidden md:block space-y-6">
-              {[
-                "수출입 사업 소개",
-                "수출입 업무 대행",
-                "자사 브랜드 소개"
-              ].map((item, idx) => (
+              {tradeMenus.map((item, idx) => (
                 <div
                   key={idx}
                   className="flex items-center gap-4 w-full text-left group/item cursor-default"
@@ -183,3 +190,4 @@ export default function ServiceBento({ isHoverEnabled = true }: ServiceBentoProp
     </div>
   );
 }
+
