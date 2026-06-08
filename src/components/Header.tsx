@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Menu, Globe, ChevronDown } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ASSET = "/assets/images";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [currentLang, setCurrentLang] = useState("한국어");
+  const { language, setLanguage, t } = useLanguage();
+  const currentLangLabel = language === "ko" ? "한국어" : "English";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -51,7 +53,7 @@ export default function Header() {
                 href={menu.name === "회사 소개" ? "/about" : menu.name === "물류 서비스" ? "/logistics" : menu.name === "글로벌 무역" ? "/trade" : menu.name === "문의하기" ? "/contact" : "#"}
                 className="text-[14px] font-bold text-neutral-600 hover:text-[#6A0DAD] transition-colors flex items-center gap-1"
               >
-                {menu.name}
+                {t(menu.name)}
               </Link>
               
               {/* Dropdown Menu */}
@@ -82,7 +84,7 @@ export default function Header() {
                         href={href} 
                         className="px-4 py-2.5 rounded-xl text-[13px] font-semibold text-neutral-500 hover:text-[#6A0DAD] hover:bg-neutral-50 transition-all whitespace-nowrap text-center"
                       >
-                        {sub}
+                        {t(sub)}
                       </Link>
                     );
                   })}
@@ -97,7 +99,7 @@ export default function Header() {
           <button className="flex items-center gap-3 px-4 py-2 border border-neutral-200 rounded-full text-[12px] font-bold text-neutral-600 hover:text-neutral-900 bg-white hover:bg-neutral-50 transition-all shadow-sm min-w-[95px] justify-between">
             <div className="flex items-center gap-2">
               <Globe size={14} className="flex-shrink-0" />
-              <span className="whitespace-nowrap">{currentLang}</span>
+              <span className="whitespace-nowrap">{currentLangLabel}</span>
             </div>
             <ChevronDown size={12} className="opacity-60 group-hover:rotate-180 transition-transform duration-300 flex-shrink-0" />
           </button>
@@ -105,14 +107,14 @@ export default function Header() {
           <div className="absolute right-0 top-full pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
             <div className="bg-white/95 backdrop-blur-xl border border-neutral-100 rounded-2xl shadow-2xl p-2 min-w-[130px] flex flex-col gap-1">
               <button 
-                onClick={() => setCurrentLang("한국어")}
-                className={`px-4 py-2.5 rounded-xl text-[12px] font-semibold transition-all text-left flex items-center justify-between whitespace-nowrap ${currentLang === "한국어" ? "text-[#6A0DAD] bg-[#F9F5FF]" : "text-neutral-500 hover:text-neutral-800 hover:bg-neutral-50"}`}
+                onClick={() => setLanguage("ko")}
+                className={`px-4 py-2.5 rounded-xl text-[12px] font-semibold transition-all text-left flex items-center justify-between whitespace-nowrap ${language === "ko" ? "text-[#6A0DAD] bg-[#F9F5FF]" : "text-neutral-500 hover:text-neutral-800 hover:bg-neutral-50"}`}
               >
                 한국어
               </button>
               <button 
-                onClick={() => setCurrentLang("English")}
-                className={`px-4 py-2.5 rounded-xl text-[12px] font-semibold transition-all text-left flex items-center justify-between whitespace-nowrap ${currentLang === "English" ? "text-[#6A0DAD] bg-[#F9F5FF]" : "text-neutral-500 hover:text-neutral-800 hover:bg-neutral-50"}`}
+                onClick={() => setLanguage("en")}
+                className={`px-4 py-2.5 rounded-xl text-[12px] font-semibold transition-all text-left flex items-center justify-between whitespace-nowrap ${language === "en" ? "text-[#6A0DAD] bg-[#F9F5FF]" : "text-neutral-500 hover:text-neutral-800 hover:bg-neutral-50"}`}
               >
                 English
               </button>
