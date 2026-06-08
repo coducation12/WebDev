@@ -94,7 +94,7 @@ export default function TechNetworkAnim({ className = "" }: Props) {
           </mask>
         </defs>
         {/* Globe image (clipped to circle + faded edges) */}
-        <image href="/assets/images/globe_wireframe.png" x={CENTER.cx - 150} y={CENTER.cy - 150} width="300" height="300" opacity="0.25" clipPath="url(#globeClip)" mask="url(#globeMask)">
+        <image href="/assets/images/active/sys_globe_wireframe.png" x={CENTER.cx - 150} y={CENTER.cy - 150} width="300" height="300" opacity="0.25" clipPath="url(#globeClip)" mask="url(#globeMask)">
           <animate attributeName="opacity" values="0.18;0.3;0.18" dur="6s" repeatCount="indefinite" />
         </image>
         {/* Hub rings */}
@@ -104,7 +104,7 @@ export default function TechNetworkAnim({ className = "" }: Props) {
           <animate attributeName="r" values="45;50;45" dur="3s" repeatCount="indefinite" />
         </circle>
         {/* Bora mark (on top of globe) */}
-        <image href="/assets/images/mark.png" x={CENTER.cx - 20} y={CENTER.cy - 18} width="40" height="36" opacity="0.85" />
+        <image href="/assets/images/active/sys_mark.png" x={CENTER.cx - 20} y={CENTER.cy - 18} width="40" height="36" opacity="0.85" />
 
         {/* Nodes */}
         {NODES.map((node, i) => (

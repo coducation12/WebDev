@@ -11,7 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 
 const APPLE_EASE = [0.32, 0.72, 0, 1];
-const ASSET = "/assets/images";
+const ASSET = "/assets/images/active";
 
 export default function AboutPage() {
   return (
@@ -169,7 +169,7 @@ export default function AboutPage() {
 
             <div className="flex justify-start mb-16">
               <div className="relative w-full max-w-[320px] h-[120px]">
-                <Image src={`${ASSET}/logo.png`} alt="BORA Logo" fill className="object-contain object-left" />
+                <Image src={`${ASSET}/sys_logo_dark.png`} alt="BORA Logo" fill className="object-contain object-left" />
               </div>
             </div>
 

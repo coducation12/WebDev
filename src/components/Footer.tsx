@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
-const ASSET = "/assets/images";
+const ASSET = "/assets/images/active";
 
 interface FooterProps {
   minimal?: boolean;
@@ -16,18 +16,23 @@ export default function Footer({ minimal = false }: FooterProps) {
       <div className="max-w-[1400px] mx-auto">
         {!minimal && (
           <div className="flex flex-col md:flex-row justify-between items-start gap-20 md:gap-40 mb-24">
-            <div className="max-w-sm">
-              <div className="relative w-28 h-10 mb-8">
-                <Image src={`${ASSET}/logo.png`} alt="BORA" fill className="object-contain object-left" />
-              </div>
-              <p className="text-neutral-400 font-medium leading-relaxed mb-8 text-sm">
-                물류에서 무역까지, 한번에. <br />
-                보라 그룹이 만드는 글로벌 비즈니스의 흐름.
-              </p>
-              <div className="text-sm text-neutral-400 leading-loose">
-                <span className="font-bold text-neutral-600 block mb-1">(주)보라로지스</span>
-                전남 광양시 항만8로 18-35 (도이동) <br />
-                T: 061-795-9951~3
+            <div className="max-w-sm flex gap-5">
+              <div className="w-[6px] bg-[#6A0DAD] rounded-[1px] self-stretch" />
+              <div className="flex flex-col py-0.5">
+                <h4 className="text-[#6A0DAD] font-black text-[25px] leading-tight tracking-tight mb-4">
+                  Every step,<br />
+                  One partner
+                </h4>
+                
+                <div className="relative w-[150px] h-[52px] mb-5">
+                  <Image src={`${ASSET}/sys_logo_dark.png`} alt="BORA" fill className="object-contain object-left" />
+                </div>
+
+                <div className="text-[13px] text-neutral-400 font-medium leading-relaxed space-y-1">
+                  <span className="font-bold text-neutral-600 block mb-1">(주)보라로지스</span>
+                  <p>전남 광양시 항만8로 18-35 (도이동)</p>
+                  <p>T: 061-795-9951~3</p>
+                </div>
               </div>
             </div>
 
@@ -68,7 +73,7 @@ export default function Footer({ minimal = false }: FooterProps) {
         <div className={`flex flex-col md:flex-row justify-between items-center gap-6 ${!minimal ? "pt-8 border-t border-neutral-100" : ""}`}>
           {minimal && (
             <div className="relative w-24 h-8 opacity-30 grayscale">
-              <Image src={`${ASSET}/logo.png`} alt="BORA" fill className="object-contain object-left" />
+              <Image src={`${ASSET}/sys_logo_dark.png`} alt="BORA" fill className="object-contain object-left" />
             </div>
           )}
           <p className="text-[10px] font-medium text-neutral-300 uppercase tracking-widest">© 2026 BORALOGIS Co.,Ltd. All Rights Reserved.</p>

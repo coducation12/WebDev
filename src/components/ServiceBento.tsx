@@ -8,10 +8,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const APPLE_EASE = [0.32, 0.72, 0, 1];
-const ASSET = "/assets/images";
+const ASSET = "/assets/images/active";
 
-const logisticsImages = ["extra_3.jpg", "extra_29.png", "extra_32.png", "extra_5.jpg"];
-const tradeImages = ["extra_13.jpg", "extra_25.jpg", "extra_35.png"];
+const logisticsImages = ["bento_logis_s1.jpg", "bento_logis_s2.jpg", "bento_logis_s3.jpg", "bento_logis_s4.jpg"];
+const tradeImages = ["bento_trade_s1.jpg", "bento_trade_s2.jpg", "bento_trade_s3.jpg"];
 
 interface ServiceBentoProps {
   isHoverEnabled?: boolean;
@@ -83,10 +83,10 @@ export default function ServiceBento({ isHoverEnabled = true }: ServiceBentoProp
             {/* Menu items hidden on mobile for clarity */}
             <div className="hidden md:block space-y-6">
               {[
-                "국제물류 서비스 (포워딩)",
-                "국제 물류시스템 운영",
+                "국제물류서비스",
+                "물류 인프라",
                 "물류 장비 개발 및 제작",
-                "물류 협력사 전문 포장"
+                "물류 전문 포장"
               ].map((item, idx) => (
                 <div
                   key={idx}
@@ -153,9 +153,9 @@ export default function ServiceBento({ isHoverEnabled = true }: ServiceBentoProp
             {/* Menu items hidden on mobile for clarity */}
             <div className="hidden md:block space-y-6">
               {[
-                "글로벌 수출입 서비스",
-                "구매 및 판매대행 서비스",
-                "시장 조사 및 판로 개척"
+                "수출입 사업 소개",
+                "수출입 업무 대행",
+                "자사 브랜드 소개"
               ].map((item, idx) => (
                 <div
                   key={idx}

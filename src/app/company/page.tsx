@@ -9,7 +9,7 @@ import { Ship, Truck, Cpu, Globe, Package, CheckCircle2, ArrowRight, BarChart3, 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const ASSET = "/assets/images";
+const ASSET = "/assets/images/active";
 
 const COMPANIES = [
   { 
@@ -19,7 +19,7 @@ const COMPANIES = [
     icon: Ship,
     color: "#6A0DAD",
     bg: "bg-[#F9F5FF]",
-    image: "extra_12.jpg",
+    image: "company_bora_logis_v2.jpg",
     content: {
       title: "광양항 배후단지 최고의 종합물류 파트너",
       description: "보라로지스는 여수·광양항 자유무역지역 내 동측 배후단지의 물류센터를 전담 운영하는 글로벌 종합물류 기업입니다. 부지 약 132,000㎡(약 4만 평) 및 창고 약 66,000㎡(약 2만 평) 규모의 현장을 기반으로, 수출입 요건 확인부터 통관, 검역대행, 보관, 특수 운송까지 전 과정을 유기적으로 연결하는 '원스톱 종합 물류 서비스'를 실현합니다.",
@@ -40,9 +40,9 @@ const COMPANIES = [
     name: "보라트랜스", 
     desc: "내륙 및 컨테이너 운송", 
     icon: Truck,
-    color: "#4B0082",
-    bg: "bg-[#F3F0FF]",
-    image: "extra_1.jpg",
+    color: "#2563EB",
+    bg: "bg-[#EEF2FF]",
+    image: "company_bora_trans_v2.jpg",
     content: {
       title: "항만과 보세창고를 잇는 최적의 운송 시스템",
       description: "보라트랜스는 항만과 보세창고 간의 신속하고 정확한 셔틀 시스템을 운영합니다. 세관 규정에 따른 안전한 보세운송 서비스를 기반으로, 최적의 경로 배차 설계로 물류 비용을 절감하며 팔레트 및 벌크 화물 등 전국 내륙 카고 운송을 전문적으로 수행합니다.",
@@ -65,7 +65,7 @@ const COMPANIES = [
     icon: Cpu,
     color: "#86B41D",
     bg: "bg-[#F7FBEA]",
-    image: "extra_20.jpg",
+    image: "company_bora_logitech_v2.jpg",
     content: {
       title: "포장과 물류기기 및 장비 제작",
       description: "보라로지텍은 글로벌 기업인 오라이온 카본 코리아와 파트너쉽을 맺고 생산라인 운영의 핵심 업무를 담당하고 있고, 이를 통해 자체 물류 장비 개발 및 제조를 통하여 역량 강화 및 혁신을 이루고 있습니다.",
@@ -86,9 +86,9 @@ const COMPANIES = [
     name: "어센틱코리아", 
     desc: "글로벌 수출입 · 무역", 
     icon: Globe,
-    color: "#2563EB",
-    bg: "bg-[#EEF2FF]",
-    image: "extra_31.png",
+    color: "#FF6A00",
+    bg: "bg-[#FFF5EF]",
+    image: "company_authentic_korea_v2.jpg",
     content: {
       title: "물류 인프라 기반의 원스톱 무역 솔루션",
       description: "어센틱 코리아는 안정적인 물류 인프라를 기반으로 글로벌 수출입 비즈니스를 전개하는 종합 무역회사입니다. 국내 산업 생태계에 필수적인 원자재, 친환경 인프라 기자재 및 고가치 소비재를 글로벌 시장에서 직접 소싱하여 국내에 안정적으로 공급합니다. 동시에 한국의 식품과 문화 컨텐츠를 발굴하고 직접 수출하여, 글로벌 공급망을 주도적으로 구축해 나가고 있습니다.",
@@ -111,7 +111,7 @@ const COMPANIES = [
     icon: Package,
     color: "#10B981",
     bg: "bg-[#ECFDF5]",
-    image: "extra_14.jpg",
+    image: "company_re_and_up_v2.jpg",
     content: {
       title: "재생에너지 특수 물류 및 지속가능한 미래 경영",
       description: "RE&UP은 친환경 에너지 인프라 구축과 자원 순환 기술을 핵심 축으로 삼아 지속 가능한 미래를 열어가는 재생에너지 기업입니다. 신재생에너지 발전 효율을 극대화하는 태양광 시설 유지보수 솔루션을 제공하며, 폐자원을 고부가가치 원료로 재탄생시키는 독자적인 친환경 자원화 사업을 전개합니다.",

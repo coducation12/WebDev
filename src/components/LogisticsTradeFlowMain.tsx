@@ -77,7 +77,7 @@ export default function LogisticsTradeFlowMain({ accentColor = "#6A0DAD", isDark
            <div 
              className="absolute inset-0 opacity-[0.15] mix-blend-multiply transition-opacity duration-1000"
              style={{ 
-               backgroundImage: `url('/assets/images/world_map_lines.png')`, 
+               backgroundImage: `url('/assets/images/active/sys_world_map_lines.png')`, 
                backgroundSize: '120% auto',
                backgroundPosition: 'center',
                backgroundRepeat: 'no-repeat',
@@ -165,7 +165,7 @@ export default function LogisticsTradeFlowMain({ accentColor = "#6A0DAD", isDark
                animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
              />
              {/* Enlarged Logo */}
-             <image href="/assets/images/mark.png" x={-35} y={-35} width={70} height={70} style={{ filter: isDark ? "invert(1)" : "none" }} />
+             <image href="/assets/images/active/sys_mark.png" x={-35} y={-35} width={70} height={70} style={{ filter: isDark ? "invert(1)" : "none" }} />
              
              <text y={-(CR + 65)} textAnchor="middle" className="text-[36px] font-black tracking-tight" fill={isDark ? "#fff" : "#111"}>물류로 무역을 잇다</text>
           </g>

@@ -33,21 +33,21 @@ const steps = [
     step: "01",
     title: "화물 입고",
     desc: "수출입 화물 터미널로부터 화물을 안전하게 반입",
-    img: "extra_26.jpg",
+    img: "active/logistics_process_receiving_v6.jpg",
     icon: Truck,
   },
   {
     step: "02",
     title: "상·하차 및 하역",
     desc: "컨테이너 라이싱 및 전문 인력을 통한 안정적인 적재·하역",
-    img: "forklift_unloading.png",
+    img: "active/logistics_process_handling_v2.jpg",
     icon: Forklift,
   },
   {
     step: "03",
     title: "검수 / 검역",
     desc: "입출고 시 수량 및 품질 점검을 통한 오배송 방지",
-    img: "smart_inspection_aerial.png",
+    img: "active/logistics_process_inspection_v2.jpg",
     icon: ClipboardCheck,
   },
   {
@@ -179,7 +179,7 @@ export default function LogisticsPage() {
                 <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">국제물류서비스</h2>
               </div>
               <p className="text-base md:text-lg text-neutral-600 font-semibold leading-relaxed">
-                해외 소싱 연계 및 전문 통관 파트너십을 시작으로 보세 보관, 전문 포장, 특수 운송까지 아우르는 <strong className="text-[#6A0DAD] font-black">'원스톱 종합 물류 서비스'</strong>를 지향합니다.
+                자체 물류 인프라와 글로벌 네트워크를 유기적으로 결합하여, 수출입 요건 확인부터 보세 보관 및 최종 운송까지 단절 없는 <strong className="text-[#6A0DAD] font-black">원스톱 솔루션</strong>을 설계합니다.
               </p>
             </motion.div>
 
@@ -338,7 +338,7 @@ export default function LogisticsPage() {
 
                 <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-[400px]">
                   <Image 
-                    src={`${ASSET}/extra_10.jpg`} 
+                    src={`${ASSET}/active/logistics_transport_lineup_v3.jpg`} 
                     alt="Transportation trucks" 
                     fill 
                     className="object-cover"
@@ -408,7 +408,7 @@ export default function LogisticsPage() {
                   title: "검증된 사업 인증 자격",
                   desc: "국제물류주선업, 화물자동차운송주선업, 근로자파견사업 등 정부 허가 정식 라이선스를 보유하고 있으며, ISO 9001(품질), 14001(환경), 45001(안전보건) 인증에 근거한 규격을 준수합니다.",
                   tags: ["#국제물류주선업", "#화물운송주선업", "#건설기계대여업", "#근로자파견사업허가", "#식물검역신고대행업", "#ISO45001,ISO14001,ISO9001"],
-                  img: "infra_card_5.png",
+                  img: "active/logistics_infra_licenses_v2.jpg",
                 },
               ].map((item, idx) => (
                 <motion.div 
@@ -471,7 +471,7 @@ export default function LogisticsPage() {
                 <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-neutral-900">물류 장비 개발 및 제작</h2>
               </div>
               <p className="text-base md:text-lg text-neutral-600 font-semibold leading-relaxed">
-                실무 운영 노하우를 바탕으로 최고의 공간 효율을 보장하는 <strong className="text-[#6A0DAD] font-black">'고객 맞춤형 물류 기기 및 랙(Rack) 시스템'</strong>을 설계·제작합니다.
+                실무 운영 노하우를 바탕으로 최고의 공간 효율을 보장하는 <strong className="text-[#6A0DAD] font-black">'고객 맞춤형 물류 기기 및 랙 시스템'</strong>을 설계·제작합니다.
               </p>
             </motion.div>
 
@@ -489,8 +489,8 @@ export default function LogisticsPage() {
                   icon: Factory,
                 },
                 {
-                  title: "맞춤형 렉 제작 & 시공",
-                  desc: "이동식 렉(Mobile Racking System), 파렛트 렉 등 창고 공간을 최적화하고 보관 용량을 극대화하는 솔루션을 제공합니다.",
+                  title: "맞춤형 랙 제작 & 시공",
+                  desc: "이동식 랙, 팔레트 랙 등 창고 공간을 최적화하고 보관 용량을 극대화하는 솔루션을 제공합니다.",
                   icon: Package,
                 },
               ].map((item, idx) => (
@@ -536,7 +536,7 @@ export default function LogisticsPage() {
                   className="relative h-[300px] md:h-[400px] rounded-[32px] overflow-hidden shadow-md group"
                 >
                   <Image 
-                    src={`${ASSET}/extra_20.jpg`} 
+                    src={`${ASSET}/active/logistics_equipment_stacking_v2.jpg`} 
                     alt="Stacking frame factory production" 
                     fill 
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -586,20 +586,29 @@ export default function LogisticsPage() {
             </motion.div>
 
             {/* 3대 운영 Pillar 구조화 (치밀한 안전관리, 합리적 노무관리, 지속적 현장혁신 - 각각 고유 이미지 탑재 및 좌우 교차 배치) */}
-            {/* 1) Single wide Representative Image */}
+            {/* 1) Single wide Representative Image (Split into two adjacent images) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative w-full h-[250px] sm:h-[350px] md:h-[480px] rounded-[32px] overflow-hidden shadow-md border border-neutral-100/60 mb-10 group"
+              className="grid grid-cols-2 w-full h-[250px] sm:h-[350px] md:h-[480px] rounded-[32px] overflow-hidden shadow-md border border-neutral-100/60 mb-10 group"
             >
-              <Image
-                src={`${ASSET}/packaging_representative.png`}
-                alt="BoraLogis Packing & Assembly Operations"
-                fill
-                className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              <div className="relative w-full h-full">
+                <Image
+                  src={`${ASSET}/active/logistics_packaging_1_v2.jpg`}
+                  alt="BoraLogis Packing & Assembly Operations 1"
+                  fill
+                  className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                />
+              </div>
+              <div className="relative w-full h-full">
+                <Image
+                  src={`${ASSET}/active/logistics_packaging_2_v2.jpg`}
+                  alt="BoraLogis Packing & Assembly Operations 2"
+                  fill
+                  className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                />
+              </div>
             </motion.div>
 
             {/* 2) 3-Row Vertical List (Value Pillars) */}

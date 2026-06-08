@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 
 const APPLE_EASE = [0.32, 0.72, 0, 1];
-const ASSET = "/assets/images";
+const ASSET = "/assets/images/active";
 
 const departments = [
   { name: "카페리하역 및 CY/CFS 운영", tel: "000-000-0000", fax: "000-000-0000" },

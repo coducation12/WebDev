@@ -206,7 +206,7 @@ export default function LogisticsTradeFlow({ accentColor = "#9B72CF", accentLigh
         <circle cx={HUB.cx} cy={HUB.cy} r={CR} fill={accentColor} opacity="0.06" />
         
         {/* Logo Mark */}
-        <image href="/assets/images/mark.png" x={HUB.cx - 35} y={HUB.cy - 30} width="70" height="60" opacity="0.95" />
+        <image href="/assets/images/active/sys_mark.png" x={HUB.cx - 35} y={HUB.cy - 30} width="70" height="60" opacity="0.95" />
 
         {/* ── Left Nodes ── */}
         {LEFT.map((n, i) => (

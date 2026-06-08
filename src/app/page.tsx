@@ -12,7 +12,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const APPLE_EASE = [0.32, 0.72, 0, 1];
-const ASSET = "/assets/images";
+const ASSET = "/assets/images/active";
 
 export default function AppleEsqueHome() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -59,7 +59,7 @@ export default function AppleEsqueHome() {
             >
               {/* Logo */}
               <div className="relative w-[180px] h-[64px] sm:w-[240px] sm:h-[85px] md:w-[320px] md:h-[113px] mb-8 sm:mb-12">
-                <Image src={`${ASSET}/logo.png`} alt="Bora Logo" fill className="object-contain" priority />
+                <Image src={`${ASSET}/sys_logo_dark.png`} alt="Bora Logo" fill className="object-contain" priority />
               </div>
               
               {/* Title */}
@@ -140,42 +140,42 @@ export default function AppleEsqueHome() {
                 tag: "물류",
                 title: "종합 물류 인프라",
                 desc: "광양 자유무역지역 4만 평, 보세창고 2만 평. 포워딩, 검역대행, 내륙운송까지 물류 전 과정을 자체 인프라와 장비로 직접 수행합니다.",
-                img: "extra_26.jpg",
+                img: "main_logistics_bento.jpg",
               },
               {
                 icon: Cpu,
                 tag: "물류",
                 title: "종합 내륙운송",
                 desc: "물류 장비 자체 설계·제조, 스마트 팩토리 운영. 4조 3교대 95명 전문 인력이 24시간 쉬지 않고 가동합니다.",
-                img: "tech_hero.png",
+                img: "main_logistics_bento_2.png",
               },
               {
                 icon: Globe2,
                 tag: "물류",
                 title: "무역 · 글로벌 확장",
                 desc: "국제물류 네트워크를 기반으로 중국·동남아 자원 수입부터 K-culture·K-food 수출까지. 물류에서 무역으로 영역을 확장합니다.",
-                img: "extra_33.png",
+                img: "main_logistics_bento_3.png",
               },
               {
                 icon: Ship,
                 tag: "무역",
                 title: "해외 제품 수입",
                 desc: "유럽 및 아시아 전역의 검증된 프리미엄 제품을 발굴하고, 보라만의 안정적인 물류망을 통해 신속하고 정확하게 국내로 수입합니다.",
-                img: "extra_25.jpg",
+                img: "main_trade_bento.jpg",
               },
               {
                 icon: Globe,
                 tag: "무역",
                 title: "K-Food 글로벌 수출",
                 desc: "K-Food와 K-Culture의 경쟁력을 전 세계 시장에 알리며, 해외 판로 개척부터 수출 물류까지 통합 솔루션을 제공합니다.",
-                img: "extra_13.jpg",
+                img: "main_trade_bento_2.jpg",
               },
               {
                 icon: ArrowUpRight,
                 tag: "무역",
                 title: "수출입 대행 서비스",
                 desc: "복잡한 무역 절차와 서류 작업을 대행하며, 고객사가 오직 비즈니스 성장에만 집중할 수 있도록 최적화된 무역 환경을 구축합니다.",
-                img: "extra_35.png",
+                img: "main_trade_bento_3.png",
               },
             ].map((item, idx) => (
               <motion.div
