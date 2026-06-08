@@ -169,7 +169,7 @@ export default function AppleEsqueHome() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: APPLE_EASE }}
-              className="flex flex-col items-center max-w-4xl mx-auto"
+              className="flex flex-col items-center max-w-5xl mx-auto"
             >
               {/* Logo */}
               <div className="relative w-[180px] h-[64px] sm:w-[240px] sm:h-[85px] md:w-[320px] md:h-[113px] mb-8 sm:mb-12">
@@ -177,12 +177,12 @@ export default function AppleEsqueHome() {
               </div>
               
               {/* Title */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-neutral-900 mb-6 sm:mb-8 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black tracking-tight text-neutral-900 mb-6 sm:mb-8 leading-tight md:whitespace-nowrap">
                 {language === "ko" ? "보라, 물류로 무역을 잇다." : "BORA, Connecting Trade through Logistics."}
               </h1>
               
               {/* Subtitle */}
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-600 font-semibold leading-relaxed tracking-tight max-w-3xl">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-600 font-semibold leading-relaxed tracking-tight max-w-4xl">
                 {language === "ko" ? (
                   <>
                     보라는 물류의 흐름을 설계하고, 신뢰를 운송하며, 세계를 연결합니다.<br className="hidden sm:inline" />
