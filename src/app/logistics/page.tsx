@@ -709,12 +709,12 @@ export default function LogisticsPage() {
                       n: language === "ko" ? "책임자 1명, 실무자 1명" : "1 director, 1 practitioner"
                     },
                     {
-                      b: language === "ko" ? "일상적인 지속적 교육" : "Continuous daily training",
-                      n: language === "ko" ? "사업장내 교육장 설치, 상시적인 직원 안전교육 실시" : "Establishing on-site training facilities and conducting regular employee safety training"
+                      b: language === "ko" ? "일상적인 지속적 교육" : "Continuous Training",
+                      n: language === "ko" ? "사업장내 교육장 설치, 상시적인 직원 안전교육 실시" : "On-site facilities & regular employee safety training"
                     },
                     {
-                      b: language === "ko" ? "선제적 사고예방" : "Proactive accident prevention",
-                      n: language === "ko" ? "작업현장 내 작업관련 위험요소를 적극적으로 개선" : "Actively improving work-related hazard factors in the workplace"
+                      b: language === "ko" ? "선제적 사고예방" : "Proactive Prevention",
+                      n: language === "ko" ? "작업현장 내 작업관련 위험요소를 적극적으로 개선" : "Actively improving workplace hazard factors"
                     },
                     {
                       b: language === "ko" ? "전직원 안전 상해보험 가입" : "Safety accident insurance coverage for all employees",
@@ -730,19 +730,19 @@ export default function LogisticsPage() {
                   title: language === "ko" ? "합리적 노무관리" : "Reasonable Labor Management",
                   bullets: [
                     {
-                      b: language === "ko" ? "노사간 신뢰구축" : "Building trust between labor and management",
-                      n: language === "ko" ? "다양한 대화채널 확대 및 상시적 대화" : "Expanding diverse communication channels and maintaining constant dialogue"
+                      b: language === "ko" ? "노사간 신뢰구축" : "Building Labor-Management Trust",
+                      n: language === "ko" ? "다양한 대화채널 확대 및 상시적 대화" : "Expanding communication channels & constant dialogue"
                     },
                     {
-                      b: language === "ko" ? "경영환경 및 환경변화 공유" : "Sharing business environment and changes",
-                      n: language === "ko" ? "경영상황, 전망 등 정보 자료 공유" : "Sharing info and materials such as business conditions and forecasts"
+                      b: language === "ko" ? "경영환경 및 환경변화 공유" : "Sharing Business Conditions",
+                      n: language === "ko" ? "경영상황, 전망 등 정보 자료 공유" : "Sharing status, outlook, and information materials"
                     },
                     {
-                      b: language === "ko" ? "일상적 노무협력" : "Routine labor-management cooperation",
-                      n: language === "ko" ? "현장의 소리 적극적 반영, 선제적 대책제시" : "Actively reflecting on-site feedback and proposing proactive measures"
+                      b: language === "ko" ? "일상적 노무협력" : "Routine Labor Cooperation",
+                      n: language === "ko" ? "현장의 소리 적극적 반영, 선제적 대책제시" : "Reflecting on-site feedback & proposing proactive measures"
                     },
                     {
-                      b: language === "ko" ? "합리적 임단협 진행" : "Reasonable collective bargaining",
+                      b: language === "ko" ? "합리적 임단협 진행" : "Reasonable Bargaining",
                       n: language === "ko" ? "상호 신뢰를 바탕으로 합리적인 대화" : "Reasonable dialogue based on mutual trust"
                     }
                   ],
@@ -755,20 +755,20 @@ export default function LogisticsPage() {
                   title: language === "ko" ? "지속적 현장혁신" : "Continuous Workplace Innovation",
                   bullets: [
                     {
-                      b: language === "ko" ? "일상적인 작업동선 개선" : "Routine improvement of work flow",
-                      n: language === "ko" ? "장비, 인력이동, 화물동선 합리적 개선" : "Rational improvement of equipment, worker movement, and cargo routes"
+                      b: language === "ko" ? "일상적인 작업동선 개선" : "Workflow Improvement",
+                      n: language === "ko" ? "장비, 인력이동, 화물동선 합리적 개선" : "Optimizing equipment, worker movement, and cargo routes"
                     },
                     {
-                      b: language === "ko" ? "작업장비 현대화 자동화" : "Modernization and automation of work equipment",
-                      n: language === "ko" ? "현장안전 개선 및 인력대체 효과" : "Improving site safety and replacing manual labor"
+                      b: language === "ko" ? "작업장비 현대화 자동화" : "Equipment Modernization",
+                      n: language === "ko" ? "현장안전 개선 및 인력대체 효과" : "Improving site safety and automation benefits"
                     },
                     {
-                      b: language === "ko" ? "안전관리 극대화를 위한 혁신" : "Innovation to maximize safety management",
-                      n: language === "ko" ? "일상적인 작업현장 안전시설과 장비 혁신" : "Innovative updates to daily safety facilities and work equipment"
+                      b: language === "ko" ? "안전관리 극대화를 위한 혁신" : "Safety Innovation",
+                      n: language === "ko" ? "일상적인 작업현장 안전시설과 장비 혁신" : "Upgrading safety facilities and work equipment"
                     },
                     {
-                      b: language === "ko" ? "자체적으로 혁신팀 운영" : "In-house operation of innovation teams",
-                      n: language === "ko" ? "관리자, 현장인력 공동으로 혁신팀 구성" : "Forming joint innovation teams with managers and field personnel"
+                      b: language === "ko" ? "자체적으로 혁신팀 운영" : "In-house Innovation Teams",
+                      n: language === "ko" ? "관리자, 현장인력 공동으로 혁신팀 구성" : "Joint teams of managers and field personnel"
                     }
                   ],
                   bg: "bg-white",
