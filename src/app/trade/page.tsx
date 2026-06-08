@@ -168,11 +168,11 @@ export default function TradePage() {
                 <p className="text-sm md:text-base font-black text-[#FF6A00] tracking-widest uppercase">Authentic Korea</p>
               </div>
               <div className="max-w-4xl">
-                <p className="text-sm md:text-base text-neutral-600 font-semibold leading-relaxed">
+                <p className="text-sm md:text-base text-neutral-600 font-semibold leading-relaxed text-pretty">
                   {language === "ko" ? (
                     <>탄탄한 물류 인프라를 바탕으로, 전 세계의 가치 있는 자원과 상품을 발굴하고 연결하는 수출입회사입니다.<br />우리는 단순한 중개를 넘어, 지구와 공동체에 이로운 흐름을 만드는 무역의 새로운 패러다임을 지향합니다.</>
                   ) : (
-                    <>Based on a solid logistics infrastructure, we are an import and export company that discovers and connects valuable resources and products worldwide.<br />Going beyond simple brokerage, we aim for a new paradigm in trade that creates a beneficial flow for the planet and our communities.</>
+                    <>Based on a solid logistics infrastructure, we are an import/export company connecting valuable resources and products worldwide.<br />Beyond simple brokerage, we aim for a new trade paradigm that benefits both the planet and our communities.</>
                   )}
                 </p>
               </div>
@@ -326,10 +326,10 @@ export default function TradePage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.05 }}
-                    className="relative flex flex-col items-center"
+                    className="relative flex flex-col items-center h-full"
                   >
                     {/* Step Card */}
-                    <div className="w-full bg-neutral-50 hover:bg-white border border-neutral-100/60 hover:border-[#FF6A00]/25 rounded-[32px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group shadow-sm">
+                    <div className="w-full h-full bg-neutral-50 hover:bg-white border border-neutral-100/60 hover:border-[#FF6A00]/25 rounded-[32px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group shadow-sm">
                       {/* Step Number */}
                       <span className="text-xl font-black text-[#FF6A00] mb-1">{item.num}</span>
                       
@@ -338,7 +338,7 @@ export default function TradePage() {
                       <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-6">{item.subTitle}</p>
                       
                       {/* Circular Icon Container */}
-                      <div className="w-20 h-20 rounded-full border-2 border-dashed border-[#FF6A00]/30 flex items-center justify-center p-1.5 transition-all duration-500 group-hover:border-solid group-hover:border-[#FF6A00] group-hover:rotate-6 bg-white mb-6 shadow-sm">
+                      <div className="w-20 h-20 rounded-full border-2 border-dashed border-[#FF6A00]/30 flex items-center justify-center p-1.5 transition-all duration-500 group-hover:border-solid group-hover:border-[#FF6A00] group-hover:rotate-6 bg-white mt-auto shadow-sm">
                         <div className="w-full h-full rounded-full bg-[#FFF5EF] text-[#FF6A00] flex items-center justify-center">
                           <StepIcon size={28} strokeWidth={1.8} />
                         </div>
