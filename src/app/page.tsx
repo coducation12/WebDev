@@ -47,37 +47,37 @@ export default function AppleEsqueHome() {
       tag: { ko: "물류", en: "Logistics" },
       title: { ko: "종합 물류 인프라", en: "Integrated Logistics Infrastructure" },
       desc: { 
-        ko: "광양 자유무역지역 4만 평, 보세창고 2만 평. 포워딩, 검역대행, 내륙운송까지 물류 전 과정을 자체 인프라와 장비로 직접 수행합니다.", 
+        ko: "광양 자유무역 4만 평, 보세창고 2만 평. 포워딩, 검역대행, 내륙운송까지 물류 전 과정을 자체 인프라와 장비로 수행합니다.", 
         en: "132,000㎡ site and 66,000㎡ warehouse in Gwangyang Free Trade Zone. We perform the entire logistics process directly with our own infrastructure and equipment, including forwarding, quarantine agency, and inland transport." 
       },
-      img: "main_logistics_bento.jpg",
+      img: "main_logistics_bento_v2.jpg",
+    },
+    {
+      icon: Truck,
+      tag: { ko: "물류", en: "Logistics" },
+      title: { ko: "종합 내륙운송", en: "Integrated Inland Transportation" },
+      desc: { 
+        ko: "전국 네트워크를 기반으로 다양한 화물을 안전하게 운송합니다.", 
+        en: "We transport various cargoes safely based on our nationwide network." 
+      },
+      img: "main_logistics_bento_2_v2.jpg",
     },
     {
       icon: Cpu,
       tag: { ko: "물류", en: "Logistics" },
-      title: { ko: "종합 내륙운송", en: "Integrated Inland Transportation" },
+      title: { ko: "물류장비제작", en: "Logistics Equipment Manufacturing" },
       desc: { 
-        ko: "물류 장비 자체 설계·제조, 스마트 팩토리 운영. 4조 3교대 95명 전문 인력이 24시간 쉬지 않고 가동합니다.", 
-        en: "Self-design & manufacturing of logistics equipment, smart factory operation. A team of 95 professionals operates 24/7 in 4-crew 3-shift system." 
+        ko: "물류 창고를 효율적으로 운영하기 위한 설비들을 연구하고 개발하여, 맞춤 제작합니다.", 
+        en: "We research, develop, and customize facilities to operate warehouses efficiently." 
       },
-      img: "main_logistics_bento_2.png",
-    },
-    {
-      icon: Globe2,
-      tag: { ko: "물류", en: "Logistics" },
-      title: { ko: "무역 · 글로벌 확장", en: "Trade & Global Expansion" },
-      desc: { 
-        ko: "국제물류 네트워크를 기반으로 중국·동남아 자원 수입부터 K-culture·K-food 수출까지. 물류에서 무역으로 영역을 확장합니다.", 
-        en: "Expanding from logistics to trade, based on our international network: from importing resources from China & Southeast Asia to exporting K-culture & K-food." 
-      },
-      img: "main_logistics_bento_3.png",
+      img: "main_logistics_bento_3_v2.jpg",
     },
     {
       icon: Ship,
       tag: { ko: "무역", en: "Trade" },
       title: { ko: "해외 제품 수입", en: "Global Product Import" },
       desc: { 
-        ko: "유럽 및 아시아 전역의 검증된 프리미엄 제품을 발굴하고, 보라만의 안정적인 물류망을 통해 신속하고 정확하게 국내로 수입합니다.", 
+        ko: "유럽 및 아시아의 검증된 프리미엄 제품을 발굴하고, 보라의 안정적인 물류망을 통해 신속하고 정확하게 수입합니다.", 
         en: "We discover proven premium products across Europe & Asia and import them quickly and accurately through BORA's reliable logistics network." 
       },
       img: "main_trade_bento.jpg",
@@ -85,12 +85,12 @@ export default function AppleEsqueHome() {
     {
       icon: Globe,
       tag: { ko: "무역", en: "Trade" },
-      title: { ko: "K-Food 글로벌 수출", en: "K-Food Global Export" },
+      title: { ko: "지역 특산품 해외 수출", en: "Global Export of Local Specialties" },
       desc: { 
-        ko: "K-Food와 K-Culture의 경쟁력을 전 세계 시장에 알리며, 해외 판로 개척부터 수출 물류까지 통합 솔루션을 제공합니다.", 
-        en: "Promoting the competitiveness of K-Food & K-Culture globally, we provide integrated solutions from market development to export logistics." 
+        ko: "디자인 제품과 지역 식품들을 전세계 시장에 알리며, 해외 판로 개척부터 수출 물류까지 통합 솔루션을 제공합니다.", 
+        en: "Promoting design products and local foods to global markets, we provide integrated solutions from market development to export logistics." 
       },
-      img: "main_trade_bento_2.jpg",
+      img: "main_trade_bento_2_v2.jpg",
     },
     {
       icon: ArrowUpRight,
@@ -100,7 +100,7 @@ export default function AppleEsqueHome() {
         ko: "복잡한 무역 절차와 서류 작업을 대행하며, 고객사가 오직 비즈니스 성장에만 집중할 수 있도록 최적화된 무역 환경을 구축합니다.", 
         en: "We handle complex customs procedures and documentation, establishing an optimized trade environment so clients can focus solely on growth." 
       },
-      img: "main_trade_bento_3.png",
+      img: "main_trade_bento_3_v2.jpg",
     },
   ];
 
@@ -270,7 +270,7 @@ export default function AppleEsqueHome() {
                 transition={{ delay: idx * 0.08, duration: 0.6 }}
                 className="group relative rounded-2xl overflow-hidden border border-neutral-100 bg-white shadow-sm hover:shadow-xl hover:border-neutral-200 transition-all duration-300 flex flex-col"
               >
-                <div className="relative h-40 md:h-48 overflow-hidden">
+                <div className="relative h-48 md:h-64 overflow-hidden">
                    {/* Top Badge */}
                    {item.tag && (
                      <div className="absolute top-3 right-3 z-10">
@@ -284,13 +284,13 @@ export default function AppleEsqueHome() {
                 </div>
                 <div className="p-5 md:p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center gap-2.5 mb-3">
+                    <div className="flex items-center gap-2.5 mb-2.5">
                       <div className="w-8 h-8 rounded-full bg-[#F8F3FA] flex items-center justify-center text-[#6A0DAD] flex-shrink-0">
                         <item.icon size={16} strokeWidth={2.5} />
                       </div>
                       <h3 className="text-lg md:text-xl font-black text-neutral-900 tracking-tight">{item.title[language]}</h3>
                     </div>
-                    <p className="text-neutral-500 leading-relaxed text-[13px] md:text-[14px] flex-1">{item.desc[language]}</p>
+                    <p className="text-neutral-500 leading-relaxed text-[13px] md:text-[14px] flex-1 break-keep">{item.desc[language]}</p>
                   </div>
                 </div>
               </motion.div>
@@ -324,7 +324,7 @@ export default function AppleEsqueHome() {
               <Link
                 key={idx}
                 href={`/company?tab=${idx}`}
-                className="group p-6 md:p-10 rounded-3xl md:rounded-[40px] bg-white border-2 border-neutral-100 cursor-pointer flex flex-col transition-all duration-200"
+                className="group p-6 md:p-10 rounded-3xl md:rounded-[40px] bg-white border-2 border-neutral-100 hover:border-[#6A0DAD] cursor-pointer flex flex-col transition-all duration-200"
               >
                 <div className="flex justify-between items-start mb-8 md:mb-16">
                   <div className="w-12 h-12 md:w-16 md:h-16 bg-neutral-50 rounded-2xl md:rounded-[22px] flex items-center justify-center group-hover:bg-[#6A0DAD] group-hover:text-white transition-all duration-200">

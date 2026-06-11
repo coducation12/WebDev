@@ -1,8 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { 
   BarChart3, Globe, Users, Database, ClipboardCheck, Award, 
@@ -16,6 +17,48 @@ const ASSET = "/assets/images/active";
 
 export default function AboutPage() {
   const { language } = useLanguage();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(1); // 1: right-to-left, -1: left-to-right
+
+  const slides = [
+    "/assets/images/active/about_slide_1.jpg",
+    "/assets/images/active/about_slide_2.jpg",
+    "/assets/images/active/about_slide_3.jpg",
+    "/assets/images/active/about_slide_4.jpg"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDirection(1);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4500); // 4.5초마다 이미지 전환
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const handleDotClick = (e: React.MouseEvent, idx: number) => {
+    e.stopPropagation();
+    setDirection(idx > currentSlide ? 1 : -1);
+    setCurrentSlide(idx);
+  };
+
+  const handleSlideClick = () => {
+    setDirection(1);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const slideVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? "100%" : "-100%",
+    }),
+    center: {
+      x: 0,
+      transition: { duration: 0.8, ease: APPLE_EASE }
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? "-100%" : "100%",
+      transition: { duration: 0.8, ease: APPLE_EASE }
+    })
+  };
 
   return (
     <div className="bg-white text-black font-sans min-h-screen flex flex-col selection:bg-[#6A0DAD] selection:text-white">
@@ -29,14 +72,44 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: APPLE_EASE }}
           >
-            <div className="relative w-full h-[240px] sm:h-[360px] md:h-[480px] rounded-[32px] overflow-hidden mb-12 shadow-md">
-              <Image 
-                src="/assets/images/about_hero_visual.png" 
-                alt="BORA Brand Key Visual" 
-                fill 
-                className="object-cover" 
-                priority 
-              />
+            <div 
+              onClick={handleSlideClick}
+              className="relative w-full h-[240px] sm:h-[360px] md:h-[480px] rounded-[32px] overflow-hidden mb-12 shadow-md bg-neutral-100 cursor-pointer select-none"
+            >
+              <AnimatePresence initial={false} custom={direction}>
+                <motion.div
+                  key={currentSlide}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image 
+                    src={slides[currentSlide]} 
+                    alt={`BORA About Slide ${currentSlide + 1}`} 
+                    fill 
+                    className="object-cover" 
+                    priority 
+                  />
+                </motion.div>
+              </AnimatePresence>
+
+              {/* 슬라이드 인디케이터 (네비게이션 닷) */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 z-10 bg-black/15 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+                {slides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={(e) => handleDotClick(e, idx)}
+                    className={cn(
+                      "w-2 h-2 rounded-full transition-all duration-300 outline-none",
+                      currentSlide === idx ? "bg-white w-6" : "bg-white/40 hover:bg-white/70"
+                    )}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </div>
 
             <h2 className="text-3xl md:text-4xl font-black mb-10 text-neutral-900 border-b-2 border-neutral-900 pb-4 inline-block">

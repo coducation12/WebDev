@@ -22,7 +22,7 @@ export default function Footer({ minimal = false }: FooterProps) {
             <div className="max-w-sm flex gap-5">
               <div className="w-[6px] bg-[#6A0DAD] rounded-[1px] self-stretch" />
               <div className="flex flex-col py-0.5">
-                <h4 className="text-[#6A0DAD] font-black text-[25px] leading-tight tracking-tight mb-4" style={{ fontFamily: "var(--font-serif)" }}>
+                <h4 className="text-[#6A0DAD] font-black text-[25px] leading-tight tracking-tight mb-4" style={{ fontFamily: "var(--font-title)" }}>
                   Every step,<br />
                   One partner
                 </h4>

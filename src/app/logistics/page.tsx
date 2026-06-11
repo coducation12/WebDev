@@ -196,9 +196,9 @@ export default function LogisticsPage() {
             <div className="mb-28 pl-4 md:pl-8 lg:pl-12">
               <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-8 border-l-4 border-[#6A0DAD] pl-4">
                 {language === "ko" ? (
-                  <>1) 글로벌 포워딩 <span className="font-sans font-normal">&amp;</span> 수입 요건 확인</>
+                  <>글로벌 포워딩 <span className="font-sans font-normal">&amp;</span> 수입 요건 확인</>
                 ) : (
-                  <>1) Global Forwarding <span className="font-sans font-normal">&amp;</span> Import Requirements Verification</>
+                  <>Global Forwarding <span className="font-sans font-normal">&amp;</span> Import Requirements Verification</>
                 )}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -255,7 +255,7 @@ export default function LogisticsPage() {
             {/* 2) 보세창고 물류 프로세스 */}
             <div className="mb-28 pl-4 md:pl-8 lg:pl-12">
               <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-10 border-l-4 border-[#6A0DAD] pl-4">
-                {language === "ko" ? "2) 보세창고 물류 프로세스" : "2) Bonded Warehouse Logistics Process"}
+                {language === "ko" ? "보세창고 물류 프로세스" : "Bonded Warehouse Logistics Process"}
               </h3>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 relative">
@@ -338,7 +338,7 @@ export default function LogisticsPage() {
             {/* 3) 운송 서비스(Transportation Service) */}
             <div className="pl-4 md:pl-8 lg:pl-12">
               <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-8 border-l-4 border-[#6A0DAD] pl-4">
-                {language === "ko" ? "3) 운송 서비스" : "3) Transportation Service"}
+                {language === "ko" ? "운송 서비스" : "Transportation Service"}
               </h3>
               <div className="bg-white rounded-[40px] border border-neutral-100/60 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch">
                 
@@ -466,7 +466,7 @@ export default function LogisticsPage() {
                   tags: language === "ko"
                     ? ["#도급재하청없음", "#본사정규직현장상주", "#무결점책임물류"]
                     : ["#NoSubcontracting", "#PermanentStaffOnSite", "#FlawlessResponsibleLogistics"],
-                  img: "infra_card_4_korean.png",
+                  img: "active/infra_card_4_v2.jpg",
                 },
                 {
                   no: "05",
@@ -477,7 +477,7 @@ export default function LogisticsPage() {
                   tags: language === "ko"
                     ? ["#국제물류주선업", "#화물운송주선업", "#건설기계대여업", "#근로자파견사업허가", "#식물검역신고대행업", "#ISO45001,ISO14001,ISO9001"]
                     : ["#FreightForwarding", "#CargoBrokerage", "#HeavyMachineryLease", "#LaborDispatchLicense", "#PlantQuarantineAgency", "#ISO45001_14001_9001"],
-                  img: "active/logistics_infra_licenses_v2.jpg",
+                  img: "active/infra_card_5_v2.jpg",
                 },
               ].map((item, idx) => (
                 <motion.div 
@@ -633,7 +633,7 @@ export default function LogisticsPage() {
                   className="relative h-[300px] md:h-[400px] rounded-[32px] overflow-hidden shadow-md group"
                 >
                   <Image 
-                    src={`${ASSET}/Rack_upscaled.png`} 
+                    src={`${ASSET}/active/logistics_equipment_rack_v2.jpg`} 
                     alt="Pallet racking installation" 
                     fill 
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -690,7 +690,7 @@ export default function LogisticsPage() {
               </div>
               <div className="relative w-full h-full">
                 <Image
-                  src={`${ASSET}/active/logistics_packaging_2_v2.jpg`}
+                  src={`${ASSET}/active/logistics_packaging_2_v3.jpg`}
                   alt="BoraLogis Packing & Assembly Operations 2"
                   fill
                   className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
@@ -788,11 +788,13 @@ export default function LogisticsPage() {
                 >
                   {/* Left Column: Category Name */}
                   <div className="md:col-span-4 flex flex-col justify-center text-left h-full md:border-r md:border-neutral-100 md:pr-6">
-                    <h4 className={`text-lg md:text-xl font-black flex items-center gap-2.5 transition-colors duration-300 ${pillar.text}`}>
-                      {pillar.title}
-                    </h4>
-                    {/* Decorative underline */}
-                    <div className="h-[2px] w-12 mt-3 hidden md:block transition-all duration-300 group-hover:w-20" style={{ backgroundColor: pillar.accentColor, opacity: 0.4 }} />
+                    <div className="w-fit">
+                      <h4 className={`text-lg md:text-xl font-black flex items-center gap-2.5 transition-colors duration-300 ${pillar.text}`}>
+                        {pillar.title}
+                      </h4>
+                      {/* Decorative underline */}
+                      <div className="h-[2px] w-12 mt-3 hidden md:block transition-all duration-300 group-hover:w-full" style={{ backgroundColor: pillar.accentColor, opacity: 0.4 }} />
+                    </div>
                   </div>
 
                   {/* Right Column: Bullets List */}

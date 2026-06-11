@@ -138,9 +138,9 @@ const COMPANIES: Company[] = [
         en: "Bora Logitech is partnered with the global enterprise Orion Engineered Carbons Korea, taking charge of key production line operations. Through this partnership, we design and manufacture proprietary logistics equipment to continuously strengthen our technological capabilities and drive operational innovation."
       },
       stats: [
-        { label: { ko: "현장 인력", en: "On-site Personnel" }, value: { ko: "95명", en: "95 Personnel" } },
-        { label: { ko: "전문 분야", en: "Specialty" }, value: { ko: "제품포장 및 데이터관리, 출고, 보수", en: "Product Packaging, Data Management, Outbound, Maintenance" } },
-        { label: { ko: "핵심 역량", en: "Core Capability" }, value: { ko: "물류기기 설계 및 자체 제작", en: "Logistics Equipment Design & In-house Production" } }
+        { label: { ko: "주요 서비스", en: "Key Services" }, value: { ko: "제품포장 및 데이터관리, 출고, 보수", en: "Product Packaging, Data Management, Outbound, Maintenance" } },
+        { label: { ko: "전문 분야", en: "Specialized Field" }, value: { ko: "물류기기 설계 및 자체 제작", en: "Logistics Equipment Design & In-house Production" } },
+        { label: { ko: "경영가치", en: "Management Value" }, value: { ko: "최고의 안전 · 노무 관리", en: "Top Safety & Labor Management" } }
       ],
       details: [
         { 
@@ -184,7 +184,7 @@ const COMPANIES: Company[] = [
       stats: [
         { label: { ko: "주요 품목", en: "Primary Items" }, value: { ko: "자원 수입", en: "Resource Import" } },
         { label: { ko: "수출 분야", en: "Export Field" }, value: { ko: "K-Food/Culture", en: "K-Food/Culture" } },
-        { label: { ko: "서비스", en: "Service" }, value: { ko: "무역 솔루션", en: "Trade Solutions" } }
+        { label: { ko: "핵심 역량", en: "Core Capability" }, value: { ko: "물류 연계 수출입 서비스", en: "Logistics-Linked Import/Export Services" } }
       ],
       details: [
         { 
@@ -234,8 +234,8 @@ const COMPANIES: Company[] = [
         { 
           title: { ko: "재생에너지 설비 물류", en: "Renewable Energy Logistics" }, 
           text: { 
-            ko: "태양광 모듈과 풍력 발전 설비 등 정밀함과 전문성이 요구되는 거대 에너지 자재의 안전한 보관 및 특수 운송을 수행합니다.", 
-            en: "We perform safe storage and specialized transport of massive energy equipment, such as solar modules and wind turbines, which demand high precision and expertise." 
+            ko: "태양광 모듈과 풍력 발전 설비 등 정밀함과 전문성이 요구되는 재생 에너지 자재의 안전한 보관 및 특수 운송을 수행합니다.", 
+            en: "We perform safe storage and specialized transport of renewable energy equipment, such as solar modules and wind turbines, which demand high precision and expertise." 
           } 
         },
         { 
@@ -352,9 +352,13 @@ function CompanyIntroContent() {
                 {/* 3 Stats Cards: Pulled out to span the full-width (spans empty space on the right) */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
                   {activeCompany.content.stats.map((stat, i) => (
-                    <div key={i} className="bg-white/40 border border-white p-6 rounded-3xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
-                      <p className="text-[11px] font-black uppercase tracking-widest text-neutral-400 mb-2">{stat.label[language]}</p>
-                      <p className="text-xl md:text-2xl font-black tracking-tighter text-neutral-900 leading-tight">{stat.value[language]}</p>
+                    <div key={i} className="bg-white/40 border border-white p-6 rounded-3xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow flex flex-col justify-start">
+                      <p className="text-lg md:text-xl font-black text-neutral-900 mb-2 tracking-tight">
+                        {stat.label[language]}
+                      </p>
+                      <p className="text-sm md:text-base font-bold text-neutral-500 leading-relaxed">
+                        {stat.value[language]}
+                      </p>
                     </div>
                   ))}
                 </div>
