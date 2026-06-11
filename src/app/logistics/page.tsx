@@ -338,7 +338,7 @@ export default function LogisticsPage() {
             {/* 3) 운송 서비스(Transportation Service) */}
             <div className="pl-4 md:pl-8 lg:pl-12">
               <h3 className="text-xl md:text-2xl font-black text-neutral-900 mb-8 border-l-4 border-[#6A0DAD] pl-4">
-                {language === "ko" ? "3) 운송 서비스 (Transportation Service)" : "3) Transportation Service"}
+                {language === "ko" ? "3) 운송 서비스" : "3) Transportation Service"}
               </h3>
               <div className="bg-white rounded-[40px] border border-neutral-100/60 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch">
                 

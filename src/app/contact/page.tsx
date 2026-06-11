@@ -22,16 +22,48 @@ const APPLE_EASE = [0.32, 0.72, 0, 1];
 import { useLanguage } from "@/context/LanguageContext";
 const ASSET = "/assets/images/active";
 
-const departments = [
-  { name: { ko: "카페리하역 및 CY/CFS 운영", en: "Car Ferry Cargo Handling & CY/CFS Operation" }, tel: "000-000-0000", fax: "000-000-0000" },
-  { name: { ko: "컨테이너 영업 및 운영", en: "Container Sales & Operation" }, tel: "000-000-0000", fax: "000-000-0000" },
-  { name: { ko: "양곡하역 · 보관 및 정선", en: "Grain Cargo Handling, Storage & Processing" }, tel: "000-000-0000", fax: "000-000-0000" },
-  { name: { ko: "하역영업 및 운영 · 양곡 싸이로", en: "Stevedoring Sales, Operation & Grain Silo" }, tel: "000-000-0000", fax: "000-000-0000" },
-  { name: { ko: "회계 · 자금", en: "Accounting & Finance" }, tel: "000-000-0000", fax: "000-000-0000" },
-  { name: { ko: "기획 · 홍보", en: "Planning & PR" }, tel: "000-000-0000", fax: "000-000-0000" },
-  { name: { ko: "인사 · 법무", en: "HR & Legal" }, tel: "000-000-0000", fax: "000-000-0000" },
-  { name: { ko: "IT개발 · 운영", en: "IT Development & Operation" }, tel: "000-000-0000", fax: "000-000-0000" },
-];
+interface ContactPoint {
+  title: { ko: string; en: string };
+  subtitle?: { ko: string; en: string };
+  tel: string;
+  fax: string;
+}
+
+const contactPoints: Record<"logistics" | "trade", ContactPoint[]> = {
+  logistics: [
+    {
+      title: { ko: "운영본부", en: "Operations Headquarters" },
+      subtitle: { ko: "영업 및 견적", en: "Sales & Estimation" },
+      tel: "061-795-8102",
+      fax: "061-795-9954",
+    },
+    {
+      title: { ko: "고객관리팀", en: "Customer Care Team" },
+      subtitle: { ko: "CS 운영", en: "CS Operations" },
+      tel: "061-795-9951",
+      fax: "061-795-9954",
+    },
+    {
+      title: { ko: "경영관리실", en: "Management Admin Office" },
+      subtitle: { ko: "총무·회계", en: "General Affairs & Accounting" },
+      tel: "061-795-9957",
+      fax: "061-795-9954",
+    },
+    {
+      title: { ko: "운송팀", en: "Transportation Team" },
+      tel: "061-795-0255",
+      fax: "061-791-0255",
+    },
+  ],
+  trade: [
+    {
+      title: { ko: "마케팅 본부", en: "Marketing Headquarters" },
+      subtitle: { ko: "신규 마케팅 기획 · 국제무역", en: "New Marketing Planning & Global Trade" },
+      tel: "061-724-9954",
+      fax: "061-725-9954",
+    },
+  ],
+};
 
 function ContactContent() {
   const searchParams = useSearchParams();
@@ -146,7 +178,7 @@ function ContactContent() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {departments.map((dept, idx) => (
+              {contactPoints[activeTab].map((dept, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 15 }}
@@ -155,10 +187,15 @@ function ContactContent() {
                   transition={{ delay: idx * 0.04 }}
                   className="bg-neutral-50 border border-neutral-100 rounded-2xl p-5 hover:bg-white hover:border-neutral-200/60 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <h4 className={`text-sm font-black text-neutral-900 transition-colors mb-3 leading-tight ${activeTab === "trade" ? "group-hover:text-[#FF6A00]" : "group-hover:text-[#6A0DAD]"}`}>
-                    {dept.name[language]}
+                  <h4 className={`text-sm font-black text-neutral-900 transition-colors leading-tight ${activeTab === "trade" ? "group-hover:text-[#FF6A00]" : "group-hover:text-[#6A0DAD]"}`}>
+                    {dept.title[language]}
                   </h4>
-                  <div className="space-y-1.5 text-xs text-neutral-500 font-semibold">
+                  {dept.subtitle && (
+                    <p className="text-[11px] font-bold text-neutral-400 mt-1.5 mb-0 leading-normal">
+                      {dept.subtitle[language]}
+                    </p>
+                  )}
+                  <div className={`space-y-1.5 text-xs text-neutral-500 font-semibold ${dept.subtitle ? "mt-4.5" : "mt-6"}`}>
                     <div className="flex items-center gap-2">
                       <Phone size={12} className={activeTab === "trade" ? "text-[#FFA05C]" : "text-[#BC90C1]"} />
                       <span>TEL. {dept.tel}</span>
@@ -199,6 +236,26 @@ function ContactContent() {
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Company Input */}
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-neutral-700 block">
+                        {language === "ko" ? "회사명" : "Company Name"} <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative">
+                        <Building2 size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400" />
+                        <input
+                          type="text"
+                          required
+                          value={formData.company}
+                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                          placeholder={language === "ko" ? "(주)대한상사" : "Daehan Trading Co., Ltd."}
+                          className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none ${
+                            activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
+                          }`}
+                        />
+                      </div>
+                    </div>
+
                     {/* Name Input */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-neutral-700 block">
@@ -212,26 +269,6 @@ function ContactContent() {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder={language === "ko" ? "홍길동 대리" : "John Doe (Manager)"}
-                          className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none ${
-                            activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
-                          }`}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Company Input */}
-                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-neutral-700 block">
-                        {language === "ko" ? "회사명" : "Company Name"} <span className="text-red-500">*</span>
-                      </label>
-                      <div className="relative">
-                        <Building2 size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400" />
-                        <input
-                          type="text"
-                          required
-                          value={formData.company}
-                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          placeholder={language === "ko" ? "(주)보라로지텍" : "Bora Logitech Co., Ltd."}
                           className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none ${
                             activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
                           }`}

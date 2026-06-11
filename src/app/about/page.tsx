@@ -29,6 +29,16 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: APPLE_EASE }}
           >
+            <div className="relative w-full h-[240px] sm:h-[360px] md:h-[480px] rounded-[32px] overflow-hidden mb-12 shadow-md">
+              <Image 
+                src="/assets/images/about_hero_visual.png" 
+                alt="BORA Brand Key Visual" 
+                fill 
+                className="object-cover" 
+                priority 
+              />
+            </div>
+
             <h2 className="text-3xl md:text-4xl font-black mb-10 text-neutral-900 border-b-2 border-neutral-900 pb-4 inline-block">
               {language === "ko" ? "소개의 글" : "Introduction"}
             </h2>
@@ -62,16 +72,26 @@ export default function AboutPage() {
         </section>
 
         {/* ─── 2. VISION ─── */}
-        <section className="px-6 md:px-10 mb-40 max-w-[1400px] mx-auto">
+        <section className="px-6 md:px-10 mb-40 max-w-[1200px] mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: APPLE_EASE }}
           >
-            <h2 className="text-3xl md:text-4xl font-black mb-12 text-neutral-900 border-b-2 border-neutral-900 pb-4 inline-block uppercase">
-              VISION
-            </h2>
+            <div className="mb-14">
+              <h2 className="text-3xl md:text-4xl font-black mb-6 text-neutral-900 border-b-2 border-neutral-900 pb-4 inline-block uppercase">
+                VISION
+              </h2>
+              <h3 className="text-2xl md:text-3xl font-black text-neutral-900 mb-3">
+                Every Step, One Partner
+              </h3>
+              <p className="text-base md:text-lg text-neutral-600 font-semibold leading-relaxed">
+                {language === "ko" 
+                  ? "무역의 시작부터 물류의 끝까지, 검증된 경험과 완벽한 지원으로 함께합니다." 
+                  : "From the start of trade to the end of logistics, we accompany you with proven experience and perfect support."}
+              </p>
+            </div>
 
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-4 items-stretch justify-center relative">
               
@@ -81,25 +101,13 @@ export default function AboutPage() {
                   <BarChart3 size={36} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-2xl font-black text-[#6A0DAD] mb-3">Proven Experience</h3>
-                <p className="text-neutral-600 font-bold mb-8">
+                <p className="text-neutral-600 font-bold leading-relaxed">
                   {language === "ko" ? (
                     <>수년간 축적된<br />물류 데이터와 현장 경험의 힘.</>
                   ) : (
                     <>The power of years of accumulated<br />logistics data and field experience.</>
                   )}
                 </p>
-                <div className="w-full space-y-3 mt-auto">
-                  {[
-                    { icon: Database, text: language === "ko" ? "수년간 데이터 축적" : "Years of Data Accumulation" },
-                    { icon: ClipboardCheck, text: language === "ko" ? "현장 경험 기반 노하우" : "Field-proven Know-how" },
-                    { icon: Award, text: language === "ko" ? "검증된 전문성" : "Verified Professionalism" }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 bg-[#F8F3FA] rounded-full px-5 py-3 text-[#6A0DAD]">
-                      <item.icon size={20} strokeWidth={2} />
-                      <span className="font-bold text-[15px]">{item.text}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
 
               {/* Arrow 1 */}
@@ -108,46 +116,18 @@ export default function AboutPage() {
               </div>
 
               {/* Card 2: Seamless Service */}
-              <div className="flex-[1.2] bg-white border-2 border-[#EADDF0] rounded-3xl p-8 flex flex-col items-center text-center relative z-10 hover:shadow-xl hover:border-[#6A0DAD] transition-all duration-500">
+              <div className="flex-1 bg-white border-2 border-[#EADDF0] rounded-3xl p-8 flex flex-col items-center text-center relative z-10 hover:shadow-xl hover:border-[#6A0DAD] transition-all duration-500">
                 <div className="w-20 h-20 bg-[#6A0DAD] rounded-full flex items-center justify-center text-white mb-6 shadow-lg">
                   <Globe size={36} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-2xl font-black text-[#6A0DAD] mb-3">Seamless Service</h3>
-                <p className="text-neutral-600 font-bold mb-10">
+                <p className="text-neutral-600 font-bold leading-relaxed">
                   {language === "ko" ? (
                     <>수출입 대행부터 물류까지,<br />중단 없는 비즈니스 설계.</>
                   ) : (
                     <>From import/export agency to logistics,<br />seamless business design.</>
                   )}
                 </p>
-                
-                {/* Flow Diagram */}
-                <div className="flex items-center justify-between w-full max-w-sm mx-auto mb-10">
-                  {[
-                    { icon: Globe, label: language === "ko" ? "수출입 대행" : "Agency" },
-                    { icon: Ship, label: language === "ko" ? "국제 운송" : "Transport" },
-                    { icon: Warehouse, label: language === "ko" ? "물류 관리" : "Logistics" },
-                    { icon: Truck, label: language === "ko" ? "배송" : "Delivery" }
-                  ].map((step, i) => (
-                    <div key={i} className="flex flex-col items-center gap-2 relative">
-                      <div className="w-12 h-12 bg-[#F8F3FA] rounded-full flex items-center justify-center text-[#6A0DAD] z-10 relative">
-                        <step.icon size={20} strokeWidth={1.5} />
-                      </div>
-                      <span className="text-[12px] font-bold text-neutral-600 whitespace-nowrap">{step.label}</span>
-                      {i < 3 && (
-                        <div className="absolute top-6 left-12 w-full h-[2px] bg-neutral-100 flex items-center justify-end -translate-y-1/2 -z-0" style={{ width: 'calc(100% + 10px)' }}>
-                          <ChevronRight size={12} className="text-neutral-300 absolute -right-2" />
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-auto w-full">
-                  <div className="bg-[#BC90C1] text-white rounded-full py-3 px-6 font-bold text-[15px] shadow-md">
-                    {language === "ko" ? "원스톱 · 끊김 없는 · 효율적 프로세스" : "One-stop · Seamless · Efficient Process"}
-                  </div>
-                </div>
               </div>
 
               {/* Arrow 2 */}
@@ -161,7 +141,7 @@ export default function AboutPage() {
                   <Users size={36} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-2xl font-black text-[#6A0DAD] mb-3">Total Support</h3>
-                <p className="text-neutral-600 font-bold mb-8">
+                <p className="text-neutral-600 font-bold leading-relaxed">
                   {language === "ko" ? (
                     <>
                       고객사는 <span className="text-[#6A0DAD]">유통</span>에만 집중하세요.<br />
@@ -174,18 +154,6 @@ export default function AboutPage() {
                     </>
                   )}
                 </p>
-                <div className="w-full space-y-3 mt-auto">
-                  {[
-                    { icon: UserCircle, text: language === "ko" ? "고객은 유통에 집중" : "Focus on Distribution" },
-                    { icon: Clock, text: language === "ko" ? "시간 절약" : "Save Time" },
-                    { icon: PiggyBank, text: language === "ko" ? "비용 최적화" : "Cost Optimization" }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 bg-[#F8F3FA] rounded-full px-5 py-3 text-[#6A0DAD]">
-                      <item.icon size={20} strokeWidth={2} />
-                      <span className="font-bold text-[15px]">{item.text}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
 
             </div>
@@ -193,7 +161,7 @@ export default function AboutPage() {
         </section>
 
         {/* ─── 3. LOGO (CI) ─── */}
-        <section id="ci" className="px-6 md:px-10 max-w-[1400px] mx-auto scroll-mt-32">
+        <section id="ci" className="px-6 md:px-10 max-w-[1200px] mx-auto scroll-mt-32">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -201,7 +169,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8, ease: APPLE_EASE }}
           >
             <h2 className="text-3xl md:text-4xl font-black mb-12 text-neutral-900 border-b-2 border-neutral-900 pb-4 inline-block uppercase">
-              LOGO
+              {language === "ko" ? "CI소개" : "CI Introduction"}
             </h2>
 
             <div className="flex justify-start mb-16">
@@ -239,7 +207,7 @@ export default function AboutPage() {
             </div>
 
             {/* Vertical Color System (Flexbox layout to guarantee mathematically identical widths) */}
-            <div className="flex flex-col lg:flex-row lg:gap-16 gap-10 w-full max-w-[1100px] mx-auto pt-12 border-t border-neutral-100">
+            <div className="flex flex-col lg:flex-row lg:gap-16 gap-10 w-full pt-12 border-t border-neutral-100">
               
               {/* Main Color Column (1/6 width on desktop) */}
               <div className="w-full lg:w-1/6 space-y-4">

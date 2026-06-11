@@ -310,7 +310,7 @@ function CompanyIntroContent() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="p-8 md:p-20"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-12 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-12 items-start">
                   <div className="lg:col-span-8">
                     <div className="flex items-center gap-6 mb-12">
                       <div 
@@ -359,28 +359,25 @@ function CompanyIntroContent() {
                   ))}
                 </div>
 
-                {activeCompany.id === "logitech" ? (
-                  /* Custom grid column spans for Logitech: Column 1 is wider (col-span-5) to prevent wrapping, Column 2 (col-span-4), Column 3 (col-span-3) */
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-20 border-t border-black/5">
-                    {activeCompany.content.details.map((detail, i) => (
-                      <motion.div 
-                        key={i}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 + (i * 0.1) }}
-                        className={`flex flex-col gap-6 ${
-                          i === 0 ? "lg:col-span-5" : i === 1 ? "lg:col-span-4" : "lg:col-span-3"
-                        }`}
-                      >
-                        <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
-                             {i === 0 && <BarChart3 size={20} style={{ color: activeCompany.color }} />}
-                             {i === 1 && <ShieldCheck size={20} style={{ color: activeCompany.color }} />}
-                             {i === 2 && <Globe2 size={20} style={{ color: activeCompany.color }} />}
-                          </div>
-                          <h5 className="text-xl font-black tracking-tight text-neutral-900">{detail.title[language]}</h5>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-20 border-t border-black/5">
+                  {activeCompany.content.details.map((detail, i) => (
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 + (i * 0.1) }}
+                      className="flex flex-col gap-6"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                           {i === 0 && <BarChart3 size={20} style={{ color: activeCompany.color }} />}
+                           {i === 1 && <ShieldCheck size={20} style={{ color: activeCompany.color }} />}
+                           {i === 2 && <Globe2 size={20} style={{ color: activeCompany.color }} />}
                         </div>
+                        <h5 className="text-xl font-black tracking-tight text-neutral-900">{detail.title[language]}</h5>
+                      </div>
 
+                      {activeCompany.id === "logitech" ? (
                         <div className="text-neutral-500 leading-snug font-bold text-[14px] md:text-[15px] space-y-1">
                           {detail.text[language].split("\n").map((line, lineIdx) => (
                             <div key={lineIdx} className="flex items-start gap-2.5">
@@ -389,35 +386,14 @@ function CompanyIntroContent() {
                             </div>
                           ))}
                         </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                ) : (
-                  /* Standard 3-column layout for other companies */
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-20 border-t border-black/5">
-                    {activeCompany.content.details.map((detail, i) => (
-                      <motion.div 
-                        key={i}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 + (i * 0.1) }}
-                        className="flex flex-col gap-6"
-                      >
-                        <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
-                             {i === 0 && <BarChart3 size={20} style={{ color: activeCompany.color }} />}
-                             {i === 1 && <ShieldCheck size={20} style={{ color: activeCompany.color }} />}
-                             {i === 2 && <Globe2 size={20} style={{ color: activeCompany.color }} />}
-                          </div>
-                          <h5 className="text-xl font-black tracking-tight text-neutral-900">{detail.title[language]}</h5>
-                        </div>
+                      ) : (
                         <p className="text-neutral-500 leading-relaxed font-bold text-[15px] whitespace-pre-line">
                           {detail.text[language]}
                         </p>
-                      </motion.div>
-                    ))}
-                  </div>
-                )}
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>
