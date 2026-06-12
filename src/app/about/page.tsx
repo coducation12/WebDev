@@ -30,7 +30,7 @@ export default function AboutPage() {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4500); // 4.5초마다 이미지 전환
+    }, 6000); // 6초마다 이미지 전환 (정신사납지 않도록 시간 연장)
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -47,15 +47,24 @@ export default function AboutPage() {
 
   const slideVariants = {
     enter: (dir: number) => ({
-      x: dir > 0 ? "100%" : "-100%",
+      opacity: 0,
+      filter: "blur(12px)",
+      scale: 1.08,
+      // x: dir > 0 ? "100%" : "-100%", // 기존 슬라이딩 효과 복구용
     }),
     center: {
+      opacity: 1,
+      filter: "blur(0px)",
+      scale: 1.04,
       x: 0,
-      transition: { duration: 0.8, ease: APPLE_EASE }
+      transition: { duration: 1.4, ease: "easeInOut" } // 부드럽게 넘어가도록 전환 시간 연장
     },
     exit: (dir: number) => ({
-      x: dir > 0 ? "-100%" : "100%",
-      transition: { duration: 0.8, ease: APPLE_EASE }
+      opacity: 0,
+      filter: "blur(12px)",
+      scale: 1.0,
+      // x: dir > 0 ? "-100%" : "100%", // 기존 슬라이딩 효과 복구용
+      transition: { duration: 1.4, ease: "easeInOut" }
     })
   };
 

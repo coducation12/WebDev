@@ -52,3 +52,6 @@ documents/
 node_modules/
 build/
 dist/
+
+.vercel
+.env*
