@@ -86,7 +86,7 @@ const COMPANIES: Company[] = [
     icon: Truck,
     color: "#2563EB",
     bg: "bg-[#EEF2FF]",
-    image: "company_bora_trans_v2.jpg",
+    image: "company_bora_trans_v3.jpg",
     content: {
       title: { ko: "항만과 보세창고를 잇는 최적의 운송 시스템", en: "Optimal Transport System Connecting Ports and Bonded Warehouses" },
       description: {
