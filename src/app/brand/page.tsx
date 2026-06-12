@@ -27,7 +27,7 @@ export default function BrandPage() {
             <Compass size={36} className="animate-spin-slow" style={{ animationDuration: '8s' }} />
           </div>
 
-          <h4 className="text-[#FF6A00] font-black tracking-widest text-sm mb-4 uppercase">Authentic Brand</h4>
+          <h4 className="text-[#FF6A00] font-black tracking-widest text-sm mb-4 uppercase">Authentic Korea</h4>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tighter text-neutral-900 mb-8">
             {language === "ko" ? "브랜드 소개" : "Brand Introduction"}
           </h1>

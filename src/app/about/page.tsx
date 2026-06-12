@@ -21,7 +21,6 @@ export default function AboutPage() {
   const [direction, setDirection] = useState(1); // 1: right-to-left, -1: left-to-right
 
   const slides = [
-    "/assets/images/active/about_slide_1.jpg",
     "/assets/images/active/about_slide_2.jpg",
     "/assets/images/active/about_slide_3.jpg",
     "/assets/images/active/about_slide_4.jpg"

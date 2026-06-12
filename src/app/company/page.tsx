@@ -195,10 +195,10 @@ const COMPANIES: Company[] = [
           } 
         },
         { 
-          title: { ko: "K-Contents 글로벌 수출", en: "Export of K-Contents" }, 
+          title: { ko: "지역특산품 해외수출", en: "Export of Local Specialties" }, 
           text: { 
-            ko: "전 세계적으로 주목받는 한국의 식품과 문화 콘텐츠가 해외 시장에 성공적으로 안착할 수 있도록 판로를 개척하고 지원합니다.", 
-            en: "We pave paths and support global distribution channels to ensure that highly demanded Korean food products and cultural content establish a successful foothold overseas." 
+            ko: "전 세계적으로 주목받는 한국의 우수한 지역 특산품이 해외 시장에 성공적으로 안착할 수 있도록 판로를 개척하고 지원합니다.", 
+            en: "We pioneer and support distribution channels to ensure that Korea's outstanding local specialties successfully establish a foothold in global markets." 
           } 
         },
         { 

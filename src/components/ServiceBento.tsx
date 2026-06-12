@@ -88,7 +88,7 @@ export default function ServiceBento({ isHoverEnabled = true }: ServiceBentoProp
           
           <div className="relative h-full p-8 md:p-12 flex flex-col justify-between">
             <div className="flex justify-between items-start">
-                  <h3 className="text-white font-black text-4xl md:text-6xl tracking-tighter uppercase leading-none mb-4" style={{ fontFamily: "var(--font-serif)" }}>
+                  <h3 className="text-white font-black text-4xl md:text-6xl tracking-tighter uppercase leading-none mb-4" style={{ fontFamily: "var(--font-title)" } /* style={{ fontFamily: "var(--font-serif)" }} */}>
                     LOGISTICS
                   </h3>
               <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 backdrop-blur-md rounded-2xl md:rounded-[22px] flex items-center justify-center border border-white/20 text-white group-hover:bg-[#6A0DAD] group-hover:border-[#6A0DAD] transition-all duration-500">
@@ -153,7 +153,7 @@ export default function ServiceBento({ isHoverEnabled = true }: ServiceBentoProp
           
           <div className="relative h-full p-8 md:p-12 flex flex-col justify-between">
             <div className="flex justify-between items-start">
-                  <h3 className="text-white font-black text-4xl md:text-6xl tracking-tighter uppercase leading-none mb-4" style={{ fontFamily: "var(--font-serif)" }}>
+                  <h3 className="text-white font-black text-4xl md:text-6xl tracking-tighter uppercase leading-none mb-4" style={{ fontFamily: "var(--font-title)" } /* style={{ fontFamily: "var(--font-serif)" }} */}>
                     TRADE
                   </h3>
               <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 backdrop-blur-md rounded-2xl md:rounded-[22px] flex items-center justify-center border border-white/20 text-white group-hover:bg-[#6A0DAD] group-hover:border-[#6A0DAD] transition-all duration-500">

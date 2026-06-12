@@ -310,7 +310,7 @@ export default function AppleEsqueHome() {
             className="mb-16 md:mb-24 text-center"
           >
             <h2 className="mb-6 md:mb-10 flex items-baseline justify-center gap-0 flex-wrap">
-              <span className="text-4xl md:text-6xl font-bold italic tracking-tight text-neutral-900" style={{ fontFamily: "var(--font-serif)" }}>
+              <span className="text-4xl md:text-6xl font-bold italic tracking-tight text-neutral-900" style={{ fontFamily: "var(--font-title)" } /* style={{ fontFamily: "var(--font-serif)" }} */}>
                 Family Companies
               </span>
             </h2>

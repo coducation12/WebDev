@@ -51,6 +51,7 @@ const contactPoints: Record<"logistics" | "trade", ContactPoint[]> = {
     },
     {
       title: { ko: "운송팀", en: "Transportation Team" },
+      subtitle: { ko: "셔틀운송 · 화물배차", en: "Shuttle Transport & Dispatch" },
       tel: "061-795-0255",
       fax: "061-791-0255",
     },
@@ -63,6 +64,13 @@ const contactPoints: Record<"logistics" | "trade", ContactPoint[]> = {
       fax: "061-725-9954",
     },
   ],
+};
+
+const formatPhoneNumber = (num: string, lang: "ko" | "en") => {
+  if (lang === "en" && num.startsWith("0")) {
+    return `(+82)${num.slice(1)}`;
+  }
+  return num;
 };
 
 function ContactContent() {
@@ -198,11 +206,11 @@ function ContactContent() {
                   <div className={`space-y-1.5 text-xs text-neutral-500 font-semibold ${dept.subtitle ? "mt-4.5" : "mt-6"}`}>
                     <div className="flex items-center gap-2">
                       <Phone size={12} className={activeTab === "trade" ? "text-[#FFA05C]" : "text-[#BC90C1]"} />
-                      <span>TEL. {dept.tel}</span>
+                      <span>TEL. {formatPhoneNumber(dept.tel, language)}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Printer size={12} className={activeTab === "trade" ? "text-[#FFA05C]" : "text-[#BC90C1]"} />
-                      <span>FAX. {dept.fax}</span>
+                      <span>FAX. {formatPhoneNumber(dept.fax, language)}</span>
                     </div>
                   </div>
                 </motion.div>
