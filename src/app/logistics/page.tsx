@@ -187,7 +187,7 @@ export default function LogisticsPage() {
                 {language === "ko" ? (
                   <>자체 물류 인프라와 글로벌 네트워크를 유기적으로 결합하여, 수출입 요건 확인부터 보세 보관 및 최종 운송까지 단절 없는 <strong className="text-[#6A0DAD] font-black">원스톱 솔루션</strong>을 설계합니다.</>
                 ) : (
-                  <>Organically combining our own logistics infrastructure and global network, we design a seamless <strong className="text-[#6A0DAD] font-black">one-stop solution</strong> from verification of import/export requirements to bonded storage and final delivery.</>
+                  <>Seamlessly integrating our own logistics infrastructure with our global network, we design a flawless, <strong className="text-[#6A0DAD] font-black">one-stop solution</strong> from the verification of import/export requirements to bonded storage and final delivery.</>
                 )}
               </p>
             </motion.div>

@@ -22,6 +22,7 @@ interface Company {
   id: string;
   name: MultiLangText;
   desc: MultiLangText;
+  category: string;
   icon: React.ComponentType<any>;
   color: string;
   bg: string;
@@ -39,15 +40,16 @@ const COMPANIES: Company[] = [
     id: "logis",
     name: { ko: "보라로지스", en: "Bora Logis" }, 
     desc: { ko: "국제물류 · 보세창고 운영", en: "International Logistics & Bonded Warehouse Operations" }, 
+    category: "Logistics & Distribution",
     icon: Ship,
     color: "#6A0DAD",
     bg: "bg-[#F9F5FF]",
     image: "company_bora_logis_v2.jpg",
     content: {
-      title: { ko: "광양항 배후단지 최고의 종합물류 파트너", en: "Your Ultimate Logistics Partner at Gwangyang Port Hinterland" },
+      title: { ko: "광양항 배후단지 최고의 종합물류 파트너", en: "Your Ultimate Logistics Partner at Gwangyang Free Trade Zone" },
       description: {
         ko: "보라로지스는 여수·광양항 자유무역지역 내 동측 배후단지의 물류센터를 전담 운영하는 글로벌 종합물류 기업입니다. 부지 약 132,000㎡(약 4만 평) 및 창고 약 66,000㎡(약 2만 평) 규모의 현장을 기반으로, 수출입 요건 확인부터 통관, 검역대행, 보관, 특수 운송까지 전 과정을 유기적으로 연결하는 '원스톱 종합 물류 서비스'를 실현합니다.",
-        en: "Bora Logis is a global comprehensive logistics enterprise exclusively operating a logistics center within the eastern hinterland of the Yeosu-Gwangyang Port Free Trade Zone. Utilizing our site of 132,000㎡ and warehouse of 66,000㎡, we implement a seamless, one-stop integrated logistics service that organically connects the entire cycle—from import/export requirement verification to customs clearance, quarantine agency, storage, and specialized inland transport."
+        en: "Bora Logis is a global, comprehensive logistics company that exclusively operates a logistics center within the Eastern Area of the Gwangyang Port Free Trade Zone. Utilizing our site of 132,000㎡ and warehouse of 66,000㎡, we implement a seamless, one-stop integrated logistics service that perfectly unifies the entire cycle—from import/export requirement verification to customs clearance, quarantine agency, storage, and specialized inland transport."
       },
       stats: [
         { label: { ko: "부지 면적", en: "Site Area" }, value: { ko: "132,000㎡", en: "132,000㎡" } },
@@ -59,21 +61,21 @@ const COMPANIES: Company[] = [
           title: { ko: "통합 물류 서비스", en: "Integrated Logistics Services" }, 
           text: { 
             ko: "포워딩, 검역대행, 창고업, 운송업까지 물류의 전 과정을 유기적으로 연결하여 효율적인 최적의 솔루션을 제공합니다.", 
-            en: "We provide optimized, efficient solutions by organically linking the entire logistics process from forwarding and quarantine agency to warehousing and transport." 
+            en: "We provide optimized, high-efficiency solutions by seamlessly integrating the entire logistics process, from forwarding and quarantine agency to warehousing and transport." 
           } 
         },
         { 
           title: { ko: "자체 전문 장비 운영", en: "In-house Specialized Equipment" }, 
           text: { 
             ko: "리치스태커, 대형 지게차 등 컨테이너 상하차 및 적재에 필요한 전문 장비를 직접 보유하고 전문 인력이 직접 운영합니다.", 
-            en: "We directly own and operate specialized container loading/unloading and stacking equipment, including reach stackers and large forklifts, with our expert personnel." 
+            en: "We directly own and operate specialized container loading/unloading and stacking equipment, including reach stackers and large forklifts, managed by our expert personnel." 
           } 
         },
         { 
           title: { ko: "압도적 물류 인프라", en: "Outstanding Infrastructure" }, 
           text: { 
             ko: "광양항 배후단지 내 최대 규모의 부지와 창고를 바탕으로 대량의 화물을 안정적으로 수용하고 관리할 수 있는 역량을 갖추고 있습니다.", 
-            en: "Based on the largest site and warehouse in Gwangyang Port Hinterland, we possess the capability to stably accommodate and manage massive cargo volumes." 
+            en: "Based on the largest site and warehouse in Gwangyang Port Free Trade Zone, we possess the capability to stably accommodate and manage massive cargo volumes." 
           } 
         }
       ]
@@ -83,6 +85,7 @@ const COMPANIES: Company[] = [
     id: "trans",
     name: { ko: "보라트랜스", en: "Bora Trans" }, 
     desc: { ko: "내륙 및 컨테이너 운송", en: "Inland & Container Transportation" }, 
+    category: "Inland Transportation",
     icon: Truck,
     color: "#2563EB",
     bg: "bg-[#EEF2FF]",
@@ -127,6 +130,7 @@ const COMPANIES: Company[] = [
     id: "logitech",
     name: { ko: "보라로지텍", en: "Bora Logitech" }, 
     desc: { ko: "생산라인 물류 · 장비 제조", en: "Production Line Logistics & Equipment Manufacturing" }, 
+    category: "Logistics Equipment & Tech",
     icon: Cpu,
     color: "#86B41D",
     bg: "bg-[#F7FBEA]",
@@ -171,6 +175,7 @@ const COMPANIES: Company[] = [
     id: "international",
     name: { ko: "어센틱코리아", en: "Authentic Korea" }, 
     desc: { ko: "글로벌 수출입 · 무역", en: "Global Import/Export & Trade" }, 
+    category: "Global Import & Export",
     icon: Globe,
     color: "#FF6A00",
     bg: "bg-[#FFF5EF]",
@@ -179,10 +184,10 @@ const COMPANIES: Company[] = [
       title: { ko: "물류 인프라 기반의 원스톱 무역 솔루션", en: "One-stop Trade Solutions Based on Logistics Infrastructure" },
       description: {
         ko: "어센틱 코리아는 안정적인 물류 인프라를 기반으로 글로벌 수출입 비즈니스를 전개하는 종합 무역회사입니다. 국내 산업 생태계에 필수적인 원재료, 친환경 인프라 기자재 및 고가치 소비재를 글로벌 시장에서 직접 소싱하여 국내에 안정적으로 공급합니다. 동시에 한국의 식품과 문화 컨텐츠를 발굴하고 직접 수출하여, 글로벌 공급망을 주도적으로 구축해 나가고 있습니다.",
-        en: "Authentic Korea is a comprehensive trading enterprise expanding global import/export businesses built on our group's stable logistics infrastructure. We directly source industrial raw materials, eco-friendly infrastructure equipment, and high-value consumer goods from global markets to supply them stably within South Korea. Concurrently, we discover and export K-food products and cultural content, taking the lead in establishing a global supply network."
+        en: "Authentic Korea is a comprehensive trading enterprise expanding its global import and export businesses based on our group's stable logistics infrastructure.\nWe directly source industrial raw materials, eco-friendly infrastructure equipment, and high-value consumer goods from global markets to ensure a stable supply within South Korea. At the same time, we discover and export K-food products and cultural content, taking the lead in establishing a global supply network."
       },
       stats: [
-        { label: { ko: "주요 품목", en: "Primary Items" }, value: { ko: "자원 수입", en: "Resource Import" } },
+        { label: { ko: "주요 품목", en: "Primary Items" }, value: { ko: "자원 수입", en: "Industrial Raw Materials" } },
         { label: { ko: "수출 분야", en: "Export Field" }, value: { ko: "K-Food/Culture", en: "K-Food/Culture" } },
         { label: { ko: "핵심 역량", en: "Core Capability" }, value: { ko: "물류 연계 수출입 서비스", en: "Logistics-Linked Import/Export Services" } }
       ],
@@ -215,6 +220,7 @@ const COMPANIES: Company[] = [
     id: "reup",
     name: { ko: "RE&UP", en: "RE&UP" }, 
     desc: { ko: "재생에너지 · 업사이클", en: "Renewable Energy & Upcycling" }, 
+    category: "Sustainable Resource Solutions",
     icon: Package,
     color: "#10B981",
     bg: "bg-[#ECFDF5]",
@@ -320,7 +326,7 @@ function CompanyIntroContent() {
                         <activeCompany.icon size={32} strokeWidth={1.5} />
                       </div>
                       <div>
-                        <h3 className="text-[12px] font-black uppercase tracking-[0.2em] opacity-40 mb-1">{activeCompany.id} business</h3>
+                        <h3 className="text-[12px] font-black tracking-[0.2em] opacity-40 mb-1">{activeCompany.category}</h3>
                         <h2 className="text-3xl md:text-5xl font-black tracking-tighter" style={{ color: activeCompany.color }}>{activeCompany.name[language]}</h2>
                       </div>
                     </div>
@@ -330,7 +336,7 @@ function CompanyIntroContent() {
                     </h4>
                     
                     <div className="prose prose-xl max-w-none">
-                      <p className="text-lg md:text-xl text-neutral-600 leading-relaxed font-bold mb-0 border-l-4 pl-8 py-2" style={{ borderColor: activeCompany.color }}>
+                      <p className="text-lg md:text-xl text-neutral-600 leading-relaxed font-bold mb-0 border-l-4 pl-8 py-2 whitespace-pre-line" style={{ borderColor: activeCompany.color }}>
                         {activeCompany.content.description[language]}
                       </p>
                     </div>

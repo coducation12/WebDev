@@ -133,7 +133,7 @@ export default function AboutPage() {
                 ) : (
                   <>
                     Since the establishment of Bora Logis in 2012, we have grown based on close trust with leading partners.<br />
-                    Through the organic connection of Bora Logis, Bora Logitech, and Bora Trans, which integrate our logistics expertise, we have completed a differentiated international logistics infrastructure.
+                    Through the <strong className="font-black text-neutral-900">seamless integration</strong> of Bora Logis, Bora Logitech, and Bora Trans, <strong className="font-black text-neutral-900">each bringing</strong> unique logistics expertise, we have established a highly differentiated global logistics infrastructure.
                   </>
                 )}
               </p>
@@ -270,7 +270,7 @@ export default function AboutPage() {
                 ) : (
                   <>
                     It takes the form of two geometric shapes connected and spreading like wings, symbolizing the harmonious connection of different worlds.<br/>
-                    This represents the process of trade and logistics organically connecting and continuously developing.
+                    This visualizes the <strong className="font-black text-neutral-900">seamless synergy</strong> and <strong className="font-black text-neutral-900">continuous advancement</strong> of trade and logistics.
                   </>
                 )}
               </p>
