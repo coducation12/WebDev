@@ -15,10 +15,10 @@ export default function Footer({ minimal = false }: FooterProps) {
   const { language } = useLanguage();
 
   return (
-    <footer className={`bg-white px-6 md:px-10 border-t border-neutral-100 ${minimal ? "py-16" : "pt-32 pb-16"}`}>
+    <footer className={`bg-white px-6 md:px-10 border-t border-neutral-100 ${minimal ? "py-16" : "pt-12 pb-12 md:pt-32 md:pb-16"}`}>
       <div className="max-w-[1400px] mx-auto">
         {!minimal && (
-          <div className="flex flex-col md:flex-row justify-between items-start gap-20 md:gap-40 mb-24">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-40 mb-12 md:mb-24">
             <div className="max-w-sm flex gap-5">
               <div className="w-[6px] bg-[#6A0DAD] rounded-[1px] self-stretch" />
               <div className="flex flex-col py-0.5">
@@ -45,8 +45,8 @@ export default function Footer({ minimal = false }: FooterProps) {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-16 md:gap-20">
-              <div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20">
+              <div className="hidden md:block">
                 <h5 className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-6 font-sans">
                   {language === "ko" ? "사업 영역" : "Business Areas"}
                 </h5>
@@ -57,7 +57,7 @@ export default function Footer({ minimal = false }: FooterProps) {
                   <li><Link href="/trade#export-import" className="hover:text-[#6A0DAD] transition-colors">{language === "ko" ? "글로벌 수출입 서비스" : "Global Import/Export"}</Link></li>
                 </ul>
               </div>
-              <div>
+              <div className="hidden md:block">
                 <h5 className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-6 font-sans">Family Companies</h5>
                 <ul className="text-xs font-semibold flex flex-col gap-4 text-neutral-400">
                   <li><Link href="/company?tab=0" className="hover:text-[#6A0DAD] transition-colors">{language === "ko" ? "보라로지스" : "Bora Logis"}</Link></li>
@@ -68,17 +68,17 @@ export default function Footer({ minimal = false }: FooterProps) {
                 </ul>
               </div>
               <div>
-                <h5 className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-6 font-sans">
+                <h5 className="hidden md:block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-6 font-sans">
                   {language === "ko" ? "문의" : "Inquiries"}
                 </h5>
-                <p className="text-xs font-semibold text-neutral-400 leading-loose">
+                <p className="hidden md:block text-xs font-semibold text-neutral-400 leading-loose">
                   {language === "ko" ? (
                     <>비즈니스 파트너십 또는 <br />서비스 문의를 환영합니다.</>
                   ) : (
                     <>We welcome business partnerships <br />or service inquiries.</>
                   )}
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 mt-4 text-neutral-900 font-bold text-xs uppercase tracking-widest hover:gap-3 transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 mt-0 md:mt-4 text-neutral-900 font-bold text-xs uppercase tracking-widest hover:gap-3 transition-all">
                   Contact <ArrowRight size={14} />
                 </Link>
               </div>

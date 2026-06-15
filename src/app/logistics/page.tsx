@@ -125,7 +125,7 @@ export default function LogisticsPage() {
       <Header />
       
       {/* ─── Sticky Sub-Navigation Bar ─── */}
-      <div className="sticky top-[64px] z-40 bg-white/95 backdrop-blur-xl border-b border-neutral-100 py-2.5 shadow-sm transition-all mt-[88px]">
+      <div className="hidden md:block sticky top-[64px] z-40 bg-white/95 backdrop-blur-xl border-b border-neutral-100 py-2.5 shadow-sm transition-all mt-[88px]">
         <div className="max-w-[1300px] mx-auto px-6 md:px-10 flex justify-center overflow-x-auto scrollbar-none">
           <div className="flex gap-2 sm:gap-4 md:gap-6 whitespace-nowrap">
             {[
@@ -166,7 +166,7 @@ export default function LogisticsPage() {
       <main className="flex-1">
 
         {/* ─── 1. 국제 물류 서비스 (#intl-service) ─── */}
-        <section id="intl-service" className="py-28 px-6 md:px-10 bg-neutral-50 scroll-mt-36">
+        <section id="intl-service" className="pt-32 pb-28 md:py-28 px-6 md:px-10 bg-neutral-50 scroll-mt-36">
           <div className="max-w-[1300px] mx-auto">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
@@ -258,14 +258,14 @@ export default function LogisticsPage() {
                 {language === "ko" ? "보세창고 물류 프로세스" : "Bonded Warehouse Logistics Process"}
               </h3>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 relative">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-6 relative">
                 {steps.map((item, idx) => {
                   const StepIcon = item.icon;
                   const isHighlighted = hoveredStep !== null ? hoveredStep === idx : activeAutoStep === idx;
                   return (
                     <div 
                       key={idx}
-                      className="relative h-full min-h-[360px]"
+                      className="relative h-full min-h-[180px] md:min-h-[360px]"
                       onMouseEnter={() => setHoveredStep(idx)}
                       onMouseLeave={() => setHoveredStep(null)}
                     >
@@ -275,14 +275,14 @@ export default function LogisticsPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.05 }}
-                        className={`w-full h-full bg-white border rounded-[24px] transition-all duration-500 ease-out flex flex-col items-center text-center group cursor-pointer ${
+                        className={`w-full h-full bg-white border rounded-[20px] md:rounded-[24px] transition-all duration-500 ease-out flex flex-col items-center text-center group cursor-pointer ${
                           isHighlighted 
-                            ? "border-[#6A0DAD]/40 -translate-y-4 scale-[1.06] shadow-xl shadow-[#6A0DAD]/15 z-10" 
+                            ? "border-[#6A0DAD]/40 -translate-y-2 md:-translate-y-4 scale-[1.03] md:scale-[1.06] shadow-xl shadow-[#6A0DAD]/15 z-10" 
                             : "border-neutral-100 shadow-sm z-0"
                         }`}
                       >
                         {/* Flush top Image with rounded top corners */}
-                        <div className="relative w-full aspect-[1/1] overflow-hidden rounded-t-[23px] flex-shrink-0">
+                        <div className="relative w-full aspect-[1/1] overflow-hidden rounded-t-[19px] md:rounded-t-[23px] flex-shrink-0">
                           <Image 
                             src={`${ASSET}/${item.img}`} 
                             alt={item.title} 
@@ -291,7 +291,7 @@ export default function LogisticsPage() {
                               isHighlighted ? "scale-105" : "scale-100"
                             }`} 
                           />
-                          <div className={`absolute top-3 left-3 w-7 h-7 rounded-full flex items-center justify-center font-black text-xs shadow-md transition-colors duration-500 ${
+                          <div className={`absolute top-2 left-2 md:top-3 md:left-3 w-5 h-5 md:w-7 md:h-7 rounded-full flex items-center justify-center font-black text-[10px] md:text-xs shadow-md transition-colors duration-500 ${
                             isHighlighted 
                               ? "bg-[#6A0DAD] text-white" 
                               : "bg-black/40 text-white backdrop-blur-sm"
@@ -301,19 +301,19 @@ export default function LogisticsPage() {
                         </div>
                         
                         {/* Floating Overlapping Icon in colored circle */}
-                        <div className={`w-12 h-12 rounded-full bg-[#F8F5FF] text-[#6A0DAD] border border-[#6A0DAD]/15 flex items-center justify-center -mt-6 z-20 shadow-md transition-all duration-500 ${
+                        <div className={`w-8 h-8 md:w-12 md:h-12 rounded-full bg-[#F8F5FF] text-[#6A0DAD] border border-[#6A0DAD]/15 flex items-center justify-center -mt-4 md:-mt-6 z-20 shadow-md transition-all duration-500 ${
                           isHighlighted ? "scale-110 shadow-lg shadow-[#6A0DAD]/15" : "shadow-sm"
                         }`}>
-                          <StepIcon size={20} strokeWidth={2.5} />
+                          <StepIcon className="w-4 h-4 md:w-5 md:h-5" strokeWidth={2.5} />
                         </div>
                         
                         {/* Content with padding */}
-                        <div className="px-2 sm:px-3 lg:px-4 pt-3 pb-5 flex flex-col items-center flex-1">
+                        <div className="px-2 pt-2 pb-3.5 md:pt-3 md:pb-5 flex flex-col items-center flex-1">
                           {/* Title & Description */}
-                          <h4 className={`text-base md:text-[17px] font-black mb-2 tracking-tighter break-keep transition-colors duration-500 ${
+                          <h4 className={`text-[13px] sm:text-base md:text-[17px] font-black mb-1 sm:mb-2 tracking-tighter break-keep transition-colors duration-500 ${
                             isHighlighted ? "text-[#6A0DAD]" : "text-neutral-900"
                           }`}>{item.title}</h4>
-                          <p className={`text-xs md:text-[13px] font-bold leading-normal break-keep transition-colors duration-500 ${
+                          <p className={`hidden md:block text-xs md:text-[13px] font-bold leading-normal break-keep transition-colors duration-500 ${
                             isHighlighted ? "text-neutral-500" : "text-neutral-400"
                           }`}>{item.desc}</p>
                         </div>

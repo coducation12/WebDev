@@ -260,7 +260,7 @@ export default function AppleEsqueHome() {
           </div>
 
           {/* 통합 6카드 그리드 (소형화 및 여백 최적화) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 items-stretch">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 items-stretch">
             {cards.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -270,11 +270,11 @@ export default function AppleEsqueHome() {
                 transition={{ delay: idx * 0.08, duration: 0.6 }}
                 className="group relative rounded-2xl overflow-hidden border border-neutral-100 bg-white shadow-sm hover:shadow-xl hover:border-neutral-200 transition-all duration-300 flex flex-col"
               >
-                <div className="relative h-48 md:h-64 overflow-hidden">
+                <div className="relative h-28 sm:h-48 md:h-64 overflow-hidden">
                    {/* Top Badge */}
                    {item.tag && (
-                     <div className="absolute top-3 right-3 z-10">
-                       <span className="bg-white/95 text-neutral-800 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-tight border border-neutral-200/30">
+                     <div className="absolute top-2 right-2 md:top-3 md:right-3 z-10">
+                       <span className="bg-white/95 text-neutral-800 backdrop-blur-md px-1.5 py-0.5 md:px-2.5 md:py-0.5 rounded-full text-[8px] md:text-[9px] font-black tracking-tight border border-neutral-200/30">
                          {item.tag[language]}
                        </span>
                      </div>
@@ -282,15 +282,15 @@ export default function AppleEsqueHome() {
                   <Image src={`${ASSET}/${item.img}`} alt={item.title[language]} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
                 </div>
-                <div className="p-5 md:p-6 flex-1 flex flex-col justify-between">
+                <div className="p-3.5 md:p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center gap-2.5 mb-2.5">
-                      <div className="w-8 h-8 rounded-full bg-[#F8F3FA] flex items-center justify-center text-[#6A0DAD] flex-shrink-0">
-                        <item.icon size={16} strokeWidth={2.5} />
+                    <div className="flex items-center gap-1.5 md:gap-2.5 mb-1 md:mb-2.5">
+                      <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#F8F3FA] flex items-center justify-center text-[#6A0DAD] flex-shrink-0">
+                        <item.icon className="w-3.5 h-3.5 md:w-4 md:h-4" strokeWidth={2.5} />
                       </div>
-                      <h3 className="text-lg md:text-xl font-black text-neutral-900 tracking-tight">{item.title[language]}</h3>
+                      <h3 className="text-[13px] sm:text-base md:text-xl font-black text-neutral-900 tracking-tight leading-tight">{item.title[language]}</h3>
                     </div>
-                    <p className="text-neutral-500 leading-relaxed text-[13px] md:text-[14px] flex-1 break-keep">{item.desc[language]}</p>
+                    <p className="hidden md:block text-neutral-500 leading-relaxed text-[13px] md:text-[14px] flex-1 break-keep">{item.desc[language]}</p>
                   </div>
                 </div>
               </motion.div>
@@ -300,46 +300,57 @@ export default function AppleEsqueHome() {
       </section>
 
       {/* ─── 5. BORA Family Section ─── */}
-      <section className="py-24 md:py-48 bg-neutral-50 px-6 md:px-10">
+      <section className="py-12 md:py-48 bg-neutral-50 px-4 md:px-10">
         <div className="max-w-[1400px] mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mb-16 md:mb-24 text-center"
+            className="mb-8 md:mb-24 text-center"
           >
-            <h2 className="mb-6 md:mb-10 flex items-baseline justify-center gap-0 flex-wrap">
-              <span className="text-4xl md:text-6xl font-bold italic tracking-tight text-neutral-900" style={{ fontFamily: "var(--font-title)" } /* style={{ fontFamily: "var(--font-serif)" }} */}>
+            <h2 className="mb-3 md:mb-10 flex items-baseline justify-center gap-0 flex-wrap">
+              <span className="text-3xl md:text-6xl font-bold italic tracking-tight text-neutral-900" style={{ fontFamily: "var(--font-title)" } /* style={{ fontFamily: "var(--font-serif)" }} */}>
                 Family Companies
               </span>
             </h2>
-            <p className="text-base md:text-xl font-semibold text-neutral-500 tracking-tight">
+            <p className="text-xs md:text-xl font-semibold text-neutral-500 tracking-tight">
               {language === "ko" ? "물류와 무역을 잇는 보라의 핵심 네트워크를 소개합니다." : "Introducing BORA's core network connecting logistics and trade."}
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2.5 md:gap-6">
             {familyCompanies.map((company, idx) => (
               <Link
                 key={idx}
                 href={`/company?tab=${idx}`}
-                className="group p-6 md:p-10 rounded-3xl md:rounded-[40px] bg-white border-2 border-neutral-100 hover:border-[#6A0DAD] cursor-pointer flex flex-col transition-all duration-200"
+                className="group p-3 md:p-10 rounded-2xl md:rounded-[40px] bg-white border-2 border-neutral-100 hover:border-[#6A0DAD] cursor-pointer flex flex-row md:flex-col items-center md:items-stretch transition-all duration-200 gap-3.5 md:gap-0"
               >
-                <div className="flex justify-between items-start mb-8 md:mb-16">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-neutral-50 rounded-2xl md:rounded-[22px] flex items-center justify-center group-hover:bg-[#6A0DAD] group-hover:text-white transition-all duration-200">
-                    <company.icon size={24} className="md:w-8 md:h-8" strokeWidth={1.5} />
+                {/* Icon Wrapper */}
+                <div className="flex-shrink-0 flex justify-between items-start md:w-full md:mb-16">
+                  <div className="w-10 h-10 md:w-16 md:h-16 bg-neutral-50 rounded-xl md:rounded-[22px] flex items-center justify-center group-hover:bg-[#6A0DAD] group-hover:text-white transition-all duration-200">
+                    <company.icon className="w-5 h-5 md:w-8 md:h-8" strokeWidth={1.5} />
                   </div>
-                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-4 group-hover:translate-x-0 hidden md:flex items-center gap-2 text-[#6A0DAD] font-bold text-xs uppercase tracking-widest pt-6">
+                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-4 group-hover:translate-x-0 hidden md:flex items-center gap-2 text-[#6A0DAD] font-bold text-xs uppercase tracking-widest pt-6 whitespace-nowrap">
                     View More <ArrowRight size={14} />
                   </div>
                 </div>
                 
-                <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-2 md:mb-3 group-hover:text-[#6A0DAD] transition-colors duration-200">{company.name[language]}</h3>
-                <p className="text-[11px] md:text-sm font-bold text-[#6A0DAD] mb-0 md:mb-6 opacity-80 uppercase tracking-wider">{company.desc[language]}</p>
-                <p className="hidden md:block text-[14px] text-neutral-400 leading-relaxed font-medium group-hover:text-neutral-600 transition-colors duration-200">
-                  {company.detail[language]}
-                </p>
+                {/* Text Content */}
+                <div className="flex-1 min-w-0 flex flex-col md:block md:w-full">
+                  <div className="flex items-center justify-between md:block">
+                    <h3 className="text-sm md:text-2xl font-bold text-neutral-900 md:mb-3 group-hover:text-[#6A0DAD] transition-colors duration-200 leading-tight">
+                      {company.name[language]}
+                    </h3>
+                    <ChevronRight size={16} className="text-neutral-300 group-hover:text-[#6A0DAD] transition-colors md:hidden flex-shrink-0" />
+                  </div>
+                  <p className="text-[10px] md:text-sm font-bold text-[#6A0DAD] mt-0.5 md:mt-0 md:mb-6 opacity-80 uppercase tracking-wider truncate md:whitespace-normal">
+                    {company.desc[language]}
+                  </p>
+                  <p className="hidden md:block text-[14px] text-neutral-400 leading-relaxed font-medium group-hover:text-neutral-600 transition-colors duration-200">
+                    {company.detail[language]}
+                  </p>
+                </div>
               </Link>
             ))}
           </div>

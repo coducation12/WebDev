@@ -288,19 +288,19 @@ function CompanyIntroContent() {
         <div className="max-w-[1400px] mx-auto">
 
           {/* Tabs Navigation */}
-          <div className="relative mb-12 p-1.5 bg-neutral-100/50 backdrop-blur-md rounded-2xl md:rounded-full flex flex-wrap shadow-inner border border-white">
+          <div className="relative mb-12 p-1.5 bg-neutral-100/50 backdrop-blur-md rounded-2xl md:rounded-full flex shadow-inner border border-white">
             {COMPANIES.map((company, idx) => (
               <button
                 key={company.id}
                 onClick={() => setActiveTab(idx)}
-                className={`flex-1 min-w-[150px] px-6 py-3 md:py-3.5 rounded-xl md:rounded-full text-base sm:text-lg lg:text-[20px] font-black transition-all flex items-center justify-center gap-3 ${
+                className={`flex-1 min-w-0 md:min-w-[150px] px-2 md:px-6 py-3 md:py-3.5 rounded-xl md:rounded-full text-base sm:text-lg lg:text-[20px] font-black transition-all flex items-center justify-center gap-1.5 md:gap-3 ${
                   activeTab === idx 
                   ? "bg-white text-black shadow-[0_4px_20px_rgba(0,0,0,0.1)] scale-[1.03]" 
                   : "text-neutral-400 hover:text-neutral-600 hover:bg-white/50"
                 }`}
               >
-                <company.icon size={22} style={{ color: activeTab === idx ? company.color : "inherit" }} />
-                {company.name[language]}
+                <company.icon className="w-5 h-5 md:w-5.5 md:h-5.5" style={{ color: activeTab === idx ? company.color : "inherit" }} />
+                <span className="hidden md:inline">{company.name[language]}</span>
               </button>
             ))}
           </div>

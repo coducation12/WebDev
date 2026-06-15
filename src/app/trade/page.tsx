@@ -108,7 +108,7 @@ export default function TradePage() {
       <Header />
 
       {/* ─── Sticky Sub-Navigation Bar ─── */}
-      <div className="sticky top-[64px] z-40 bg-white/95 backdrop-blur-xl border-b border-neutral-100 py-2.5 shadow-sm transition-all mt-[88px]">
+      <div className="hidden md:block sticky top-[64px] z-40 bg-white/95 backdrop-blur-xl border-b border-neutral-100 py-2.5 shadow-sm transition-all mt-[88px]">
         <div className="max-w-[1300px] mx-auto px-6 md:px-10 flex justify-center overflow-x-auto scrollbar-none">
           <div className="flex gap-2 sm:gap-4 md:gap-6 whitespace-nowrap">
             {[
@@ -152,7 +152,7 @@ export default function TradePage() {
       <main className="flex-1">
 
         {/* ─── 1. 무역사업 소개 (#export-import) ─── */}
-        <section id="export-import" className="pt-16 pb-20 px-6 md:px-10 bg-neutral-50 scroll-mt-20">
+        <section id="export-import" className="pt-32 pb-20 px-6 md:px-10 bg-neutral-50 scroll-mt-20">
           <div className="max-w-[1300px] mx-auto">
             {/* Title Section - Stacked vertical layout */}
             <motion.div 
@@ -316,7 +316,7 @@ export default function TradePage() {
             </motion.div>
 
             {/* Process Timeline Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 relative">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-6 relative">
               {steps.map((item, idx) => {
                 const StepIcon = item.icon;
                 return (
@@ -329,20 +329,21 @@ export default function TradePage() {
                     className="relative flex flex-col items-center h-full"
                   >
                     {/* Step Card */}
-                    <div className="w-full h-full bg-neutral-50 hover:bg-white border border-neutral-100/60 hover:border-[#FF6A00]/25 rounded-[32px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group shadow-sm">
+                    <div className="w-full h-full bg-neutral-50 hover:bg-white border border-neutral-100/60 hover:border-[#FF6A00]/25 rounded-[24px] sm:rounded-[32px] p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group shadow-sm">
                       {/* Step Number */}
-                      <span className="text-xl font-black text-[#FF6A00] mb-1">{item.num}</span>
+                      <span className="text-sm sm:text-xl font-black text-[#FF6A00] mb-0.5 sm:mb-1">{item.num}</span>
                       
                       {/* Step Title & Subtitle */}
-                      <h4 className={`text-base font-black text-neutral-950 group-hover:text-[#FF6A00] transition-colors ${language === "ko" ? "mb-0.5" : "mb-6"}`}>{item.title}</h4>
+                      <h4 className={`text-[13px] sm:text-base font-black text-neutral-950 group-hover:text-[#FF6A00] transition-colors ${language === "ko" ? "mb-0.5" : "mb-3 sm:mb-6"}`}>{item.title}</h4>
                       {language === "ko" && (
-                        <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-6">{item.subTitle}</p>
+                        <p className="text-[9px] sm:text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-3 sm:mb-6">{item.subTitle}</p>
                       )}
                       
                       {/* Circular Icon Container */}
-                      <div className="w-20 h-20 rounded-full border-2 border-dashed border-[#FF6A00]/30 flex items-center justify-center p-1.5 transition-all duration-500 group-hover:border-solid group-hover:border-[#FF6A00] group-hover:rotate-6 bg-white mt-auto shadow-sm">
+                      <div className="w-12 h-12 sm:w-20 sm:h-20 rounded-full border-2 border-dashed border-[#FF6A00]/30 flex items-center justify-center p-1 sm:p-1.5 transition-all duration-500 group-hover:border-solid group-hover:border-[#FF6A00] group-hover:rotate-6 bg-white mt-auto shadow-sm">
                         <div className="w-full h-full rounded-full bg-[#FFF5EF] text-[#FF6A00] flex items-center justify-center">
-                          <StepIcon size={28} strokeWidth={1.8} />
+                          <StepIcon size={16} strokeWidth={2} className="sm:hidden" />
+                          <StepIcon size={28} strokeWidth={1.8} className="hidden sm:block" />
                         </div>
                       </div>
                     </div>
