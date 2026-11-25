@@ -24,6 +24,7 @@ interface Company {
   desc: MultiLangText;
   category: string;
   icon: React.ComponentType<any>;
+  iconImg: string;
   color: string;
   bg: string;
   image: string;
@@ -42,19 +43,20 @@ const COMPANIES: Company[] = [
     desc: { ko: "국제물류 · 보세창고 운영", en: "International Logistics & Bonded Warehouse Operations" }, 
     category: "Logistics & Distribution",
     icon: Ship,
+    iconImg: "아이콘-보라로지스.png",
     color: "#6A0DAD",
     bg: "bg-[#F9F5FF]",
     image: "company_bora_logis_v2.jpg",
     content: {
-      title: { ko: "광양항 배후단지 최고의 종합물류 파트너", en: "Your Ultimate Logistics Partner at Gwangyang Free Trade Zone" },
+      title: { ko: "WMS 기반 최적의 물류를 설계하는 종합 물류 파트너", en: "Comprehensive Logistics Partner Designing Optimal Logistics Based on WMS" },
       description: {
-        ko: "보라로지스는 여수·광양항 자유무역지역 내 동측 배후단지의 물류센터를 전담 운영하는 글로벌 종합물류 기업입니다. 부지 약 132,000㎡(약 4만 평) 및 창고 약 66,000㎡(약 2만 평) 규모의 현장을 기반으로, 수출입 요건 확인부터 통관, 검역대행, 보관, 특수 운송까지 전 과정을 유기적으로 연결하는 '원스톱 종합 물류 서비스'를 실현합니다.",
-        en: "Bora Logis is a global, comprehensive logistics company that exclusively operates a logistics center within the Eastern Area of the Gwangyang Port Free Trade Zone. Utilizing our site of 132,000㎡ and warehouse of 66,000㎡, we implement a seamless, one-stop integrated logistics service that perfectly unifies the entire cycle—from import/export requirement verification to customs clearance, quarantine agency, storage, and specialized inland transport."
+        ko: "보라로지스는 광양항 자유무역지역 내 물류센터를 전담 운영하는 종합물류 회사입니다. 부지 52,000평 및 창고 약 2만 평 규모의 현장을 기반으로, 3PL부터 수출입 물류, 국내 유통 물류까지 산업군에 맞는 물류 설계로 전 과정을 유기적으로 연결하여 고객사의 비즈니스 효율을 극대화합니다.",
+        en: "Bora Logis is a comprehensive logistics company exclusively operating a logistics center in the Gwangyang Port Free Trade Zone. Based on a 52,000-pyeong site and approximately 20,000-pyeong warehouse, we organically connect the entire process from 3PL to import/export and domestic distribution logistics to maximize client business efficiency."
       },
       stats: [
-        { label: { ko: "부지 면적", en: "Site Area" }, value: { ko: "132,000㎡", en: "132,000㎡" } },
-        { label: { ko: "창고 면적", en: "Warehouse Area" }, value: { ko: "66,000㎡", en: "66,000㎡" } },
-        { label: { ko: "전문 분야", en: "Specialty" }, value: { ko: "국제물류센터", en: "Intl. Logistics Center" } }
+        { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "일반창고업, 보관 및 운영, 국제물류주선업", en: "General Warehousing, Storage & Operations, Intl. Freight Forwarding" } },
+        { label: { ko: "주소", en: "Address" }, value: { ko: "전남광주통합특별시 광양시 항만8로 18-35", en: "18-35, Hangman 8-ro, Gwangyang-si" } },
+        { label: { ko: "인증현황", en: "Certifications" }, value: { ko: "국제물류주선업, 화물운송주선업", en: "Intl. Freight Forwarding, Cargo Transport Brokerage" } }
       ],
       details: [
         { 
@@ -87,19 +89,20 @@ const COMPANIES: Company[] = [
     desc: { ko: "내륙 및 컨테이너 운송", en: "Inland & Container Transportation" }, 
     category: "Inland Transportation",
     icon: Truck,
+    iconImg: "아이콘-보라트랜스.png",
     color: "#2563EB",
     bg: "bg-[#EEF2FF]",
     image: "company_bora_trans_v3.jpg",
     content: {
-      title: { ko: "항만과 보세창고를 잇는 최적의 운송 시스템", en: "Optimal Transport System Connecting Ports and Bonded Warehouses" },
+      title: { ko: "TMS 기반 광양항 거점 트레일러 및 카고 전문 운송사", en: "TMS-Based Trailer & Cargo Transport Specialist at Gwangyang Port" },
       description: {
-        ko: "보라트랜스는 항만과 보세창고 간의 신속하고 정확한 셔틀 시스템을 운영합니다. 세관 규정에 따른 안전한 보세운송 서비스를 기반으로, 최적의 경로 배차 설계로 물류 비용을 절감하며 팔레트 및 벌크 화물 등 전국 내륙 카고 운송을 전문적으로 수행합니다.",
-        en: "Bora Trans operates a rapid and precise shuttle system between ports and bonded warehouses. Based on secure bonded transport service in compliance with customs regulations, we reduce logistics costs through optimized routing and dispatch, specializing in inland cargo transport of palletized and bulk freights nationwide."
+        ko: "보라트랜스는 광양항을 기반으로 트레일러, 카고 및 특수화물 운송 서비스를 제공합니다. 세관 규정에 따른 안전한 보세운송을 바탕으로 최적의 경로와 배차를 설계해 물류비용을 절감하며, 팔레트 및 벌크화물 등 전국 내륙 운송을 수행합니다.",
+        en: "Bora Trans provides trailer, cargo, and special freight transport services based at Gwangyang Port. Through secure bonded transport complying with customs regulations, we design optimal routes and dispatches to reduce logistics costs and perform nationwide inland transport for palletized and bulk cargo."
       },
       stats: [
-        { label: { ko: "주요 서비스", en: "Primary Service" }, value: { ko: "셔틀 시스템", en: "Shuttle System" } },
-        { label: { ko: "전문 분야", en: "Specialty" }, value: { ko: "보세운송", en: "Bonded Transport" } },
-        { label: { ko: "핵심 역량", en: "Core Capability" }, value: { ko: "배차 최적화", en: "Dispatch Optimization" } }
+        { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "트레일러 운송, 카고운송, 기타 특수운송", en: "Trailer, Cargo & Special Transport" } },
+        { label: { ko: "주소", en: "Address" }, value: { ko: "전남광주통합특별시 광양시 항만8로 18-35", en: "18-35, Hangman 8-ro, Gwangyang-si" } },
+        { label: { ko: "핵심 역량", en: "Core Competency" }, value: { ko: "배차 최적화", en: "Dispatch Optimization" } }
       ],
       details: [
         { 
@@ -132,19 +135,20 @@ const COMPANIES: Company[] = [
     desc: { ko: "생산라인 물류 · 장비 제조", en: "Production Line Logistics & Equipment Manufacturing" }, 
     category: "Logistics Equipment & Tech",
     icon: Cpu,
+    iconImg: "아이콘-보라로지텍.png",
     color: "#86B41D",
     bg: "bg-[#F7FBEA]",
     image: "company_bora_logitech_v2.jpg",
     content: {
-      title: { ko: "포장과 물류기기 및 장비 제작", en: "Packaging and Logistics Equipment Manufacturing" },
+      title: { ko: "포장 출하 물류와 물류 기기 개발 및 제작", en: "Packaging & Outbound Logistics and Logistics Equipment Development" },
       description: {
-        ko: "보라로지텍은 글로벌 기업인 오라이온 카본 코리아와 파트너쉽을 맺고 생산라인 운영의 핵심 업무를 담당하고 있고, 이를 통해 자체 물류 장비 개발 및 제조를 통하여 역량 강화 및 혁신을 이루고 있습니다.",
-        en: "Bora Logitech is partnered with the global enterprise Orion Engineered Carbons Korea, taking charge of key production line operations. Through this partnership, we design and manufacture proprietary logistics equipment to continuously strengthen our technological capabilities and drive operational innovation."
+        ko: "보라로지텍은 제조업 생산라인의 포장 출하 업무를 전문적으로 수행하며, 여러 제조사들과 파트너십을 맺고 있습니다.\n또한, 물류 창고 공간의 최대 효율을 내기 위해 다양한 물류 기기와 용기들을 자체 개발하여 제조 역량을 키워 나가고 있습니다.",
+        en: "Bora Logitech specializes in packaging and outbound operations for manufacturing production lines, partnering with various manufacturers. We also develop our own logistics equipment and containers to maximize warehouse space efficiency."
       },
       stats: [
-        { label: { ko: "주요 서비스", en: "Key Services" }, value: { ko: "제품포장 및 데이터관리, 출고, 보수", en: "Product Packaging, Data Management, Outbound, Maintenance" } },
-        { label: { ko: "전문 분야", en: "Specialized Field" }, value: { ko: "물류기기 설계 및 자체 제작", en: "Logistics Equipment Design & In-house Production" } },
-        { label: { ko: "경영가치", en: "Management Value" }, value: { ko: "최고의 안전 · 노무 관리", en: "Top Safety & Labor Management" } }
+        { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "제조업, 기타 기초무기화학 물질, 제조업(카본블랙, 물류기기)", en: "Manufacturing, Basic Inorganic Chemicals, Carbon Black & Logistics Equipment" } },
+        { label: { ko: "주소", en: "Address" }, value: { ko: "전남광주통합특별시 여수시 진달래길 310-88 (월내동)", en: "310-88, Jindallae-gil, Yeosu-si" } },
+        { label: { ko: "인증현황", en: "Certifications" }, value: { ko: "ISO45001, ISO14001, ISO9001", en: "ISO45001, ISO14001, ISO9001" } }
       ],
       details: [
         { 
@@ -177,19 +181,20 @@ const COMPANIES: Company[] = [
     desc: { ko: "글로벌 수출입 · 무역", en: "Global Import/Export & Trade" }, 
     category: "Global Import & Export",
     icon: Globe,
+    iconImg: "아이콘-어센틱코리아.png",
     color: "#FF6A00",
     bg: "bg-[#FFF5EF]",
     image: "company_authentic_korea_v2.jpg",
     content: {
-      title: { ko: "물류 인프라 기반의 원스톱 무역 솔루션", en: "One-stop Trade Solutions Based on Logistics Infrastructure" },
+      title: { ko: "물류 인프라 기반의 수출입 솔루션", en: "Import/Export Solutions Based on Logistics Infrastructure" },
       description: {
-        ko: "어센틱 코리아는 안정적인 물류 인프라를 기반으로 글로벌 수출입 비즈니스를 전개하는 종합 무역회사입니다. 국내 산업 생태계에 필수적인 원재료, 친환경 인프라 기자재 및 고가치 소비재를 글로벌 시장에서 직접 소싱하여 국내에 안정적으로 공급합니다. 동시에 한국의 식품과 문화 컨텐츠를 발굴하고 직접 수출하여, 글로벌 공급망을 주도적으로 구축해 나가고 있습니다.",
-        en: "Authentic Korea is a comprehensive trading enterprise expanding its global import and export businesses based on our group's stable logistics infrastructure.\nWe directly source industrial raw materials, eco-friendly infrastructure equipment, and high-value consumer goods from global markets to ensure a stable supply within South Korea. At the same time, we discover and export K-food products and cultural content, taking the lead in establishing a global supply network."
+        ko: "어센틱코리아는 본질(Authenticity)에 충실한 산업 자원과 장인의 고유성이 담긴 제품을 수출입·유통하는 무역회사입니다.",
+        en: "Authentic Korea is a trading company that imports, exports, and distributes industrial resources faithful to authenticity and products containing artisans' uniqueness."
       },
       stats: [
-        { label: { ko: "주요 품목", en: "Primary Items" }, value: { ko: "자원 수입", en: "Industrial Raw Materials" } },
-        { label: { ko: "수출 분야", en: "Export Field" }, value: { ko: "K-Food/Culture", en: "K-Food/Culture" } },
-        { label: { ko: "핵심 역량", en: "Core Capability" }, value: { ko: "물류 연계 수출입 서비스", en: "Logistics-Linked Import/Export Services" } }
+        { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "수출입 업무, 수출입 대행업무", en: "Import/Export Business & Agency" } },
+        { label: { ko: "주소", en: "Address" }, value: { ko: "전남광주통합특별시 광양시 항만8로 18-35", en: "18-35, Hangman 8-ro, Gwangyang-si" } },
+        { label: { ko: "주요 품목", en: "Primary Items" }, value: { ko: "물류산업 조달 물품, 인테리어 소품, 특산품", en: "Logistics Supplies, Interior Props, Local Specialties" } }
       ],
       details: [
         { 
@@ -222,19 +227,20 @@ const COMPANIES: Company[] = [
     desc: { ko: "재생에너지 · 업사이클", en: "Renewable Energy & Upcycling" }, 
     category: "Sustainable Resource Solutions",
     icon: Package,
+    iconImg: "아이콘-RE&UP.png",
     color: "#10B981",
     bg: "bg-[#ECFDF5]",
     image: "company_re_and_up_v2.jpg",
     content: {
       title: { ko: "재생에너지 특수 물류 및 지속가능한 미래 경영", en: "Renewable Energy Special Logistics & Sustainable Future Management" },
       description: {
-        ko: "RE&UP은 친환경 에너지 인프라 구축과 자원 순환 기술을 핵심 축으로 삼아 지속 가능한 미래를 열어가는 재생에너지 기업입니다. 신재생에너지 발전 효율을 극대화하는 태양광 시설 유지보수 솔루션을 제공하며, 폐자원을 고부가가치 원료로 재탄생시키는 독자적인 친환경 자원화 사업을 전개합니다.",
-        en: "RE&UP is a renewable energy enterprise opening a sustainable future with eco-friendly energy infrastructure development and resource circulation technologies at its core. We provide solar facility maintenance solutions that maximize renewable power generation efficiency, alongside proprietary eco-friendly resource recovery businesses that reprocess waste resources into high-value raw materials."
+        ko: "RE & UP은 폐자원을 고부가가치 원료로 재탄생시키는 친환경 자원화 기업입니다.",
+        en: "RE&UP is an eco-friendly resource recovery enterprise that transforms waste resources into high-value raw materials."
       },
       stats: [
-        { label: { ko: "특수 물류", en: "Special Logistics" }, value: { ko: "태양광/풍력", en: "Solar & Wind Power" } },
-        { label: { ko: "핵심 역량", en: "Core Capability" }, value: { ko: "친환경 자원화", en: "Eco-friendly Recovery" } },
-        { label: { ko: "경영 가치", en: "Management Value" }, value: { ko: "ESG/업사이클", en: "ESG / Upcycling" } }
+        { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "업사이클, 자원 재활용", en: "Upcycling & Resource Recycling" } },
+        { label: { ko: "주소", en: "Address" }, value: { ko: "전남광주통합특별시 광양시 항만8로 18-35", en: "18-35, Hangman 8-ro, Gwangyang-si" } },
+        { label: { ko: "특허현황", en: "Patents" }, value: { ko: "폐플라스틱 분쇄장치 특허 제 10-3007598호", en: "Waste Plastic Shredder Patent No. 10-3007598" } }
       ],
       details: [
         { 
@@ -281,32 +287,59 @@ function CompanyIntroContent() {
   const activeCompany = COMPANIES[activeTab];
 
   return (
-    <div className="min-h-screen bg-white text-black font-sans selection:bg-neutral-900 selection:text-white">
+    <div className="h-screen flex flex-col overflow-hidden bg-white text-black font-sans selection:bg-neutral-900 selection:text-white">
       <Header />
 
-      <main className="pt-32 pb-20 px-6 md:px-10">
+      <main className="flex-1 overflow-y-auto pt-24 pb-8 px-6 md:px-10">
         <div className="max-w-[1400px] mx-auto">
 
+          {/* Top Intro Header */}
+          <div className="mb-10 md:mb-12">
+            <span className="text-sm font-bold text-[#6A0DAD] tracking-tight block mb-2">
+              {language === "ko" ? "회사 소개" : "Company"}
+            </span>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight text-neutral-900 mb-4">
+              About us
+            </h1>
+            <p className="text-sm md:text-base text-neutral-600 font-medium leading-relaxed max-w-3xl">
+              {language === "ko" ? (
+                <>
+                  수출입 물류 전문 기업으로서 쌓아온 현장 노하우는 보라의 가장 큰 자산입니다.<br className="hidden sm:inline" />
+                  보라의 5개의 네트워크가 유기적으로 움직이며, 물류와 무역을 아우르는 통합 서비스를 완성합니다.
+                </>
+              ) : (
+                <>
+                  Our field know-how accumulated as an import/export logistics specialist is BORA&apos;s greatest asset.<br className="hidden sm:inline" />
+                  BORA&apos;s five networks move organically to complete an integrated service spanning logistics and trade.
+                </>
+              )}
+            </p>
+          </div>
+
           {/* Tabs Navigation */}
-          <div className="relative mb-12 p-1.5 bg-neutral-100/50 backdrop-blur-md rounded-2xl md:rounded-full flex shadow-inner border border-white">
+          <div className="relative mb-12 p-1.5 bg-neutral-100/50 backdrop-blur-md rounded-xl flex shadow-inner border border-white">
             {COMPANIES.map((company, idx) => (
               <button
                 key={company.id}
                 onClick={() => setActiveTab(idx)}
-                className={`flex-1 min-w-0 md:min-w-[150px] px-2 md:px-6 py-3 md:py-3.5 rounded-xl md:rounded-full text-base sm:text-lg lg:text-[20px] font-black transition-all flex items-center justify-center gap-1.5 md:gap-3 ${
+                className={`flex-1 min-w-0 md:min-w-[150px] px-2 md:px-6 py-3 md:py-3.5 rounded-lg text-base sm:text-lg lg:text-[20px] font-black transition-all flex items-center justify-center gap-1.5 md:gap-3 ${
                   activeTab === idx 
                   ? "bg-white text-black shadow-[0_4px_20px_rgba(0,0,0,0.1)] scale-[1.03]" 
                   : "text-neutral-400 hover:text-neutral-600 hover:bg-white/50"
                 }`}
               >
-                <company.icon className="w-5 h-5 md:w-5.5 md:h-5.5" style={{ color: activeTab === idx ? company.color : "inherit" }} />
+                <img
+                  src={encodeURI(`${ASSET}/${company.iconImg}`)}
+                  alt={company.name[language]}
+                  className={`w-6 h-6 object-contain transition-opacity ${activeTab === idx ? "opacity-100" : "opacity-45"}`}
+                />
                 <span className="hidden md:inline">{company.name[language]}</span>
               </button>
             ))}
           </div>
 
           {/* Tab Content Area */}
-          <div className={`rounded-[48px] overflow-hidden transition-colors duration-700 min-h-[700px] ${activeCompany.bg}`}>
+          <div className="rounded-xl overflow-hidden transition-colors duration-700 bg-neutral-50 border border-neutral-200/70">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
@@ -314,16 +347,20 @@ function CompanyIntroContent() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="p-8 md:p-20"
+                className="p-8 md:p-12"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-12 items-start">
                   <div className="lg:col-span-8">
                     <div className="flex items-center gap-6 mb-12">
                       <div 
-                        className="w-16 h-16 rounded-[24px] flex items-center justify-center text-white shadow-2xl"
+                        className="w-16 h-16 rounded-xl flex items-center justify-center text-white shadow-2xl"
                         style={{ backgroundColor: activeCompany.color }}
                       >
-                        <activeCompany.icon size={32} strokeWidth={1.5} />
+                        <img
+                          src={encodeURI(`${ASSET}/${activeCompany.iconImg}`)}
+                          alt={activeCompany.name[language]}
+                          className="w-9 h-9 object-contain brightness-0 invert"
+                        />
                       </div>
                       <div>
                         <h3 className="text-[12px] font-black tracking-[0.2em] opacity-40 mb-1">{activeCompany.category}</h3>
@@ -343,7 +380,7 @@ function CompanyIntroContent() {
                   </div>
 
                   <div className="lg:col-span-4 lg:pt-4">
-                    <div className="relative aspect-square bg-white rounded-[40px] shadow-2xl border border-black/5 overflow-hidden group">
+                    <div className="relative aspect-square bg-white rounded-xl shadow-2xl border border-black/5 overflow-hidden group">
                       <Image 
                         src={`${ASSET}/${activeCompany.image}`} 
                         alt={activeCompany.name[language]} 
@@ -356,9 +393,9 @@ function CompanyIntroContent() {
                 </div>
 
                 {/* 3 Stats Cards: Pulled out to span the full-width (spans empty space on the right) */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {activeCompany.content.stats.map((stat, i) => (
-                    <div key={i} className="bg-white/40 border border-white p-6 rounded-3xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow flex flex-col justify-start">
+                    <div key={i} className="bg-white/40 border border-white p-6 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow flex flex-col justify-start">
                       <p className="text-lg md:text-xl font-black text-neutral-900 mb-2 tracking-tight">
                         {stat.label[language]}
                       </p>
@@ -366,42 +403,6 @@ function CompanyIntroContent() {
                         {stat.value[language]}
                       </p>
                     </div>
-                  ))}
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-20 border-t border-black/5">
-                  {activeCompany.content.details.map((detail, i) => (
-                    <motion.div 
-                      key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 + (i * 0.1) }}
-                      className="flex flex-col gap-6"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
-                           {i === 0 && <BarChart3 size={20} style={{ color: activeCompany.color }} />}
-                           {i === 1 && <ShieldCheck size={20} style={{ color: activeCompany.color }} />}
-                           {i === 2 && <Globe2 size={20} style={{ color: activeCompany.color }} />}
-                        </div>
-                        <h5 className="text-xl font-black tracking-tight text-neutral-900">{detail.title[language]}</h5>
-                      </div>
-
-                      {activeCompany.id === "logitech" ? (
-                        <div className="text-neutral-500 leading-snug font-bold text-[14px] md:text-[15px] space-y-1">
-                          {detail.text[language].split("\n").map((line, lineIdx) => (
-                            <div key={lineIdx} className="flex items-start gap-2.5">
-                              <span className="mt-1.5 flex-shrink-0 text-[8px]" style={{ color: activeCompany.color }}>●</span>
-                              <span className="flex-1 text-neutral-600 font-medium">{line.replace(/^·\s*/, "")}</span>
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="text-neutral-500 leading-relaxed font-bold text-[15px] whitespace-pre-line">
-                          {detail.text[language]}
-                        </p>
-                      )}
-                    </motion.div>
                   ))}
                 </div>
               </motion.div>

@@ -235,12 +235,6 @@ function ContactContent() {
                     <h3 className="text-xl font-black text-neutral-900 mb-2">
                       {language === "ko" ? "문의하기" : "Inquiry"}
                     </h3>
-                    <p className={`text-xs font-bold uppercase tracking-wider mb-4 ${activeTab === "trade" ? "text-[#FF6A00]" : "text-[#6A0DAD]"}`}>
-                      {language === "ko" ? "담당 부서: " : "Responsible Dept: "}
-                      {activeTab === "logistics" 
-                        ? (language === "ko" ? "물류사업부 / 종합물류팀" : "Logistics Division / Integrated Logistics Team")
-                        : (language === "ko" ? "글로벌무역부 / 어센틱코리아" : "Global Trade Division / Authentic Korea")}
-                    </p>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -256,7 +250,7 @@ function ContactContent() {
                           required
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          placeholder={language === "ko" ? "(주)대한상사" : "Daehan Trading Co., Ltd."}
+                          placeholder={language === "ko" ? "회사명" : "Company Name"}
                           className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none ${
                             activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
                           }`}
@@ -276,7 +270,7 @@ function ContactContent() {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder={language === "ko" ? "홍길동 대리" : "John Doe (Manager)"}
+                          placeholder={language === "ko" ? "성함, 직책" : "Name, Position"}
                           className={`w-full bg-neutral-50 border border-neutral-100 rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold transition-all outline-none ${
                             activeTab === "trade" ? "focus:border-[#FF6A00]/30 focus:bg-white" : "focus:border-[#6A0DAD]/30 focus:bg-white"
                           }`}
