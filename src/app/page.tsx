@@ -51,69 +51,6 @@ export default function AppleEsqueHome() {
     setIsBentoActive(latest >= 0.26 && latest <= 0.68);
   });
 
-  const cards = [
-    {
-      icon: Package,
-      tag: { ko: "물류", en: "Logistics" },
-      title: { ko: "종합 물류 인프라", en: "Integrated Logistics Infrastructure" },
-      desc: { 
-        ko: "광양 자유무역 4만 평, 보세창고 2만 평. 포워딩, 검역대행, 내륙운송까지 물류 전 과정을 자체 인프라와 장비로 수행합니다.", 
-        en: "132,000㎡ site and 66,000㎡ warehouse in Gwangyang Free Trade Zone. We perform the entire logistics process directly with our own infrastructure and equipment, including forwarding, quarantine agency, and inland transport." 
-      },
-      img: "main_logistics_bento_v2.jpg",
-    },
-    {
-      icon: Truck,
-      tag: { ko: "물류", en: "Logistics" },
-      title: { ko: "종합 내륙운송", en: "Integrated Inland Transportation" },
-      desc: { 
-        ko: "전국 네트워크를 기반으로 다양한 화물을 안전하게 운송합니다.", 
-        en: "We transport various cargoes safely based on our nationwide network." 
-      },
-      img: "main_logistics_bento_2_v2.jpg",
-    },
-    {
-      icon: Cpu,
-      tag: { ko: "물류", en: "Logistics" },
-      title: { ko: "물류장비제작", en: "Logistics Equipment Manufacturing" },
-      desc: { 
-        ko: "물류 창고를 효율적으로 운영하기 위한 설비들을 연구하고 개발하여, 맞춤 제작합니다.", 
-        en: "We research, develop, and customize facilities to operate warehouses efficiently." 
-      },
-      img: "main_logistics_bento_3_v2.jpg",
-    },
-    {
-      icon: Ship,
-      tag: { ko: "무역", en: "Trade" },
-      title: { ko: "해외 제품 수입", en: "Global Product Import" },
-      desc: { 
-        ko: "유럽 및 아시아의 검증된 프리미엄 제품을 발굴하고, 보라의 안정적인 물류망을 통해 신속하고 정확하게 수입합니다.", 
-        en: "We discover proven premium products across Europe & Asia and import them quickly and accurately through BORA's reliable logistics network." 
-      },
-      img: "main_trade_bento.jpg",
-    },
-    {
-      icon: Globe,
-      tag: { ko: "무역", en: "Trade" },
-      title: { ko: "지역 특산품 해외 수출", en: "Global Export of Local Specialties" },
-      desc: { 
-        ko: "디자인 제품과 지역 식품들을 전세계 시장에 알리며, 해외 판로 개척부터 수출 물류까지 통합 솔루션을 제공합니다.", 
-        en: "Promoting design products and local foods to global markets, we provide integrated solutions from market development to export logistics." 
-      },
-      img: "main_trade_bento_2_v2.jpg",
-    },
-    {
-      icon: ArrowUpRight,
-      tag: { ko: "무역", en: "Trade" },
-      title: { ko: "수출입 대행 서비스", en: "Import/Export Agency" },
-      desc: { 
-        ko: "복잡한 무역 절차와 서류 작업을 대행하며, 고객사가 오직 비즈니스 성장에만 집중할 수 있도록 최적화된 무역 환경을 구축합니다.", 
-        en: "We handle complex customs procedures and documentation, establishing an optimized trade environment so clients can focus solely on growth." 
-      },
-      img: "main_trade_bento_3_v2.jpg",
-    },
-  ];
-
   const familyCompanies = [
     { 
       name: { ko: "보라로지스", en: "Bora Logis" }, 
@@ -182,7 +119,7 @@ export default function AppleEsqueHome() {
                 <div className="relative w-[130px] h-[46px] sm:w-[160px] sm:h-[56px] flex-shrink-0">
                   <Image src={`${ASSET}/sys_logo_dark.png`} alt="Bora Logo" fill className="object-contain" priority />
                 </div>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 leading-tight whitespace-nowrap">
+                <h1 className="text-xl sm:text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 leading-tight md:whitespace-nowrap break-keep">
                   {language === "ko" ? "보라, 물류와 무역으로 세상을 잇다." : "BORA, Connecting Trade and Logistics."}
                 </h1>
               </div>
@@ -197,9 +134,9 @@ export default function AppleEsqueHome() {
           {/* Stage 2: Service Bento Dashboard */}
           <motion.div
             style={{ opacity: contentOpacity, y: contentY, scale: contentScale, pointerEvents }}
-            className="absolute inset-0 z-20 flex items-center justify-center overflow-y-auto"
+            className="absolute inset-0 z-20 flex items-center justify-center overflow-y-auto pt-14 md:pt-0"
           >
-            <div className="w-full max-w-[1400px] px-6 md:px-10">
+            <div className="w-full max-w-[1400px] px-4 md:px-10">
               <ServiceBento isHoverEnabled={isBentoActive} />
             </div>
           </motion.div>
@@ -207,13 +144,13 @@ export default function AppleEsqueHome() {
           {/* Stage 3: Family Companies + Compact Footer */}
           <motion.div
             style={{ opacity: familyOpacity, y: familyY, pointerEvents: familyPointerEvents }}
-            className="absolute inset-0 z-30 flex flex-col justify-between bg-white pt-20 overflow-y-auto"
+            className="absolute inset-0 z-30 flex flex-col justify-between bg-white pt-16 md:pt-20 overflow-y-auto"
           >
-            <div className="flex-1 flex flex-col justify-center max-w-[1400px] w-full mx-auto px-4 md:px-10 py-6">
-              <div className="mb-6 md:mb-10 text-center">
-                <h2 className="mb-2 md:mb-3 flex items-baseline justify-center gap-0 flex-wrap">
+            <div className="flex-1 flex flex-col justify-start md:justify-center max-w-[1400px] w-full mx-auto px-4 md:px-10 py-4 md:py-6">
+              <div className="mb-4 md:mb-10 text-center">
+                <h2 className="mb-1.5 md:mb-3 flex items-baseline justify-center gap-0 flex-wrap">
                   <span
-                    className="text-3xl md:text-5xl font-bold italic tracking-tight text-neutral-900"
+                    className="text-2xl sm:text-3xl md:text-5xl font-bold italic tracking-tight text-neutral-900"
                     style={{ fontFamily: "var(--font-title)" }}
                   >
                     Family Companies
@@ -228,7 +165,7 @@ export default function AppleEsqueHome() {
 
               <div className="grid grid-cols-1 md:grid-cols-5">
                 {familyCompanies.map((company, idx) => (
-                  <div key={idx} className="relative flex">
+                  <div key={idx} className="relative flex border-b border-neutral-200 md:border-b-0 last:border-b-0">
                     {/* Left Vertical Divider (shortened top & bottom) */}
                     <span
                       className="hidden md:block absolute left-0 top-5 bottom-5 w-px bg-neutral-900 pointer-events-none"
@@ -243,22 +180,24 @@ export default function AppleEsqueHome() {
                     )}
                     <Link
                       href={`/company?tab=${idx}`}
-                      className="group relative z-10 hover:z-20 w-full p-6 md:py-10 md:px-4 flex flex-col items-center text-center transition-all duration-300 border-2 border-transparent hover:border-neutral-900 hover:bg-white hover:scale-[1.03] rounded-xl"
+                      className="group relative z-10 hover:z-20 w-full p-3.5 md:py-10 md:px-4 flex flex-row md:flex-col items-center text-left md:text-center gap-3.5 md:gap-0 transition-all duration-300 border-2 border-transparent hover:border-neutral-900 hover:bg-white md:hover:scale-[1.03] rounded-xl"
                     >
-                      <div className="relative w-16 h-16 md:w-20 md:h-20 mb-4 flex-shrink-0">
+                      <div className="relative w-12 h-12 md:w-20 md:h-20 md:mb-4 flex-shrink-0">
                         <img
                           src={encodeURI(`${ASSET}/${company.img}`)}
                           alt={company.name[language]}
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <h3 className="text-base md:text-lg font-bold text-neutral-900 mb-1 tracking-tight">
-                        {company.name[language]}
-                      </h3>
-                      <p className="text-xs text-neutral-500 font-medium mb-4 leading-snug whitespace-nowrap">
-                        {company.desc[language]}
-                      </p>
-                      <span className="w-8 h-8 rounded-full bg-neutral-100 text-neutral-500 group-hover:bg-neutral-200 group-hover:text-neutral-900 flex items-center justify-center transition-colors duration-300 pointer-events-none">
+                      <div className="flex-1 min-w-0 md:flex-none">
+                        <h3 className="text-sm sm:text-base md:text-lg font-bold text-neutral-900 mb-0.5 md:mb-1 tracking-tight">
+                          {company.name[language]}
+                        </h3>
+                        <p className="text-xs text-neutral-500 font-medium md:mb-4 leading-snug md:whitespace-nowrap">
+                          {company.desc[language]}
+                        </p>
+                      </div>
+                      <span className="w-8 h-8 rounded-full bg-neutral-100 text-neutral-500 group-hover:bg-neutral-200 group-hover:text-neutral-900 flex items-center justify-center transition-colors duration-300 pointer-events-none flex-shrink-0">
                         <ArrowRight size={15} />
                       </span>
                     </Link>

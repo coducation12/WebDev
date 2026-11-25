@@ -55,3 +55,5 @@ dist/
 
 .vercel
 .env*
+_backup_unused_images/
+desktop.ini

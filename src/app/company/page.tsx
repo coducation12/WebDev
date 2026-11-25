@@ -290,18 +290,18 @@ function CompanyIntroContent() {
     <div className="h-screen flex flex-col overflow-hidden bg-white text-black font-sans selection:bg-neutral-900 selection:text-white">
       <Header />
 
-      <main className="flex-1 overflow-y-auto pt-24 pb-8 px-6 md:px-10">
+      <main className="flex-1 overflow-y-auto pt-20 md:pt-24 pb-6 md:pb-8 px-4 md:px-10">
         <div className="max-w-[1400px] mx-auto">
 
           {/* Top Intro Header */}
-          <div className="mb-10 md:mb-12">
-            <span className="text-sm font-bold text-[#6A0DAD] tracking-tight block mb-2">
+          <div className="mb-6 md:mb-10">
+            <span className="text-xs md:text-sm font-bold text-[#6A0DAD] tracking-tight block mb-1.5 md:mb-2">
               {language === "ko" ? "회사 소개" : "Company"}
             </span>
-            <h1 className="text-4xl md:text-5xl font-black tracking-tight text-neutral-900 mb-4">
+            <h1 className="text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-2 md:mb-4">
               About us
             </h1>
-            <p className="text-sm md:text-base text-neutral-600 font-medium leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base text-neutral-600 font-medium leading-relaxed max-w-3xl">
               {language === "ko" ? (
                 <>
                   수출입 물류 전문 기업으로서 쌓아온 현장 노하우는 보라의 가장 큰 자산입니다.<br className="hidden sm:inline" />
@@ -317,23 +317,25 @@ function CompanyIntroContent() {
           </div>
 
           {/* Tabs Navigation */}
-          <div className="relative mb-12 p-1.5 bg-neutral-100/50 backdrop-blur-md rounded-xl flex shadow-inner border border-white">
+          <div className="relative mb-6 md:mb-10 p-1 md:p-1.5 bg-neutral-100/50 backdrop-blur-md rounded-xl flex shadow-inner border border-white">
             {COMPANIES.map((company, idx) => (
               <button
                 key={company.id}
                 onClick={() => setActiveTab(idx)}
-                className={`flex-1 min-w-0 md:min-w-[150px] px-2 md:px-6 py-3 md:py-3.5 rounded-lg text-base sm:text-lg lg:text-[20px] font-black transition-all flex items-center justify-center gap-1.5 md:gap-3 ${
+                className={`flex-1 min-w-0 md:min-w-[150px] px-1 md:px-6 py-2 md:py-3.5 rounded-lg font-black transition-all flex flex-col md:flex-row items-center justify-center gap-1 md:gap-3 ${
                   activeTab === idx 
-                  ? "bg-white text-black shadow-[0_4px_20px_rgba(0,0,0,0.1)] scale-[1.03]" 
+                  ? "bg-white text-black shadow-[0_4px_20px_rgba(0,0,0,0.1)] md:scale-[1.03]" 
                   : "text-neutral-400 hover:text-neutral-600 hover:bg-white/50"
                 }`}
               >
                 <img
                   src={encodeURI(`${ASSET}/${company.iconImg}`)}
                   alt={company.name[language]}
-                  className={`w-6 h-6 object-contain transition-opacity ${activeTab === idx ? "opacity-100" : "opacity-45"}`}
+                  className={`w-5 h-5 md:w-6 md:h-6 object-contain transition-opacity ${activeTab === idx ? "opacity-100" : "opacity-45"}`}
                 />
-                <span className="hidden md:inline">{company.name[language]}</span>
+                <span className="text-[10px] sm:text-xs md:text-base lg:text-[20px] leading-tight truncate max-w-full">
+                  {company.name[language]}
+                </span>
               </button>
             ))}
           </div>
@@ -347,40 +349,40 @@ function CompanyIntroContent() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="p-8 md:p-12"
+                className="p-5 sm:p-8 md:p-12"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-12 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 mb-8 md:mb-12 items-start">
                   <div className="lg:col-span-8">
-                    <div className="flex items-center gap-6 mb-12">
+                    <div className="flex items-center gap-4 md:gap-6 mb-5 md:mb-10">
                       <div 
-                        className="w-16 h-16 rounded-xl flex items-center justify-center text-white shadow-2xl"
+                        className="w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-white shadow-xl flex-shrink-0"
                         style={{ backgroundColor: activeCompany.color }}
                       >
                         <img
                           src={encodeURI(`${ASSET}/${activeCompany.iconImg}`)}
                           alt={activeCompany.name[language]}
-                          className="w-9 h-9 object-contain brightness-0 invert"
+                          className="w-7 h-7 md:w-9 md:h-9 object-contain brightness-0 invert"
                         />
                       </div>
-                      <div>
-                        <h3 className="text-[12px] font-black tracking-[0.2em] opacity-40 mb-1">{activeCompany.category}</h3>
-                        <h2 className="text-3xl md:text-5xl font-black tracking-tighter" style={{ color: activeCompany.color }}>{activeCompany.name[language]}</h2>
+                      <div className="min-w-0">
+                        <h3 className="text-[10px] md:text-[12px] font-black tracking-[0.15em] md:tracking-[0.2em] opacity-40 mb-0.5 md:mb-1 truncate">{activeCompany.category}</h3>
+                        <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tighter" style={{ color: activeCompany.color }}>{activeCompany.name[language]}</h2>
                       </div>
                     </div>
 
-                    <h4 className="text-2xl md:text-4xl font-black text-neutral-800 mb-8 leading-tight tracking-tight">
+                    <h4 className="text-lg sm:text-2xl md:text-4xl font-black text-neutral-800 mb-4 md:mb-8 leading-snug tracking-tight break-keep">
                       {activeCompany.content.title[language]}
                     </h4>
                     
-                    <div className="prose prose-xl max-w-none">
-                      <p className="text-lg md:text-xl text-neutral-600 leading-relaxed font-bold mb-0 border-l-4 pl-8 py-2 whitespace-pre-line" style={{ borderColor: activeCompany.color }}>
+                    <div className="prose prose-base md:prose-xl max-w-none">
+                      <p className="text-sm sm:text-base md:text-xl text-neutral-600 leading-relaxed font-bold mb-0 border-l-4 pl-4 md:pl-8 py-1 md:py-2 whitespace-pre-line break-keep" style={{ borderColor: activeCompany.color }}>
                         {activeCompany.content.description[language]}
                       </p>
                     </div>
                   </div>
 
                   <div className="lg:col-span-4 lg:pt-4">
-                    <div className="relative aspect-square bg-white rounded-xl shadow-2xl border border-black/5 overflow-hidden group">
+                    <div className="relative aspect-[4/3] lg:aspect-square bg-white rounded-xl shadow-xl border border-black/5 overflow-hidden group">
                       <Image 
                         src={`${ASSET}/${activeCompany.image}`} 
                         alt={activeCompany.name[language]} 
@@ -393,13 +395,13 @@ function CompanyIntroContent() {
                 </div>
 
                 {/* 3 Stats Cards: Pulled out to span the full-width (spans empty space on the right) */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
                   {activeCompany.content.stats.map((stat, i) => (
-                    <div key={i} className="bg-white/40 border border-white p-6 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow flex flex-col justify-start">
-                      <p className="text-lg md:text-xl font-black text-neutral-900 mb-2 tracking-tight">
+                    <div key={i} className="bg-white/60 border border-white p-4 md:p-6 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow flex flex-col justify-start">
+                      <p className="text-sm md:text-xl font-black text-neutral-900 mb-1 md:mb-2 tracking-tight">
                         {stat.label[language]}
                       </p>
-                      <p className="text-sm md:text-base font-bold text-neutral-500 leading-relaxed">
+                      <p className="text-xs md:text-base font-bold text-neutral-500 leading-relaxed break-keep">
                         {stat.value[language]}
                       </p>
                     </div>
