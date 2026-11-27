@@ -280,8 +280,8 @@ function LogisticsContent() {
       <Header />
 
       {/* ─── Sticky Sub-Navigation Bar ─── */}
-      <div className="fixed top-[60px] md:top-[68px] left-0 w-full z-40 bg-white/95 backdrop-blur-xl py-2 md:py-2.5 transition-all border-b border-neutral-100 md:border-b-0">
-        <div className="max-w-[1300px] mx-auto px-4 md:px-10 flex justify-start sm:justify-center overflow-x-auto scrollbar-none">
+      <div className="fixed top-[56px] md:top-[68px] left-0 w-full z-40 bg-white py-2 md:py-2.5 transition-all border-b border-neutral-100 md:border-b-0">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex justify-start sm:justify-center overflow-x-auto scrollbar-none">
           <div className="flex gap-1.5 sm:gap-4 md:gap-6 whitespace-nowrap">
             {[
               { id: "infra", label: language === "ko" ? "물류 인프라" : "Logistics Infrastructure" },
@@ -310,17 +310,17 @@ function LogisticsContent() {
             {/* ─── Stage 1. 물류 인프라 ─── */}
             <motion.div
               style={{ opacity: infraOpacity, y: infraY, pointerEvents: infraPointer }}
-              className="absolute inset-0 overflow-y-auto pt-28 md:pt-32 pb-10 md:pb-12 px-4 md:px-10 bg-white flex flex-col justify-start md:justify-center"
+              className="absolute inset-0 overflow-y-auto pt-28 md:pt-32 pb-10 md:pb-12 bg-white flex flex-col justify-start md:justify-center"
             >
-              <section id="infra" className="max-w-[1300px] w-full mx-auto">
+              <section id="infra" className="max-w-[1400px] w-full mx-auto px-6 md:px-10">
                 <div className="mb-5 md:mb-8">
-                  <span className="text-xs md:text-sm font-bold text-[#6A0DAD] block mb-1.5 md:mb-2">
+                  <span className="text-sm md:text-base font-bold text-[#6A0DAD] block mb-1.5">
                     {language === "ko" ? "물류 사업" : "Logistics Business"}
                   </span>
-                  <h1 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-2 md:mb-3">
+                  <h1 className="text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-2 md:mb-3">
                     {language === "ko" ? "물류 인프라" : "Logistics Infrastructure"}
                   </h1>
-                  <p className="text-xs sm:text-sm md:text-base text-neutral-600 font-medium break-keep">
+                  <p className="text-base md:text-lg text-neutral-600 font-medium break-keep">
                     {language === "ko"
                       ? "직영 인력·장비 및 창고를 기반으로, 고객사별 최적화된 물류 서비스를 제공합니다."
                       : "Providing customized logistics services based on direct staff, equipment, and warehouses."}
@@ -346,15 +346,15 @@ function LogisticsContent() {
 
                       <div className="relative z-10 flex flex-col items-center justify-center gap-1 sm:gap-2">
                         {card.top && (
-                          <p className="text-[11px] sm:text-sm md:text-base font-medium text-neutral-100 whitespace-pre-line leading-snug break-keep">
+                          <p className="text-sm md:text-base font-medium text-neutral-100 whitespace-pre-line leading-snug break-keep">
                             {card.top}
                           </p>
                         )}
-                        <h3 className="text-base sm:text-xl md:text-3xl font-black tracking-tight text-white whitespace-pre-line leading-tight break-keep">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-white whitespace-pre-line leading-tight break-keep">
                           {card.main}
                         </h3>
                         {card.bottom && (
-                          <p className="text-[11px] sm:text-sm md:text-base font-medium text-neutral-100 whitespace-pre-line leading-snug break-keep">
+                          <p className="text-sm md:text-base font-medium text-neutral-100 whitespace-pre-line leading-snug break-keep">
                             {card.bottom}
                           </p>
                         )}
@@ -368,17 +368,17 @@ function LogisticsContent() {
             {/* ─── Stage 2. 통합 물류 서비스 ─── */}
             <motion.div
               style={{ opacity: serviceOpacity, y: serviceY, pointerEvents: servicePointer }}
-              className="absolute inset-0 overflow-y-auto pt-28 md:pt-32 pb-10 md:pb-12 px-4 md:px-10 bg-white flex flex-col justify-start md:justify-center"
+              className="absolute inset-0 overflow-y-auto pt-28 md:pt-32 pb-10 md:pb-12 bg-white flex flex-col justify-start md:justify-center"
             >
-              <section id="integrated-service" className="max-w-4xl w-full mx-auto">
+              <section id="integrated-service" className="max-w-[1400px] w-full mx-auto px-6 md:px-10">
                 <div className="mb-5 md:mb-8">
-                  <span className="text-xs md:text-sm font-bold text-[#6A0DAD] block mb-1.5 md:mb-2">
+                  <span className="text-sm md:text-base font-bold text-[#6A0DAD] block mb-1.5">
                     {language === "ko" ? "물류 사업" : "Logistics Business"}
                   </span>
-                  <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-2 md:mb-3">
+                  <h2 className="text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-2 md:mb-3">
                     {language === "ko" ? "통합 물류 서비스" : "Integrated Logistics Service"}
                   </h2>
-                  <p className="text-xs sm:text-sm md:text-base text-neutral-600 font-medium break-keep">
+                  <p className="text-base md:text-lg text-neutral-600 font-medium break-keep">
                     {language === "ko"
                       ? "복잡한 물류를 직영체제로 구축하여 비용과 Lead Time은 줄이고, 안정적인 밸류체인 서비스를 제공합니다."
                       : "Reducing cost and lead time with direct operations while providing stable value-chain services."}
@@ -398,10 +398,10 @@ function LogisticsContent() {
                           className="w-full px-4 md:px-6 py-4 md:py-5 flex items-center justify-between text-left gap-3"
                         >
                           <div className="min-w-0">
-                            <h3 className="text-base md:text-xl font-black text-neutral-900">
+                            <h3 className="text-xl md:text-2xl font-bold text-neutral-900">
                               {svc.title}
                             </h3>
-                            <p className="text-xs md:text-sm text-neutral-500 font-medium mt-1 break-keep">
+                            <p className="text-sm md:text-base text-neutral-500 font-medium mt-1 break-keep">
                               {svc.summary}
                             </p>
                           </div>
@@ -421,7 +421,7 @@ function LogisticsContent() {
                             >
                               <div className="px-4 md:px-6 pb-5 md:pb-6 pt-4 border-t border-neutral-200/60">
                                 {svc.key === "forwarding" ? (
-                                  <ul className="space-y-2 text-xs sm:text-sm text-neutral-700">
+                                  <ul className="space-y-2 text-sm md:text-base text-neutral-700">
                                     {svc.items.map((item, idx) => (
                                       <li key={idx} className="flex items-start gap-2">
                                         <span className="font-bold text-neutral-900">·</span>
@@ -444,10 +444,10 @@ function LogisticsContent() {
                                         key={idx}
                                         className="bg-white border border-neutral-200/70 rounded-xl p-3 md:p-4 text-center flex flex-col items-center justify-center min-h-[96px] md:min-h-[120px]"
                                       >
-                                        <h4 className="text-xs sm:text-sm font-bold text-[#6A0DAD] mb-1.5 md:mb-2 break-keep">
+                                        <h4 className="text-sm md:text-base font-bold text-[#6A0DAD] mb-1.5 md:mb-2 break-keep">
                                           {item.name}
                                         </h4>
-                                        <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed whitespace-pre-line break-keep">
+                                        <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed whitespace-pre-line break-keep">
                                           {item.detail}
                                         </p>
                                       </div>
@@ -470,15 +470,15 @@ function LogisticsContent() {
               style={{ opacity: equipOpacity, y: equipY, pointerEvents: equipPointer }}
               className="absolute inset-0 overflow-y-auto pt-28 md:pt-32 bg-white flex flex-col justify-between"
             >
-              <section id="equipment" className="max-w-[1300px] w-full mx-auto px-4 md:px-10 pb-8 md:pb-12 md:my-auto">
+              <section id="equipment" className="max-w-[1400px] w-full mx-auto px-6 md:px-10 pb-8 md:pb-12 md:my-auto">
                 <div className="mb-6 md:mb-10">
-                  <span className="text-xs md:text-sm font-bold text-[#6A0DAD] block mb-1.5 md:mb-2">
+                  <span className="text-sm md:text-base font-bold text-[#6A0DAD] block mb-1.5">
                     {language === "ko" ? "물류 사업" : "Logistics Business"}
                   </span>
-                  <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-2 md:mb-3">
+                  <h2 className="text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-2 md:mb-3">
                     {language === "ko" ? "물류기기 개발 및 제작" : "Logistics Equipment Development"}
                   </h2>
-                  <p className="text-xs sm:text-sm md:text-base text-neutral-600 font-medium break-keep">
+                  <p className="text-base md:text-lg text-neutral-600 font-medium break-keep">
                     {language === "ko"
                       ? "실무 운영 노하우를 바탕으로 최고의 공간 효율을 보장하는 ‘고객 맞춤형 물류기기 및 랙 시스템’을 설계, 제작합니다."
                       : "Designing and manufacturing custom logistics equipment and rack systems for maximum space efficiency."}
@@ -492,13 +492,13 @@ function LogisticsContent() {
                       className="bg-neutral-50 border border-neutral-200/70 rounded-xl p-5 md:p-7 flex flex-col justify-between"
                     >
                       <div>
-                        <span className="text-xs font-black text-[#6A0DAD] block mb-2 md:mb-3">
+                        <span className="text-sm md:text-base font-bold text-[#6A0DAD] block mb-2">
                           0{idx + 1}
                         </span>
-                        <h3 className="text-base md:text-xl font-black text-neutral-900 mb-2 md:mb-3 tracking-tight">
+                        <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-2 md:mb-3 tracking-tight">
                           {card.title}
                         </h3>
-                        <p className="text-xs sm:text-sm text-neutral-600 font-medium leading-relaxed break-keep">
+                        <p className="text-base md:text-lg text-neutral-600 font-medium leading-relaxed break-keep">
                           {card.desc}
                         </p>
                       </div>

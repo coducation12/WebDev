@@ -27,13 +27,13 @@ export default function BrandPage() {
             <Compass size={36} className="animate-spin-slow" style={{ animationDuration: '8s' }} />
           </div>
 
-          <h4 className="text-[#FF6A00] font-black tracking-widest text-sm mb-4 uppercase">Authentic Korea</h4>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tighter text-neutral-900 mb-8">
+          <h4 className="text-[#FF6A00] font-bold tracking-widest text-sm md:text-base mb-3 uppercase">Authentic Korea</h4>
+          <h1 className="text-3xl md:text-5xl font-black leading-tight tracking-tight text-neutral-900 mb-8">
             {language === "ko" ? "브랜드 소개" : "Brand Introduction"}
           </h1>
           
           {/* Card containing preparation details */}
-          <div className="bg-neutral-50 border border-neutral-100 rounded-[32px] p-8 md:p-12 shadow-sm flex flex-col items-center">
+          <div className="bg-neutral-50 border border-neutral-100 rounded-xl p-8 md:p-12 shadow-sm flex flex-col items-center">
             <div className="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-400 mb-4 animate-bounce">
               <Hammer size={20} />
             </div>

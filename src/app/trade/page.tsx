@@ -10,7 +10,7 @@ import { Plus, Minus } from "lucide-react";
 
 export default function TradePage() {
   const { language } = useLanguage();
-  const [isIndustrialOpen, setIsIndustrialOpen] = useState(true);
+  const [isIndustrialOpen, setIsIndustrialOpen] = useState(false);
 
   const importSteps = [
     { step: "01", title: language === "ko" ? "해외 공급처 발굴·선정" : "Overseas Supplier Sourcing" },
@@ -39,8 +39,8 @@ export default function TradePage() {
       <Header />
 
       {/* Sub-Navigation Bar */}
-      <div className="fixed top-[60px] md:top-[68px] left-0 w-full z-40 bg-white/95 backdrop-blur-xl py-2 md:py-2.5 border-b border-neutral-100 md:border-b-0">
-        <div className="max-w-5xl mx-auto px-4 md:px-10 flex justify-center gap-6 md:gap-8 text-xs sm:text-sm font-bold">
+      <div className="fixed top-[56px] md:top-[68px] left-0 w-full z-40 bg-white py-2 md:py-2.5 border-b border-neutral-100 md:border-b-0">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex justify-center gap-6 md:gap-8 text-xs sm:text-sm font-bold">
           <Link
             href="/trade"
             className="pb-1.5 border-b-2 border-[#FF6A00] text-[#FF6A00]"
@@ -56,17 +56,17 @@ export default function TradePage() {
         </div>
       </div>
 
-      <main className="flex-1 pt-28 md:pt-32 pb-12 md:pb-16 px-4 md:px-10">
-        <div className="max-w-5xl mx-auto">
+      <main className="flex-1 flex flex-col justify-start md:justify-center pt-28 md:pt-32 pb-12 md:pb-16">
+        <div className="max-w-[1400px] w-full mx-auto px-6 md:px-10">
           {/* Header */}
           <div className="mb-6 md:mb-8">
-            <span className="text-xs md:text-sm font-bold text-[#FF6A00] block mb-1.5 md:mb-2">
+            <span className="text-sm md:text-base font-bold text-[#FF6A00] block mb-1.5">
               {language === "ko" ? "무역 사업" : "Trade Business"}
             </span>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-2 md:mb-3">
+            <h1 className="text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-2 md:mb-3">
               {language === "ko" ? "종합무역" : "General Trade"}
             </h1>
-            <p className="text-xs sm:text-sm md:text-base text-neutral-600 font-medium break-keep">
+            <p className="text-base md:text-lg text-neutral-600 font-medium break-keep">
               {language === "ko"
                 ? "어센틱코리아는 본질(Authenticity)에 충실한 산업 자원과 장인의 고유성이 담긴 제품을 수출입·유통하는 무역회사입니다."
                 : "Authentic Korea is a trading company importing and exporting industrial resources and artisan products."}
@@ -80,7 +80,7 @@ export default function TradePage() {
                 onClick={() => setIsIndustrialOpen((prev) => !prev)}
                 className="w-full px-4 md:px-6 py-4 md:py-5 flex items-center justify-between text-left gap-3"
               >
-                <p className="text-xs sm:text-sm md:text-base text-neutral-800 font-medium leading-relaxed break-keep">
+                <p className="text-base md:text-lg text-neutral-800 font-medium leading-relaxed break-keep">
                   <strong className="font-black text-neutral-900">
                     {language === "ko" ? "산업재 종합무역" : "Industrial General Trade"}
                   </strong>{" "}
@@ -106,7 +106,7 @@ export default function TradePage() {
                     <div className="px-4 md:px-6 pb-6 md:pb-8 pt-4 md:pt-5 border-t border-neutral-200/60 space-y-6 md:space-y-8">
                       {/* 수입·유통 프로세스 */}
                       <div>
-                        <h3 className="text-sm md:text-base font-black text-[#FF6A00] mb-3 md:mb-4">
+                        <h3 className="text-lg md:text-xl font-bold text-[#FF6A00] mb-3 md:mb-4">
                           {language === "ko" ? "수입·유통 프로세스" : "Import & Distribution Process"}
                         </h3>
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-3">
@@ -115,10 +115,10 @@ export default function TradePage() {
                               key={item.step}
                               className="relative bg-white border border-neutral-200/80 rounded-xl p-3 sm:p-4 pt-6 text-center flex items-center justify-center min-h-[76px] sm:min-h-[84px]"
                             >
-                              <span className="absolute top-0 right-2.5 sm:right-3 bg-[#FF6A00] text-white text-[10px] sm:text-[11px] font-bold px-1.5 sm:px-2 py-0.5 rounded-b-md">
+                              <span className="absolute top-0 right-2.5 sm:right-3 bg-[#FF6A00] text-white text-xs font-bold px-1.5 sm:px-2 py-0.5 rounded-b-md">
                                 {item.step}
                               </span>
-                              <p className="text-[11px] sm:text-sm font-bold text-neutral-800 leading-snug break-keep">
+                              <p className="text-sm md:text-base font-bold text-neutral-800 leading-snug break-keep">
                                 {item.title}
                               </p>
                             </div>
@@ -128,7 +128,7 @@ export default function TradePage() {
 
                       {/* 수출 프로세스 */}
                       <div>
-                        <h3 className="text-sm md:text-base font-black text-[#FF6A00] mb-3 md:mb-4">
+                        <h3 className="text-lg md:text-xl font-bold text-[#FF6A00] mb-3 md:mb-4">
                           {language === "ko" ? "수출 프로세스" : "Export Process"}
                         </h3>
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-3">
@@ -137,10 +137,10 @@ export default function TradePage() {
                               key={item.step}
                               className="relative bg-white border border-neutral-200/80 rounded-xl p-3 sm:p-4 pt-6 text-center flex items-center justify-center min-h-[76px] sm:min-h-[84px]"
                             >
-                              <span className="absolute top-0 right-2.5 sm:right-3 bg-[#FF6A00] text-white text-[10px] sm:text-[11px] font-bold px-1.5 sm:px-2 py-0.5 rounded-b-md">
+                              <span className="absolute top-0 right-2.5 sm:right-3 bg-[#FF6A00] text-white text-xs font-bold px-1.5 sm:px-2 py-0.5 rounded-b-md">
                                 {item.step}
                               </span>
-                              <p className="text-[11px] sm:text-sm font-bold text-neutral-800 leading-snug break-keep">
+                              <p className="text-sm md:text-base font-bold text-neutral-800 leading-snug break-keep">
                                 {item.title}
                               </p>
                             </div>
@@ -155,7 +155,7 @@ export default function TradePage() {
 
             {/* 2. 한국-프랑스 문화상품 플랫폼 구축 (Static) */}
             <div className="bg-neutral-50 border border-neutral-200/70 rounded-xl px-4 md:px-6 py-4 md:py-5">
-              <p className="text-xs sm:text-sm md:text-base text-neutral-800 font-medium leading-relaxed mb-3 break-keep">
+              <p className="text-base md:text-lg text-neutral-800 font-medium leading-relaxed mb-3 break-keep">
                 <strong className="font-black text-neutral-900">
                   {language === "ko"
                     ? "한국-프랑스 문화상품 플랫폼 구축"
@@ -166,7 +166,7 @@ export default function TradePage() {
                   ? "한국과 프랑스의 각 지역 장인의 고유성을 담은 제품을 수출입 유통합니다."
                   : "Importing and exporting products reflecting the uniqueness of regional artisans in Korea and France."}
               </p>
-              <ul className="space-y-1.5 text-xs sm:text-sm text-neutral-700 pl-1">
+              <ul className="space-y-1.5 text-base md:text-lg text-neutral-700 pl-1">
                 <li className="flex items-center gap-2">
                   <span className="font-bold text-neutral-900">·</span>
                   <span>{language === "ko" ? "남도지역 특산품" : "Namdo Regional Specialties"}</span>

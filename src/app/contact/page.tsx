@@ -130,12 +130,12 @@ function ContactContent() {
       <Header />
 
       {/* ─── Sticky Sub-Navigation Bar as Tab Switcher ─── */}
-      <div className="sticky top-[64px] z-45 bg-white/95 backdrop-blur-xl border-b border-neutral-100 py-2.5 shadow-sm transition-all mt-[88px]">
+      <div className="sticky top-[56px] md:top-[68px] z-40 bg-white border-b border-neutral-100 py-2.5 shadow-sm transition-all mt-[60px] md:mt-[72px]">
         <div className="max-w-[1300px] mx-auto px-6 md:px-10 flex justify-center overflow-x-auto scrollbar-none">
           <div className="flex gap-2 sm:gap-4 md:gap-6 whitespace-nowrap">
             {[
               { id: "logistics", label: language === "ko" ? "물류 서비스 문의" : "Logistics Inquiry" },
-              { id: "trade", label: language === "ko" ? "글로벌 무역 문의" : "Trade Inquiry" },
+              { id: "trade", label: language === "ko" ? "무역 서비스 문의" : "Trade Inquiry" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -158,13 +158,13 @@ function ContactContent() {
       <main className="flex-1 py-20 px-6 md:px-10 max-w-[1400px] mx-auto w-full">
         {/* Title Block */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
-          <span className={`font-black tracking-widest text-xs uppercase mb-3 block ${activeTab === "trade" ? "text-[#FF6A00]" : "text-[#6A0DAD]"}`}>Contact Point</span>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-neutral-900 mb-4">
+          <span className={`font-bold tracking-widest text-sm md:text-base uppercase mb-3 block ${activeTab === "trade" ? "text-[#FF6A00]" : "text-[#6A0DAD]"}`}>Contact Point</span>
+          <h1 className="text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-4">
             {activeTab === "logistics" 
               ? (language === "ko" ? "물류 서비스 문의" : "Logistics Inquiry")
-              : (language === "ko" ? "글로벌 무역 문의" : "Trade Inquiry")}
+              : (language === "ko" ? "무역 서비스 문의" : "Trade Inquiry")}
           </h1>
-          <p className="text-sm md:text-base text-neutral-500 font-semibold leading-relaxed">
+          <p className="text-base md:text-lg text-neutral-500 font-medium leading-relaxed">
             {language === "ko" ? (
               <>소중한 문의에 정성을 다해 답변드리겠습니다.<br />하단의 업무별 연락처를 확인하시거나 문의 양식을 작성해 전송해주시기 바랍니다.</>
             ) : (
@@ -178,11 +178,11 @@ function ContactContent() {
           {/* Left Column: BORA Contact Point Grid */}
           <div className="lg:col-span-6 space-y-8">
             <div>
-              <h2 className="text-xl md:text-2xl font-black text-neutral-950 mb-2 flex items-center gap-2.5">
+              <h2 className="text-xl md:text-2xl font-bold text-neutral-950 mb-2 flex items-center gap-2.5">
                 <span className={`w-2.5 h-6 rounded-full inline-block ${activeTab === "trade" ? "bg-[#FF6A00]" : "bg-[#6A0DAD]"}`} />
                 {language === "ko" ? "업무별 연락처" : "Contact Info by Department"}
               </h2>
-              <p className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-6">Bora Contact Point</p>
+              <p className="text-xs md:text-sm font-bold text-neutral-400 uppercase tracking-widest mb-6">Bora Contact Point</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -195,15 +195,15 @@ function ContactContent() {
                   transition={{ delay: idx * 0.04 }}
                   className="bg-neutral-50 border border-neutral-100 rounded-2xl p-5 hover:bg-white hover:border-neutral-200/60 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <h4 className={`text-sm font-black text-neutral-900 transition-colors leading-tight ${activeTab === "trade" ? "group-hover:text-[#FF6A00]" : "group-hover:text-[#6A0DAD]"}`}>
+                  <h4 className={`text-base md:text-lg font-bold text-neutral-900 transition-colors leading-tight ${activeTab === "trade" ? "group-hover:text-[#FF6A00]" : "group-hover:text-[#6A0DAD]"}`}>
                     {dept.title[language]}
                   </h4>
                   {dept.subtitle && (
-                    <p className="text-[11px] font-bold text-neutral-400 mt-1.5 mb-0 leading-normal">
+                    <p className="text-xs md:text-sm font-medium text-neutral-400 mt-1.5 mb-0 leading-normal">
                       {dept.subtitle[language]}
                     </p>
                   )}
-                  <div className={`space-y-1.5 text-xs text-neutral-500 font-semibold ${dept.subtitle ? "mt-4.5" : "mt-6"}`}>
+                  <div className={`space-y-1.5 text-sm md:text-base text-neutral-500 font-medium ${dept.subtitle ? "mt-4.5" : "mt-6"}`}>
                     <div className="flex items-center gap-2">
                       <Phone size={12} className={activeTab === "trade" ? "text-[#FFA05C]" : "text-[#BC90C1]"} />
                       <span>TEL. {formatPhoneNumber(dept.tel, language)}</span>
@@ -232,7 +232,7 @@ function ContactContent() {
                   transition={{ duration: 0.4, ease: APPLE_EASE }}
                 >
                   <div className="mb-8">
-                    <h3 className="text-xl font-black text-neutral-900 mb-2">
+                    <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-2">
                       {language === "ko" ? "문의하기" : "Inquiry"}
                     </h3>
                   </div>

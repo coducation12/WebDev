@@ -34,7 +34,7 @@ export default function Header() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? "bg-white/90 backdrop-blur-xl py-3" : "py-6"}`}>
+      <nav className="fixed top-0 left-0 w-full z-50 bg-white py-3.5 md:py-4 transition-all duration-300">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex justify-between items-center relative">
           
           {/* Left: Mobile Menu Button */}
@@ -46,12 +46,12 @@ export default function Header() {
           </button>
 
           {/* Logo */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2 md:relative md:left-auto md:translate-x-0 w-28 h-8 flex-shrink-0">
+          <Link href="/" className="absolute left-1/2 -translate-x-1/2 md:relative md:left-auto md:translate-x-0 md:-ml-1 w-28 h-8 flex-shrink-0">
             <Image src={`${ASSET}/logo.png`} alt="BORA" fill className="object-contain object-center md:object-left" />
           </Link>
 
           {/* Center: Menus with Individual Dropdowns */}
-          <div className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2 rounded-full border border-neutral-200/90 bg-white/90 px-4 py-0.5 shadow-sm divide-x divide-neutral-200">
+          <div className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2 rounded-full border border-neutral-200/90 bg-white px-4 py-0.5 shadow-sm divide-x divide-neutral-200">
             {[
               { 
                 name: "회사소개", 
@@ -81,7 +81,7 @@ export default function Header() {
                 {/* Dropdown Menu */}
                 {menu.subs.length > 0 && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
-                  <div className="bg-white/95 backdrop-blur-xl border border-neutral-100 rounded-2xl shadow-2xl p-4 min-w-[200px] flex flex-col gap-1">
+                  <div className="bg-white border border-neutral-100 rounded-2xl shadow-2xl p-4 min-w-[200px] flex flex-col gap-1">
                     {menu.subs.map((sub) => {
                       let href = "#";
                       if (menu.name === "회사소개") {

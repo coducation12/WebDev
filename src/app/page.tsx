@@ -45,6 +45,7 @@ export default function AppleEsqueHome() {
   const familyPointerEvents = useTransform(smoothProgress, (value: number) =>
     value >= 0.76 ? "auto" : "none"
   );
+  const scrollIndicatorOpacity = useTransform(smoothProgress, [0, 0.65, 0.74], [1, 1, 0]);
 
   const [isBentoActive, setIsBentoActive] = useState(false);
   useMotionValueEvent(smoothProgress, "change", (latest) => {
@@ -55,27 +56,27 @@ export default function AppleEsqueHome() {
     { 
       name: { ko: "보라로지스", en: "Bora Logis" }, 
       desc: { ko: "국제물류·보세창고 운영", en: "International Logistics & Bonded Warehouse" }, 
-      img: "아이콘-보라로지스.png" 
+      img: "icon_bora_logis.png" 
     },
     { 
       name: { ko: "보라트랜스", en: "Bora Trans" }, 
       desc: { ko: "내륙 컨테이너 및 카고운송", en: "Inland Container & Cargo Transport" }, 
-      img: "아이콘-보라트랜스.png" 
+      img: "icon_bora_trans.png" 
     },
     { 
       name: { ko: "보라로지텍", en: "Bora Logitech" }, 
       desc: { ko: "제조물류 및 장비제작", en: "Manufacturing Logistics & Equipment" }, 
-      img: "아이콘-보라로지텍.png" 
+      img: "icon_bora_logitech.png" 
     },
     { 
       name: { ko: "어센틱코리아", en: "Authentic Korea" }, 
       desc: { ko: "종합무역 · 무역대행", en: "General Trade & Trade Agency" }, 
-      img: "아이콘-어센틱코리아.png" 
+      img: "icon_authentic_korea.png" 
     },
     { 
       name: { ko: "리앤업", en: "RE&UP" }, 
       desc: { ko: "재생에너지 · 업사이클", en: "Renewable Energy & Upcycling" }, 
-      img: "아이콘-RE&UP.png" 
+      img: "icon_re_and_up.png" 
     },
   ];
 
@@ -92,7 +93,7 @@ export default function AppleEsqueHome() {
             style={{ opacity: logoOpacity }}
             className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none px-6"
           >
-            <div className="relative w-full max-w-3xl aspect-[16/9] opacity-55">
+            <div className="relative w-full max-w-4xl aspect-[16/9] opacity-55 md:scale-110">
               <Image
                 src={`${ASSET}/dotted_world_map.jpg`}
                 alt="World Map"
@@ -112,20 +113,20 @@ export default function AppleEsqueHome() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: APPLE_EASE }}
-              className="flex flex-col items-center max-w-4xl mx-auto"
+              className="flex flex-col items-center max-w-5xl mx-auto md:scale-110"
             >
               {/* Logo + Title Row */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-4 sm:mb-5">
-                <div className="relative w-[130px] h-[46px] sm:w-[160px] sm:h-[56px] flex-shrink-0">
+                <div className="relative w-[140px] h-[50px] sm:w-[175px] sm:h-[62px] flex-shrink-0">
                   <Image src={`${ASSET}/sys_logo_dark.png`} alt="Bora Logo" fill className="object-contain" priority />
                 </div>
-                <h1 className="text-xl sm:text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 leading-tight md:whitespace-nowrap break-keep">
+                <h1 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-neutral-900 leading-tight md:whitespace-nowrap break-keep">
                   {language === "ko" ? "보라, 물류와 무역으로 세상을 잇다." : "BORA, Connecting Trade and Logistics."}
                 </h1>
               </div>
 
               {/* Subtitle */}
-              <p className="text-xs sm:text-sm md:text-base text-neutral-600 font-medium tracking-tight max-w-2xl">
+              <p className="text-base md:text-lg text-neutral-600 font-medium tracking-tight max-w-2xl">
                 We design the flow of logistics, deliver trust, and empower your competitive edge.
               </p>
             </motion.div>
@@ -146,17 +147,17 @@ export default function AppleEsqueHome() {
             style={{ opacity: familyOpacity, y: familyY, pointerEvents: familyPointerEvents }}
             className="absolute inset-0 z-30 flex flex-col justify-between bg-white pt-16 md:pt-20 overflow-y-auto"
           >
-            <div className="flex-1 flex flex-col justify-start md:justify-center max-w-[1400px] w-full mx-auto px-4 md:px-10 py-4 md:py-6">
-              <div className="mb-4 md:mb-10 text-center">
-                <h2 className="mb-1.5 md:mb-3 flex items-baseline justify-center gap-0 flex-wrap">
+            <div className="flex-1 flex flex-col justify-start md:justify-center max-w-[1400px] w-full mx-auto px-6 md:px-10 py-4 md:py-6">
+              <div className="mb-4 md:mb-8 text-center">
+                <h2 className="mb-1.5 md:mb-2.5 flex items-baseline justify-center gap-0 flex-wrap">
                   <span
-                    className="text-2xl sm:text-3xl md:text-5xl font-bold italic tracking-tight text-neutral-900"
+                    className="text-3xl md:text-5xl font-black tracking-tight text-neutral-900"
                     style={{ fontFamily: "var(--font-title)" }}
                   >
                     Family Companies
                   </span>
                 </h2>
-                <p className="text-xs md:text-lg font-semibold text-neutral-500 tracking-tight">
+                <p className="text-base md:text-lg font-medium text-neutral-500 tracking-tight">
                   {language === "ko"
                     ? "물류와 무역을 잇는 보라의 핵심 네트워크를 소개합니다."
                     : "Introducing BORA's core network connecting logistics and trade."}
@@ -168,21 +169,21 @@ export default function AppleEsqueHome() {
                   <div key={idx} className="relative flex border-b border-neutral-200 md:border-b-0 last:border-b-0">
                     {/* Left Vertical Divider (shortened top & bottom) */}
                     <span
-                      className="hidden md:block absolute left-0 top-5 bottom-5 w-px bg-neutral-900 pointer-events-none"
+                      className="hidden md:block absolute left-0 top-4 bottom-4 w-px bg-neutral-900 pointer-events-none"
                       aria-hidden="true"
                     />
                     {/* Rightmost Vertical Divider on last item */}
                     {idx === familyCompanies.length - 1 && (
                       <span
-                        className="hidden md:block absolute right-0 top-5 bottom-5 w-px bg-neutral-900 pointer-events-none"
+                        className="hidden md:block absolute right-0 top-4 bottom-4 w-px bg-neutral-900 pointer-events-none"
                         aria-hidden="true"
                       />
                     )}
                     <Link
                       href={`/company?tab=${idx}`}
-                      className="group relative z-10 hover:z-20 w-full p-3.5 md:py-10 md:px-4 flex flex-row md:flex-col items-center text-left md:text-center gap-3.5 md:gap-0 transition-all duration-300 border-2 border-transparent hover:border-neutral-900 hover:bg-white md:hover:scale-[1.03] rounded-xl"
+                      className="group relative z-10 hover:z-20 w-full p-3 md:py-8 md:px-3 flex flex-row md:flex-col items-center text-left md:text-center gap-3 md:gap-0 transition-all duration-300 border-2 border-transparent hover:border-neutral-900 hover:bg-white md:hover:scale-[1.02] rounded-xl"
                     >
-                      <div className="relative w-12 h-12 md:w-20 md:h-20 md:mb-4 flex-shrink-0">
+                      <div className="relative w-11 h-11 md:w-16 md:h-16 md:mb-3 flex-shrink-0">
                         <img
                           src={encodeURI(`${ASSET}/${company.img}`)}
                           alt={company.name[language]}
@@ -190,15 +191,15 @@ export default function AppleEsqueHome() {
                         />
                       </div>
                       <div className="flex-1 min-w-0 md:flex-none">
-                        <h3 className="text-sm sm:text-base md:text-lg font-bold text-neutral-900 mb-0.5 md:mb-1 tracking-tight">
+                        <h3 className="text-lg md:text-xl font-bold text-neutral-900 mb-0.5 md:mb-1 tracking-tight">
                           {company.name[language]}
                         </h3>
-                        <p className="text-xs text-neutral-500 font-medium md:mb-4 leading-snug md:whitespace-nowrap">
+                        <p className="text-sm text-neutral-500 font-medium md:mb-3 leading-snug md:whitespace-nowrap">
                           {company.desc[language]}
                         </p>
                       </div>
-                      <span className="w-8 h-8 rounded-full bg-neutral-100 text-neutral-500 group-hover:bg-neutral-200 group-hover:text-neutral-900 flex items-center justify-center transition-colors duration-300 pointer-events-none flex-shrink-0">
-                        <ArrowRight size={15} />
+                      <span className="w-7 h-7 rounded-full bg-neutral-100 text-neutral-500 group-hover:bg-neutral-200 group-hover:text-neutral-900 flex items-center justify-center transition-colors duration-300 pointer-events-none flex-shrink-0">
+                        <ArrowRight size={14} />
                       </span>
                     </Link>
                   </div>
@@ -210,8 +211,8 @@ export default function AppleEsqueHome() {
           </motion.div>
 
           <motion.footer
-            style={{ opacity: logoOpacity }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-neutral-400 z-10 pointer-events-none"
+            style={{ opacity: scrollIndicatorOpacity }}
+            className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-neutral-400 z-[25] pointer-events-none"
           >
             <span className="text-[11px] font-bold uppercase tracking-widest opacity-60">Scroll</span>
             <ChevronDown size={18} className="animate-bounce opacity-60" />

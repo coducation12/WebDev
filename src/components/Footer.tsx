@@ -14,8 +14,8 @@ export default function Footer({ minimal = false }: FooterProps) {
   const { language } = useLanguage();
 
   return (
-    <footer className="bg-white px-6 md:px-10 border-t border-neutral-100 py-5 md:py-6 w-full">
-      <div className="max-w-[1400px] mx-auto flex flex-col gap-3">
+    <footer className="bg-white border-t border-neutral-100 py-5 md:py-6 w-full">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col gap-3">
         {!minimal && (
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-neutral-500">

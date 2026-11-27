@@ -43,15 +43,15 @@ const COMPANIES: Company[] = [
     desc: { ko: "국제물류 · 보세창고 운영", en: "International Logistics & Bonded Warehouse Operations" }, 
     category: "Logistics & Distribution",
     icon: Ship,
-    iconImg: "아이콘-보라로지스.png",
+    iconImg: "icon_bora_logis.png",
     color: "#6A0DAD",
     bg: "bg-[#F9F5FF]",
     image: "company_bora_logis_v2.jpg",
     content: {
       title: { ko: "WMS 기반 최적의 물류를 설계하는 종합 물류 파트너", en: "Comprehensive Logistics Partner Designing Optimal Logistics Based on WMS" },
       description: {
-        ko: "보라로지스는 광양항 자유무역지역 내 물류센터를 전담 운영하는 종합물류 회사입니다. 부지 52,000평 및 창고 약 2만 평 규모의 현장을 기반으로, 3PL부터 수출입 물류, 국내 유통 물류까지 산업군에 맞는 물류 설계로 전 과정을 유기적으로 연결하여 고객사의 비즈니스 효율을 극대화합니다.",
-        en: "Bora Logis is a comprehensive logistics company exclusively operating a logistics center in the Gwangyang Port Free Trade Zone. Based on a 52,000-pyeong site and approximately 20,000-pyeong warehouse, we organically connect the entire process from 3PL to import/export and domestic distribution logistics to maximize client business efficiency."
+        ko: "보라로지스는 광양항 자유무역지역 내 물류센터를 전담 운영하는 종합물류 회사입니다.\n부지 52,000평 및 창고 약 2만 평 규모의 현장을 기반으로, 3PL부터 수출입 물류, 국내 유통 물류까지 산업군에 맞는 물류 설계로 전 과정을 유기적으로 연결하여 고객사의 비즈니스 효율을 극대화합니다.",
+        en: "Bora Logis is a comprehensive logistics company exclusively operating a logistics center in the Gwangyang Port Free Trade Zone.\nBased on a 52,000-pyeong site and approximately 20,000-pyeong warehouse, we organically connect the entire process from 3PL to import/export and domestic distribution logistics to maximize client business efficiency."
       },
       stats: [
         { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "일반창고업, 보관 및 운영, 국제물류주선업", en: "General Warehousing, Storage & Operations, Intl. Freight Forwarding" } },
@@ -89,15 +89,15 @@ const COMPANIES: Company[] = [
     desc: { ko: "내륙 및 컨테이너 운송", en: "Inland & Container Transportation" }, 
     category: "Inland Transportation",
     icon: Truck,
-    iconImg: "아이콘-보라트랜스.png",
+    iconImg: "icon_bora_trans.png",
     color: "#2563EB",
     bg: "bg-[#EEF2FF]",
     image: "company_bora_trans_v3.jpg",
     content: {
       title: { ko: "TMS 기반 광양항 거점 트레일러 및 카고 전문 운송사", en: "TMS-Based Trailer & Cargo Transport Specialist at Gwangyang Port" },
       description: {
-        ko: "보라트랜스는 광양항을 기반으로 트레일러, 카고 및 특수화물 운송 서비스를 제공합니다. 세관 규정에 따른 안전한 보세운송을 바탕으로 최적의 경로와 배차를 설계해 물류비용을 절감하며, 팔레트 및 벌크화물 등 전국 내륙 운송을 수행합니다.",
-        en: "Bora Trans provides trailer, cargo, and special freight transport services based at Gwangyang Port. Through secure bonded transport complying with customs regulations, we design optimal routes and dispatches to reduce logistics costs and perform nationwide inland transport for palletized and bulk cargo."
+        ko: "보라트랜스는 광양항을 기반으로 트레일러, 카고 및 특수화물 운송 서비스를 제공합니다.\n세관 규정에 따른 안전한 보세운송을 바탕으로 최적의 경로와 배차를 설계해 물류비용을 절감하며, 팔레트 및 벌크화물 등 전국 내륙 운송을 수행합니다.",
+        en: "Bora Trans provides trailer, cargo, and special freight transport services based at Gwangyang Port.\nThrough secure bonded transport complying with customs regulations, we design optimal routes and dispatches to reduce logistics costs and perform nationwide inland transport for palletized and bulk cargo."
       },
       stats: [
         { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "트레일러 운송, 카고운송, 기타 특수운송", en: "Trailer, Cargo & Special Transport" } },
@@ -135,15 +135,15 @@ const COMPANIES: Company[] = [
     desc: { ko: "생산라인 물류 · 장비 제조", en: "Production Line Logistics & Equipment Manufacturing" }, 
     category: "Logistics Equipment & Tech",
     icon: Cpu,
-    iconImg: "아이콘-보라로지텍.png",
+    iconImg: "icon_bora_logitech.png",
     color: "#86B41D",
     bg: "bg-[#F7FBEA]",
-    image: "company_bora_logitech_v2.jpg",
+    image: "company_bora_logitech_v3.jpg",
     content: {
       title: { ko: "포장 출하 물류와 물류 기기 개발 및 제작", en: "Packaging & Outbound Logistics and Logistics Equipment Development" },
       description: {
-        ko: "보라로지텍은 제조업 생산라인의 포장 출하 업무를 전문적으로 수행하며, 여러 제조사들과 파트너십을 맺고 있습니다.\n또한, 물류 창고 공간의 최대 효율을 내기 위해 다양한 물류 기기와 용기들을 자체 개발하여 제조 역량을 키워 나가고 있습니다.",
-        en: "Bora Logitech specializes in packaging and outbound operations for manufacturing production lines, partnering with various manufacturers. We also develop our own logistics equipment and containers to maximize warehouse space efficiency."
+        ko: "보라로지텍은 제조업 생산라인의 포장 출하 업무를 전문적으로 수행하며,\n여러 제조사들과 파트너십을 맺고 있습니다.\n또한, 물류 창고 공간의 최대 효율을 내기 위해 다양한 물류 기기와 용기들을 자체 개발하여 제조 역량을 키워 나가고 있습니다.",
+        en: "Bora Logitech specializes in packaging and outbound operations for manufacturing production lines,\npartnering with various manufacturers.\nWe also develop our own logistics equipment and containers to maximize warehouse space efficiency."
       },
       stats: [
         { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "제조업, 기타 기초무기화학 물질, 제조업(카본블랙, 물류기기)", en: "Manufacturing, Basic Inorganic Chemicals, Carbon Black & Logistics Equipment" } },
@@ -181,15 +181,15 @@ const COMPANIES: Company[] = [
     desc: { ko: "글로벌 수출입 · 무역", en: "Global Import/Export & Trade" }, 
     category: "Global Import & Export",
     icon: Globe,
-    iconImg: "아이콘-어센틱코리아.png",
+    iconImg: "icon_authentic_korea.png",
     color: "#FF6A00",
     bg: "bg-[#FFF5EF]",
     image: "company_authentic_korea_v2.jpg",
     content: {
       title: { ko: "물류 인프라 기반의 수출입 솔루션", en: "Import/Export Solutions Based on Logistics Infrastructure" },
       description: {
-        ko: "어센틱코리아는 본질(Authenticity)에 충실한 산업 자원과 장인의 고유성이 담긴 제품을 수출입·유통하는 무역회사입니다.",
-        en: "Authentic Korea is a trading company that imports, exports, and distributes industrial resources faithful to authenticity and products containing artisans' uniqueness."
+        ko: "어센틱코리아는 본질(Authenticity)에 충실한 산업 자원과 장인의 고유성이 담긴 제품을\n수출입·유통하는 무역회사입니다.",
+        en: "Authentic Korea is a trading company that imports, exports, and distributes\nindustrial resources faithful to authenticity and products containing artisans' uniqueness."
       },
       stats: [
         { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "수출입 업무, 수출입 대행업무", en: "Import/Export Business & Agency" } },
@@ -227,10 +227,10 @@ const COMPANIES: Company[] = [
     desc: { ko: "재생에너지 · 업사이클", en: "Renewable Energy & Upcycling" }, 
     category: "Sustainable Resource Solutions",
     icon: Package,
-    iconImg: "아이콘-RE&UP.png",
+    iconImg: "icon_re_and_up.png",
     color: "#10B981",
     bg: "bg-[#ECFDF5]",
-    image: "company_re_and_up_v2.jpg",
+    image: "company_re_and_up_v3.jpg",
     content: {
       title: { ko: "재생에너지 특수 물류 및 지속가능한 미래 경영", en: "Renewable Energy Special Logistics & Sustainable Future Management" },
       description: {
@@ -290,18 +290,18 @@ function CompanyIntroContent() {
     <div className="h-screen flex flex-col overflow-hidden bg-white text-black font-sans selection:bg-neutral-900 selection:text-white">
       <Header />
 
-      <main className="flex-1 overflow-y-auto pt-20 md:pt-24 pb-6 md:pb-8 px-4 md:px-10">
-        <div className="max-w-[1400px] mx-auto">
+      <main className="flex-1 overflow-y-auto pt-20 md:pt-22 pb-4 md:pb-6">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10">
 
           {/* Top Intro Header */}
-          <div className="mb-6 md:mb-10">
-            <span className="text-xs md:text-sm font-bold text-[#6A0DAD] tracking-tight block mb-1.5 md:mb-2">
+          <div className="mb-4 md:mb-7">
+            <span className="text-sm md:text-base font-bold text-[#6A0DAD] tracking-tight block mb-1.5">
               {language === "ko" ? "회사 소개" : "Company"}
             </span>
-            <h1 className="text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-2 md:mb-4">
+            <h1 className="text-3xl md:text-5xl font-black tracking-tight text-neutral-900 mb-2 md:mb-3">
               About us
             </h1>
-            <p className="text-xs sm:text-sm md:text-base text-neutral-600 font-medium leading-relaxed max-w-3xl">
+            <p className="text-base md:text-lg text-neutral-600 font-medium leading-relaxed max-w-3xl">
               {language === "ko" ? (
                 <>
                   수출입 물류 전문 기업으로서 쌓아온 현장 노하우는 보라의 가장 큰 자산입니다.<br className="hidden sm:inline" />
@@ -317,23 +317,23 @@ function CompanyIntroContent() {
           </div>
 
           {/* Tabs Navigation */}
-          <div className="relative mb-6 md:mb-10 p-1 md:p-1.5 bg-neutral-100/50 backdrop-blur-md rounded-xl flex shadow-inner border border-white">
+          <div className="relative mb-5 md:mb-7 p-1 md:p-1.5 bg-neutral-100 rounded-xl flex shadow-inner border border-white">
             {COMPANIES.map((company, idx) => (
               <button
                 key={company.id}
                 onClick={() => setActiveTab(idx)}
-                className={`flex-1 min-w-0 md:min-w-[150px] px-1 md:px-6 py-2 md:py-3.5 rounded-lg font-black transition-all flex flex-col md:flex-row items-center justify-center gap-1 md:gap-3 ${
+                className={`flex-1 min-w-0 md:min-w-[135px] px-1 md:px-5 py-2 md:py-2.5 rounded-lg font-black transition-all flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2.5 ${
                   activeTab === idx 
-                  ? "bg-white text-black shadow-[0_4px_20px_rgba(0,0,0,0.1)] md:scale-[1.03]" 
+                  ? "bg-white text-black shadow-[0_4px_20px_rgba(0,0,0,0.1)] md:scale-[1.02]" 
                   : "text-neutral-400 hover:text-neutral-600 hover:bg-white/50"
                 }`}
               >
                 <img
                   src={encodeURI(`${ASSET}/${company.iconImg}`)}
                   alt={company.name[language]}
-                  className={`w-5 h-5 md:w-6 md:h-6 object-contain transition-opacity ${activeTab === idx ? "opacity-100" : "opacity-45"}`}
+                  className={`w-4 h-4 md:w-5 md:h-5 object-contain transition-opacity ${activeTab === idx ? "opacity-100" : "opacity-45"}`}
                 />
-                <span className="text-[10px] sm:text-xs md:text-base lg:text-[20px] leading-tight truncate max-w-full">
+                <span className="text-[11px] sm:text-xs md:text-base lg:text-lg leading-tight truncate max-w-full">
                   {company.name[language]}
                 </span>
               </button>
@@ -349,39 +349,39 @@ function CompanyIntroContent() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="p-5 sm:p-8 md:p-12"
+                className="p-5 sm:p-7 md:p-10"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 mb-8 md:mb-12 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 mb-6 md:mb-8 items-start">
                   <div className="lg:col-span-8">
-                    <div className="flex items-center gap-4 md:gap-6 mb-5 md:mb-10">
+                    <div className="flex items-center gap-4 md:gap-5 mb-4 md:mb-7">
                       <div 
-                        className="w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-white shadow-xl flex-shrink-0"
+                        className="w-11 h-11 md:w-14 md:h-14 rounded-xl flex items-center justify-center text-white shadow-xl flex-shrink-0"
                         style={{ backgroundColor: activeCompany.color }}
                       >
                         <img
                           src={encodeURI(`${ASSET}/${activeCompany.iconImg}`)}
                           alt={activeCompany.name[language]}
-                          className="w-7 h-7 md:w-9 md:h-9 object-contain brightness-0 invert"
+                          className="w-6 h-6 md:w-8 md:h-8 object-contain brightness-0 invert"
                         />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-[10px] md:text-[12px] font-black tracking-[0.15em] md:tracking-[0.2em] opacity-40 mb-0.5 md:mb-1 truncate">{activeCompany.category}</h3>
-                        <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tighter" style={{ color: activeCompany.color }}>{activeCompany.name[language]}</h2>
+                        <h3 className="text-xs md:text-sm font-bold tracking-[0.15em] opacity-40 mb-0.5 truncate">{activeCompany.category}</h3>
+                        <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: activeCompany.color }}>{activeCompany.name[language]}</h2>
                       </div>
                     </div>
 
-                    <h4 className="text-lg sm:text-2xl md:text-4xl font-black text-neutral-800 mb-4 md:mb-8 leading-snug tracking-tight break-keep">
+                    <h4 className="text-xl md:text-2xl font-bold text-neutral-800 mb-3 md:mb-5 leading-snug tracking-tight break-keep">
                       {activeCompany.content.title[language]}
                     </h4>
                     
-                    <div className="prose prose-base md:prose-xl max-w-none">
-                      <p className="text-sm sm:text-base md:text-xl text-neutral-600 leading-relaxed font-bold mb-0 border-l-4 pl-4 md:pl-8 py-1 md:py-2 whitespace-pre-line break-keep" style={{ borderColor: activeCompany.color }}>
+                    <div className="max-w-none">
+                      <p className="text-base md:text-lg text-neutral-600 leading-relaxed font-medium mb-0 border-l-4 pl-4 md:pl-6 py-1 whitespace-pre-line break-keep" style={{ borderColor: activeCompany.color }}>
                         {activeCompany.content.description[language]}
                       </p>
                     </div>
                   </div>
 
-                  <div className="lg:col-span-4 lg:pt-4">
+                  <div className="lg:col-span-4 lg:pt-2">
                     <div className="relative aspect-[4/3] lg:aspect-square bg-white rounded-xl shadow-xl border border-black/5 overflow-hidden group">
                       <Image 
                         src={`${ASSET}/${activeCompany.image}`} 
@@ -395,13 +395,13 @@ function CompanyIntroContent() {
                 </div>
 
                 {/* 3 Stats Cards: Pulled out to span the full-width (spans empty space on the right) */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5">
                   {activeCompany.content.stats.map((stat, i) => (
-                    <div key={i} className="bg-white/60 border border-white p-4 md:p-6 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow flex flex-col justify-start">
-                      <p className="text-sm md:text-xl font-black text-neutral-900 mb-1 md:mb-2 tracking-tight">
+                    <div key={i} className="bg-white/60 border border-white p-3.5 md:p-5 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow flex flex-col justify-start">
+                      <p className="text-lg md:text-xl font-bold text-neutral-900 mb-1 md:mb-1.5 tracking-tight">
                         {stat.label[language]}
                       </p>
-                      <p className="text-xs md:text-base font-bold text-neutral-500 leading-relaxed break-keep">
+                      <p className="text-sm md:text-base font-medium text-neutral-500 leading-relaxed break-keep">
                         {stat.value[language]}
                       </p>
                     </div>
@@ -413,7 +413,7 @@ function CompanyIntroContent() {
         </div>
       </main>
 
-      <Footer minimal />
+      <Footer />
     </div>
   );
 }
