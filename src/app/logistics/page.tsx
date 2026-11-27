@@ -244,8 +244,8 @@ function LogisticsContent() {
           name: language === "ko" ? "전국 수배송" : "Nationwide Delivery",
           detail:
             language === "ko"
-              ? "전국 간선망과 TMS 연동을 통한 실시간 위치 추적 및 정시 배송 최적화"
-              : "Real-time tracking and on-time delivery via nationwide trunk network & TMS",
+              ? "전국 간선망과 TMS 연동을 통한\n실시간 위치 추적 및 정시 배송 최적화"
+              : "Real-time tracking and on-time delivery\nvia nationwide trunk network & TMS",
         },
       ],
     },

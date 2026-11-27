@@ -96,8 +96,8 @@ const COMPANIES: Company[] = [
     content: {
       title: { ko: "TMS 기반 광양항 거점 트레일러 및 카고 전문 운송사", en: "TMS-Based Trailer & Cargo Transport Specialist at Gwangyang Port" },
       description: {
-        ko: "보라트랜스는 광양항을 기반으로 트레일러, 카고 및 특수화물 운송 서비스를 제공합니다.\n세관 규정에 따른 안전한 보세운송을 바탕으로 최적의 경로와 배차를 설계해 물류비용을 절감하며, 팔레트 및 벌크화물 등 전국 내륙 운송을 수행합니다.",
-        en: "Bora Trans provides trailer, cargo, and special freight transport services based at Gwangyang Port.\nThrough secure bonded transport complying with customs regulations, we design optimal routes and dispatches to reduce logistics costs and perform nationwide inland transport for palletized and bulk cargo."
+        ko: "보라트랜스는 광양항을 기반으로 트레일러, 카고 및 특수화물 운송 서비스를 제공합니다.\n세관 규정에 따른 안전한 보세운송을 바탕으로 최적의 경로와 배차를 설계해 물류비용을 절감하며,\n팔레트 및 벌크화물 등 전국 내륙 운송을 수행합니다.",
+        en: "Bora Trans provides trailer, cargo, and special freight transport services based at Gwangyang Port.\nThrough secure bonded transport complying with customs regulations, we design optimal routes and dispatches to reduce logistics costs\nand perform nationwide inland transport for palletized and bulk cargo."
       },
       stats: [
         { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "트레일러 운송, 카고운송, 기타 특수운송", en: "Trailer, Cargo & Special Transport" } },
@@ -142,11 +142,11 @@ const COMPANIES: Company[] = [
     content: {
       title: { ko: "포장 출하 물류와 물류 기기 개발 및 제작", en: "Packaging & Outbound Logistics and Logistics Equipment Development" },
       description: {
-        ko: "보라로지텍은 제조업 생산라인의 포장 출하 업무를 전문적으로 수행하며,\n여러 제조사들과 파트너십을 맺고 있습니다.\n또한, 물류 창고 공간의 최대 효율을 내기 위해 다양한 물류 기기와 용기들을 자체 개발하여 제조 역량을 키워 나가고 있습니다.",
-        en: "Bora Logitech specializes in packaging and outbound operations for manufacturing production lines,\npartnering with various manufacturers.\nWe also develop our own logistics equipment and containers to maximize warehouse space efficiency."
+        ko: "보라로지텍은 제조업 생산라인의 포장 출하 업무를 전문적으로 수행하며,\n여러 제조사들과 파트너십을 맺고 있습니다.\n또한, 물류 창고 공간의 최대 효율을 내기 위해 다양한 물류 기기와 용기들을 자체 개발하여\n제조 역량을 키워 나가고 있습니다.",
+        en: "Bora Logitech specializes in packaging and outbound operations for manufacturing production lines,\npartnering with various manufacturers.\nWe also develop our own logistics equipment and containers to maximize warehouse space efficiency\nand expand our manufacturing capabilities."
       },
       stats: [
-        { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "제조업, 기타 기초무기화학 물질, 제조업(카본블랙, 물류기기)", en: "Manufacturing, Basic Inorganic Chemicals, Carbon Black & Logistics Equipment" } },
+        { label: { ko: "사업분야", en: "Business Area" }, value: { ko: "제조업, 기타 기초무기화학 물질,\n제조업(카본블랙, 물류기기)", en: "Manufacturing, Basic Inorganic Chemicals,\nCarbon Black & Logistics Equipment" } },
         { label: { ko: "주소", en: "Address" }, value: { ko: "전남광주통합특별시 여수시 진달래길 310-88 (월내동)", en: "310-88, Jindallae-gil, Yeosu-si" } },
         { label: { ko: "인증현황", en: "Certifications" }, value: { ko: "ISO45001, ISO14001, ISO9001", en: "ISO45001, ISO14001, ISO9001" } }
       ],
@@ -401,7 +401,7 @@ function CompanyIntroContent() {
                       <p className="text-lg md:text-xl font-bold text-neutral-900 mb-1 md:mb-1.5 tracking-tight">
                         {stat.label[language]}
                       </p>
-                      <p className="text-sm md:text-base font-medium text-neutral-500 leading-relaxed break-keep">
+                      <p className="text-sm md:text-base font-medium text-neutral-500 leading-relaxed whitespace-pre-line break-keep">
                         {stat.value[language]}
                       </p>
                     </div>
