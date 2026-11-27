@@ -115,18 +115,18 @@ export default function AppleEsqueHome() {
               transition={{ duration: 1.2, ease: APPLE_EASE }}
               className="flex flex-col items-center max-w-5xl mx-auto md:scale-110"
             >
-              {/* Logo + Title Row */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-4 sm:mb-5">
-                <div className="relative w-[140px] h-[50px] sm:w-[175px] sm:h-[62px] flex-shrink-0">
-                  <Image src={`${ASSET}/sys_logo_dark.png`} alt="Bora Logo" fill className="object-contain" priority />
-                </div>
-                <h1 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-neutral-900 leading-tight md:whitespace-nowrap break-keep">
-                  {language === "ko" ? "보라, 물류와 무역으로 세상을 잇다." : "BORA, Connecting Trade and Logistics."}
-                </h1>
+              {/* Logo */}
+              <div className="relative w-[170px] h-[60px] sm:w-[210px] sm:h-[74px] md:w-[230px] md:h-[82px] mb-3 sm:mb-4 flex-shrink-0">
+                <Image src={`${ASSET}/sys_logo_dark.png`} alt="Bora Logo" fill className="object-contain" priority />
               </div>
 
+              {/* Title */}
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-neutral-900 leading-tight mb-3 sm:mb-4 md:whitespace-nowrap break-keep">
+                {language === "ko" ? "물류와 무역으로 세상을 잇다" : "Connecting the World with Logistics & Trade"}
+              </h1>
+
               {/* Subtitle */}
-              <p className="text-base md:text-lg text-neutral-600 font-medium tracking-tight max-w-2xl">
+              <p className="text-sm sm:text-base md:text-lg text-neutral-600 font-medium tracking-tight max-w-2xl">
                 We design the flow of logistics, deliver trust, and empower your competitive edge.
               </p>
             </motion.div>
